@@ -113,6 +113,30 @@
   footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
   footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
   footer.site-footer a:hover{color:#fff;}
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:220px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .bar-chart{display:flex;align-items:flex-end;gap:10px;height:180px;margin:24px 0 8px;padding:0 4px;border-bottom:2px solid var(--ink);}
+  .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .bar{width:100%;max-width:56px;background:var(--maroon);position:relative;min-height:2px;}
+  .bar-val{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);margin-bottom:4px;white-space:nowrap;}
+  .bar-labels{display:flex;gap:10px;padding:0 4px;margin-bottom:20px;}
+  .bar-label-col{flex:1;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);max-width:70px;}
+
+  .quick-table{width:100%;border-collapse:collapse;font-size:0.88rem;background:#fff;margin:18px 0;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:10px 12px;text-align:left;border:1px solid var(--line);cursor:pointer;user-select:none;}
+  .quick-table th:hover{background:var(--line);}
+  .quick-table th.sort-asc::after{content:" ▲";font-size:0.6rem;}
+  .quick-table th.sort-desc::after{content:" ▼";font-size:0.6rem;}
+  .quick-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+  .quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -137,10 +161,11 @@
 <nav class="jump">
   <a href="#what">What Is This</a>
   <a href="#rosters">Two Rosters</a>
-  <a href="#selfdeal">Self-Dealing</a>
+  <a href="#selfdeal">Payments to Its Own Directors</a>
   <a href="#explorer">Transaction Explorer</a>
   <a href="#network">Donor Network</a>
-  <a href="#open">Open Questions</a>
+  <a href="#reflect">Worth Asking</a>
+  <a href="#open">Research Status</a>
   <a href="#related">Related Coverage</a>
   <a href="#sources">Sources</a>
 </nav>
@@ -167,6 +192,10 @@
   <div class="stat-cell"><span class="stat-num">30+</span><span class="stat-label">Republican candidates paid $500–$5,000 each</span></div>
   <div class="stat-cell"><span class="stat-num">$7,000</span><span class="stat-label">Paid to Irish Elk LLC, a money-processing entity documented elsewhere in this project</span></div>
 </div>
+
+<h3>Total contributions received, by year</h3>
+<div class="bar-chart" id="yearBarChart"></div>
+<div class="bar-labels" id="yearBarLabels"></div>
 </section>
 
 <section id="rosters">
@@ -198,14 +227,45 @@
 
 <p>These are two legally separate documents for two different purposes: the nonprofit-corp filing exists under ordinary corporate law (who can sign a lease, be sued, and so on); the Statement of Organization is the document that actually controls the PAC's campaign-finance conduct under the Election Code. Nothing requires the two rosters to match, and here they mostly don't — Maloy is the only name on both.</p>
 
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node hub">Nonprofit-Corp Registration<span class="sub">Div. of Corporations, 2020</span></div>
+    <div class="flow-node hub">Statement of Organization<span class="sub">Election Law, 2018</span></div>
+  </div>
+  <div class="flow-arrow-down">↓ &nbsp; ↓</div>
+  <div class="flow-tier">
+    <div class="flow-node">Brady Brammer<span class="sub">Director, Registered Agent</span></div>
+    <div class="flow-node overlap">Cory Maloy<span class="sub">On BOTH filings</span></div>
+    <div class="flow-node">Jon Hawkins<span class="sub">Director</span></div>
+    <div class="flow-node">Bradley M. Daw<span class="sub">Officer</span></div>
+    <div class="flow-node">Mike McKell<span class="sub">Treasurer/CFO</span></div>
+  </div>
+  <div class="flow-caption">Gold = appears on both filings. Everyone else appears on only one.</div>
+</div>
+
 <div class="callout-box callout-finding">
 <p><strong>The Treasurer tie is the sharper finding.</strong> Mike McKell — the PAC's actual Treasurer/CFO — is already documented elsewhere in this project as a $5,000 direct donor to Brammer's 2026 campaign, and as the Senate sponsor of both HB0392 and HB0366, two-thirds of the same 2026 judicial-power stack Brammer chief-sponsored the rest of. Him also personally controlling this PAC's money is a tighter, more concrete relationship than "co-sponsor and donor."</p>
 </div>
 </section>
 
 <div class="callout-box callout-finding" id="selfdeal">
-<h3 style="margin-top:0;">3. The Self-Dealing Finding</h3>
+<h3 style="margin-top:0;">3. Payments to the PAC's Own Nonprofit-Corp Directors</h3>
 <p>Raw transaction records show that in a single December 2024 reporting batch, <strong>all three people listed as directors on the nonprofit-corp filing personally received $1,000 "Donations" payments from the PAC</strong>:</p>
+
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node hub">Central Utah GOP House PAC<span class="sub">controlled by Maloy, Daw, McKell</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">Committee to Elect Brammer<span class="sub">$1,000 · 12/18/2024</span></div>
+    <div class="flow-node flagged">Committee to Elect Maloy<span class="sub">$1,000 · 12/18/2024</span></div>
+    <div class="flow-node flagged">Committee to Elect Jon Hawkins<span class="sub">$1,000 · 12/30/2024</span></div>
+    <div class="flow-node" style="border-style:dashed;">~30+ other Republicans<span class="sub">same reporting period</span></div>
+  </div>
+  <div class="flow-caption">Red = the three nonprofit-corp directors, each paid the same $1,000 as most other recipients that period.</div>
+</div>
+
 <ul class="tidy">
 <li><strong>Brady Brammer</strong> — 12/18/2024, "Committee to Elect Brammer"</li>
 <li><strong>Cory Maloy</strong> — 12/18/2024, "Committee to Elect Maloy"</li>
@@ -246,7 +306,24 @@
 
 <section id="network">
 <h2>5. Where the Money Overlaps With Other Research</h2>
-<p>Several of this PAC's largest 2024 contributors are entities already independently documented elsewhere in this project — click to expand.</p>
+<p>Several of this PAC's largest 2024 contributors are entities already independently documented elsewhere in this project. Click a column header to sort; click an accordion below for the full detail.</p>
+
+<table class="quick-table" id="overlapTable">
+  <thead><tr>
+    <th data-col="entity" data-type="text">Entity</th>
+    <th data-col="amount" data-type="num">Amount</th>
+    <th data-col="direction" data-type="text">Direction</th>
+    <th data-col="connection" data-type="text">Known Connection</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Irish Elk LLC</td><td class="amt">$7,000</td><td>Received</td><td>Kyle Palmer money-processing entity (NUPAC, Koford, Cullimore)</td></tr>
+    <tr><td>Lincoln Hill Partners</td><td class="amt">$5,000</td><td>Given</td><td>Casey Hill / Election Hive network</td></tr>
+    <tr><td>Ivory Homes</td><td class="amt">$2,500</td><td>Given</td><td>Already-documented statewide donor pattern</td></tr>
+    <tr><td>SEL Inc.</td><td class="amt">$1,500</td><td>Given</td><td>Stan Lockhart political-giving network</td></tr>
+    <tr><td>Tosh</td><td class="amt">$1,500</td><td>Given</td><td>Check City parent company, UCL PAC</td></tr>
+    <tr><td>Friends of Spencer Cox</td><td class="amt">$1,500</td><td>Received</td><td>PAC money flowing TO the sitting Governor's campaign</td></tr>
+  </tbody>
+</table>
 
 <details class="acc">
   <summary>Irish Elk LLC — $7,000 across two payments</summary>
@@ -279,8 +356,15 @@
 </details>
 </section>
 
+<section id="reflect">
+<h2>6. Worth Asking</h2>
+<div class="callout-box">
+<p style="margin:0;"><strong>This PAC's own directors received money from the PAC they help control</strong> — and one of them, Mike McKell, is simultaneously the Senate sponsor of bills this project has separately tracked as concentrating power in the courts. When the people directing a PAC's money and the people benefiting from it are the same small group, is that meaningfully different from a private company's board approving its own bonuses — or is it just how legislative leadership PACs normally work, regardless of party?</p>
+</div>
+</section>
+
 <section id="open">
-<h2>6. Open Questions</h2>
+<h2>7. Research Status</h2>
 <div class="callout-box callout-open">
 <ul class="tidy" style="margin-bottom:0;">
 <li><strong>"Majority 51"</strong> received $16,922.84 on 12/13/2024 — RESOLVED: Majority 51, L.L.C., a Provo political consulting firm. An official Salt Lake County conflict-of-interest disclosure confirms co-owner Richard Jaussi is a sitting county official — worth its own closer look at what county position he holds and any overlap with his consulting clients.</li>
@@ -293,7 +377,7 @@
 </section>
 
 <section id="related">
-<h2>7. Related Coverage</h2>
+<h2>8. Related Coverage</h2>
 <p>This PAC first surfaced through research on Sen. Brady Brammer's 2026 re-election. That coverage — his full legislative record and the SD-21 race itself — lives in two other pieces:</p>
 <div class="profile-link-box">
   <span>Brady Brammer's full Senate profile: 18 bills graded, the judicial-power stack, and his broader donor network</span>
@@ -395,15 +479,15 @@ const TRANSACTIONS = [
   {date:"12/13/2024", type:"expenditure", name:"Stephanie Gricius", amt:-916.27, purpose:"Other", notes:"See also her $1,000 below — $1,916.27 total from this PAC", flag:false},
   {date:"12/13/2024", type:"contribution", name:"SEL Inc.", amt:1500, purpose:"", notes:"Second contribution this year", flag:false},
   {date:"12/13/2024", type:"contribution", name:"Reagan", amt:5000, purpose:"", notes:"", flag:false},
-  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Brammer", amt:-1000, purpose:"Donations", notes:"Self-dealing — see Section 3", flag:true},
-  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Maloy", amt:-1000, purpose:"Donations", notes:"Self-dealing — see Section 3", flag:true},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Brammer", amt:-1000, purpose:"Donations", notes:"Also a nonprofit-corp director — see Section 3", flag:true},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Maloy", amt:-1000, purpose:"Donations", notes:"Also a nonprofit-corp director — see Section 3", flag:true},
   {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Gricius", amt:-1000, purpose:"Donations", notes:"", flag:false},
   {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Shelley", amt:-1000, purpose:"Donations", notes:"", flag:false},
   {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Abbott", amt:-1000, purpose:"Donations", notes:"Nelson Abbott — SB0068's own House floor sponsor", flag:true},
   {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Chevrier", amt:-1000, purpose:"Donations", notes:"", flag:false},
   {date:"12/18/2024", type:"expenditure", name:"Committee to Elect McKell", amt:-1000, purpose:"Donations", notes:"", flag:false},
   {date:"12/18/2024", type:"expenditure", name:"Jared Dallin", amt:-5250, purpose:"Association Expense", notes:"Real political consultant, ran for Senate 2023", flag:true},
-  {date:"12/30/2024", type:"expenditure", name:"Committee to Elect Jon Hawkins", amt:-1000, purpose:"Donations", notes:"Self-dealing — see Section 3", flag:true},
+  {date:"12/30/2024", type:"expenditure", name:"Committee to Elect Jon Hawkins", amt:-1000, purpose:"Donations", notes:"Also a nonprofit-corp director — see Section 3", flag:true},
   {date:"12/30/2024", type:"expenditure", name:"Committee to Elect Kay Christofferson", amt:-1000, purpose:"Donations", notes:"", flag:false},
   {date:"12/30/2024", type:"expenditure", name:"Friends of Steven Whyte", amt:-1000, purpose:"Donations", notes:"", flag:false},
   {date:"12/30/2024", type:"expenditure", name:"Citizens to Elect Jeff Burton", amt:-1000, purpose:"Donations", notes:"Jefferson Burton — HB0396's own chief sponsor", flag:true},
@@ -472,6 +556,58 @@ document.querySelectorAll('.tx-pill').forEach(function(btn){
   });
 });
 renderTable();
+
+// Year-by-year contribution bar chart, computed from TRANSACTIONS
+(function(){
+  const totals = {};
+  TRANSACTIONS.forEach(function(t){
+    if (t.type !== 'contribution') return;
+    const y = yearOf(t.date);
+    totals[y] = (totals[y] || 0) + t.amt;
+  });
+  const years = Object.keys(totals).sort();
+  const max = Math.max.apply(null, years.map(function(y){ return totals[y]; }));
+  const chart = document.getElementById('yearBarChart');
+  const labels = document.getElementById('yearBarLabels');
+  years.forEach(function(y){
+    const pct = Math.max(4, (totals[y] / max) * 100);
+    const col = document.createElement('div');
+    col.className = 'bar-col';
+    col.innerHTML = '<div class="bar-val">' + fmtAmt(totals[y]) + '</div><div class="bar" style="height:' + pct + '%;"></div>';
+    chart.appendChild(col);
+    const lab = document.createElement('div');
+    lab.className = 'bar-label-col';
+    lab.textContent = y;
+    labels.appendChild(lab);
+  });
+})();
+
+// Sortable quick-reference table
+(function(){
+  const table = document.getElementById('overlapTable');
+  if (!table) return;
+  const tbody = table.querySelector('tbody');
+  table.querySelectorAll('th').forEach(function(th, idx){
+    th.addEventListener('click', function(){
+      const type = th.getAttribute('data-type');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const asc = !th.classList.contains('sort-asc');
+      table.querySelectorAll('th').forEach(function(h){ h.classList.remove('sort-asc','sort-desc'); });
+      th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+      rows.sort(function(a, b){
+        let av = a.children[idx].textContent.trim();
+        let bv = b.children[idx].textContent.trim();
+        if (type === 'num') {
+          av = parseFloat(av.replace(/[^0-9.-]/g, '')) || 0;
+          bv = parseFloat(bv.replace(/[^0-9.-]/g, '')) || 0;
+          return asc ? av - bv : bv - av;
+        }
+        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+    });
+  });
+})();
 </script>
 
 </body>
