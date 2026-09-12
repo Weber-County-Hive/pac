@@ -95,6 +95,33 @@
   .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
   .flag{font-size:0.7rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
 
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:260px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .donut-row{display:flex;flex-wrap:wrap;gap:28px;margin:20px 0;align-items:flex-start;}
+  .donut-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:20px;text-align:center;}
+  .donut{width:160px;height:160px;border-radius:50%;margin:0 auto 14px;position:relative;}
+  .donut::after{content:"";position:absolute;top:24px;left:24px;width:112px;height:112px;border-radius:50%;background:#fff;}
+  .donut-label{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:4px;}
+  .donut-sub{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+  .donut-legend{display:flex;flex-direction:column;gap:5px;font-size:0.82rem;text-align:left;max-width:320px;margin:0 auto;}
+  .donut-legend span.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;flex-shrink:0;}
+
+  .quick-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin:18px 0;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:10px 12px;text-align:left;border:1px solid var(--line);cursor:pointer;user-select:none;}
+  .quick-table th:hover{background:var(--line);}
+  .quick-table th.sort-asc::after{content:" ▲";font-size:0.6rem;}
+  .quick-table th.sort-desc::after{content:" ▼";font-size:0.6rem;}
+  .quick-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+  .quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+
   ul.tidy li{margin-bottom:8px;}
   details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
   details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
@@ -185,11 +212,47 @@
 <div class="callout-box callout-finding">
 <p style="margin:0;"><strong>This is not a hidden operation.</strong> Count My Vote is a well-documented, publicly known Utah reform group. Its standardized packages, its giving to candidates in both parties, and the pattern of funding candidates who struggle with convention delegates but do better with primary voters are all direct, obvious consequences of its stated mission — not evidence of something concealed.</p>
 </div>
+
 </section>
 
 <section id="funders">
 <h2>2. Dominant Funders</h2>
 <p>Four names account for the overwhelming majority of CMV PAC's money.</p>
+
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node overlap">Michael O. Leavitt<span class="sub">CMV PAC's own founder</span></div>
+    <div class="flow-node overlap">Gail Miller<span class="sub">$140,500 personal donor, separately</span></div>
+  </div>
+  <div class="flow-arrow-down">↓ &nbsp; ↓</div>
+  <div class="flow-tier">
+    <div class="flow-node hub">Legacy Investment Partners LLC<span class="sub">co-owned by both, per Utah Division of Corporations</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">"Utah Legacy Endowed Fund"<span class="sub">DBA, registered agent = CMV PAC's own Director</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node hub">CMV PAC<span class="sub">$280,000+ from this fund, 2025–2026 alone</span></div>
+  </div>
+  <div class="flow-caption">The PAC's founder and its largest individual donor jointly own the entity behind its single largest funding source.</div>
+</div>
+
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">How the four largest donors split $510,500</div>
+    <div class="donut-sub">Combined total of these four donors only</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 54.85%, #B4863C 54.85% 82.37%, #6E1F2B 82.37% 92.16%, #4A3B35 92.16% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#8C3B44;"></span>54.8% — "Utah Legacy Endowed Fund" ($280,000)</span>
+      <span><span class="sw" style="background:#B4863C;"></span>27.5% — Gail Miller, personally ($140,500)</span>
+      <span><span class="sw" style="background:#6E1F2B;"></span>9.8% — Scott Anderson ($50,000)</span>
+      <span><span class="sw" style="background:#4A3B35;"></span>7.8% — Leavitt Land & Investment Inc ($40,000)</span>
+    </div>
+  </div>
+</div>
+<p style="font-size:0.85rem;color:var(--ink-soft);margin-top:-4px;">This chart shows how these four donors compare to <em>each other</em>, not their share of the PAC's full multi-year total — three of the four connect directly back to the Leavitt family or Gail Miller.</p>
 
 <details class="acc" open>
   <summary>"Utah Legacy Endowed Fund" — $280,000+ in 2025–2026 alone <span class="flag">owned by Leavitt and Miller</span></summary>
@@ -227,7 +290,34 @@
 
 <section id="package">
 <h2>3. The Standard Package — and a Pattern That Repeats Across Election Cycles</h2>
-<p>On 1/18–1/19/2026, CMV PAC paid out a standardized $5,625 in-kind "signature gathering" package to at least eight candidates on the same two days: Chris McConnehey, Jim Dunnigan, Ray Ward, Sam Barlow, Bob Stevenson, McKay Jensen, Jake Hunsaker, and Lisa Dean. Scott Sandall and Tamara Tran each received exactly double ($11,250); Corey Astill received exactly triple ($16,875); Brian McKenzie received double a month later. Two more candidates already documented elsewhere in this project — Tamara Tran and Erik Craythorne — appear in this same batch.</p>
+<p>On 1/18–1/19/2026, CMV PAC paid out a standardized $5,625 in-kind "signature gathering" package to at least eight candidates on the same two days. A handful of candidates received exact multiples of that rate instead. Click a column to sort.</p>
+
+<table class="quick-table" id="packageTable">
+  <thead><tr>
+    <th data-col="name" data-type="text">Candidate</th>
+    <th data-col="amount" data-type="num">Amount</th>
+    <th data-col="multiple" data-type="text">Rate</th>
+    <th data-col="note" data-type="text">Note</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Corey Astill</td><td class="amt">$16,875</td><td>3x</td><td>Utah County Clerk candidate, 41.36% at convention</td></tr>
+    <tr><td>Bob Stevenson</td><td class="amt">$40,125</td><td>~7.1x*</td><td>*Combined across separate payments, not one lump sum</td></tr>
+    <tr><td>Scott Sandall</td><td class="amt">$11,250</td><td>2x</td><td>Also SB37/SB65 sponsor</td></tr>
+    <tr><td>Tamara Tran</td><td class="amt">$11,250</td><td>2x</td><td>Already has own SD-06 file</td></tr>
+    <tr><td>Brian McKenzie</td><td class="amt">$11,250</td><td>2x</td><td>Incumbent Davis Co. Clerk</td></tr>
+    <tr><td>Chris McConnehey</td><td class="amt">$5,625</td><td>1x</td><td>Plus $7,125 more separately — $12,750 total</td></tr>
+    <tr><td>Erik Craythorne</td><td class="amt">$5,625</td><td>1x</td><td>Already has own HD-13 file</td></tr>
+    <tr><td>Sam Barlow</td><td class="amt">$5,625</td><td>1x</td><td>HD-17, third-generation Barlow legislator</td></tr>
+    <tr><td>Lili Bitner</td><td class="amt">$5,625</td><td>1x</td><td>Full rate, corrected from an earlier prorated figure</td></tr>
+    <tr><td>Jim Dunnigan</td><td class="amt">$5,625</td><td>1x</td><td>HB0280 sponsor</td></tr>
+    <tr><td>Ray Ward</td><td class="amt">$5,625</td><td>1x</td><td>Also gave McConnehey $1,500 personally</td></tr>
+    <tr><td>McKay Jensen</td><td class="amt">$5,625</td><td>1x</td><td>HD-60 (Provo), longtime School Board president</td></tr>
+    <tr><td>Jake Hunsaker</td><td class="amt">$5,625</td><td>1x</td><td>Confirmed HD-48 winner; two-cycle pattern</td></tr>
+    <tr><td>Lisa Dean</td><td class="amt">$5,625</td><td>1x</td><td>HD-39 convention candidate</td></tr>
+    <tr><td>Kara Toone</td><td class="amt">$5,625</td><td>1x</td><td>HD-14 candidate</td></tr>
+    <tr><td>Sheldon Birch</td><td class="amt">$5,625</td><td>1x</td><td>Negative cash-on-hand per UtahPolitics.news</td></tr>
+  </tbody>
+</table>
 
 <div class="callout-box callout-finding">
 <p style="margin:0;"><strong>Jake Hunsaker shows the underlying pattern across two entirely separate elections.</strong> In 2026 he lost the HD-48 convention narrowly (49.2%–50.8%) then won the primary comfortably (55.4%–44.6%). In 2022, challenging Rep. Burgess Owens for US House, he lost the convention badly (31.2%–68.8%) then improved substantially in the primary (38.1%, still a loss, but a real shift toward him among primary voters). The same shape — weaker with convention delegates, stronger with the broader primary electorate — shows up independently in the three candidates <a href="checks-and-balances-pac.html">Checks &amp; Balances PAC</a> funded this cycle. Count My Vote's giving looks like it may functionally reward exactly this profile, which lines up naturally with its founding mission of building an alternative to convention-only nominations.</p>
@@ -293,7 +383,7 @@
 <div class="callout-box callout-open">
 <p style="margin:0 0 8px;"><strong>Still being checked — not yet confirmed one way or the other:</strong></p>
 <ul class="tidy" style="margin-bottom:0;">
-<li>Why did Bob Stevenson and Corey Astill receive far above the standard package rate (7x and 3x respectively)? Worth checking their own campaign reports for what those specific in-kind entries covered.</li>
+<li>Why did Bob Stevenson and Corey Astill receive far above the standard package rate (~7.1x and 3x respectively)? Worth checking their own campaign reports for what those specific in-kind entries covered.</li>
 <li>Two figures already in this project's files gave to CMV PAC personally — Jim Dunnigan and Raymond Ward — and separately received CMV PAC money themselves. Worth deciding whether that dual role is worth its own note.</li>
 <li>Is "Jake Hunsaker" here the same person as "Jake Huntsaker," who separately received $3,000 from Checks &amp; Balances PAC? Spelling differs; not yet confirmed by address.</li>
 </ul>
@@ -442,6 +532,33 @@ document.querySelectorAll('.tx-pill').forEach(function(btn){
   });
 });
 renderTable();
+
+// Sortable standard-package table
+(function(){
+  const table = document.getElementById('packageTable');
+  if (!table) return;
+  const tbody = table.querySelector('tbody');
+  table.querySelectorAll('th').forEach(function(th, idx){
+    th.addEventListener('click', function(){
+      const type = th.getAttribute('data-type');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const asc = !th.classList.contains('sort-asc');
+      table.querySelectorAll('th').forEach(function(h){ h.classList.remove('sort-asc','sort-desc'); });
+      th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+      rows.sort(function(a, b){
+        let av = a.children[idx].textContent.trim();
+        let bv = b.children[idx].textContent.trim();
+        if (type === 'num') {
+          av = parseFloat(av.replace(/[^0-9.-]/g, '')) || 0;
+          bv = parseFloat(bv.replace(/[^0-9.-]/g, '')) || 0;
+          return asc ? av - bv : bv - av;
+        }
+        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+    });
+  });
+})();
 </script>
 
 </body>
