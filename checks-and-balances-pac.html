@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checks & Balances PAC | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:760px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:700px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:110px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.82rem;font-weight:600;margin-top:2px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.86rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:520px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.72rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Action Committee</div>
+  <h1 class="title">Checks &amp; Balances PAC: <em>Three Primary Challenges, One Cause</em></h1>
+  <p class="subtitle">A citizen PAC formed to defend judicial independence funded primary challenges against two of the legislators most responsible for a court-power overhaul — and a third candidate whose only apparent connection is that he, too, lost badly at his own party's convention.</p>
+  <div class="meta-row">
+    <span class="meta-pill">Created Dec. 24, 2025</span>
+    <span class="meta-pill">$71,205.39 raised in the Convention period alone</span>
+    <span class="meta-pill">Fined $1,000 for late disclosure, June 2026</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This PAC</a>
+  <a href="#targets">Who It Targeted</a>
+  <a href="#boundaries">The Better Boundaries Tie</a>
+  <a href="#fine">The Fine</a>
+  <a href="#explorer">Transaction Explorer</a>
+  <a href="#open">Open Questions</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<div class="callout-box">
+<p><strong>New here?</strong> The Checks and Balances PAC — which also files under the name "Rule of Law PAC" — was created in December 2025, explicitly to defend judicial independence in Utah. Days later, the 2026 legislative session produced a package of bills that let the Attorney General, Governor, and Legislature redirect pending lawsuits to a new panel of hand-picked judges. This PAC spent 2026 funding primary challenges against the legislators most responsible for that package.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This PAC?</h2>
+<p>The PAC's Statement of Organization names two officers: Chair <strong>Alexandra Dorius</strong>, a paralegal, and Treasurer/CFO <strong>Caroline Morris</strong>, a student — both based in Millcreek, at the same address as the PAC itself. It was created December 24, 2025, just weeks before the 2026 legislative session began.</p>
+
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Dec 24, 2025</div><div class="timeline-label">PAC created</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Feb 13, 2026</div><div class="timeline-label">SJR005/HB0366 pass</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Apr–Jun 2026</div><div class="timeline-label">Funds three primary challenges</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Jun 17, 2026</div><div class="timeline-label">Fined for late disclosure</div></div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$71,205</span><span class="stat-label">Raised, Convention period alone (1/1–4/13/26)</span></div>
+  <div class="stat-cell"><span class="stat-num">3</span><span class="stat-label">Primary challenges funded</span></div>
+  <div class="stat-cell"><span class="stat-num">$23,100</span><span class="stat-label">From Better Boundaries Accountability, its largest donor</span></div>
+</div>
+
+<div class="roster-card" style="max-width:420px;">
+  <h4>PAC Leadership</h4>
+  <div class="roster-sub">Statement of Organization · Created 12/24/2025</div>
+  <ul>
+    <li><strong>Chair:</strong> Alexandra Dorius (paralegal)</li>
+    <li><strong>Treasurer/CFO:</strong> Caroline Morris (student)</li>
+    <li style="color:var(--ink-soft);"><em>Both based in Millcreek, UT.</em></li>
+  </ul>
+</div>
+</section>
+
+<section id="targets">
+<h2>2. Who It Targeted — and the Pattern Behind All Three</h2>
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Kelly Smith</h4>
+    <div class="roster-sub">Primary challenger to Sen. Brady Brammer (SD-21) · Convention: needed a primary</div>
+    <p style="margin:0;">Received $14,627.99 in-kind signature-gathering plus $8,000 cash — over a third of her entire campaign. Brammer chief-sponsored SJR005 and Senate-sponsored HB0366, the bills that built the case-transfer mechanism. Smith did not clear the delegate threshold needed to win the seat outright at convention, forcing a primary.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Scott Stephenson</h4>
+    <div class="roster-sub">Primary challenger to Rep. Jordan Teuscher (HD-44) · Convention: 37.5%</div>
+    <p style="margin:0;">Received $6,264.84 in-kind signature-gathering plus a further $1,000 cash. Teuscher was HB0366's own House chief sponsor. Stephenson is separately the longtime head of the Utah Fraternal Order of Police, and draws most of his own money from police/labor PACs — this donation is not his main funding source. Won only 37.5% of the convention delegate vote against Teuscher.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Chris McConnehey <span class="flag">pattern confirmed</span></h4>
+    <div class="roster-sub">Republican candidate, Utah House District 38 (open seat) · Convention: 29%</div>
+    <p style="margin:0;">Received $4,000 from Checks &amp; Balances PAC. Filed in the PAC's own records as "Chris Mcconey" — a misspelling; public filings confirm this is Chris McConnehey. Lost badly at convention (29% to opponent Gloria Vindas's 71%) — yet won the June primary convincingly, 62.4% to 37.6%. His own campaign filing shows Checks &amp; Balances wasn't his only outside help: a separate PAC, <strong>CMV PAC</strong>, gave him $12,750 total across two payments — over triple what Checks &amp; Balances gave him. CMV PAC turns out to be <strong>Count My Vote</strong>, the well-known Utah election-reform organization chaired by Rich McKeown (Leavitt Partners co-founder), which explains the pattern above: its entire mission is subsidizing the signature-gathering path onto the primary ballot. Former House Speaker Gregory Hughes and sitting Rep. Raymond Ward also gave him money personally.</p>
+  </div>
+</div>
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>The real pattern may not be "judicial independence" alone.</strong> All three funded candidates underperformed specifically with their own party's convention delegates — Smith couldn't clear the threshold to avoid a primary at all, Stephenson took only 37.5% of delegates, McConnehey took only 29% — yet all three were either competitive or outright winning once the race reached the broader primary electorate. HD-38 has no apparent connection to the judicial-power bills that are this PAC's stated purpose, which suggests its functional strategy may be backing delegate-disadvantaged candidates generally, with judicial independence as its founding cause rather than its only funding criterion. Three data points is a real pattern worth naming, not proof of a rule.</p>
+</div>
+</section>
+
+<div class="callout-box callout-finding" id="boundaries">
+<h3 style="margin-top:0;">3. The Better Boundaries Tie</h3>
+<p>The PAC's single largest donor is <strong>Better Boundaries Accountability</strong>, which gave $23,100 across two separate payments — $15,000 during the Convention period and $8,100 during the Primary period. This isn't a coincidental overlap in cause: Better Boundaries has fought Sen. Brammer by name since 2025 over a separate bill narrowing Proposition 4's redistricting fairness standard, and the same case-transfer mechanism this PAC was formed to oppose (SJR005/HB0366) was used by the Attorney General and Legislature to move the state's own Prop 4 redistricting lawsuit — the one Better Boundaries has litigated since 2018 — to a friendlier panel of judges.</p>
+<p style="margin-bottom:0;">In other words: the group that lost a legislative fight and a venue fight against the same legislator is funding the PAC working to defeat him at the ballot box. Full detail on that chain lives in the SD-21 race case file, linked below.</p>
+</div>
+
+<section id="fine">
+<h2>4. The Fine</h2>
+<p>Stated plainly: the fine landed on the PAC that was actively working against Brammer's re-election, in a case Brammer himself pushed for. He and Teuscher — the two legislators this PAC was actively funding challengers against — jointly asked the Lt. Governor's office to investigate the PAC over its late disclosure filings. The PAC was fined $1,000 in June 2026 as a result.</p>
+<p>The PAC admitted fault, citing health issues, and filed its overdue report the same day KSL contacted it for comment. Smith told KSL she was initially unaware "Rule of Law PAC" was an alternate name for "Checks and Balances," then confirmed the connection once informed.</p>
+<p><strong>Worth being precise about who targeted whom here.</strong> Brammer and Teuscher didn't single out Smith, Stephenson, or McConnehey directly — they singled out the PAC, by filing a disclosure complaint against it. That complaint triggered the investigation that exposed the PAC's full donor and expenditure ledger, which is how all three funded candidates ended up publicly connected to this story. Smith and Stephenson at least have a direct opponent relationship to the two legislators who filed the complaint. McConnehey does not — he's swept into this story purely because he shares a funder with Smith and Stephenson, not because anyone he's actually running against triggered anything.</p>
+<div class="callout-box callout-note">
+<p style="margin:0;"><strong>For balance:</strong> Sen. Brammer's own campaign finance reports separately carry 17 deleted transaction entries across the 2024–2026 period — a disclosure-process issue worth weighing on both sides, not just the PAC's late filing.</p>
+</div>
+</section>
+
+<section id="explorer">
+<h2>5. Transaction Explorer</h2>
+<p>Every transaction found in this PAC's Convention and Primary period reports. Search by name, or filter by type.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search name or purpose…">
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="contribution">Contributions</button>
+    <button class="tx-pill" data-type="expenditure">Expenditures</button>
+    <button class="tx-pill" data-type="flagged">Flagged only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Type</th><th>Name</th><th>Amount</th><th>Purpose</th><th>Notes</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="open">
+<h2>6. Open Questions</h2>
+<div class="callout-box callout-finding">
+<p style="margin:0 0 8px;"><strong>Resolved since first publication:</strong></p>
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>UNIPAC</strong> ($5,500, 3/18/2026) is UINPAC — Utah Investment Network PAC, a letter-transposition typo in this PAC's own records. Full detail in its own case file.</li>
+<li><strong>Peczuh US</strong> ($2,605.54) is Peczuh Printing and Paperbox, an ordinary small family print business in Price, UT — not mysterious.</li>
+<li><strong>Why were Smith, Stephenson, and McConnehey "singled out"?</strong> They weren't, by their opponents directly. Brammer and Teuscher targeted the PAC itself — filing a disclosure complaint because it funded their own primary challengers — and that investigation exposed the PAC's full ledger, which is how all three funded candidates became publicly connected to this story. McConnehey has no opponent relationship to either legislator at all; he's swept in purely by sharing a funder.</li>
+</ul>
+</div>
+<div class="callout-box callout-open">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>Is this PAC functionally backing delegate-disadvantaged candidates who poll better with the general primary electorate</strong> — using judicial independence as its founding cause rather than its actual funding criterion? All three candidates it funded underperformed specifically with convention delegates before winning or competing in the broader primary.</li>
+<li><strong>Is the convention-underperformance pattern real or coincidental?</strong> Three candidates is a real signal but a small sample — worth testing against any further Checks & Balances PAC activity that surfaces, or against other PACs with similar "independent judiciary" branding, to see if backing delegate-disadvantaged primary candidates is a broader tactic.</li>
+<li><strong>Does this same convention-vs-primary dynamic help explain why Utah's signature-gathering law (SB54, 2014) exists in the first place?</strong> Count My Vote — the organization behind that law — funds candidates today who show exactly this pattern; worth considering whether the same underlying dynamic (candidates viable with primary voters but not convention delegates) was the real driver of that reform a decade ago, not just its consequence now.</li>
+<li><strong>Will Terry / Will Terry LLC</strong> — Will Terry gave the PAC $3 personally (1/9/2026) while Will Terry LLC was separately paid over $9,500 in "PAC Admin" fees across both reporting periods. Most likely the PAC's own paid administrator also making a small personal gift — a vendor/donor overlap worth naming, not necessarily a red flag.</li>
+<li><strong>Jake Hunsaker/Huntsaker</strong> received a $3,000 "Donation" from the PAC (3/10/2026). Separately confirmed via Ballotpedia: a Jake Hunsaker (matching spelling) won the HD-48 primary in 2026 after also running a convention-underperforming race for US House in 2022 — a second data point for the pattern above, if this is the same person. Not yet confirmed against this PAC's recipient due to the spelling difference.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>7. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>The SD-21 2026 race: Brammer vs. Smith vs. Myers vs. Woodfield, with the full redistricting/Better Boundaries chain laid out</span>
+  <a class="cta" href="sd21-brammer-smith-myers-woodfield.html">Read the race case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>Central Utah GOP House PAC: Brady Brammer's own leadership PAC, its two-registration structure, and its self-dealing finding</span>
+  <a class="cta" href="central-utah-gop-house-pac.html">Read the PAC case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>CMV PAC / Count My Vote: the same convention-underperformer funding pattern, found independently in a much larger PAC</span>
+  <a class="cta" href="cmv-pac.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>UINPAC: resolves the "UNIPAC" typo in this PAC's own donor records — its full identity and giving pattern</span>
+  <a class="cta" href="uinpac.html">Read the case file →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — Checks and Balances PAC Statement of Organization, Convention Report, and full raw itemized contribution/expenditure exports</li>
+<li>KSL.com, "Republican lawmakers question political group over late financial disclosures"</li>
+<li>Salt Lake Tribune, "Checks and Balances PAC fine for not disclosing money behind attacks on Sen. Brammer, Rep. Teuscher," June 17, 2026</li>
+<li>UtahPolitics.news (Bryan Schott), "Utah's legislative primaries are drowning in PAC cash," June 18, 2026</li>
+<li>Ballotpedia and BallotReady — Chris McConnehey, Utah House District 38 candidate filing</li>
+<li>Better Boundaries (betterboundaries.org) — organizational history and mission pages</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"1/5/2026", type:"contribution", name:"Alexandra Dorius", amt:50, purpose:"", notes:"PAC's own Chair", flag:true},
+  {date:"1/9/2026", type:"contribution", name:"Will Terry", amt:3, purpose:"", notes:"Also the PAC's paid administrator (Will Terry LLC) — vendor/donor overlap", flag:true},
+  {date:"1/16/2026", type:"contribution", name:"Ellie Menlove", amt:250, purpose:"", notes:"", flag:false},
+  {date:"1/16/2026", type:"contribution", name:"Erin Jemison", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"1/16/2026", type:"contribution", name:"Hilary Amoss", amt:250, purpose:"", notes:"", flag:false},
+  {date:"1/17/2026", type:"contribution", name:"Chris Wharton", amt:1070.86, purpose:"", notes:"", flag:false},
+  {date:"1/23/2026", type:"contribution", name:"Jane Marquardt", amt:10705.77, purpose:"", notes:"", flag:false},
+  {date:"1/24/2026", type:"contribution", name:"Erik Christiansen", amt:500, purpose:"", notes:"", flag:false},
+  {date:"1/24/2026", type:"contribution", name:"Lesley Manley", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"1/24/2026", type:"contribution", name:"Elizabeth Wright", amt:1070.86, purpose:"", notes:"", flag:false},
+  {date:"1/28/2026", type:"contribution", name:"Donna Weinholtz", amt:2636.06, purpose:"", notes:"Malibu, CA — out of state", flag:false},
+  {date:"1/29/2026", type:"contribution", name:"Katherine Reymann", amt:2676.67, purpose:"", notes:"", flag:false},
+  {date:"1/30/2026", type:"contribution", name:"Lynn Webster", amt:500, purpose:"", notes:"", flag:false},
+  {date:"1/30/2026", type:"contribution", name:"Melinda Bowen", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"2/2/2026", type:"contribution", name:"Andrea Himoff", amt:535.58, purpose:"", notes:"", flag:false},
+  {date:"2/2/2026", type:"contribution", name:"Brooke Nelson", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"2/2/2026", type:"contribution", name:"Jacey Skinner", amt:535.58, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Adam Comey", amt:1054.62, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Adria Swindle", amt:535.58, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Erin Ruzek", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Fred Voros", amt:100, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Greg Skordas", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Jen and Scott Huntsman", amt:1581.77, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Julie Livers", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Katie Lieberman", amt:527.47, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Kelli Nelson", amt:263.90, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Kyle Friant", amt:1054.62, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Rena Miller", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"S. Mark Barnes", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"2/3/2026", type:"contribution", name:"Steve & Daryl Barret", amt:150, purpose:"", notes:"", flag:false},
+  {date:"2/4/2026", type:"contribution", name:"Chris Von Maack", amt:267.94, purpose:"", notes:"", flag:false},
+  {date:"2/4/2026", type:"contribution", name:"Holly Yocum", amt:250, purpose:"", notes:"", flag:false},
+  {date:"2/4/2026", type:"contribution", name:"Mikelle Moore", amt:250, purpose:"", notes:"", flag:false},
+  {date:"2/6/2026", type:"contribution", name:"Adam Looney", amt:250, purpose:"", notes:"", flag:false},
+  {date:"2/9/2026", type:"contribution", name:"Brenda Lowe", amt:10000, purpose:"", notes:"", flag:false},
+  {date:"2/22/2026", type:"contribution", name:"Eric Baughman", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"2/25/2026", type:"expenditure", name:"Will Terry LLC", amt:-3500, purpose:"PAC Admin", notes:"", flag:true},
+  {date:"2/27/2026", type:"expenditure", name:"Zions Bank", amt:-3, purpose:"Bank Fees", notes:"", flag:false},
+  {date:"3/2/2026", type:"contribution", name:"Mitch Lowe", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"3/5/2026", type:"expenditure", name:"Harmons", amt:-11.95, purpose:"Postage", notes:"", flag:false},
+  {date:"3/8/2026", type:"contribution", name:"Cheylynn Hayman", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"3/10/2026", type:"expenditure", name:"Jake Huntsaker", amt:-3000, purpose:"Donation", notes:"Not otherwise identified", flag:true},
+  {date:"3/11/2026", type:"contribution", name:"John Pearce", amt:527.47, purpose:"", notes:"", flag:false},
+  {date:"3/16/2026", type:"expenditure", name:"Indeed", amt:-537.94, purpose:"Hiring Costs", notes:"", flag:false},
+  {date:"3/18/2026", type:"contribution", name:"UNIPAC", amt:5500, purpose:"", notes:"Not identified despite search — largest unresolved donor", flag:true},
+  {date:"3/20/2026", type:"expenditure", name:"Empower Public Affairs", amt:-12699, purpose:"Signature Gathering", notes:"Vendor for the Smith/Stephenson signature-gathering", flag:true},
+  {date:"3/20/2026", type:"expenditure", name:"UPS Store", amt:-3.12, purpose:"Print Needs", notes:"", flag:false},
+  {date:"3/27/2026", type:"expenditure", name:"Fed Ex", amt:-11.13, purpose:"Print Needs", notes:"", flag:false},
+  {date:"3/31/2026", type:"expenditure", name:"Zions Bank", amt:-3, purpose:"Merchant Fee", notes:"", flag:false},
+  {date:"4/1/2026", type:"expenditure", name:"Will Terry LLC", amt:-1500, purpose:"PAC Admin", notes:"", flag:false},
+  {date:"4/1/2026", type:"expenditure", name:"Will Terry LLC", amt:-1500, purpose:"PAC Admin, second payment", notes:"", flag:false},
+  {date:"4/2/2026", type:"expenditure", name:"Indeed", amt:-496.91, purpose:"Hiring Cost", notes:"", flag:false},
+  {date:"4/3/2026", type:"contribution", name:"Better Boundaries Accountability", amt:15000, purpose:"", notes:"First of two payments — $23,100 total. See Section 3.", flag:true},
+  {date:"4/4/2026", type:"expenditure", name:"Stripe", amt:-1785.76, purpose:"Merchant Fee", notes:"", flag:false},
+  {date:"4/21/2026", type:"expenditure", name:"Kelly Smith", amt:-14627.99, purpose:"In-kind, signature gathering", notes:"Via Empower Public Affairs; continued 5/11/2026", flag:true},
+  {date:"5/21/2026", type:"expenditure", name:"Kelly Smith", amt:-8000, purpose:"Other", notes:"Cash payment", flag:true},
+  {date:"5/26/2026", type:"expenditure", name:"Friends of Scott Stevenson", amt:-1000, purpose:"Other", notes:"Likely Scott Stephenson, Teuscher's primary opponent — spelling varies", flag:true},
+  {date:"5/27/2026", type:"expenditure", name:"Committee to Elect Chris Mcconey", amt:-4000, purpose:"Other", notes:"Resolved to Chris McConnehey, HD-38 candidate — see Section 2", flag:true},
+  {date:"6/1/2026", type:"contribution", name:"Better Boundaries Accountability", amt:8100, purpose:"", notes:"Second payment — $23,100 total", flag:true},
+  {date:"6/1/2026", type:"expenditure", name:"Will Terry LLC", amt:-1500, purpose:"PAC Admin", notes:"", flag:false},
+  {date:"6/1/2026", type:"expenditure", name:"Will Terry LLC", amt:-1500, purpose:"PAC Admin, second payment", notes:"", flag:false},
+  {date:"6/5/2026", type:"expenditure", name:"Sun Lithographin", amt:-3830.78, purpose:"Printing", notes:"", flag:false},
+  {date:"6/8/2026", type:"contribution", name:"Arthur Lipson", amt:2000, purpose:"", notes:"", flag:false},
+  {date:"6/8/2026", type:"contribution", name:"Rochelle Kaplan", amt:2000, purpose:"", notes:"Same PO Box as Lipson", flag:false},
+  {date:"6/8/2026", type:"contribution", name:"Peter Corroon", amt:105.75, purpose:"", notes:"", flag:false},
+  {date:"6/11/2026", type:"expenditure", name:"Peczuh US", amt:-2605.54, purpose:"Other", notes:"Purpose unclear — open question", flag:true},
+  {date:"6/11/2026", type:"expenditure", name:"Stripe", amt:-309.79, purpose:"Merchant Fee", notes:"", flag:false},
+  {date:"6/25/2026", type:"expenditure", name:"Scott Stephenson", amt:-6264.84, purpose:"In-kind, signature gathering", notes:"Teuscher's primary opponent", flag:true},
+];
+
+function fmtAmt(n){
+  const abs = Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return (n < 0 ? "-$" : "$") + abs;
+}
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (activePill === 'contribution' && t.type !== 'contribution') return;
+    if (activePill === 'expenditure' && t.type !== 'expenditure') return;
+    if (activePill === 'flagged' && !t.flag) return;
+    const haystack = (t.name + ' ' + t.purpose + ' ' + t.notes).toLowerCase();
+    if (q && haystack.indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.className = t.type;
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td class="mono">' + t.type + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">flagged</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>' +
+      '<td>' + (t.purpose || '—') + '</td>' +
+      '<td>' + (t.notes || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' transactions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+</script>
+
+</body>
+</html>

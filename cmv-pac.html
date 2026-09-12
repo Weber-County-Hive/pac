@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMV PAC / Count My Vote | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:780px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:720px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:250px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:100px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.78rem;font-weight:600;margin-top:2px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:560px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.7rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Action Committee</div>
+  <h1 class="title">CMV PAC: <em>Count My Vote's Signature-Gathering Machine</em></h1>
+  <p class="subtitle">The organization behind Utah's 2014 primary-ballot reform has quietly become one of the largest political funders in the state — over $500,000 traced, with mega-donors including Gail Miller, the Leavitt family, and Zions Bank's former CEO.</p>
+  <div class="meta-row">
+    <span class="meta-pill">Created 1/15/2016</span>
+    <span class="meta-pill">$500,000+ traced, 2020–2026</span>
+    <span class="meta-pill">Single largest payment: $169,500 (Jan. 2026)</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This PAC</a>
+  <a href="#funders">Dominant Funders</a>
+  <a href="#package">The Standard Package</a>
+  <a href="#explorer">Transaction Explorer</a>
+  <a href="#open">Open Questions</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<div class="callout-box">
+<p><strong>New here?</strong> "CMV PAC" is Count My Vote — the organization Gov. Mike Leavitt, Rich McKeown, and Kirk Jowers built starting in 2013 to let candidates reach the primary ballot by gathering signatures instead of relying solely on party convention delegates, leading to 2014's SB54 compromise. Rather than a one-time reform campaign, it has continued operating as an active PAC ever since — and its scale is far larger than its low public profile would suggest.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This PAC?</h2>
+<p>CMV PAC's own Statement of Organization lists it as "also known as Count My Vote," created January 15, 2016, registered at 1311 E Maple Park Ct, Draper.</p>
+
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2013</div><div class="timeline-label">Count My Vote founded</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2014</div><div class="timeline-label">SB54 compromise</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2016</div><div class="timeline-label">CMV PAC registered</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2026</div><div class="timeline-label">$261,000 in a single year</div></div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$500,000+</span><span class="stat-label">Traced across 2020–2026</span></div>
+  <div class="stat-cell"><span class="stat-num">$5,625</span><span class="stat-label">Standard signature-gathering package, paid to a dozen+ candidates</span></div>
+  <div class="stat-cell"><span class="stat-num">2</span><span class="stat-label">Election cycles where the same funded candidate underperformed at convention, then won or improved in the primary</span></div>
+</div>
+
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Rich McKeown</h4>
+    <div class="roster-sub">Director / Executive</div>
+    <p style="margin:0;">Co-founded Leavitt Partners and served as its first CEO (2009–2017). Longtime chief of staff to Mike Leavitt across three government roles. Has chaired Count My Vote since its 2013 founding, alongside Leavitt himself.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Val Oveson</h4>
+    <div class="roster-sub">Treasurer / CFO — accountant, Bountiful</div>
+    <p style="margin:0;">Handles the PAC's day-to-day finances; regularly reimbursed for office expenses across multiple years, indicating an active, ongoing operational role rather than a nominal title.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Taylor Morgan &amp; David May</h4>
+    <div class="roster-sub">Director / Officer</div>
+    <p style="margin:0;">Morgan was the PAC's earliest paid contact (Google Workspace setup, 2020) and a small personal donor in 2026. May is listed as an officer at a separate Sandy address.</p>
+  </div>
+</div>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>This is not a hidden operation.</strong> Count My Vote is a well-documented, publicly known Utah reform group. Its standardized packages, its giving to candidates in both parties, and the pattern of funding candidates who struggle with convention delegates but do better with primary voters are all direct, obvious consequences of its stated mission — not evidence of something concealed.</p>
+</div>
+</section>
+
+<section id="funders">
+<h2>2. Dominant Funders</h2>
+<p>Four names account for the overwhelming majority of CMV PAC's money.</p>
+
+<details class="acc" open>
+  <summary>"Utah Legacy Endowed Fund" — $280,000+ in 2025–2026 alone <span class="flag">owned by Leavitt and Miller</span></summary>
+  <div class="acc-body">
+  <p>By far the largest funder found: roughly $115,942 across nine payments in 2025, then $169,500 in a single payment on 1/14/2026 — the largest transaction in this PAC's entire history — plus another $91,500 on 3/12/2026. Registered at 176 Robbers Roost Ln, Cedar City, UT.</p>
+  <p><strong>Fully resolved via two Utah Division of Corporations filings.</strong> "Utah Legacy Endowed Fund" is an assumed name (DBA) owned by Legacy Investment Partners LLC, whose own filing names its members directly: <strong>Michael O. Leavitt</strong> and <strong>Gail Miller</strong>. The DBA's registered agent is Taylor Morgan — a sitting CMV PAC Director.</p>
+  <p style="margin-bottom:0;">This ties together everything else in this section. Mike Leavitt founded Count My Vote. Rich McKeown, his own longtime chief of staff and Leavitt Partners' first CEO, chairs it. Gail Miller has separately given the PAC $140,500 personally. Now it turns out Leavitt and Miller also jointly own the LLC behind the PAC's single largest funding source — the founder, the chair, and the top donor are connected through one entity, not a loose network of independent backers.</p>
+  </div>
+</details>
+
+<details class="acc">
+  <summary>Gail Miller — $140,500 across three separate years</summary>
+  <div class="acc-body">
+  <p style="margin:0;">$50,000 (2022) + $50,000 (2023) + $40,500 (2024). Gail Miller, widow of Larry H. Miller, is independently documented as a named Count My Vote backer going back to its original 2013–2014 founding campaign — a consistent, decade-long relationship, not a one-time gift.</p>
+  </div>
+</details>
+
+<details class="acc">
+  <summary>Leavitt Land &amp; Investment Inc — $40,000 (2024)</summary>
+  <div class="acc-body">
+  <p style="margin:0;">Two $20,000 payments, from a Cedar City PO Box. This is a second, direct financial link between a named Leavitt family entity and CMV PAC, beyond Rich McKeown's own role — Leavitt Land &amp; Investment is the same company the Dixie &amp; Anne Leavitt Family Foundation's own history describes investing in and loaning to.</p>
+  </div>
+</details>
+
+<details class="acc">
+  <summary>Scott Anderson — $50,000 (January 2026) <span class="flag">confirmed</span></summary>
+  <div class="acc-body">
+  <p style="margin:0;">Registered from 1 South Main St, Salt Lake City — Zions Bancorporation's own headquarters address. This matches A. Scott Anderson, who led Zions Bank as President and CEO from 1998 until his 2024 retirement (he remains non-executive chairman). Anderson is independently documented as one of Utah's most influential political power brokers, nicknamed "Utah's unelected governor" for his reputation mentoring politicians and effectively vetting candidates before they run — a profile that fits naturally alongside Miller and the Leavitt family as an establishment figure backing this PAC.</p>
+  </div>
+</details>
+
+<p style="margin-top:18px;"><strong>Vendor note:</strong> Morgan May Public Affairs is CMV PAC's ongoing political and administrative vendor, paid roughly $2,500–$10,035 in nearly every reporting period from 2022 through 2026 — cumulative payments likely exceed $150,000, making it the PAC's operational backbone rather than a one-off contractor.</p>
+</section>
+
+<section id="package">
+<h2>3. The Standard Package — and a Pattern That Repeats Across Election Cycles</h2>
+<p>On 1/18–1/19/2026, CMV PAC paid out a standardized $5,625 in-kind "signature gathering" package to at least eight candidates on the same two days: Chris McConnehey, Jim Dunnigan, Ray Ward, Sam Barlow, Bob Stevenson, McKay Jensen, Jake Hunsaker, and Lisa Dean. Scott Sandall and Tamara Tran each received exactly double ($11,250); Corey Astill received exactly triple ($16,875); Brian McKenzie received double a month later. Two more candidates already documented elsewhere in this project — Tamara Tran and Erik Craythorne — appear in this same batch.</p>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>Jake Hunsaker shows the underlying pattern across two entirely separate elections.</strong> In 2026 he lost the HD-48 convention narrowly (49.2%–50.8%) then won the primary comfortably (55.4%–44.6%). In 2022, challenging Rep. Burgess Owens for US House, he lost the convention badly (31.2%–68.8%) then improved substantially in the primary (38.1%, still a loss, but a real shift toward him among primary voters). The same shape — weaker with convention delegates, stronger with the broader primary electorate — shows up independently in the three candidates <a href="checks-and-balances-pac.html">Checks &amp; Balances PAC</a> funded this cycle. Count My Vote's giving looks like it may functionally reward exactly this profile, which lines up naturally with its founding mission of building an alternative to convention-only nominations.</p>
+</div>
+</section>
+
+<section id="explorer">
+<h2>4. Transaction Explorer</h2>
+<p>Every transaction found in CMV PAC's records, 2020–2026. Search by name, or filter by type and flagged entries.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search name or purpose…">
+  <select id="txYear">
+    <option value="all">All years</option>
+    <option value="2020">2020</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+    <option value="2026">2026</option>
+  </select>
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="contribution">Contributions</button>
+    <button class="tx-pill" data-type="expenditure">Expenditures</button>
+    <button class="tx-pill" data-type="flagged">Flagged only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Type</th><th>Name</th><th>Amount</th><th>Purpose</th><th>Notes</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="open">
+<h2>5. Open Questions</h2>
+<div class="callout-box callout-finding">
+<p style="margin:0 0 8px;"><strong>Identified since first publication</strong> — all eight names below were tracked down via public records and news coverage:</p>
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>Nina Barnes</strong> — ran for HD-73 in 2022, the first woman on that district's primary ballot.</li>
+<li><strong>Sam Barlow</strong> — HD-17, 2026, a third-generation Barlow legislator taking over his father's seat — and running in the same primary as fellow CMV-funded candidate Lili Bitner.</li>
+<li><strong>McKay Jensen</strong> — HD-60 (Provo), 2026, a longtime Provo School Board president.</li>
+<li><strong>Scott Cuthbertson</strong> — SD-15, 2024, ran on explicit bipartisan appeal against Sen. Kathleen Riebe.</li>
+<li><strong>Daryl Acumen</strong> — Chief Data Strategist at Integrity Matters LLC, which is separately a CMV PAC vendor; a longtime, controversial Utah GOP figure.</li>
+<li><strong>Corey Astill</strong> — ran for Utah County Clerk in 2026, took only 41.36% at convention, campaigned defending vote-by-mail.</li>
+<li><strong>Brian McKenzie</strong> — the incumbent Davis County Clerk, running for reelection — a rare incumbent among this PAC's usual underdog recipients.</li>
+<li><strong>Marina Paul</strong> — a Weber State University student and Newman Civic Fellow (a national honor for public leadership), who also appears on an official Utah Legislature intern roster as Sen. Scott Chew's intern. The $2,500 payment most plausibly compensates real civic-engagement work, consistent with Count My Vote's own mission.</li>
+</ul>
+</div>
+<div class="callout-box callout-open">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>Why did Bob Stevenson and Corey Astill receive far above the standard package rate</strong> (7x and 3x respectively)? Worth checking their own campaign reports for what those specific in-kind entries covered.</li>
+<li><strong>Two figures already in this project's files gave to CMV PAC personally — Jim Dunnigan and Raymond Ward — and separately received CMV PAC money themselves.</strong> Worth deciding whether that dual role is worth its own note.</li>
+<li><strong>Is "Jake Hunsaker" here the same person as "Jake Huntsaker,"</strong> who separately received $3,000 from Checks &amp; Balances PAC? Spelling differs; not yet confirmed by address.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>6. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>Checks &amp; Balances PAC: the same convention-underperformer funding pattern, independently found in three different candidates</span>
+  <a class="cta" href="checks-and-balances-pac.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>Central Utah GOP House PAC: Mike McKell's other financial role, as that PAC's actual Treasurer</span>
+  <a class="cta" href="central-utah-gop-house-pac.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>UINPAC: the Democratic-aligned counterpart, same standardized-giving structure, opposite side of the aisle</span>
+  <a class="cta" href="uinpac.html">Read the case file →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — CMV PAC Statement of Organization and full raw itemized contribution/expenditure exports, 2020-2026</li>
+<li>countmyvoteutah.org — "Who We Are" (Rich McKeown biography)</li>
+<li>Salt Lake Tribune, "Most big money backers of Count My Vote skipped caucuses"; "Utah's 'unelected governor': The political clout of Zions Bank CEO Scott Anderson"; "Zions Bank CEO Scott Anderson, champion of Utah small businesses, to retire"</li>
+<li>Deseret News, "Count My Vote: Allow the people of Utah to choose their officials"; "Scott Anderson's remarkable career as Zions Bank CEO"</li>
+<li>Utah Policy, "Count My Vote Group Raises $540,000"; "'Count My Vote' Makes Their Case on How to Boost Voter Participation"</li>
+<li>Wikipedia — Dixie &amp; Anne Leavitt Family Foundation</li>
+<li>Ballotpedia — Jake Hunsaker (Utah House District 48, 2026; US House Utah District 4, 2022)</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"1/1/2020", type:"contribution", name:"CMV PAC (self)", amt:5000, purpose:"", notes:"Founding/seed entry, at Leavitt Partners' own office", flag:true},
+  {date:"10/8/2020", type:"expenditure", name:"Taylor Morgan", amt:-28.62, purpose:"Google apps/email", notes:"PAC Director, earliest paid contact", flag:true},
+  {date:"2/17/2022", type:"contribution", name:"Rich McKeown", amt:50, purpose:"", notes:"Director's own small personal gift", flag:true},
+  {date:"2/24/2022", type:"contribution", name:"Gail Miller", amt:50000, purpose:"", notes:"1 of 3 mega-donations, $140,500 total", flag:true},
+  {date:"3/11/2022", type:"expenditure", name:"Nate Blouin for Utah Senate", amt:-2500, purpose:"Donations", notes:"Democrat — bipartisan giving", flag:true},
+  {date:"3/14/2022", type:"expenditure", name:"Committee to Elect Robert Spendlove", amt:-2500, purpose:"Donations", notes:"", flag:false},
+  {date:"3/14/2022", type:"expenditure", name:"Jerry Stevenson for Utah Senate", amt:-2000, purpose:"Donations", notes:"Already has own utah-senators file", flag:true},
+  {date:"3/14/2022", type:"expenditure", name:"Keith Grover", amt:-5000, purpose:"Donations", notes:"Also a Central Utah GOP House PAC recipient", flag:true},
+  {date:"3/14/2022", type:"expenditure", name:"Committee to Elect Evan Vickers", amt:-5000, purpose:"Donations", notes:"Also a Brammer donor", flag:true},
+  {date:"3/15/2022", type:"expenditure", name:"Campaign to Elect Stuart Adams", amt:-2000, purpose:"Donations", notes:"His campaign committee, not a leadership PAC", flag:true},
+  {date:"3/15/2022", type:"expenditure", name:"Committee to Elect Brad Wilson", amt:-2000, purpose:"Donations", notes:"Likely former House Speaker", flag:true},
+  {date:"3/31/2022", type:"expenditure", name:"Committee to Elect Ray Ward", amt:-2500, purpose:"Donations", notes:"", flag:false},
+  {date:"5/17/2022", type:"expenditure", name:"Keith Grover", amt:-3000, purpose:"Donations", notes:"", flag:false},
+  {date:"5/18/2022", type:"expenditure", name:"Committee to Elect Ray Ward", amt:-2000, purpose:"Donations", notes:"", flag:false},
+  {date:"5/20/2022", type:"expenditure", name:"Committee to Elect Nina Barnes", amt:-1500, purpose:"Donations", notes:"HD-73 2022 candidate, first woman on that primary ballot", flag:true},
+  {date:"6/16/2022", type:"expenditure", name:"Integrity Matters LLC", amt:-339.30, purpose:"Advertising", notes:"", flag:false},
+  {date:"6/21/2022", type:"expenditure", name:"Jeff Stenquist Reelection Committee", amt:-1500, purpose:"Donations", notes:"", flag:false},
+  {date:"2/8/2023", type:"contribution", name:"Gail Miller", amt:50000, purpose:"", notes:"2nd of 3 mega-donations", flag:true},
+  {date:"4/10/2023", type:"expenditure", name:"W. Val Oveson", amt:-281.64, purpose:"Supplies", notes:"Treasurer office expense", flag:false},
+  {date:"3/26/2024", type:"contribution", name:"Gail Miller", amt:40500, purpose:"", notes:"3rd — $140,500 total across 3 years", flag:true},
+  {date:"4/16/2024", type:"contribution", name:"Leavitt Land & Investment Inc", amt:20000, purpose:"", notes:"1st of 2 — $40,000 total, 2024", flag:true},
+  {date:"4/25/2024", type:"expenditure", name:"Committee to Elect Ray Ward", amt:-2500, purpose:"Political Support", notes:"", flag:false},
+  {date:"4/25/2024", type:"expenditure", name:"Committee to Elect Mike McKell", amt:-2500, purpose:"Political Support", notes:"Central Utah GOP House PAC's Treasurer", flag:true},
+  {date:"4/25/2024", type:"expenditure", name:"Committee to Elect Scott Cuthbertson", amt:-2500, purpose:"Political Support", notes:"SD-15 2024 candidate vs. Sen. Kathleen Riebe", flag:true},
+  {date:"7/17/2024", type:"expenditure", name:"Derek Brown for Attorney General", amt:-2500, purpose:"Political Support", notes:"", flag:false},
+  {date:"9/4/2024", type:"expenditure", name:"Committee to Elect Clint Okerlund", amt:-2500, purpose:"Political Support", notes:"See hd42-okerlund-williams-2026", flag:true},
+  {date:"9/18/2024", type:"contribution", name:"Leavitt Land & Investment Inc", amt:20000, purpose:"", notes:"2nd payment — $40,000 total", flag:true},
+  {date:"1/22/2025", type:"contribution", name:"Utah Legacy Endowed Fund", amt:13500, purpose:"", notes:"1 of 9 payments, ~$115,942 in 2025", flag:true},
+  {date:"3/25/2025", type:"expenditure", name:"Committee to Elect Don Ipson", amt:-4000, purpose:"Donations", notes:"", flag:false},
+  {date:"4/8/2025", type:"expenditure", name:"Lincoln Fillmore Election Committee", amt:-1500, purpose:"Donations", notes:"Also a Brammer donor", flag:true},
+  {date:"4/11/2025", type:"expenditure", name:"Daryl Acumen", amt:-2500, purpose:"Other", notes:"Chief Data Strategist, Integrity Matters LLC (also a CMV PAC vendor)", flag:true},
+  {date:"7/9/2025", type:"contribution", name:"Utah Legacy Endowed Fund", amt:16000, purpose:"", notes:"Largest single 2025 payment before 2026", flag:false},
+  {date:"1/14/2026", type:"contribution", name:"Utah Legacy Endowed Fund", amt:169500, purpose:"", notes:"Single largest transaction found; DBA's registered agent is CMV PAC's own Director", flag:true},
+  {date:"1/18/2026", type:"expenditure", name:"Scott Sandall", amt:-11250, purpose:"Signature Gathering", notes:"Double rate — also SB37/SB65 sponsor", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Tamara Tran", amt:-11250, purpose:"Signature Gathering", notes:"Double rate — already has own SD-06 file", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Bob Stevenson", amt:-5625, purpose:"Signature Gathering", notes:"Also received separate payments — $40,125 total", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Chris McConnehey", amt:-5625, purpose:"Signature Gathering", notes:"Also received $7,125 more — $12,750 total", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Erik Craythorne", amt:-5625, purpose:"Signature Gathering", notes:"Already has own HD-13 file", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Sam Barlow", amt:-5625, purpose:"Signature Gathering", notes:"HD-17, third-generation Barlow legislator", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Lili Bitner", amt:-5625, purpose:"Signature Gathering", notes:"Full rate — corrected from an earlier prorated figure", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Jim Dunnigan", amt:-5625, purpose:"Signature Gathering", notes:"HB0280 sponsor; also gave McConnehey $700 personally", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Ray Ward", amt:-5625, purpose:"Signature Gathering", notes:"Also gave McConnehey $1,500 personally", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"McKay Jensen", amt:-5625, purpose:"Signature Gathering", notes:"HD-60 (Provo), longtime School Board president", flag:true},
+  {date:"1/19/2026", type:"expenditure", name:"Lisa Dean", amt:-5625, purpose:"Signature Gathering", notes:"HD-39 convention candidate", flag:false},
+  {date:"1/19/2026", type:"expenditure", name:"Jake Hunsaker", amt:-5625, purpose:"Signature Gathering", notes:"Confirmed HD-48 winner; two-cycle pattern", flag:true},
+  {date:"1/20/2026", type:"expenditure", name:"Corey Astill", amt:-16875, purpose:"Signature Gathering", notes:"Triple rate — Utah County Clerk candidate, 41.36% at convention", flag:true},
+  {date:"1/27/2026", type:"contribution", name:"Scott Anderson", amt:50000, purpose:"", notes:"Confirmed: Zions Bank's former CEO", flag:true},
+  {date:"2/17/2026", type:"expenditure", name:"Brian McKenzie", amt:-11250, purpose:"Signature Gathering", notes:"Double rate — incumbent Davis Co. Clerk, confirmed", flag:true},
+  {date:"2/17/2026", type:"expenditure", name:"Kara Toone", amt:-5625, purpose:"Signature Gathering", notes:"HD-14 candidate", flag:false},
+  {date:"2/17/2026", type:"expenditure", name:"Sheldon Birch", amt:-5625, purpose:"Signature Gathering", notes:"Negative cash-on-hand per UtahPolitics.news", flag:true},
+  {date:"2/25/2026", type:"expenditure", name:"Marina Paul", amt:-2500, purpose:"Other", notes:"Weber State student, Newman Civic Fellow, likely Sen. Chew's intern", flag:true},
+  {date:"3/12/2026", type:"contribution", name:"Utah Legacy Endowed Fund", amt:91500, purpose:"", notes:"2nd 2026 payment — $261,000 total in 2026", flag:true},
+];
+
+function fmtAmt(n){
+  const abs = Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return (n < 0 ? "-$" : "$") + abs;
+}
+function yearOf(dateStr){ return dateStr.split("/")[2]; }
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const year = document.getElementById('txYear').value;
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (year !== 'all' && yearOf(t.date) !== year) return;
+    if (activePill === 'contribution' && t.type !== 'contribution') return;
+    if (activePill === 'expenditure' && t.type !== 'expenditure') return;
+    if (activePill === 'flagged' && !t.flag) return;
+    const haystack = (t.name + ' ' + t.purpose + ' ' + t.notes).toLowerCase();
+    if (q && haystack.indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.className = t.type;
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td class="mono">' + t.type + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">flagged</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>' +
+      '<td>' + (t.purpose || '—') + '</td>' +
+      '<td>' + (t.notes || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' transactions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.getElementById('txYear').addEventListener('change', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central Utah GOP House PAC | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:760px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:700px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  /* two-roster comparison */
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  /* timeline */
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:110px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.82rem;font-weight:600;margin-top:2px;}
+
+  /* accordion */
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  /* transaction explorer */
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.86rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:520px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.72rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Action Committee</div>
+  <h1 class="title">Central Utah GOP House PAC: <em>Two Rosters, One Address</em></h1>
+  <p class="subtitle">A small leadership PAC that has quietly moved money to dozens of Utah Republicans since 2018 — registered two different ways, with two different sets of people in charge, and its own directors among the candidates it paid.</p>
+  <div class="meta-row">
+    <span class="meta-pill">Election-law creation: Nov. 26, 2018</span>
+    <span class="meta-pill">7 years of records reviewed: 2019–2025</span>
+    <span class="meta-pill">$1,000 paid to all 3 nonprofit-corp directors, Dec. 2024</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This</a>
+  <a href="#rosters">Two Rosters</a>
+  <a href="#selfdeal">Self-Dealing</a>
+  <a href="#explorer">Transaction Explorer</a>
+  <a href="#network">Donor Network</a>
+  <a href="#open">Open Questions</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<div class="callout-box">
+<p><strong>New here?</strong> Central Utah GOP House PAC is a political committee that has been moving money — mostly $1,000 checks — to Utah House and Senate Republicans since at least 2019. It shows up in this project because Sen. Brady Brammer (SD-21) is tied to it, but the PAC's own records reveal something more specific: it's registered two different ways with two different state offices, and the people listed in charge aren't the same on both filings.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This PAC?</h2>
+<p>Central Utah GOP House PAC filed its Statement of Organization with the Lieutenant Governor's Office — the filing that actually governs a political committee's conduct under Utah election law — on <strong>November 26, 2018</strong>. Nearly two years later, on August 25, 2020, an entity by the same name was also registered with the Utah Division of Corporations as a domestic nonprofit corporation. Both filings share a mailing address: 642 Kirby Lane, Suite 105, Spanish Fork.</p>
+
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Nov 2018</div><div class="timeline-label">PAC created (election law)</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Aug 2020</div><div class="timeline-label">Nonprofit corp registered</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2024</div><div class="timeline-label">Heaviest spending year</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2025</div><div class="timeline-label">Still active</div></div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">7</span><span class="stat-label">Years of records reviewed (2019–2025)</span></div>
+  <div class="stat-cell"><span class="stat-num">30+</span><span class="stat-label">Republican candidates paid $500–$5,000 each</span></div>
+  <div class="stat-cell"><span class="stat-num">$7,000</span><span class="stat-label">Paid to Irish Elk LLC, a money-processing entity documented elsewhere in this project</span></div>
+</div>
+</section>
+
+<section id="rosters">
+<h2>2. Two Filings, Two Different Rosters</h2>
+<p>This is the central fact about the PAC's structure: the people who show up as "in charge" depend entirely on which state filing you look at.</p>
+
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Nonprofit-Corp Registration</h4>
+    <div class="roster-sub">Utah Division of Corporations · #11914553-0140 · Formed 8/25/2020</div>
+    <ul>
+      <li><strong>Registered agent:</strong> Brady Brammer, via his own law-practice entity JBB ESQ LLC</li>
+      <li><strong>Director:</strong> Brady Brammer</li>
+      <li><strong>Director:</strong> Cory Maloy</li>
+      <li><strong>Director:</strong> Jon Hawkins</li>
+    </ul>
+  </div>
+  <div class="roster-card">
+    <h4>Actual PAC Officers</h4>
+    <div class="roster-sub">Statement of Organization · Election Law · Created 11/26/2018</div>
+    <ul>
+      <li><strong>Officer:</strong> Cory Maloy (Utah House)</li>
+      <li><strong>Officer:</strong> Bradley M. Daw (Utah House)</li>
+      <li><strong>Treasurer/CFO:</strong> Mike McKell (attorney)</li>
+      <li style="color:var(--color-ink-soft);"><em>Brammer does not appear on this filing.</em></li>
+    </ul>
+  </div>
+</div>
+
+<p>These are two legally separate documents for two different purposes: the nonprofit-corp filing exists under ordinary corporate law (who can sign a lease, be sued, and so on); the Statement of Organization is the document that actually controls the PAC's campaign-finance conduct under the Election Code. Nothing requires the two rosters to match, and here they mostly don't — Maloy is the only name on both.</p>
+
+<div class="callout-box callout-finding">
+<p><strong>The Treasurer tie is the sharper finding.</strong> Mike McKell — the PAC's actual Treasurer/CFO — is already documented elsewhere in this project as a $5,000 direct donor to Brammer's 2026 campaign, and as the Senate sponsor of both HB0392 and HB0366, two-thirds of the same 2026 judicial-power stack Brammer chief-sponsored the rest of. Him also personally controlling this PAC's money is a tighter, more concrete relationship than "co-sponsor and donor."</p>
+</div>
+</section>
+
+<div class="callout-box callout-finding" id="selfdeal">
+<h3 style="margin-top:0;">3. The Self-Dealing Finding</h3>
+<p>Raw transaction records show that in a single December 2024 reporting batch, <strong>all three people listed as directors on the nonprofit-corp filing personally received $1,000 "Donations" payments from the PAC</strong>:</p>
+<ul class="tidy">
+<li><strong>Brady Brammer</strong> — 12/18/2024, "Committee to Elect Brammer"</li>
+<li><strong>Cory Maloy</strong> — 12/18/2024, "Committee to Elect Maloy"</li>
+<li><strong>Jon Hawkins</strong> — 12/30/2024, "Committee to Elect Jon Hawkins"</li>
+</ul>
+<p style="margin-bottom:0;">Given the PAC's actual controlling officers are Maloy, Daw, and McKell — not Brammer or Hawkins — this reads less like "three directors quietly pay themselves" and more like "the PAC's real officers distributed money to a broad slate of Republicans, which happened to include all three people who also sit on the separate nonprofit-corp registration." Both readings are worth holding at once: it's still true that a PAC one of its own officers helps run paid money to two people (Brammer, Hawkins) who have no official role on the PAC's actual governing document, but do sit on a related corporate shell with the PAC's own address.</p>
+</div>
+
+<section id="explorer">
+<h2>4. Transaction Explorer</h2>
+<p>Every transaction found in this PAC's records, 2019–2025. Search by name, or filter by year and type.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search name or purpose…">
+  <select id="txYear">
+    <option value="all">All years</option>
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+    <option value="2022">2022</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+  </select>
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="contribution">Contributions</button>
+    <button class="tx-pill" data-type="expenditure">Expenditures</button>
+    <button class="tx-pill" data-type="flagged">Flagged only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Type</th><th>Name</th><th>Amount</th><th>Purpose</th><th>Notes</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="network">
+<h2>5. Where the Money Overlaps With Other Research</h2>
+<p>Several of this PAC's largest 2024 contributors are entities already independently documented elsewhere in this project — click to expand.</p>
+
+<details class="acc">
+  <summary>Irish Elk LLC — $7,000 across two payments</summary>
+  <div class="acc-body"><p>This is the same Kyle Palmer-linked money-processing entity already documented as handling funds for NUPAC, the Koford donor pipeline, and Sen. Kirk Cullimore's own campaign (a roughly $79,000 expenditure pattern there). Central Utah GOP House PAC paid it $5,000 on 12/13/2024 and $2,000 on 12/30/2024, both simply marked "Other." This is a genuinely new bridge between two previously separate research threads in this project.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Lincoln Hill Partners — $5,000 ("SEG Contribution")</summary>
+  <div class="acc-body"><p>Same Lincoln Hill network already documented in this project's Casey Hill/Derek Brown research, connecting to Election Hive's broader money-moving footprint across Utah campaigns.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Ivory Homes — $2,500</summary>
+  <div class="acc-body"><p>Ivory Homes has its own extensively documented donation history elsewhere in this project; this is one more entry in that pattern, not a new relationship on its own.</p></div>
+</details>
+
+<details class="acc">
+  <summary>SEL Inc. — $1,500</summary>
+  <div class="acc-body"><p>Schweitzer Engineering Laboratories, tied to Stan Lockhart's already-documented political-giving network.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Tosh — $1,500</summary>
+  <div class="acc-body"><p>Check City's parent company — already flagged elsewhere in this project via its UCL PAC giving, though the underlying bill connections there don't clearly match Tosh's own business model.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Friends of Spencer Cox — $1,500 (money flowing out, not in)</summary>
+  <div class="acc-body"><p>Notable for direction: this is the PAC giving to the sitting Governor's own campaign, not receiving money from an ally — a reminder that this PAC is itself a political actor with its own giving pattern, not just a pass-through for others.</p></div>
+</details>
+</section>
+
+<section id="open">
+<h2>6. Open Questions</h2>
+<div class="callout-box callout-open">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>"Majority 51"</strong> received $16,922.84 on 12/13/2024 — RESOLVED: Majority 51, L.L.C., a Provo political consulting firm. An official Salt Lake County conflict-of-interest disclosure confirms co-owner Richard Jaussi is a sitting county official — worth its own closer look at what county position he holds and any overlap with his consulting clients.</li>
+<li><strong>"Jared Dallin"</strong> received $5,250 on 12/18/2024, marked "Association Expense" — RESOLVED: a real, known Utah political consultant who ran campaigns for former Rep. Chris Herrod and ran himself in the 2023 special convention for Sen. Jake Anderegg's Senate seat. Consistent with a legitimate consulting payment.</li>
+<li><strong>Thanksgiving Point Events</strong> received $16,476.72 on 4/29/2025, marked "Campaign Expense" — presumably a venue rental, but not confirmed.</li>
+<li>Does Irish Elk LLC or Kyle Palmer have any further role with this PAC beyond the two December 2024 payments?</li>
+<li>RAI Services Company (Reynolds American, a tobacco manufacturer) gave $2,500 in 2020 — worth weighing against any other tobacco-industry findings elsewhere in this project.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>7. Related Coverage</h2>
+<p>This PAC first surfaced through research on Sen. Brady Brammer's 2026 re-election. That coverage — his full legislative record and the SD-21 race itself — lives in two other pieces:</p>
+<div class="profile-link-box">
+  <span>Brady Brammer's full Senate profile: 18 bills graded, the judicial-power stack, and his broader donor network</span>
+  <a class="cta" href="https://webercountyhive-coder.github.io/utah-senators/brady-brammer.html">Read the Senate profile →</a>
+</div>
+<div class="profile-link-box">
+  <span>The SD-21 2026 race: Brammer vs. Smith vs. Myers vs. Woodfield, and the Checks &amp; Balances PAC/Better Boundaries story</span>
+  <a class="cta" href="sd21-brammer-smith-myers-woodfield.html">Read the race case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>Checks &amp; Balances PAC: the PAC funding Brammer's own primary challenger, with its own conflict-of-interest story</span>
+  <a class="cta" href="checks-and-balances-pac.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>CMV PAC / Count My Vote: Mike McKell's other role, as this PAC's actual Treasurer while also a major recipient of Count My Vote's money</span>
+  <a class="cta" href="cmv-pac.html">Read the case file →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — Central Utah GOP House PAC Statement of Organization and full itemized contribution/expenditure reports, 2019–2025</li>
+<li>Utah Division of Corporations — Central Utah GOP House PAC nonprofit-corp filing (#11914553-0140)</li>
+<li>Utah Division of Corporations — JBB ESQ, LLC (#9738533-0160) and BR FIRM LLP (#12990023-0250) entity filings</li>
+<li>brfirm.com — Brammer &amp; Ranck, LLP firm site</li>
+<li>Cross-referenced from this project's existing research: Irish Elk LLC/Kyle Palmer network, Ivory Homes donor network, Stan Lockhart/SEL Inc. network, Casey Hill/Derek Brown/Lincoln Hill network, Val Peterson campaign finance file</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"1/25/2019", type:"contribution", name:"Robert J. Debry & Associates", amt:250, purpose:"", notes:"Also gives directly to Brammer's own campaign", flag:false},
+  {date:"1/25/2019", type:"contribution", name:"Siegfried & Jensen", amt:250, purpose:"", notes:"Also gives directly to Brammer's own campaign", flag:false},
+  {date:"1/25/2019", type:"contribution", name:"Craig Swapp & Associates", amt:250, purpose:"", notes:"Also gives directly to Brammer's own campaign", flag:false},
+  {date:"1/25/2019", type:"contribution", name:"Driggs Bills & Day P.C.", amt:250, purpose:"", notes:"Also gives directly to Brammer's own campaign", flag:false},
+  {date:"1/25/2019", type:"contribution", name:"Derek Brown", amt:150, purpose:"", notes:"Now Utah Attorney General — a personal tie years before he held office", flag:true},
+  {date:"1/25/2019", type:"contribution", name:"WCF Insurance", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"1/25/2019", type:"contribution", name:"Lawyers Involved for Utah", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"1/25/2019", type:"contribution", name:"Tosh", amt:1000, purpose:"", notes:"Check City's parent company", flag:true},
+  {date:"1/25/2019", type:"contribution", name:"RevereHealth", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"1/25/2019", type:"expenditure", name:"Michael McKell", amt:-1000, purpose:"Reimbursement, event expenses", notes:"", flag:false},
+  {date:"9/23/2019", type:"contribution", name:"Energy Solutions", amt:1000, purpose:"", notes:"Also an SB0234 donor overlap in Brammer's own file", flag:true},
+  {date:"1/3/2020", type:"contribution", name:"WCF Mutual Insurance Company", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"5/19/2020", type:"expenditure", name:"Marsha Judkins for State House", amt:-1000, purpose:"Campaign Donation", notes:"", flag:false},
+  {date:"5/19/2020", type:"expenditure", name:"Committee to Elect Kay Christofferson", amt:-1000, purpose:"Campaign Donation", notes:"", flag:false},
+  {date:"5/19/2020", type:"expenditure", name:"Neighbors for Keven Stratton", amt:-1000, purpose:"Campaign Donation", notes:"", flag:false},
+  {date:"6/11/2020", type:"expenditure", name:"Elect Brammer", amt:-247.89, purpose:"Reimbursement, caucus lunch", notes:"", flag:false},
+  {date:"9/29/2020", type:"contribution", name:"RAI Services Company", amt:2500, purpose:"", notes:"Reynolds American Inc — tobacco industry", flag:true},
+  {date:"10/7/2020", type:"expenditure", name:"Brady Brammer", amt:-223.90, purpose:"Reimbursement, funeral flowers", notes:"", flag:false},
+  {date:"10/22/2020", type:"contribution", name:"PhRMA", amt:1500, purpose:"", notes:"Pharmaceutical industry trade group", flag:false},
+  {date:"4/1/2022", type:"expenditure", name:"Friends of Keven Stratton", amt:-500, purpose:"Donations", notes:"", flag:false},
+  {date:"4/1/2022", type:"expenditure", name:"Friends of Doug Welton", amt:-500, purpose:"Donations", notes:"", flag:false},
+  {date:"8/11/2022", type:"expenditure", name:"Utah Valley Chamber", amt:-3000, purpose:"Donations", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Lincoln Hill Partners", amt:5000, purpose:"SEG Contribution", notes:"Same network as Casey Hill/Derek Brown research", flag:true},
+  {date:"7/1/2024", type:"contribution", name:"Committee to elect Mike McKell", amt:1500, purpose:"", notes:"Unusual direction — a candidate committee giving TO this PAC", flag:true},
+  {date:"7/1/2024", type:"contribution", name:"House Speaker Leadership PAC", amt:1500, purpose:"", notes:"Schultz's own leadership PAC", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Ivory Homes", amt:2500, purpose:"", notes:"See Ivory Homes donor network file", flag:true},
+  {date:"7/1/2024", type:"contribution", name:"Utah Optometric Assoc. PAC", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"RevereHealth", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Medical PAC", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Rural Telecom Association", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"SEL Inc.", amt:1500, purpose:"", notes:"See Stan Lockhart/SEL Inc. file", flag:true},
+  {date:"7/1/2024", type:"contribution", name:"Emilie Lockhart", amt:1500, purpose:"", notes:"Likely Stan Lockhart family", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Chiropractic Physicians Association", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Association for Justice Inc.", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Conservative Climate PAC", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"1800 Contacts Inc.", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Nursing Home Assoc", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Subrogation Division Inc.", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"PurCo Fleet Services Inc.", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Ranked Choice Voting Action", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Nucor Corp PAC", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Utah Behavior Services Inc.", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Metro Group Inc.", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Reynolds Services", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"UFIA", amt:500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Friends of Spencer Cox", amt:1500, purpose:"", notes:"PAC money flowing TO the sitting Governor's campaign", flag:true},
+  {date:"7/1/2024", type:"contribution", name:"Utah Property Rights Coalition", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Energy Solutions", amt:2500, purpose:"", notes:"Second contribution — SB0234 overlap", flag:true},
+  {date:"7/1/2024", type:"contribution", name:"Comcast", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"WCF Mutual Insurance Company", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"7/1/2024", type:"contribution", name:"Select Health", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"12/13/2024", type:"expenditure", name:"Irish Elk LLC", amt:-5000, purpose:"Other", notes:"Same Kyle Palmer entity as Cullimore/NUPAC research — first of two payments", flag:true},
+  {date:"12/13/2024", type:"expenditure", name:"Majority 51", amt:-16922.84, purpose:"Other", notes:"Political consulting firm, co-owned by a sitting Salt Lake County official (Richard Jaussi)", flag:true},
+  {date:"12/13/2024", type:"expenditure", name:"Stephanie Gricius", amt:-916.27, purpose:"Other", notes:"See also her $1,000 below — $1,916.27 total from this PAC", flag:false},
+  {date:"12/13/2024", type:"contribution", name:"SEL Inc.", amt:1500, purpose:"", notes:"Second contribution this year", flag:false},
+  {date:"12/13/2024", type:"contribution", name:"Reagan", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Brammer", amt:-1000, purpose:"Donations", notes:"Self-dealing — see Section 3", flag:true},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Maloy", amt:-1000, purpose:"Donations", notes:"Self-dealing — see Section 3", flag:true},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Gricius", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Shelley", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Abbott", amt:-1000, purpose:"Donations", notes:"Nelson Abbott — SB0068's own House floor sponsor", flag:true},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect Chevrier", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/18/2024", type:"expenditure", name:"Committee to Elect McKell", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/18/2024", type:"expenditure", name:"Jared Dallin", amt:-5250, purpose:"Association Expense", notes:"Real political consultant, ran for Senate 2023", flag:true},
+  {date:"12/30/2024", type:"expenditure", name:"Committee to Elect Jon Hawkins", amt:-1000, purpose:"Donations", notes:"Self-dealing — see Section 3", flag:true},
+  {date:"12/30/2024", type:"expenditure", name:"Committee to Elect Kay Christofferson", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/30/2024", type:"expenditure", name:"Friends of Steven Whyte", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/30/2024", type:"expenditure", name:"Citizens to Elect Jeff Burton", amt:-1000, purpose:"Donations", notes:"Jefferson Burton — HB0396's own chief sponsor", flag:true},
+  {date:"12/30/2024", type:"expenditure", name:"Committee to Elect Jeff Moss", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/30/2024", type:"expenditure", name:"Irish Elk LLC", amt:-2000, purpose:"Other", notes:"Second payment — $7,000 total to this entity", flag:true},
+  {date:"12/30/2024", type:"expenditure", name:"Neighbors of Keven Stratton", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"12/30/2024", type:"expenditure", name:"David Hinkins Senate Campaign", amt:-1000, purpose:"Donations", notes:"Senate, not House — despite the PAC's name", flag:true},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to Elect Val Peterson", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect Cullimore", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect McCay", amt:-1000, purpose:"Advertising", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect Grover", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect Balderree", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect Owens", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect Thatcher", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/14/2025", type:"expenditure", name:"Committee to elect Shepherd", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"2/19/2025", type:"expenditure", name:"Committee to elect Kennedy", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"3/21/2025", type:"expenditure", name:"Committee to elect Thurston", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"3/21/2025", type:"expenditure", name:"Committee to elect Welton", amt:-1000, purpose:"Donations", notes:"Doug Welton — HB0017's own chief sponsor", flag:true},
+  {date:"3/21/2025", type:"expenditure", name:"Val Peterson", amt:-4000, purpose:"Campaign Expense", notes:"Second, larger payment — $5,000 total to Peterson in 2025", flag:true},
+  {date:"3/21/2025", type:"expenditure", name:"Jackson Murphy", amt:-300, purpose:"Campaign Expense", notes:"Not otherwise researched", flag:false},
+  {date:"4/29/2025", type:"expenditure", name:"Thanksgiving Point Events", amt:-16476.72, purpose:"Campaign Expense", notes:"Large single expenditure, purpose not further detailed", flag:true},
+  {date:"7/29/2025", type:"expenditure", name:"Committee to elect Clancy", amt:-1000, purpose:"Donations", notes:"", flag:false},
+];
+
+function fmtAmt(n){
+  const abs = Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return (n < 0 ? "-$" : "$") + abs;
+}
+function yearOf(dateStr){ return dateStr.split("/")[2]; }
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const year = document.getElementById('txYear').value;
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (year !== 'all' && yearOf(t.date) !== year) return;
+    if (activePill === 'contribution' && t.type !== 'contribution') return;
+    if (activePill === 'expenditure' && t.type !== 'expenditure') return;
+    if (activePill === 'flagged' && !t.flag) return;
+    const haystack = (t.name + ' ' + t.purpose + ' ' + t.notes).toLowerCase();
+    if (q && haystack.indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.className = t.type;
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td class="mono">' + t.type + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">cross-ref</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>' +
+      '<td>' + (t.purpose || '—') + '</td>' +
+      '<td>' + (t.notes || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' transactions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.getElementById('txYear').addEventListener('change', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+</script>
+
+</body>
+</html>

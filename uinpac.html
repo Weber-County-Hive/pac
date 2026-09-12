@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UINPAC | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:780px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:720px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:250px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:560px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.7rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Action Committee</div>
+  <h1 class="title">UINPAC: <em>The Democratic-Aligned Counterpart</em></h1>
+  <p class="subtitle">A money-moving PAC sharing an office and a payment processor with the political consulting firm that appears to run it — and the entity that resolves a $5,500 typo already flagged in a separate PAC's own records.</p>
+  <div class="meta-row">
+    <span class="meta-pill">Created 6/23/2020</span>
+    <span class="meta-pill">Also known as: Utah Investment Network PAC</span>
+    <span class="meta-pill">Funds 4+ competitive 2026 races</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This PAC</a>
+  <a href="#structure">Shared Address, Shared People</a>
+  <a href="#races">The Races It Funds</a>
+  <a href="#explorer">Transaction Explorer</a>
+  <a href="#open">Open Questions</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<div class="callout-box">
+<p><strong>New here?</strong> UINPAC is the Utah Investment Network PAC — a Democratic-aligned money-moving committee whose giving connects directly to at least four competitive 2026 Utah House races. It first surfaced in this reporting as a data-entry typo ("UNIPAC") in a separate, Republican-aligned PAC's own donor records — the two are otherwise unrelated, but the coincidence of near-identical names is how this PAC's own footprint first came into view.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This PAC?</h2>
+<p>UINPAC's own Statement of Organization confirms it as "also known as Utah Investment Network PAC," created June 23, 2020, registered at 225 S 200 E, Suite 350, Salt Lake City.</p>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$82,949.63</span><span class="stat-label">From its own affiliated Utah Donor Collaborative, 2025 alone</span></div>
+  <div class="stat-cell"><span class="stat-num">4+</span><span class="stat-label">Competitive 2026 races with confirmed opposing PAC spending</span></div>
+  <div class="stat-cell"><span class="stat-num">3</span><span class="stat-label">Roles held by one person (Matt Lyon) across this PAC's own infrastructure</span></div>
+</div>
+
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Katie Wright</h4>
+    <div class="roster-sub">Director · "Non-Profit Director"</div>
+    <p style="margin:0;">Listed at the PAC's own 225 S 200 E Suite 350 address.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Kayti Sullivan</h4>
+    <div class="roster-sub">Treasurer/CFO · "Self"</div>
+    <p style="margin:0;">Same address as Wright.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Utah Donor Collaborative</h4>
+    <div class="roster-sub">Affiliated organization, same address</div>
+    <p style="margin:0;">A real, registered 501(c)(4) (EIN 88-2424825), self-described mission "to build an inclusive coalition to achieve a politically balanced Utah." Paired with a separate 501(c)(3) foundation for civic-engagement programming — an ordinary nonprofit c3/c4 structure, not opaque on its own.</p>
+  </div>
+</div>
+</section>
+
+<section id="structure">
+<h2>2. A Shared Address, and One Person in Three Roles</h2>
+<p>UINPAC's registered address, 225 S 200 E Suite 350, is also the headquarters of <strong>Blueprint Public Affairs</strong> — a political fundraising firm (founded 2015) that self-describes as working "with independent, Democratic, and progressive organizations in Utah and throughout the United States." This is the most likely operational engine behind both UINPAC and Utah Donor Collaborative — a Democratic-aligned counterpart to what Morgan May Public Affairs is for CMV PAC, or what Election Hive is for Republican campaigns.</p>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>Matt Lyon connects three separate roles at once.</strong> He is a Partner at Blueprint Public Affairs (sharing UINPAC's office address), the CEO of FundHero (UINPAC's own recurring payment processor across multiple years of its raw records), and a personal $5 individual donor to UINPAC directly. The same person sits inside the firm, runs the payment infrastructure, and donates — a tightly integrated structure worth naming plainly, though this kind of overlap is common for small political-consulting-run PACs generally, not necessarily improper on its own.</p>
+</div>
+</section>
+
+<section id="races">
+<h2>3. The Races It Funds — Confirmed as Real, Competitive Contests</h2>
+<p>UtahPolitics.news' own reporting (Bryan Schott, 9/11/26) independently confirms that four of UINPAC's candidate recipients are in genuinely competitive 2026 races, each with specific, quantified Republican PAC spending on the other side.</p>
+
+<details class="acc" open>
+  <summary>Angela Choberka (D, HD-9) — Rated "Likely Republican," flagged as competitive</summary>
+  <div class="acc-body"><p style="margin:0;">A rematch: Choberka lost this seat to Republican Jake Sawyer in 2024, 58.3%–36.8%. In 2026, Sawyer received $15,000 combined from the Utah House Republican Election Committee and Speaker Mike Schultz's leadership PAC — all of his $21,250 raised since mid-June came entirely from corporations and PACs. Choberka raised $12,500 from 110 individual small-dollar donations over the same period. Already documented in this project's own HD-9 case file.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Rosemary Lesser (D, HD-10) — Rated "Lean Democrat"</summary>
+  <div class="acc-body"><p style="margin:0;">A physician and Air Force veteran seeking a comeback: Lesser held this seat from January 2021 (appointed after her predecessor's death) through 2024, then lost narrowly to Republican Jill Koford, 50.98%–49.02% — about 300 votes, in one of that cycle's most expensive races ($290,000+ combined). Her 2026 opponent, Jim Alvey, received $35,000 combined from the same two Republican PACs — nearly all of his fundraising. Lesser entered June with $40,000+ cash on hand and raised another $56,000 since.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Liz Oates (D, HD-27) — Rated "Likely R," flagged as closer than the rating implies</summary>
+  <div class="acc-body"><p style="margin:0;">Challenging Republican incumbent Anthony Loubet, an attorney first elected in 2022. Loubet received $20,000 combined from the same two Republican PACs. Oates raised $35,000+ over the same window.</p></div>
+</details>
+
+<details class="acc">
+  <summary>Celeste Johnson (D, HD-59) — Rated "Lean Republican," flagged as a realistic flip</summary>
+  <div class="acc-body"><p style="margin:0;">Running to succeed retiring Rep. Mike Kohler. Republican Luke Searle — who won his own primary by just 627 votes — received $15,000 combined from the same two Republican PACs. Johnson slightly outraised him since mid-June.</p></div>
+</details>
+
+<p style="margin-top:18px;">Two of these four — Choberka and Lesser — are repeat candidates seeking rematches against the exact opponents who beat them in 2024. Oates and Johnson are each in their first run for these particular seats.</p>
+
+<p style="margin-top:18px;"><strong>A recurring donor overlap worth naming:</strong> Jane Marquardt, Arthur "Art" Lipson, and Rochelle Kaplan all appear as donors to both UINPAC and Checks &amp; Balances PAC — two separately-run, Democratic-aligned committees drawing from an overlapping small circle of individual donors.</p>
+</section>
+
+<section id="explorer">
+<h2>4. Transaction Explorer</h2>
+<p>Every transaction found in UINPAC's records, 2020–2026. Search by name, or filter by type and flagged entries.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search name or purpose…">
+  <select id="txYear">
+    <option value="all">All years</option>
+    <option value="2020">2020</option>
+    <option value="2022">2022</option>
+    <option value="2024">2024</option>
+    <option value="2025">2025</option>
+    <option value="2026">2026</option>
+  </select>
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="contribution">Contributions</button>
+    <button class="tx-pill" data-type="expenditure">Expenditures</button>
+    <button class="tx-pill" data-type="flagged">Flagged only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Type</th><th>Name</th><th>Amount</th><th>Purpose</th><th>Notes</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="open">
+<h2>5. Open Questions</h2>
+<div class="callout-box callout-open">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>Is "Annette Harris" here the same Annette Harris who separately gave $100 to Chris McConnehey's Republican campaign?</strong> Addresses not yet compared.</li>
+<li><strong>"DRAIN THE SWAMP PAC"</strong> received $5,700 — genuinely unidentified after a direct search across several nationally similarly-named entities, none of which plausibly fit.</li>
+<li><strong>Kendra for Utah and Stephanie Pitcher</strong> — not yet cross-checked against other files in this project.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>6. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>Checks &amp; Balances PAC: where the "UNIPAC" typo that led to this PAC's identification first appeared</span>
+  <a class="cta" href="checks-and-balances-pac.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>CMV PAC / Count My Vote: the Republican-aligned counterpart, same standardized-giving structure, opposite side of the aisle</span>
+  <a class="cta" href="cmv-pac.html">Read the case file →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — UINPAC Statement of Organization and full raw itemized contribution/expenditure exports, 2020-2026</li>
+<li>ProPublica Nonprofit Explorer, Charity Navigator, Cause IQ — Utah Donor Collaborative (EIN 88-2424825) and Utah Donor Collaborative Foundation (EIN 99-4951495)</li>
+<li>Blueprint Public Affairs' own site and LinkedIn — firm description and address confirmation</li>
+<li>UtahPolitics.news (Bryan Schott), "These are the Utah House and Senate races both parties are targeting in November," Sept. 11, 2026</li>
+<li>Cross-referenced from this project's existing research: [[checks-and-balances-pac]], [[cmv-pac]], [[chris-mcconnehey-hd38]], [[luke-searle-hd59]]</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"6/19/2020", type:"contribution", name:"David Dee", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"6/23/2020", type:"contribution", name:"Jane Marquardt", amt:6000, purpose:"", notes:"Also a Checks & Balances PAC donor", flag:true},
+  {date:"6/30/2020", type:"contribution", name:"Art Lipson", amt:10000, purpose:"", notes:"Also a Checks & Balances PAC donor ($2,000, 2026)", flag:true},
+  {date:"7/28/2020", type:"contribution", name:"Bruce Bastian", amt:2500, purpose:"", notes:"WordPerfect co-founder", flag:true},
+  {date:"8/26/2020", type:"contribution", name:"Hank Hemingway", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"8/26/2020", type:"contribution", name:"Rochelle Kaplan", amt:180, purpose:"", notes:"Also a Checks & Balances PAC donor", flag:true},
+  {date:"6/9/2022", type:"contribution", name:"Nate Blouin", amt:100, purpose:"", notes:"Also a CMV PAC beneficiary ($2,500) — same cycle", flag:true},
+  {date:"6/16/2022", type:"contribution", name:"Rochelle Kaplan", amt:5000, purpose:"", notes:"2nd payment — recurring cross-PAC donor", flag:true},
+  {date:"1/18/2024", type:"contribution", name:"Utah Women & Politics", amt:5000, purpose:"", notes:"Also gave again 12/17/25", flag:false},
+  {date:"9/12/2025", type:"contribution", name:"Utah Donor Collaborative", amt:5000, purpose:"", notes:"1 of 3 — $82,949.63 total, 2025", flag:true},
+  {date:"10/6/2025", type:"expenditure", name:"Iva Williams", amt:-666.67, purpose:"Political Support", notes:"Already has own HD-42 file", flag:true},
+  {date:"10/6/2025", type:"expenditure", name:"Annette Harris", amt:-666.66, purpose:"Political Support", notes:"Check vs. McConnehey's $100 Annette Harris donor", flag:true},
+  {date:"10/6/2025", type:"expenditure", name:"Gay Lynn Bennion", amt:-666.66, purpose:"Political Support", notes:"", flag:false},
+  {date:"10/29/2025", type:"contribution", name:"Utah Donor Collaborative", amt:27949.63, purpose:"", notes:"2nd payment", flag:true},
+  {date:"12/29/2025", type:"contribution", name:"Utah Donor Collaborative", amt:50000, purpose:"", notes:"3rd payment", flag:true},
+  {date:"1/2/2026", type:"expenditure", name:"Kim James for Utah", amt:-7500, purpose:"Political Support", notes:"Already has own HD-8 file", flag:true},
+  {date:"1/2/2026", type:"expenditure", name:"The Committee to Elect Angela Choberka", amt:-7500, purpose:"Political Support", notes:"Already has own HD-9 file", flag:true},
+  {date:"1/2/2026", type:"expenditure", name:"Committee to Elect Liz Oates", amt:-7500, purpose:"Political Support", notes:"Confirmed competitive HD-27 race", flag:true},
+  {date:"1/13/2026", type:"expenditure", name:"Rosemary Lesser for HD-10", amt:-7500, purpose:"Political Support", notes:"Confirmed competitive HD-10 race", flag:true},
+  {date:"3/17/2026", type:"expenditure", name:"Checks & Balances PAC", amt:-5500, purpose:"Donations", notes:"RESOLVES 'UNIPAC' typo — see Checks & Balances PAC", flag:true},
+  {date:"3/23/2026", type:"expenditure", name:"Committee to Elect Stephanie Pitcher", amt:-3500, purpose:"Political Support", notes:"Not yet cross-referenced", flag:false},
+  {date:"3/30/2026", type:"contribution", name:"Equality Utah Political Action Committee", amt:2500, purpose:"", notes:"", flag:false},
+  {date:"3/30/2026", type:"contribution", name:"Better Boundaries Accountability Fund", amt:5000, purpose:"", notes:"Also gave $23,100 to Checks & Balances PAC directly", flag:true},
+  {date:"4/2/2026", type:"expenditure", name:"Elect Celeste T Johnson", amt:-5000, purpose:"Political Support", notes:"Confirmed competitive HD-59 race", flag:true},
+  {date:"5/15/2026", type:"contribution", name:"Elevate PAC", amt:5000, purpose:"", notes:"", flag:false},
+  {date:"6/1/2026", type:"expenditure", name:"DRAIN THE SWAMP PAC", amt:-5700, purpose:"Donations", notes:"Unresolved — no plausible match found", flag:true},
+];
+
+function fmtAmt(n){
+  const abs = Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return (n < 0 ? "-$" : "$") + abs;
+}
+function yearOf(dateStr){ return dateStr.split("/")[2]; }
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const year = document.getElementById('txYear').value;
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (year !== 'all' && yearOf(t.date) !== year) return;
+    if (activePill === 'contribution' && t.type !== 'contribution') return;
+    if (activePill === 'expenditure' && t.type !== 'expenditure') return;
+    if (activePill === 'flagged' && !t.flag) return;
+    const haystack = (t.name + ' ' + t.purpose + ' ' + t.notes).toLowerCase();
+    if (q && haystack.indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.className = t.type;
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td class="mono">' + t.type + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">flagged</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>' +
+      '<td>' + (t.purpose || '—') + '</td>' +
+      '<td>' + (t.notes || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' transactions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.getElementById('txYear').addEventListener('change', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+</script>
+
+</body>
+</html>
