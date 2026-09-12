@@ -95,6 +95,35 @@
   .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
   .flag{font-size:0.72rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
 
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:240px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .hbar-chart{background:#fff;border:1px solid var(--line);padding:20px 24px;margin:20px 0;}
+  .hbar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .hbar-label{width:170px;flex-shrink:0;font-size:0.85rem;font-weight:600;}
+  .hbar-track{flex:1;background:var(--paper-dim);height:26px;position:relative;border:1px solid var(--line);}
+  .hbar-fill{height:100%;background:var(--bad);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+  .hbar-fill.primary{background:var(--good);}
+  .hbar-fill span{color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;}
+  .hbar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .hbar-legend span.sw{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:middle;}
+
+  .donut-row{display:flex;flex-wrap:wrap;gap:28px;margin:20px 0;align-items:flex-start;}
+  .donut-card{flex:1;min-width:220px;background:#fff;border:1px solid var(--line);padding:20px;text-align:center;}
+  .donut{width:140px;height:140px;border-radius:50%;margin:0 auto 14px;position:relative;}
+  .donut::after{content:"";position:absolute;top:20px;left:20px;width:100px;height:100px;border-radius:50%;background:#fff;}
+  .donut-label{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:4px;}
+  .donut-sub{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+  .donut-legend{display:flex;flex-direction:column;gap:4px;font-size:0.82rem;text-align:left;max-width:220px;margin:0 auto;}
+  .donut-legend span.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;}
+
   ul.tidy li{margin-bottom:8px;}
   details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
   details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
@@ -165,6 +194,18 @@
   <div class="stat-cell"><span class="stat-num">$23,100</span><span class="stat-label">From Better Boundaries Accountability, its largest donor</span></div>
 </div>
 
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">One donor's share of the Convention period</div>
+    <div class="donut-sub">$71,205.39 raised, 1/1–4/13/26</div>
+    <div class="donut" style="background:conic-gradient(#B4863C 0% 21.1%, #E9E0D0 21.1% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#B4863C;"></span>21.1% — Better Boundaries Accountability's $15,000 first payment</span>
+      <span><span class="sw" style="background:#E9E0D0;"></span>78.9% — everyone else, roughly 30+ individual donors</span>
+    </div>
+  </div>
+</div>
+
 <div class="roster-card" style="max-width:420px;">
   <h4>PAC Leadership</h4>
   <div class="roster-sub">Statement of Organization · Created 12/24/2025</div>
@@ -196,6 +237,27 @@
     <p style="margin:8px 0 0;">Former House Speaker Gregory Hughes gave him money personally, as did Rep. Raymond Ward and Rep. Karen Peterson — Peterson's $500 personal gift followed the next month by $1,000 from her own PAC, Elevating Local Leaders, is a confirmed, repeatable pattern she also used with a separate HD-59 candidate. A $1,000 gift from a "Bonnie Beesley" is a plausible match to a $10,000 donor of the same name to a separate PAC ("Education First") that also drew a $100,000 gift from Gail Miller — not yet confirmed as the same person. Separately, <strong>All In For Utah PAC</strong> gave him $5,643.55 in-kind: its Chair, Owen Fuller, also runs Gov. Cox's "Disagree Better" initiative, and its Treasurer, Dan Hemmert, is the new MIDA Executive Director — the PAC's one named donor, Scott Anderson, is the same Zions Bank figure already confirmed giving $50,000 to CMV PAC.</p>
   </div>
 </div>
+
+<div class="hbar-chart">
+  <div class="hbar-row">
+    <div class="hbar-label">Scott Stephenson<span style="display:block;font-weight:400;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);">vs. Teuscher, HD-44</span></div>
+    <div class="hbar-track"><div class="hbar-fill" style="width:37.5%;"><span>37.5%</span></div></div>
+  </div>
+  <div class="hbar-row">
+    <div class="hbar-label">Chris McConnehey<span style="display:block;font-weight:400;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);">HD-38, open seat</span></div>
+    <div class="hbar-track"><div class="hbar-fill" style="width:29%;"><span>29%</span></div></div>
+  </div>
+  <div class="hbar-row" style="margin-bottom:0;">
+    <div class="hbar-label">Chris McConnehey<span style="display:block;font-weight:400;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);">Primary result, same race</span></div>
+    <div class="hbar-track"><div class="hbar-fill primary" style="width:62.4%;"><span>62.4% — won</span></div></div>
+  </div>
+  <div class="hbar-legend">
+    <span><span class="sw" style="background:var(--bad);"></span>Convention delegate share</span>
+    <span><span class="sw" style="background:var(--good);"></span>Primary result</span>
+  </div>
+</div>
+<p style="font-size:0.85rem;color:var(--ink-soft);margin-top:-4px;">Kelly Smith isn't charted above — her own reporting describes her as failing to clear the convention threshold outright rather than a specific delegate percentage, but the same underperform-then-compete pattern applies to her race too.</p>
+
 <div class="callout-box callout-finding">
 <p style="margin:0;"><strong>The real pattern may not be "judicial independence" alone.</strong> All three funded candidates underperformed specifically with their own party's convention delegates — Smith couldn't clear the threshold to avoid a primary at all, Stephenson took only 37.5% of delegates, McConnehey took only 29% — yet all three were either competitive or outright winning once the race reached the broader primary electorate. HD-38 has no apparent connection to the judicial-power bills that are this PAC's stated purpose, which suggests its functional strategy may be backing delegate-disadvantaged candidates generally, with judicial independence as its founding cause rather than its only funding criterion. Three data points is a real pattern worth naming, not proof of a rule.</p>
 </div>
@@ -204,6 +266,24 @@
 <div class="callout-box callout-finding" id="boundaries">
 <h3 style="margin-top:0;">3. The Better Boundaries Tie</h3>
 <p>The PAC's single largest donor is <strong>Better Boundaries Accountability</strong>, which gave $23,100 across two separate payments — $15,000 during the Convention period and $8,100 during the Primary period. This isn't a coincidental overlap in cause: Better Boundaries has fought Sen. Brammer by name since 2025 over a separate bill narrowing Proposition 4's redistricting fairness standard, and the same case-transfer mechanism this PAC was formed to oppose (SJR005/HB0366) was used by the Attorney General and Legislature to move the state's own Prop 4 redistricting lawsuit — the one Better Boundaries has litigated since 2018 — to a friendlier panel of judges.</p>
+
+<div class="flow-box" style="margin:16px 0;">
+  <div class="flow-tier">
+    <div class="flow-node overlap">Better Boundaries Accountability<span class="sub">$23,100 total, two payments</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node hub">Checks & Balances PAC</div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">Kelly Smith<span class="sub">vs. Sen. Brady Brammer</span></div>
+    <div class="flow-node flagged">Scott Stephenson<span class="sub">vs. Rep. Jordan Teuscher</span></div>
+    <div class="flow-node" style="border-style:dashed;">Chris McConnehey<span class="sub">no opponent tie to Brammer/Teuscher</span></div>
+  </div>
+  <div class="flow-caption">Brammer and Teuscher are also the two legislators Better Boundaries has separately fought over Prop 4 redistricting.</div>
+</div>
+
 <p style="margin-bottom:0;">In other words: the group that lost a legislative fight and a venue fight against the same legislator is funding the PAC working to defeat him at the ballot box. Full detail on that chain lives in the SD-21 race case file, linked below.</p>
 </div>
 
