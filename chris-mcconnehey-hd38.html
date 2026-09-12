@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chris McConnehey | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:780px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:720px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:250px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:100px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.78rem;font-weight:600;margin-top:2px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:520px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.7rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:260px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .hbar-chart{background:#fff;border:1px solid var(--line);padding:20px 24px;margin:20px 0;}
+  .hbar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .hbar-label{width:170px;flex-shrink:0;font-size:0.85rem;font-weight:600;}
+  .hbar-track{flex:1;background:var(--paper-dim);height:26px;position:relative;border:1px solid var(--line);}
+  .hbar-fill{height:100%;background:var(--bad);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+  .hbar-fill.primary{background:var(--good);}
+  .hbar-fill span{color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;}
+  .hbar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .hbar-legend span.sw{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:middle;}
+
+  .donut-row{display:flex;flex-wrap:wrap;gap:28px;margin:20px 0;align-items:flex-start;}
+  .donut-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:20px;text-align:center;}
+  .donut{width:160px;height:160px;border-radius:50%;margin:0 auto 14px;position:relative;}
+  .donut::after{content:"";position:absolute;top:24px;left:24px;width:112px;height:112px;border-radius:50%;background:#fff;}
+  .donut-label{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:4px;}
+  .donut-sub{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+  .donut-legend{display:flex;flex-direction:column;gap:5px;font-size:0.82rem;text-align:left;max-width:320px;margin:0 auto;}
+  .donut-legend span.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;flex-shrink:0;}
+
+  .quick-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin:18px 0;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:10px 12px;text-align:left;border:1px solid var(--line);cursor:pointer;user-select:none;}
+  .quick-table th:hover{background:var(--line);}
+  .quick-table th.sort-asc::after{content:" ▲";font-size:0.6rem;}
+  .quick-table th.sort-desc::after{content:" ▼";font-size:0.6rem;}
+  .quick-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+  .quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Candidate Funding Network</div>
+  <h1 class="title">Chris McConnehey: <em>Swept In By Accident, Funded By Design</em></h1>
+  <p class="subtitle">He shows up in this project's Checks & Balances PAC file purely because he shares a funder with two other candidates — he has no opponent tie to the judicial-power fight at all. His own campaign tells a completely different, and more interesting, story: a signature-gathering machine, a former Speaker's personal money, and a network that keeps reappearing across this whole project.</p>
+  <div class="meta-row">
+    <span class="meta-pill">HD-38, West Jordan · open seat</span>
+    <span class="meta-pill">Lost convention 29%–71%, won primary 62.4%–37.6%</span>
+    <span class="meta-pill">$51,123.55 raised · 88.3% institutional</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This Race</a>
+  <a href="#cmv">His Real Funder</a>
+  <a href="#network">The Signature-Gathering Network</a>
+  <a href="#establishment">Establishment Backing</a>
+  <a href="#explorer">Transaction Explorer</a>
+  <a href="#reflect">Worth Asking</a>
+  <a href="#open">Research Status</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<div class="callout-box">
+<p><strong>New here?</strong> Chris McConnehey is the Republican candidate for Utah House District 38 (West Jordan), an open seat left by retiring incumbent Cheryl Acton. He first appeared in this project as a side note in the Checks &amp; Balances PAC case file — that PAC gave him $4,000, the same PAC funding primary challengers against two legislators behind a 2026 judicial-power overhaul. But McConnehey has no opponent relationship to either of those legislators and no connection to that fight. He's here purely because he shares a funder. His own campaign's real story — who actually funded him, and how — is documented for the first time on this page.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This Race?</h2>
+<p>McConnehey lost the April 2026 Republican convention badly to Gloria Vindas, 29% to 71% of delegates — a wide enough margin that under Utah's old convention-only nomination system, his campaign would have ended there. Instead, under the signature-gathering path created by SB54 (2014), he advanced to the June primary and won it convincingly, 62.4% to 37.6%. He now faces unaffiliated candidate Sergio Sotelo in November. Utah News Dispatch grouped HD-38 with HD-44 (the Teuscher/Stephenson race documented in this project's Checks &amp; Balances PAC file) as one of several "contentious" 2026 primaries featuring AI-generated attack ads — a genuinely high-intensity race, not a sleepy open seat.</p>
+
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Jan–Apr 2026</div><div class="timeline-label">Convention period</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Apr 2026</div><div class="timeline-label">Loses convention, 29%–71%</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Jun 23, 2026</div><div class="timeline-label">Wins primary, 62.4%–37.6%</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Nov 3, 2026</div><div class="timeline-label">General vs. Sergio Sotelo</div></div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$51,123.55</span><span class="stat-label">Raised, fully reconciled via his own raw DEX export</span></div>
+  <div class="stat-cell"><span class="stat-num">88.3%</span><span class="stat-label">Share from institutional sources — one of the most institutional-heavy candidates in this project</span></div>
+  <div class="stat-cell"><span class="stat-num">71%</span><span class="stat-label">Share of convention delegates who voted against him</span></div>
+</div>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>This same underperform-at-convention, win-the-primary shape shows up across this entire project.</strong> Kelly Smith, Scott Stephenson, and Jake Hunsaker all show the identical pattern in their own files. McConnehey is a fourth, independent data point — and unlike the other three, his race has no connection at all to the "judicial independence" cause that originally funded Smith and Stephenson, suggesting the pattern may be about which candidates the signature-gathering system structurally favors, not about any one political cause.</p>
+</div>
+
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">Chris McConnehey (R)</div>
+    <div class="donut-sub">Full 2026 record, reconciled exactly</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 88.3%, #3F6B3F 88.3% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#8C3B44;"></span>88.3% institutional — $45,123.55 from 16 distinct entities</span>
+      <span><span class="sw" style="background:#3F6B3F;"></span>11.7% individual — $6,000 from 8 distinct people</span>
+    </div>
+  </div>
+</div>
+<p style="font-size:0.85rem;color:var(--ink-soft);margin-top:-4px;">This puts McConnehey alongside Jake Sawyer (100% institutional) and Jim Alvey (86.0%) as one of the most institutionally-funded candidates documented anywhere in this project — a genuinely lopsided ratio, not a marginal lean.</p>
+</section>
+
+<section id="cmv">
+<h2>2. His Real Funder: CMV PAC</h2>
+<p>Checks &amp; Balances PAC gave McConnehey $4,000 — the connection that pulled him into this project in the first place. But that's not close to his largest source of money. <strong>CMV PAC (Count My Vote) gave him $12,750 across two in-kind payments</strong> — more than triple what Checks &amp; Balances PAC gave him, and 24.9% of everything he raised.</p>
+
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node hub">CMV PAC (Count My Vote)</div>
+  </div>
+  <div class="flow-arrow-down">↓ &nbsp; ↓</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">$5,625<span class="sub">1/18/26 · "Signature Gathering"</span></div>
+    <div class="flow-node flagged">$7,125<span class="sub">5/28/26 · "Digital Advertising"</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node overlap">$12,750 total<span class="sub">24.9% of his entire campaign</span></div>
+  </div>
+</div>
+
+<p>CMV PAC's own case file in this project documents it as a large, systematic distributor — a standardized $5,625 "signature gathering" package paid to at least a dozen Republican candidates statewide in a single January 2026 batch, several of whom already have their own case files in this project (Jim Dunnigan, Raymond Ward, Erik Craythorne, Sam Barlow, Jake Hunsaker). McConnehey's first CMV PAC payment is the exact standard rate; the second, larger payment four months later brings his total well above what most other recipients got.</p>
+</section>
+
+<section id="network">
+<h2>3. The Signature-Gathering Network</h2>
+<p>McConnehey's campaign paid <strong>"Gathering, Inc" $2,700</strong> for signature gathering (4/23/26) — the same service CMV PAC's own in-kind payment covers. <strong>Confirmed via the company's own Utah Division of Corporations filing</strong>: its officers are <strong>Casey Hill</strong> (co-founder of Lincoln Hill Partners and a registered Election Hive lobbyist, already extensively documented elsewhere in this project) and <strong>Spencer Stokes</strong> (President of Stokes Strategies, a lobbying firm) — both listed at the same Salt Lake City address. McConnehey's campaign is a direct, paying customer of a network already documented in this project's Casey Hill/Derek Brown case file, not just a beneficiary of a PAC that happens to fund similar candidates.</p>
+
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node hub">Gathering, Inc<span class="sub">Officers: Casey Hill &amp; Spencer Stokes</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">McConnehey<span class="sub">$2,700</span></div>
+    <div class="flow-node flagged">Stuart Adams<span class="sub">$76,682 across 6 payments — lost his primary anyway</span></div>
+    <div class="flow-node" style="border-style:dashed;">At least 4 more 2026 clients<span class="sub">Sloan, Wurth, Stephenson, Utahns for Rep. Gov't</span></div>
+  </div>
+  <div class="flow-caption">Gathering Inc is a genuinely statewide vendor, not a service used once by this campaign.</div>
+</div>
+
+<div class="callout-box callout-finding">
+<p style="margin:0 0 8px;"><strong>Spencer Stokes' co-ownership connects to a second McConnehey funder through a different route.</strong> Stokes previously co-founded "Utah Term Limits" in 2020 with Dan Hemmert — a PAC the Salt Lake Tribune called "fake," created one day after a disclosure deadline specifically to hide its donors before a primary. Hemmert is separately confirmed on this page as Treasurer of All In For Utah PAC, which itself gave McConnehey $5,643.55 in-kind (see Section 4). Two people with a documented history of a disclosure-evading PAC together now connect to two different McConnehey funding sources.</p>
+<p style="margin:0;"><strong>A statewide search of 2026 Gathering Inc expenditures turned up a much bigger operation than one HD-38 candidate.</strong> Its largest identified 2026 client, at $76,682 across six payments, is filed under "Adams, J." Senate President Stuart Adams' full legal name is Jabez Stuart Adams, formally styled "J. Stuart Adams" in every official context — an exact match to this filing format. Worth noting the real-world outcome: Adams lost his own June 2026 Republican primary to Stephanie Hollist, 43%-35%, despite this spending — a data point for the same "money buys ballot access, not necessarily victory" pattern already visible elsewhere on this page and across this project. Other 2026 Gathering Inc clients include payments filed under "Sloan, Chris," "Wurth, Dakota," "Stephenson, Jon," and an entity called "Utahns for Representative Government" — a name close enough to "Utahns for Responsive Government" (an unresearched donor elsewhere in this project) to be worth checking, though not yet confirmed as the same group.</p>
+</div>
+</section>
+
+<section id="establishment">
+<h2>4. Establishment Backing</h2>
+<p>Beyond the PAC money, McConnehey's donor list reads like a small tour of Utah's Republican establishment and its adjacent money networks — several names already extensively documented elsewhere in this project.</p>
+
+<table class="quick-table" id="establishmentTable">
+  <thead><tr>
+    <th data-col="name" data-type="text">Donor</th>
+    <th data-col="amount" data-type="num">Amount</th>
+    <th data-col="note" data-type="text">Why It's Notable</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Gregory Hughes</td><td class="amt">$1,000</td><td>Former Utah House Speaker (2015–2019), personal gift</td></tr>
+    <tr><td>Raymond Ward</td><td class="amt">$1,500</td><td>Sitting State Representative, two separate gifts</td></tr>
+    <tr><td>Karen Peterson</td><td class="amt" data-sort="1500">$500 + $1,000</td><td>Personal gift, then her own PAC the next cycle — a confirmed repeatable pattern also used with Luke Searle</td></tr>
+    <tr><td>All In For Utah PAC</td><td class="amt">$5,643.55</td><td>In-kind, four payments; Chair Owen Fuller runs Gov. Cox's "Disagree Better" initiative; Treasurer Dan Hemmert is the new MIDA Executive Director</td></tr>
+    <tr><td>Utah Doers</td><td class="amt">$3,750</td><td>Shares an address with All In For Utah PAC — both built by the same incorporator, GOP campaign-finance attorney Matthew T. Sanderson</td></tr>
+    <tr><td>Governing Group</td><td class="amt">$5,730</td><td>Cash + in-kind combined, three payments</td></tr>
+    <tr><td>Utah Chamber PAC</td><td class="amt">$5,000</td><td>Already has its own dedicated case file in this project</td></tr>
+    <tr><td>Bonnie Beesley</td><td class="amt">$1,000</td><td>Possible match to a $10,000 donor of the same name in the same PAC filing where Gail Miller gave $100,000 — not yet confirmed</td></tr>
+    <tr><td>Adam Gardiner</td><td class="amt">$1,000</td><td>New name from his full raw DEX export — not otherwise identified</td></tr>
+  </tbody>
+</table>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>Scott Anderson connects two of this project's largest funding stories through a single $10,000 check.</strong> All In For Utah PAC's one named donor is A. Scott Anderson — the same retired Zions Bank CEO already confirmed giving $50,000 to CMV PAC. The same person is a major funder behind both of McConnehey's two biggest institutional supporters, through two entirely separate vehicles.</p>
+</div>
+
+<p style="font-size:0.85rem;color:var(--ink-soft);">Standard trade-association giving rounds out the rest of the donor list: Utah Apartment Association PAC $1,000, Utah Association of Realtors PAC $1,500, Home Builders Association of Utah PAC $500, Utah Property Rights Coalition $500, Holland and Hart $250, Parsons Behle &amp; Latimer $200, Utah Bankers Association State PAC $2,000, Utah AFL-CIO $300 — the last labor-PAC gift in an otherwise business-and-establishment-heavy donor list. One more individual gift, $200 from Erin Rider, is also not otherwise identified.</p>
+
+<h3>His own campaign site's endorsement list</h3>
+<p>McConnehey's endorsers, from his own campaign site, back up the financial picture above with a public roster of political relationships: Chad Lamb, Zach Jacob, Dave Newton, Lorin Palmer, Dr. David Pack, Jim Bird, and Rob Bennett (current and former West Jordan/Herriman local officials), plus three names that connect directly to money already documented on this page or elsewhere in this project — <strong>Wayne Harper</strong> (Utah State Senator), <strong>Jim Dunnigan</strong> (Utah State Representative, also a $700 donor — see Transaction Explorer), and <strong>Annette Harris</strong> (West Jordan City Council, also a $100 donor). Also endorsing: Aimee Winder Newton (Salt Lake County Council Chair), Dirk Burton (West Jordan Mayor), Niki George (Jordan School Board President).</p>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>This resolves, at least partially, an open question from this project's UINPAC file.</strong> UINPAC (a Democratic-aligned PAC) separately lists an "Annette Harris" as a political-support recipient, and it was an open question whether she's the same person as McConnehey's $100 donor of the same name. His own site identifies his Annette Harris as a sitting West Jordan City Council member personally endorsing his Republican campaign — a poor fit for a Democratic PAC's recipient, though city council seats are often officially nonpartisan, so this isn't a certain rule-out without an address comparison.</p>
+</div>
+</section>
+
+<section id="explorer">
+<h2>5. Transaction Explorer</h2>
+<p>Every transaction currently on file for this campaign, Convention period through September 2026. Search by name, or filter by type.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search name or purpose…">
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="contribution">Contributions</button>
+    <button class="tx-pill" data-type="expenditure">Expenditures</button>
+    <button class="tx-pill" data-type="flagged">Flagged only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Type</th><th>Name</th><th>Amount</th><th>Purpose</th><th>Notes</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="reflect">
+<h2>6. Worth Asking</h2>
+<div class="callout-box">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>McConnehey lost his own party's convention by a wide margin, then won comfortably once the money-fueled signature-gathering path put him on the primary ballot.</strong> Is that the system working as designed — giving primary voters more say than a smaller pool of convention delegates — or is it a way for money to manufacture a win the party's most engaged members didn't want?</li>
+<li><strong>The same handful of names — Scott Anderson, Dan Hemmert, Casey Hill's network, Matthew Sanderson's entities — keep reappearing across completely separate races and PACs in this project.</strong> Is that evidence of a genuinely small number of people who fund and staff most competitive Utah Republican campaigns, regardless of district? If so, what does "constituent service" mean to a legislator whose viability depended on a repeat cast of statewide funders rather than local voters?</li>
+</ul>
+</div>
+</section>
+
+<section id="open">
+<h2>7. Research Status</h2>
+<div class="callout-box callout-finding">
+<p style="margin:0 0 8px;"><strong>Resolved since first publication:</strong></p>
+<ul class="tidy" style="margin-bottom:0;">
+<li>"Annette Harris" ($100, 9/4/26) is a sitting West Jordan City Council member, per McConnehey's own campaign site's endorsement list — see Section 4. Likely not the same person as a UINPAC political-support recipient of the same name, though not fully closed without an address comparison.</li>
+<li>"Gathering, Inc" is confirmed, via its own Utah Division of Corporations filing, to be officered by Casey Hill and Spencer Stokes — see Section 3.</li>
+<li>"Adams, J" — Gathering Inc's largest identified 2026 client at $76,682 — is Senate President Stuart Adams, whose full legal name (Jabez Stuart Adams) is formally styled "J. Stuart Adams" everywhere else. He lost his own June 2026 primary despite this spending — see Section 3.</li>
+</ul>
+</div>
+<div class="callout-box callout-open">
+<p style="margin:0 0 8px;"><strong>Still being checked — not yet confirmed one way or the other:</strong></p>
+<ul class="tidy" style="margin-bottom:0;">
+<li>Whether "Utahns for Representative Government" (a $7,500 Gathering Inc client) is the same entity as, a variant of, or unrelated to "Utahns for Responsive Government," an unresearched donor elsewhere in this project.</li>
+<li>Whether "Bonnie Beesley" ($1,000 donor here) is the same Bonnie Jean Beesley who gave $10,000 to Education First PAC in the same filing where Gail Miller gave $100,000 — a promising lead, not yet address-confirmed.</li>
+<li>Karen Peterson's $500 personal gift here hasn't been individually address-matched to her HD-13 filing, though the personal-then-PAC pattern is already confirmed real via her identical structure with Luke Searle.</li>
+<li>"UCUPAC" ($1,000, 4/10/26) — possibly Utah Credit Union PAC, not confirmed.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>8. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>Checks &amp; Balances PAC: the case file where McConnehey first surfaced — his $4,000 gift, and why he has no real connection to that PAC's stated judicial-independence mission.</span>
+  <a class="cta" href="checks-and-balances-pac.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>CMV PAC: McConnehey's actual dominant funder, and the standardized signature-gathering machine behind a dozen other Utah Republican campaigns.</span>
+  <a class="cta" href="cmv-pac.html">Read the case file →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah State Elections Office, CFIS campaign finance disclosures — McConnehey's Convention, Primary, and later-period reports</li>
+<li>Utah News Dispatch — coverage of contentious 2026 primaries featuring AI-generated attack ads</li>
+<li>Ballotpedia — HD-38 2026 race results and candidate information</li>
+<li>Cross-referenced against this project's own CMV PAC, Checks &amp; Balances PAC, Casey Hill/Derek Brown, and Luke Searle case files</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"1/7/2026", type:"contribution", name:"Gregory Hughes", amt:1000, purpose:"", notes:"Former Utah House Speaker (2015-2019), personal gift", flag:true},
+  {date:"1/7/2026", type:"contribution", name:"Raymond Ward", amt:500, purpose:"", notes:"Sitting State Representative", flag:true},
+  {date:"1/18/2026", type:"contribution", name:"CMV PAC", amt:5625, purpose:"Signature Gathering", notes:"Standard rate — see Section 2", flag:true},
+  {date:"2/5/2026", type:"contribution", name:"Adam Gardiner", amt:1000, purpose:"", notes:"Not otherwise identified", flag:true},
+  {date:"2/19/2026", type:"contribution", name:"Utah Doers", amt:3750, purpose:"", notes:"Shares an address with All In For Utah PAC — see Section 4", flag:true},
+  {date:"3/10/2026", type:"contribution", name:"Utah Property Rights Coalition", amt:500, purpose:"", notes:"", flag:false},
+  {date:"3/18/2026", type:"contribution", name:"Governing Group", amt:1250, purpose:"", notes:"Second of three payments — $5,730 total", flag:true},
+  {date:"4/6-4/23/2026", type:"expenditure", name:"Gathering, Inc", amt:-2700, purpose:"Signature Gathering", notes:"Confirmed Casey Hill/Spencer Stokes company — see Section 3", flag:true},
+  {date:"4/10/2026", type:"contribution", name:"UCUPAC", amt:1000, purpose:"", notes:"Possibly Utah Credit Union PAC, not confirmed", flag:true},
+  {date:"5/6/2026", type:"contribution", name:"Raymond Ward", amt:1000, purpose:"", notes:"Second gift — $1,500 total", flag:true},
+  {date:"5/15/2026", type:"contribution", name:"All In For Utah PAC", amt:2500, purpose:"", notes:"In-kind; first of four payments — $5,643.55 total", flag:true},
+  {date:"5/18/2026", type:"contribution", name:"Governing Group", amt:4250, purpose:"", notes:"First of three payments — $5,730 total", flag:true},
+  {date:"5/18/2026", type:"contribution", name:"Utah Apartment Association PAC", amt:1000, purpose:"", notes:"", flag:false},
+  {date:"5/20/2026", type:"contribution", name:"Karen Peterson", amt:500, purpose:"Personal", notes:"Confirmed pattern — same structure used with Luke Searle", flag:true},
+  {date:"5/21/2026", type:"contribution", name:"Holland and Hart", amt:250, purpose:"", notes:"", flag:false},
+  {date:"5/21/2026", type:"contribution", name:"Governing Group", amt:230, purpose:"", notes:"In-kind, third payment — $5,730 total", flag:false},
+  {date:"5/21/2026", type:"contribution", name:"Erin Rider", amt:200, purpose:"", notes:"Not otherwise identified", flag:true},
+  {date:"5/27/2026", type:"contribution", name:"Checks & Balances PAC", amt:4000, purpose:"", notes:"The connection that first surfaced this race — see Section 1", flag:true},
+  {date:"5/28/2026", type:"contribution", name:"CMV PAC", amt:7125, purpose:"Digital Advertising", notes:"Second, larger payment — $12,750 total from CMV PAC", flag:true},
+  {date:"5/29/2026", type:"contribution", name:"Utah Chamber PAC", amt:5000, purpose:"", notes:"Already has own dedicated case file", flag:true},
+  {date:"6/1/2026", type:"contribution", name:"All In For Utah PAC", amt:2250, purpose:"", notes:"In-kind, second payment", flag:true},
+  {date:"6/1/2026", type:"contribution", name:"All In For Utah PAC", amt:745.50, purpose:"", notes:"In-kind, third payment", flag:true},
+  {date:"6/1/2026", type:"contribution", name:"All In For Utah PAC", amt:148.05, purpose:"", notes:"In-kind, fourth payment — $5,643.55 total", flag:true},
+  {date:"6/1/2026", type:"contribution", name:"Utah Association of Realtors PAC", amt:1500, purpose:"", notes:"", flag:false},
+  {date:"6/3/2026", type:"contribution", name:"Home Builders Association of Utah PAC", amt:500, purpose:"", notes:"", flag:false},
+  {date:"6/4/2026", type:"contribution", name:"Parsons Behle & Latimer", amt:200, purpose:"", notes:"Law firm", flag:false},
+  {date:"6/5/2026", type:"contribution", name:"Elevating Local Leaders PAC", amt:1000, purpose:"", notes:"Peterson's own PAC — the day after her personal gift", flag:true},
+  {date:"6/5/2026", type:"contribution", name:"Bonnie Beesley", amt:1000, purpose:"", notes:"Possible Education First PAC / Gail Miller filing match — not confirmed", flag:true},
+  {date:"6/18/2026", type:"contribution", name:"Jim Dunnigan", amt:700, purpose:"", notes:"HB0280 chief sponsor, personal gift", flag:true},
+  {date:"6/29/2026", type:"contribution", name:"Utah Bankers Association State PAC", amt:2000, purpose:"", notes:"", flag:false},
+  {date:"7/30/2026", type:"contribution", name:"Utah AFL-CIO", amt:300, purpose:"", notes:"Only labor-PAC gift on this list", flag:false},
+  {date:"9/4/2026", type:"contribution", name:"Annette Harris", amt:100, purpose:"", notes:"West Jordan City Council member, per his own site's endorsement list — likely not the same Annette Harris as a UINPAC recipient", flag:true},
+  {date:"Convention+Primary", type:"expenditure", name:"Peczuh Printing and Paperbox", amt:-6597.24, purpose:"Advertising", notes:"Three payments — resolves a separate PAC's own 'purpose unclear' flag", flag:true},
+  {date:"Convention+Primary", type:"expenditure", name:"Arena Mail and Digital", amt:-3000, purpose:"", notes:"Two payments", flag:false},
+  {date:"Convention+Primary", type:"expenditure", name:"Rose Field Solutions", amt:-1410, purpose:"", notes:"", flag:false},
+  {date:"Convention+Primary", type:"expenditure", name:"Vottiv", amt:-583.98, purpose:"", notes:"Three payments", flag:false},
+  {date:"Convention+Primary", type:"expenditure", name:"Granite Peak Strategy Group", amt:-1195, purpose:"", notes:"Two payments", flag:false},
+  {date:"Convention+Primary", type:"expenditure", name:"Anedot", amt:-40.30, purpose:"Transaction Fee", notes:"", flag:false},
+];
+
+function fmtAmt(n){
+  const abs = Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return (n < 0 ? "-$" : "$") + abs;
+}
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (activePill === 'contribution' && t.type !== 'contribution') return;
+    if (activePill === 'expenditure' && t.type !== 'expenditure') return;
+    if (activePill === 'flagged' && !t.flag) return;
+    const haystack = (t.name + ' ' + t.purpose + ' ' + t.notes).toLowerCase();
+    if (q && haystack.indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.className = t.type;
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td class="mono">' + t.type + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">flagged</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>' +
+      '<td>' + (t.purpose || '—') + '</td>' +
+      '<td>' + (t.notes || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' transactions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+
+// Sortable establishment-backing table
+(function(){
+  const table = document.getElementById('establishmentTable');
+  if (!table) return;
+  const tbody = table.querySelector('tbody');
+  table.querySelectorAll('th').forEach(function(th, idx){
+    th.addEventListener('click', function(){
+      const type = th.getAttribute('data-type');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const asc = !th.classList.contains('sort-asc');
+      table.querySelectorAll('th').forEach(function(h){ h.classList.remove('sort-asc','sort-desc'); });
+      th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+      rows.sort(function(a, b){
+        let av = a.children[idx].textContent.trim();
+        let bv = b.children[idx].textContent.trim();
+        if (type === 'num') {
+          const aSort = a.children[idx].getAttribute('data-sort');
+          const bSort = b.children[idx].getAttribute('data-sort');
+          av = aSort !== null ? parseFloat(aSort) : (parseFloat(av.replace(/[^0-9.-]/g, '')) || 0);
+          bv = bSort !== null ? parseFloat(bSort) : (parseFloat(bv.replace(/[^0-9.-]/g, '')) || 0);
+          return asc ? av - bv : bv - av;
+        }
+        return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
