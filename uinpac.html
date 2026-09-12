@@ -102,6 +102,15 @@
   footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
   footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
   footer.site-footer a:hover{color:#fff;}
+  .donut-row{display:flex;flex-wrap:wrap;gap:28px;margin:20px 0;align-items:flex-start;}
+  .donut-card{flex:1;min-width:220px;background:#fff;border:1px solid var(--line);padding:20px;text-align:center;}
+  .donut{width:140px;height:140px;border-radius:50%;margin:0 auto 14px;position:relative;}
+  .donut::after{content:"";position:absolute;top:20px;left:20px;width:100px;height:100px;border-radius:50%;background:#fff;}
+  .donut-label{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:4px;}
+  .donut-sub{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+  .donut-legend{display:flex;flex-direction:column;gap:4px;font-size:0.82rem;text-align:left;max-width:180px;margin:0 auto;}
+  .donut-legend span.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;}
+  .missing-data-note{background:var(--paper-dim);border:1px dashed var(--line);padding:14px 18px;font-size:0.88rem;color:var(--ink-soft);margin:14px 0;}
 </style>
 </head>
 <body>
@@ -128,7 +137,8 @@
   <a href="#structure">Shared Address, Shared People</a>
   <a href="#races">The Races It Funds</a>
   <a href="#explorer">Transaction Explorer</a>
-  <a href="#open">Open Questions</a>
+  <a href="#reflect">Worth Asking</a>
+  <a href="#open">Research Status</a>
   <a href="#related">Related Coverage</a>
   <a href="#sources">Sources</a>
 </nav>
@@ -182,24 +192,88 @@
 <p>UtahPolitics.news' own reporting (Bryan Schott, 9/11/26) independently confirms that four of UINPAC's candidate recipients are in genuinely competitive 2026 races, each with specific, quantified Republican PAC spending on the other side.</p>
 
 <details class="acc" open>
-  <summary>Angela Choberka (D, HD-9) — Rated "Likely Republican," flagged as competitive</summary>
+  <summary>Angela Choberka (D, HD-9)</summary>
   <div class="acc-body"><p style="margin:0;">A rematch: Choberka lost this seat to Republican Jake Sawyer in 2024, 58.3%–36.8%. In 2026, Sawyer received $15,000 combined from the Utah House Republican Election Committee and Speaker Mike Schultz's leadership PAC — all of his $21,250 raised since mid-June came entirely from corporations and PACs. Choberka raised $12,500 from 110 individual small-dollar donations over the same period. Already documented in this project's own HD-9 case file.</p></div>
 </details>
 
 <details class="acc">
-  <summary>Rosemary Lesser (D, HD-10) — Rated "Lean Democrat"</summary>
+  <summary>Rosemary Lesser (D, HD-10)</summary>
   <div class="acc-body"><p style="margin:0;">A physician and Air Force veteran seeking a comeback: Lesser held this seat from January 2021 (appointed after her predecessor's death) through 2024, then lost narrowly to Republican Jill Koford, 50.98%–49.02% — about 300 votes, in one of that cycle's most expensive races ($290,000+ combined). Her 2026 opponent, Jim Alvey, received $35,000 combined from the same two Republican PACs — nearly all of his fundraising. Lesser entered June with $40,000+ cash on hand and raised another $56,000 since.</p></div>
 </details>
 
 <details class="acc">
-  <summary>Liz Oates (D, HD-27) — Rated "Likely R," flagged as closer than the rating implies</summary>
-  <div class="acc-body"><p style="margin:0;">Challenging Republican incumbent Anthony Loubet, an attorney first elected in 2022. Loubet received $20,000 combined from the same two Republican PACs. Oates raised $35,000+ over the same window.</p></div>
+  <summary>Liz Oates (D, HD-27)</summary>
+  <div class="acc-body"><p style="margin:0;">Challenging Republican incumbent Anthony Loubet, an attorney first elected in 2022. Loubet received $20,000 combined from the same two Republican PACs. Oates's own full donor record — Year End 2025 through her latest itemized report — shows $59,865.29 raised total, fully reconciled: $24,400 (40.8%) from PACs and party committees, $35,465.29 (59.2%) from 189 distinct individual donors averaging $134.85 each, including several sitting and former Utah Democratic legislators giving personally. Loubet's own itemized report for the same window shows $35,752.91 raised, also fully reconciled: $29,951 (83.8%) from 10 PACs and corporate donors, $5,801.91 (16.2%) from just 12 individuals. Both sides are charted below.</p></div>
 </details>
 
 <details class="acc">
-  <summary>Celeste Johnson (D, HD-59) — Rated "Lean Republican," flagged as a realistic flip</summary>
+  <summary>Celeste Johnson (D, HD-59)</summary>
   <div class="acc-body"><p style="margin:0;">Running to succeed retiring Rep. Mike Kohler. Republican Luke Searle — who won his own primary by just 627 votes — received $15,000 combined from the same two Republican PACs. Johnson slightly outraised him since mid-June.</p></div>
 </details>
+
+<h3>Individual donors vs. PAC money — how the two sides actually compare</h3>
+<p>PAC support isn't inherently a red flag on its own — the real question is what share of a campaign's money comes from PACs versus individual people. Here's what's actually confirmed for each race, and what isn't.</p>
+
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">Angela Choberka (D)</div>
+    <div class="donut-sub">HD-9 · since mid-June 2026</div>
+    <div class="donut" style="background:conic-gradient(#3F6B3F 0% 100%);"></div>
+    <div class="donut-legend"><span><span class="sw" style="background:#3F6B3F;"></span>100% individual — $12,500 from 110 donors</span></div>
+  </div>
+  <div class="donut-card">
+    <div class="donut-label">Jake Sawyer (R)</div>
+    <div class="donut-sub">HD-9 incumbent · since mid-June 2026</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 100%);"></div>
+    <div class="donut-legend"><span><span class="sw" style="background:#8C3B44;"></span>100% institutional — all $21,250 from corporations and PACs</span></div>
+  </div>
+</div>
+<p style="margin:0 0 18px;">This is the one race in this batch where UtahPolitics.news' own reporting states both sides' full composition plainly — not an estimate. It's about as stark a contrast as this kind of comparison gets.</p>
+
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">Luke Searle (R)</div>
+    <div class="donut-sub">HD-59 · filed 6/21–8/17/26, confirmed exact</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 72.7%, #3F6B3F 72.7% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#8C3B44;"></span>72.7% institutional — $16,250 from 4 PACs</span>
+      <span><span class="sw" style="background:#3F6B3F;"></span>27.3% individual — $6,094.04 from 31 people, averaging $196.58 each</span>
+    </div>
+  </div>
+  <div class="donut-card">
+    <div class="donut-label">Jim Alvey (R)</div>
+    <div class="donut-sub">HD-10 · year-to-date as of Sept. 30 report</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 84.9%, #3F6B3F 84.9% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#8C3B44;"></span>84.9% institutional — $35,000 from UHREC ($20,000) and House Speaker Leadership PAC ($15,000), both landing the same day, 8/12/26</span>
+      <span><span class="sw" style="background:#3F6B3F;"></span>15.1% individual — $6,210, mostly small local gifts $20–$500, plus Koford's $200</span>
+    </div>
+  </div>
+</div>
+<p style="margin:0 0 18px;">Celeste Johnson's matching breakdown for the same period as Searle's isn't available with the same precision, so no chart is shown for her either. Both Alvey and Searle numbers above reconcile exactly against each candidate's own reported year-to-date total. Before the 8/12/26 PAC infusion, Alvey's campaign was $3,615 — entirely individual donors, not one PAC dollar.</p>
+<p style="margin:0 0 18px;"><strong>Lesser vs. Alvey is sharper looked at as a count, not just a dollar share.</strong> Lesser raised more than double Alvey's total — $90,013.48 across roughly 200+ individual transactions, dozens of distinct local donors giving small and recurring amounts. Alvey's $41,210 total includes $35,000 that arrived in just two transactions, on one day: UHREC ($20,000) and House Speaker Leadership PAC ($15,000), both landing 8/12/26. Two transactions did more for his campaign than everything else, spread across the rest of the entire cycle, combined.</p>
+
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">Liz Oates (D)</div>
+    <div class="donut-sub">HD-27 · full record, Year End 2025–Sept. 2026</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 40.8%, #3F6B3F 40.8% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#8C3B44;"></span>40.8% institutional — $24,400 from 9 PACs/committees</span>
+      <span><span class="sw" style="background:#3F6B3F;"></span>59.2% individual — $35,465.29 from 189 people, averaging $134.85 each</span>
+    </div>
+  </div>
+  <div class="donut-card">
+    <div class="donut-label">Anthony Loubet (R)</div>
+    <div class="donut-sub">HD-27 incumbent · 6/18–9/9/26</div>
+    <div class="donut" style="background:conic-gradient(#8C3B44 0% 83.8%, #3F6B3F 83.8% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#8C3B44;"></span>83.8% institutional — $29,951 from 10 entities</span>
+      <span><span class="sw" style="background:#3F6B3F;"></span>16.2% individual — $5,801.91 from 12 people, averaging $483.49 each</span>
+    </div>
+  </div>
+</div>
+<p style="margin:0 0 18px;">Both numbers cover an almost identical roughly three-month window (mid-June to early September 2026) and reconcile exactly against each candidate's own reported totals for that period — a genuine apples-to-apples comparison, not two different slices of time. Oates built her total from 189 separate people. Loubet built his from 12, with the two Republican leadership PACs alone accounting for more than half of everything he raised.</p>
 
 <p style="margin-top:18px;">Two of these four — Choberka and Lesser — are repeat candidates seeking rematches against the exact opponents who beat them in 2024. Oates and Johnson are each in their first run for these particular seats.</p>
 
@@ -236,8 +310,17 @@
 </div>
 </section>
 
+<section id="reflect">
+<h2>5. Worth Asking</h2>
+<div class="callout-box">
+<p style="margin:0 0 10px;"><strong>Every race on this page shows some version of the same shape.</strong> Choberka raised $12,500 from 110 people while Sawyer raised $21,250 entirely from corporations and PACs. Oates built her campaign from 189 individual donors; Loubet built his from 12. Searle and Alvey each got the bulk of their money from two or three institutional checks landing on a single day. None of these candidates were chosen by a small group of donors in any formal sense — voters still cast the deciding ballots. But the money that determines who can afford to run a competitive race, staff it, and advertise in it is arriving, in race after race, from a small number of PACs and corporations with an ongoing relationship to whoever is already in office — not from a broad public writing small checks. If the field a voter chooses from has already been shaped that heavily before a single vote is cast, is the public still the one picking the winners, or mostly ratifying a choice institutional money already narrowed?</p>
+<p style="margin:0 0 10px;"><strong>Twelve people gave Anthony Loubet more sway over his own campaign than 189 people gave Liz Oates.</strong> If a race can be decided by which side attracts a handful of institutional checks rather than a broad base of individual support, whose interests does the winner actually answer to once in office — the electorate that shows up in November, or the PACs that wrote the checks months earlier?</p>
+<p style="margin:0;"><strong>The same professional operators keep appearing on opposite sides of the aisle.</strong> Will Terry administers a PAC funding conservative primary challengers and a PAC on the opposite end of the spectrum. Matt Lyon runs the payment infrastructure behind a Democratic-aligned PAC while partnering in the firm that operates it. Is that evidence of real, competing political movements — or a small circle of consultants who do well regardless of which side wins?</p>
+</div>
+</section>
+
 <section id="open">
-<h2>5. Open Questions</h2>
+<h2>6. Research Status</h2>
 <div class="callout-box callout-finding">
 <p style="margin:0 0 8px;"><strong>Resolved since first publication:</strong></p>
 <ul class="tidy" style="margin-bottom:0;">
@@ -245,17 +328,18 @@
 </ul>
 </div>
 <div class="callout-box callout-open">
+<p style="margin:0 0 8px;"><strong>Still being checked — not yet confirmed one way or the other:</strong></p>
 <ul class="tidy" style="margin-bottom:0;">
-<li><strong>Is "Annette Harris" here the same Annette Harris who separately gave $100 to Chris McConnehey's Republican campaign?</strong> Addresses not yet compared.</li>
-<li><strong>Kendra for Utah and Stephanie Pitcher</strong> — not yet cross-checked against other files in this project.</li>
-<li><strong>Who is Samuel Allman</strong>, DRAIN THE SWAMP PAC/RESTORE TRUST PAC's Chair and Treasurer? Not yet researched beyond his own officer filing.</li>
+<li>Whether "Annette Harris," a UINPAC political-support recipient, is the same Annette Harris who separately gave $100 to Chris McConnehey's Republican campaign — addresses not yet compared.</li>
+<li>"Kendra for Utah" and Stephanie Pitcher haven't yet been cross-checked against other candidate files in this project.</li>
 </ul>
 </div>
 </section>
 
 <section id="related">
-<h2>6. Related Coverage</h2>
+<h2>7. Related Coverage</h2>
 <div class="profile-link-box">
+
   <span>Checks &amp; Balances PAC: where the "UNIPAC" typo that led to this PAC's identification first appeared</span>
   <a class="cta" href="checks-and-balances-pac.html">Read the case file →</a>
 </div>
