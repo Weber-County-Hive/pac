@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAC — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:900px;
+    --status-doc:#3F6B3F; --status-pending:#B4863C; --status-disputed:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  ::selection{background:var(--maroon);color:var(--paper);}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:72px 24px 40px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(34px,5.8vw,58px);line-height:1.06;letter-spacing:-0.01em;max-width:760px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .dek{font-size:19px;color:var(--ink-soft);max-width:680px;margin-top:20px;line-height:1.5;}
+
+  .search-bar{max-width:var(--max);margin:0 auto;padding:32px 24px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .search-bar input{flex:1;min-width:220px;max-width:420px;padding:12px 16px;font-family:'Source Sans 3',sans-serif;font-size:15px;border:1px solid var(--line);background:#fff;color:var(--ink);outline:none;}
+  .search-bar input:focus{border-color:var(--maroon);}
+  .search-bar input::placeholder{color:var(--ink-soft);opacity:.7;}
+  .search-bar select{padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:13px;border:1px solid var(--line);background:#fff;color:var(--ink);outline:none;}
+  .search-count{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);width:100%;margin-top:6px;}
+
+  .docket{max-width:var(--max);margin:0 auto;padding:24px 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+  .card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:26px 26px 24px;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);transition:transform .15s ease, box-shadow .15s ease;position:relative;}
+  .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(24,18,16,.10);}
+  .card.paired{border-left-color:var(--gold);}
+  .card .case-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:10px;}
+  .card .case-number{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--maroon);}
+  .status-stamp{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border:1px solid;white-space:nowrap;}
+  .status-documented{color:var(--status-doc);border-color:var(--status-doc);}
+  .status-pending{color:var(--status-pending);border-color:var(--status-pending);}
+  .status-disputed{color:var(--status-disputed);border-color:var(--status-disputed);}
+  .card .category{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .card h2{font-size:21px;line-height:1.2;margin-bottom:10px;color:var(--ink);}
+  .card p.summary{font-size:14.5px;color:var(--ink-soft);line-height:1.5;margin:0 0 14px;flex-grow:1;}
+  .card .officials{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+  .card .official-tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--paper-dim);border:1px solid var(--line);padding:3px 8px;color:var(--ink-soft);}
+  .card .paired-note{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold);margin-bottom:12px;}
+  .card .meta-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+  .card .read{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--maroon);}
+  .card .updated{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-soft);opacity:.75;}
+
+  .no-results{max-width:var(--max);margin:0 auto;padding:0 24px 60px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);display:none;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;}
+  footer.site-footer .wrap{display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+
+  @media(max-width:600px){header.masthead{padding:48px 18px 32px;}.search-bar{padding:24px 18px 0;}.docket{padding:16px 18px 60px;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case Docket</div>
+  <h1 class="title">PAC<em>.</em></h1>
+  <p class="dek">A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="caseSearch" placeholder="Search by title, official, or category…" autocomplete="off">
+  <select id="statusFilter">
+    <option value="">All statuses</option>
+    <option value="documented">Documented</option>
+    <option value="pending">Pending</option>
+    <option value="disputed">Disputed</option>
+  </select>
+  <div class="search-count mono" id="searchCount"></div>
+</div>
+
+<div class="docket" id="docket"></div>
+<div class="no-results" id="noResults">No cases match that search.</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script src="pac-data.js?v=1"></script>
+<script>
+  const docket = document.getElementById('docket');
+  const searchInput = document.getElementById('caseSearch');
+  const statusFilter = document.getElementById('statusFilter');
+  const searchCount = document.getElementById('searchCount');
+  const noResults = document.getElementById('noResults');
+
+  const byCaseNumber = {};
+  CASES.forEach(c => byCaseNumber[c.caseNumber] = c);
+
+  function statusLabel(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  function cardHTML(c) {
+    const officials = c.officials.map(o => `<span class="official-tag">${o}</span>`).join('');
+    const pairedNote = c.pairWith && byCaseNumber[c.pairWith]
+      ? `<div class="paired-note">↔ Paired with "${byCaseNumber[c.pairWith].title}"</div>`
+      : '';
+    return `
+      <a class="card ${c.pairWith ? 'paired' : ''}" href="${c.link}">
+        <div class="case-row">
+          <span class="case-number">${c.caseNumber}</span>
+          <span class="status-stamp status-${c.status}">${statusLabel(c.status)}</span>
+        </div>
+        <div class="category">${c.category}</div>
+        <h2>${c.title}</h2>
+        <p class="summary">${c.summary}</p>
+        <div class="officials">${officials}</div>
+        ${pairedNote}
+        <div class="meta-row">
+          <div class="read">Read case →</div>
+          <div class="updated">Updated ${c.updated}</div>
+        </div>
+      </a>`;
+  }
+
+  function render(list) {
+    docket.innerHTML = list.map(cardHTML).join('');
+    noResults.style.display = list.length === 0 ? 'block' : 'none';
+    docket.style.display = list.length === 0 ? 'none' : 'grid';
+    searchCount.textContent = list.length === CASES.length
+      ? `${list.length} cases`
+      : `${list.length} of ${CASES.length} cases`;
+  }
+
+  function applyFilters() {
+    const q = searchInput.value.trim().toLowerCase();
+    const status = statusFilter.value;
+    const filtered = CASES.filter(c => {
+      const matchesStatus = !status || c.status === status;
+      if (!matchesStatus) return false;
+      if (!q) return true;
+      const haystack = [c.title, c.category, c.summary, ...c.officials].join(' ').toLowerCase();
+      return haystack.includes(q);
+    });
+    render(filtered);
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  statusFilter.addEventListener('change', applyFilters);
+  render(CASES);
+</script>
+
+</body>
+</html>
