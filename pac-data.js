@@ -63,7 +63,7 @@ const CASES = [
     caseNumber: "PAC-06",
     title: "One Man's Signature, Six-Figure Extraction",
     category: "Campaign Finance & Ethics",
-    summary: "Speaker Mike Schultz's own leadership PAC has moved over $400,000 to candidates and party committees since 2023 — while its CFO, who holds the identical role on two other PACs, has personally taken nearly $200,000 out of this one alone.",
+    summary: "Speaker Mike Schultz's own leadership PAC has moved over $400,000 to candidates and party committees since 2023 — while its CFO, who holds the identical role on three other PACs, has personally taken over $175,000 out of this one alone.",
     officials: ["Mike Schultz", "Kyle Palmer", "Abby Osborne", "Jared Meyer"],
     status: "documented",
     updated: "Sep 12, 2026",
@@ -88,5 +88,15 @@ const CASES = [
     status: "documented",
     updated: "Sep 12, 2026",
     link: "h3-pac.html"
+  },
+  {
+    caseNumber: "PAC-09",
+    title: "The Fourth PAC, the Same Treasurer",
+    category: "Campaign Finance & Ethics",
+    summary: "A Senate-and-House leadership PAC that raised over $910,000 since 2018 — while its treasurer's own consulting company has taken more than $108,000 out of it, on top of the identical arrangement he already runs at three other Utah PACs.",
+    officials: ["Ann Millner", "Casey Snider", "Kyle Palmer", "Jill Koford"],
+    status: "documented",
+    updated: "Sep 13, 2026",
+    link: "nupac.html"
   }
 ];
