@@ -48,5 +48,45 @@ const CASES = [
     status: "documented",
     updated: "Sep 12, 2026",
     link: "uinpac.html"
+  },
+  {
+    caseNumber: "PAC-05",
+    title: "Swept In By Accident, Funded By Design",
+    category: "Campaign Finance & Ethics",
+    summary: "A House candidate who lost his own convention by 42 points shows up in another PAC's file purely by coincidence — his real funding story is a signature-gathering machine and a repeat cast of statewide donors.",
+    officials: ["Chris McConnehey", "Stuart Adams", "Scott Anderson", "Dan Hemmert"],
+    status: "documented",
+    updated: "Sep 12, 2026",
+    link: "chris-mcconnehey-hd38.html"
+  },
+  {
+    caseNumber: "PAC-06",
+    title: "One Man's Signature, Six-Figure Extraction",
+    category: "Campaign Finance & Ethics",
+    summary: "Speaker Mike Schultz's own leadership PAC has moved over $400,000 to candidates and party committees since 2023 — while its CFO, who holds the identical role on two other PACs, has personally taken nearly $200,000 out of this one alone.",
+    officials: ["Mike Schultz", "Kyle Palmer", "Abby Osborne", "Jared Meyer"],
+    status: "documented",
+    updated: "Sep 12, 2026",
+    link: "house-speaker-leadership-pac.html"
+  },
+  {
+    caseNumber: "PAC-07",
+    title: "$4.29 Million, One Signature Authority",
+    category: "Campaign Finance & Ethics",
+    summary: "The Utah House Republican Election Committee has moved over $4.29 million combined since 2018 — nearly double what an earlier partial pull found. Three candidates on this project's own pages received confirmed five-figure totals.",
+    officials: ["Mike Schultz", "Casey Snider", "Candice Pierucci", "Kyle Palmer"],
+    status: "documented",
+    updated: "Sep 12, 2026",
+    link: "uhrec-pac.html"
+  },
+  {
+    caseNumber: "PAC-08",
+    title: "Dissolved, But Not Before Funding the Attack Ads",
+    category: "Campaign Finance & Ethics",
+    summary: "Two brothers' lobbying firm fed $134,400 into a PAC that funded 56+ Republican candidates statewide — then a related, nearly-identically-named entity ran attack ads against three Democratic candidates while reporting zero dollars raised or spent.",
+    officials: ["Greg Hartley", "Jeff Hartley", "Mike Schultz"],
+    status: "documented",
+    updated: "Sep 12, 2026",
+    link: "h3-pac.html"
   }
 ];
