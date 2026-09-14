@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Men Behind Lincoln Hill | The Weber County Hive</title>
+<style>
+  :root {
+    --bg: #FDFCFA;
+    --gold: #B8860B;
+    --gold-warm: #8B6F47;
+    --cream: #141414;
+    --gray: #6a6a6a;
+    --card-bg: #F2F0EC;
+    --border: #d8d4cc;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: Georgia, 'Playfair Display', serif;
+    line-height: 1.65;
+  }
+  a { color: var(--gold); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    text-align: center;
+    padding: 56px 24px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hex-logo {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 14px;
+    position: relative;
+  }
+  .hex-logo svg { width: 100%; height: 100%; }
+  .pub-name {
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 2.4rem;
+    margin: 0 0 14px;
+    color: var(--cream);
+  }
+  .subtitle {
+    font-style: italic;
+    color: var(--gold-warm);
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+
+  main { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: 1.6rem;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+  }
+  h3 { color: var(--cream); font-size: 1.2rem; margin-bottom: 8px; }
+
+  .merger-note {
+    background: var(--card-bg);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 700px) {
+    .profile-grid { grid-template-columns: 1fr; }
+  }
+  .profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px;
+  }
+  .profile-card .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold-warm);
+    margin-bottom: 4px;
+  }
+  .profile-card p { font-size: 0.92rem; margin: 10px 0; }
+  .profile-card ul { font-size: 0.9rem; padding-left: 18px; margin: 10px 0; }
+  .profile-card li { margin-bottom: 4px; }
+
+  .connector-diagram {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    font-size: 0.92rem;
+  }
+  .connector-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    gap: 12px;
+  }
+  .connector-row:last-child { border-bottom: none; }
+  .connector-row .label { color: var(--gray); flex: 1; }
+  .connector-row .value { color: var(--cream); text-align: right; flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+
+  table.pac-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 16px 0;
+  }
+  table.pac-table th, table.pac-table td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  table.pac-table th {
+    background: #ece8e0;
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+  table.pac-table tr:nth-child(even) td { background: #f7f5f0; }
+  .stat-num { color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-weight: 700; }
+
+  .flag-box {
+    background: #fdf3ea;
+    border-left: 3px solid #b5651d;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    margin: 16px 0;
+  }
+
+  .caution-box {
+    background: #f2f0ec;
+    border: 1px dashed var(--border);
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin: 16px 0;
+  }
+
+  details.sources-box {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 20px;
+    background: var(--card-bg);
+  }
+  details.sources-box summary {
+    cursor: pointer;
+    color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  details.sources-box ul { margin-top: 14px; font-size: 0.85rem; color: var(--gray); padding-left: 20px; }
+
+  /* Flip cards (glossary) */
+  .flip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .flip-card { perspective: 900px; height: 240px; }
+  .flip-card-inner {
+    position: relative; width: 100%; height: 100%;
+    text-align: center; transition: transform 0.5s;
+    transform-style: preserve-3d; cursor: pointer;
+  }
+  .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+  .flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 6px;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 14px; border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .flip-card-front { background: var(--card-bg); }
+  .flip-card-front .acronym {
+    font-family: 'IBM Plex Mono', monospace; font-size: 1.15rem;
+    font-weight: 700; color: var(--gold);
+  }
+  .flip-card-front .tap-hint {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    color: var(--gray); margin-top: 8px; text-transform: uppercase;
+  }
+  .flip-card-back { background: #1c1c1c; color: #F4E9DD; transform: rotateY(180deg); }
+  .flip-card-back .full-name {
+    font-weight: 700; font-size: 0.78rem; line-height: 1.2; color: var(--gold); margin-bottom: 8px;
+  }
+  .flip-card-back .definition { font-size: 0.68rem; line-height: 1.35; }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+  footer .sub { color: var(--gray); display: block; margin-top: 6px; }
+
+  /* Mermaid diagram + chart containers */
+  .diagram-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .chart-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .chart-box canvas { max-height: 320px; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="hex-logo">
+    <svg viewBox="0 0 100 100"><polygon points="50,3 93,26 93,74 50,97 7,74 7,26" fill="none" stroke="#B8860B" stroke-width="3"/><circle cx="50" cy="50" r="6" fill="#B8860B"/></svg>
+  </div>
+  <div class="pub-name">The Weber County Hive</div>
+  <h1>The Men Behind Lincoln Hill</h1>
+  <p class="subtitle">Four names sit at the center of a firm, a merger, and two political action committees — one of them is now Utah's chief law enforcement officer.</p>
+</header>
+
+<main>
+
+  <section id="glossary">
+    <h2>Glossary — Tap to Flip</h2>
+    <div class="flip-grid">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">Fides LLC</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">Fides LLC</div><div class="definition">Lincoln Shurtz's own entity, stated purpose "Political advisory and consulting" — Lincoln Hill PAC's single largest funder, $339,500 across 8 checks (2023-2026).</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">HEMMCO</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">HEMMCO LLC</div><div class="definition">Dan Hemmert's own capital entity — gave $5,000 to Lincoln Hill PAC.</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">UMPAC</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">Utah Medical Association PAC</div><div class="definition">Gave $1,000 to "Committee to Elect Derek Brown" in 2025.</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">NUPAC</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">Northern Utah PAC / Northern Utah Legislative PAC</div><div class="definition">A recurring recipient of Lincoln Hill Partners PAC money across multiple years.</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">HSLPAC</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">House Speaker Leadership PAC</div><div class="definition">Speaker Mike Schultz's leadership PAC — the single largest recipient of Lincoln Hill PAC money, $50,000.</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">MUR</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">Matter Under Review</div><div class="definition">The FEC's term for a formal complaint investigation — Mike McCauley's MUR 8066 was closed with no violation found.</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">UHREC</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">Utah House Republican Election Committee</div><div class="definition">Recurring recipient of both Lincoln Hill PACs — its own case file (PAC-07), $4.29M moved since 2018.</div></div>
+      </div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+        <div class="flip-card-front"><div class="acronym">MIDA</div><div class="tap-hint">Tap</div></div>
+        <div class="flip-card-back"><div class="full-name">Military Installation Development Authority</div><div class="definition">The state authority Dan Hemmert now runs — after lobbying it continuously until two days before his hire.</div></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="the-merger">
+    <h2>The Merger That Built the Firm</h2>
+    <p>Lincoln Hill Partners exists in its current form because of a single event: an October 4, 2021 merger between two pre-existing firms, Lincoln Hill Partners and Utah Policy Advocates. The firm's own press release from that day names four principals directly — not four people starting a firm from scratch together, but two established operators combining their books of business under one name.</p>
+    <div class="merger-note">
+      <strong>Confirmed by the firm's own release:</strong> "Lincoln Hill Partners and Utah Policy Advocates" announced "a merger of their respective firms," describing the result as "the largest of its kind in Utah." All four principals below are quoted directly in that release.
+    </div>
+  </section>
+
+  <section id="profiles">
+    <h2>The Four Principals</h2>
+    <div class="profile-grid">
+
+      <div class="profile-card">
+        <div class="role">Owner, Legislative Insight Consulting LLC</div>
+        <h3>Lincoln Shurtz</h3>
+        <p>Registered lobbyist since 2002 (Legislative Insight Consulting) and separately Business Owner of Lincoln-Hill Partners since May 2021. Former Army tank commander; Director of Government Relations for the Utah League of Cities and Towns for 12 years before founding his own firm.</p>
+        <ul>
+          <li>Helped create MIDA and the Falcon Hill Aerospace Research Park — <strong>currently an active MIDA lobbyist</strong> (1/20/2026–present)</li>
+          <li>100+ clients since 2013: Northrop Grumman, General Motors, Oracle, Aetna, Molina, Intermountain Healthcare</li>
+          <li>Client list also includes data-center operators (Aligned Data Centers, Vast Data Centers), Flock Safety, T-Mobile, and civil-liberties groups (ACLU of Utah, Equality Utah, Human Rights Campaign)</li>
+          <li>Runs his own individual PAC and co-founded both Lincoln Hill PAC and Lincoln Hill Partners PAC</li>
+        </ul>
+      </div>
+
+      <div class="profile-card">
+        <div class="role">Registered Lobbyist, Campaign Manager</div>
+        <h3>Casey Hill</h3>
+        <p>Registered lobbyist since 1/18/2013, same address as Shurtz (68 E 300 N, Salt Lake City). Former SVP at EnergySolutions (2012–2019) — the company became his continuous lobbying client the following year and remains one today.</p>
+        <ul>
+          <li>Closely tied to <strong>Election Hive LLC</strong>, the campaign-management firm processing money for Stuart Adams, Spencer Cox, and Derek Brown</li>
+          <li>Controls Gathering Inc., a signature-gathering company that has taken in $150,000+ (2024–2025)</li>
+          <li>80+ lobbying clients: Qualtrics, Salesforce, Netflix, Snap, Roblox, Lenovo, Ivory Homes, plus a wide municipal/county government client list</li>
+          <li>Co-founder, Lincoln Hill Partners/PAC</li>
+          <li>Also runs his own corporation, <strong>Red Hill Strategic Inc.</strong> (filed under his full name, Joseph Casey Hill, with his wife Kysha Hill as a Director) — see the Red Hill naming section below</li>
+        </ul>
+      </div>
+
+      <div class="profile-card">
+        <div class="role">Utah Attorney General</div>
+        <h3>Derek Brown</h3>
+        <p>Practiced law at Sidley &amp; Austin LLP in Washington, D.C. before the merger; the firm's release frames his role as legal/regulatory counsel. He co-founded Lincoln Hill PAC on 4/27/2022 — and remained listed as a Director/Officer even after being elected Attorney General.</p>
+        <ul>
+          <li>Controls Integrity Strategies LLC, which donated $10,000 to Lincoln Hill PAC using a dissolved Illinois shell entity's address</li>
+          <li>Documented 2024–2025 total received from this network: <strong>$294,000+</strong>, including $114,000+ from Election Hive alone</li>
+          <li>As Attorney General, he holds the state's chief law enforcement office</li>
+        </ul>
+      </div>
+
+      <div class="profile-card">
+        <div class="role">Former Managing Partner, Utah Policy Advocates</div>
+        <h3>Chase Everton</h3>
+        <p>Ran Utah Policy Advocates as Managing Partner for four years (Aug 2017–Oct 2021) before it merged into Lincoln Hill Partners — he brought an existing firm and client book into the merger, not just himself. Earlier career: Utah Republican Party Political Director, then Government Relations at 1-800 Contacts.</p>
+        <ul>
+          <li>Lobbying clients include Meta Platforms (since 2017), Utah Jazz, Silicon Slopes Commons, Kane Creek Preservation and Development, Flock, and Qualtrics</li>
+          <li>Worked alongside Derek Brown at Michael Best Strategies' Salt Lake City office years before the 2021 merger — an existing professional relationship, not a new one formed by it</li>
+          <li>His own lobbying client, 1-800 Contacts, directly followed his employment there — he began lobbying for a former/concurrent employer</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="red-hill-maze">
+    <h2>The Red Hill Naming Maze</h2>
+    <p>Four separate entities named some variation of "Red Hill" show up across this research. None of the four are confirmed connected to each other — but the names are close enough that they're worth listing side by side, precisely so they don't get accidentally merged.</p>
+    <table class="pac-table">
+      <tr><th>Entity</th><th>Who / Where</th><th>Connection to this network</th></tr>
+      <tr><td>Red Hill Strategic Inc.</td><td>Casey Hill's own corporation, Salt Lake City (wife Kysha Hill, Director)</td><td>Directly Casey Hill's</td></tr>
+      <tr><td>Red Hill Public Strategies / Strategic</td><td>Scarborough, Maine</td><td>Gave Lincoln Hill PAC $30,000 total — the actual donor, unrelated address/state</td></tr>
+      <tr><td>Red Hill Realty LLC</td><td>Coalville, UT (member Paul Brown)</td><td>None found — different first name from Derek Brown, real estate not lobbying, formed in 2001</td></tr>
+      <tr><td>Red Hill AQ LLC</td><td>West Jordan, UT — see below</td><td>None found (yet) — a watchlist entity, not a donor to anything so far</td></tr>
+    </table>
+  </section>
+
+  <section id="red-hill-aq">
+    <h2>Red Hill AQ LLC</h2>
+    <p>Formed July 2024. Sole member is a Wyoming entity, <strong>Red Hill Group LLC</strong>, based in Sheridan. Both the Utah and Wyoming filings use the same commercial registered agent (Registered Agents Inc.), and both were organized by the same company: <strong>Prime Corporate Services</strong>, a Murray, UT business-formation firm. No individual owner's name appears on either state's public record. It has not appeared as a donor or recipient in any transaction data reviewed.</p>
+  </section>
+
+  <section id="overlap">
+    <h2>How Tightly the Network Overlaps</h2>
+    <p><strong>Individually, each man has his own client roster.</strong></p>
+    <div class="connector-diagram">
+      <div class="connector-row"><div class="label">Shared phone line (801) 634-6564</div><div class="value">Election Hive, Lenovo, Qualtrics, O'Leary Ventures, Utah Energy</div></div>
+      <div class="connector-row"><div class="label">Qualtrics onboarded same day</div><div class="value">Shurtz, Hill &amp; Everton — all 1/20/2026</div></div>
+      <div class="connector-row"><div class="label">O'Leary Ventures (Kevin O'Leary's firm)</div><div class="value">Shurtz &amp; Hill registered simultaneously, ~1 month overlap</div></div>
+      <div class="connector-row"><div class="label">Kane Creek Preservation and Development</div><div class="value">Shared client: Shurtz, Everton, and separately Hemmert/HEMMCO</div></div>
+      <div class="connector-row"><div class="label">Lincoln Hill Partners itself</div><div class="value">A HEMMCO client (2/1/2023–8/3/2026) — see Hemmert section below</div></div>
+      <div class="connector-row"><div class="label">Silicon Slopes Commons</div><div class="value">Shurtz (2019–2021) and Everton (2018–2021), overlapping windows</div></div>
+      <div class="connector-row"><div class="label">Utah Jazz (owner: Scott Ryan Smith)</div><div class="value">Shurtz &amp; Everton both registered, same onboarding date</div></div>
+    </div>
+  </section>
+
+  <section id="smith">
+    <h2>Scott Ryan Smith — the $80,000 Match</h2>
+    <p>S. Ryan Smith — Qualtrics co-founder, and owner of the Utah Jazz and Utah Mammoth — personally gave Lincoln Hill PAC $80,000. That gift landed 12 days after an identical $80,000 donation from Fides LLC, an entity solely owned and managed by Lincoln Shurtz. Qualtrics became a registered Casey Hill lobbying client the following January.</p>
+    <p style="font-size:0.9rem; color: var(--gray);">Fides LLC's own Certificate of Organization states its purpose as: <strong>"Political advisory and consulting."</strong> Shurtz is his own registered agent, at the same Holladay address tied to its donations.</p>
+  </section>
+
+  <section id="structure">
+    <h2>The Corporate Structure Behind the Names</h2>
+    <p>Two separate Utah corporate-registry findings, put together, change how the public "four-principal merger" story reads. Both Lincoln Hill entities were administratively dissolved the same summer — and one of them names three specific people as its Directors of record.</p>
+    <div class="diagram-box">
+      <div class="mermaid">
+graph TD
+    A["Fides LLC<br/>Lincoln Shurtz's entity<br/>formed 12/14/2020<br/>Purpose: 'Political advisory and consulting'"] -->|"filed as Applicant and Registered Agent, 1/11/2021<br/>(months before public merger)"| B["'Lincoln Hill Partners'<br/>Assumed Name / DBA<br/>NOT an independent partnership"]
+    B -.->|"publicly announced 10/4/2021"| C["Merger narrative:<br/>Shurtz + Hill + Brown + Everton"]
+    D["Lincoln Hill PAC<br/>Utah nonprofit corporation<br/>formed 4/26/2022"] -->|"registered agent"| E["McCauley and Associates<br/>Mike McCauley's own firm"]
+    D -->|"Directors of record"| F["Casey Hill"]
+    D -->|"Directors of record"| G["Lincoln Shurtz"]
+    D -->|"Directors of record"| H["Derek Brown<br/>sitting Attorney General"]
+    D ==>|"Administratively Dissolved<br/>7/20/2023"| I["Still raised/spent<br/>$627,000 total, 2022-2026"]
+    B ==>|"Administratively Dissolved<br/>7/2023 (same summer)"| J["Still filed/spent every year since<br/>+496% the year after dissolving"]
+
+    classDef entity fill:#F2F0EC,stroke:#d8d4cc,color:#141414
+    classDef person fill:#141414,stroke:#B8860B,color:#F4E9DD
+    classDef flag fill:#fdf3ea,stroke:#b5651d,color:#141414
+    class A,B,D,E entity
+    class F,G,H person
+    class C,I,J flag
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color: var(--gray);">Chase Everton is not listed as a Director of Lincoln Hill PAC. Both dissolutions and the DBA filing are from Utah Division of Corporations records.</p>
+  </section>
+
+  <section id="pacs">
+    <h2>The Two PACs</h2>
+    <p>The four principals above didn't just found one PAC together — there are two, plus Shurtz's own individual PAC, all moving money through overlapping recipients.</p>
+
+    <h3 style="margin-top:24px;">Lincoln Hill PAC (2022–2026)</h3>
+    <table class="pac-table">
+      <tr><th>Metric</th><th>Figure</th></tr>
+      <tr><td>Total in / out</td><td class="stat-num">$627,000 / $495,965.46</td></tr>
+      <tr><td>Largest funder</td><td class="stat-num">Fides LLC (Shurtz) — $339,500 across 8 checks</td></tr>
+      <tr><td>Other major funders</td><td>Scott Ryan Smith $80,000; EnergySolutions $45,000; Legislative Insight Consulting $42,500; Integrity Strategies LLC (Brown) $17,500; HEMMCO LLC $5,000 (Dan Hemmert's own entity)</td></tr>
+      <tr><td>Notable personal payment</td><td class="stat-num">Maizee Thompson — $5,000 (Lincoln Hill Partners' own firm Associate)</td></tr>
+      <tr><td>Top recipients</td><td>Friends of Spencer Cox $80,000; House Speaker Leadership PAC $50,000; Derek Brown for AG $15,100</td></tr>
+      <tr><td>Deleted entries</td><td class="stat-num">16</td></tr>
+    </table>
+    <div class="diagram-box">
+      <div class="mermaid">
+graph LR
+    F1["Fides LLC<br/>$339,500"] --> PAC["Lincoln Hill PAC"]
+    F2["Scott Ryan Smith<br/>$80,000"] --> PAC
+    F3["EnergySolutions<br/>$45,000"] --> PAC
+    F4["Legislative Insight Consulting<br/>$42,500"] --> PAC
+    F5["Integrity Strategies LLC<br/>(Brown) $17,500"] --> PAC
+    PAC --> R1["Friends of Spencer Cox<br/>$80,000"]
+    PAC --> R2["House Speaker<br/>Leadership PAC $50,000"]
+    PAC --> R3["Derek Brown for AG<br/>$15,100"]
+    PAC --> R4["Legislative Insight Consulting<br/>$16,000 (round trip)"]
+
+    classDef funder fill:#F2F0EC,stroke:#d8d4cc,color:#141414
+    classDef pac fill:#141414,stroke:#B8860B,color:#F4E9DD
+    classDef recip fill:#fdf3ea,stroke:#b5651d,color:#141414
+    class F1,F2,F3,F4,F5 funder
+    class PAC pac
+    class R1,R2,R3,R4 recip
+      </div>
+    </div>
+
+    <h3 style="margin-top:24px;">Lincoln Hill Partners PAC — dissolved, still filing</h3>
+    <table class="pac-table">
+      <tr><th>Year</th><th>Total spent</th><th>Notable</th></tr>
+      <tr><td>2021</td><td class="stat-num">$23,500</td><td>UHREC $5,000, NUPAC $5,000, Adams Leadership PAC $2,000</td></tr>
+      <tr><td>2022</td><td class="stat-num">$36,250</td><td>Cox $10,000 (largest)</td></tr>
+      <tr><td>2023</td><td class="stat-num">$58,240</td><td>Cox $7,500; HSLPAC $10,000; Jefferson Moss $1,000 direct personal payment</td></tr>
+      <tr><td>2024</td><td class="stat-num">$347,200</td><td>+496% — Cox $57,500 (single $50K payment); HSLPAC $12,000; NUPAC $10,000</td></tr>
+      <tr><td>2025</td><td class="stat-num">$200,000+</td><td>HSLPAC $30,000; Derek Brown $20,000; Cox total 2022–25: $82,500+</td></tr>
+      <tr><td>2026 (partial)</td><td class="stat-num">~$95,016</td><td>HSLPAC $30,000; UHREC $8,000; Adams Leadership PAC $6,000</td></tr>
+    </table>
+    <div class="chart-box">
+      <canvas id="partnersPacChart"></canvas>
+    </div>
+    <div class="flag-box">Lincoln Hill Partners PAC administratively dissolved in July 2023. It has filed and spent every year since. Spending grew from $58,240 (2023) to $347,200 (2024), a 496% increase.</div>
+
+    <h3 style="margin-top:24px;">Two things from the full transaction-level export</h3>
+    <p><strong>Maizee Thompson</strong> — a Lincoln Hill Partners Associate, listed on the firm's own site — personally received $5,000 from Lincoln Hill PAC. Lincoln Hill PAC also sent smaller sums to Democratic recipients including then-House Minority Leader Brian King, Senate Minority Leader Luz Escamilla, the House Minority PAC, and Utah's Senate Democratic caucus PAC.</p>
+
+    <h3 style="margin-top:24px;">The vendors</h3>
+    <p><strong>Lux Events Inc</strong> ($18,007.76 across 3 payments) is LUX Catering &amp; Events, a Salt Lake City catering company founded in 1995.</p>
+    <p><strong>McCauley &amp; Associates</strong> ($8,825 across 7 payments) is the accounting firm of Mike McCauley, who is Treasurer of Utah First PAC — Sen. John Curtis's federal leadership PAC — across multiple election cycles, and was formerly Treasurer of Rep. Burgess Owens' campaign committee ("Burgess 4 Utah"), which drew an FEC complaint (MUR 8066, closed in 2023, no violation found).</p>
+    <p><strong>Chad Westover</strong> — CEO of University of Utah Health Plans — received $5,000 personally. He ran and lost in the 2024 Republican primary for Utah House District 42.</p>
+  </section>
+
+  <section id="fillmore">
+    <h2>The Round Trip: Lincoln Hill Partners PAC and Lincoln Fillmore</h2>
+    <p>Lincoln Hill Partners PAC funds Fillmore's campaign each cycle — for example, $1,000 on 11/18/2024. The following year, Fillmore's own campaign donated back to Lincoln Hill PAC: $1,000 (7/5/2023) plus $500 (12/27/2023), $1,500 total. Several other individual recipients funded by Lincoln Hill Partners PAC in 2022–2023 (Balderree, Weiler, Harper, Teuscher, Lee) later donated to Fillmore's campaign in 2024 — roughly $4,250 total.</p>
+  </section>
+
+  <section id="hemmert">
+    <h2>Dan Hemmert</h2>
+    <p>HEMMCO LLC, Dan Hemmert's own lobbying entity, gave Lincoln Hill PAC $5,000 in May 2024. Lincoln Hill Partners itself was a paying HEMMCO client (2/1/2023–8/3/2026).</p>
+    <div class="diagram-box">
+      <div class="mermaid">
+graph TD
+    A["Utah State Senate<br/>Majority Whip<br/>2016-2021"] --> B["Executive Director<br/>Governor's Office of<br/>Economic Development<br/>2021-2022"]
+    B --> C["Private Lobbyist, HEMMCO LLC<br/>1/19/2023 - 8/3/2026"]
+    C -->|"client"| D["MIDA<br/>1/19/2023 - 8/3/2026"]
+    C -->|"client"| E["Dakota Pacific, Alterra,<br/>Zions Bancorporation,<br/>Union Pacific, Meta"]
+    C -->|"$5,000, May 2024"| F["Lincoln Hill PAC"]
+    D ==>|"8/3/2026"| G["MIDA Executive Director<br/>Resolution 2026-12<br/>moved by Gary Harter"]
+    H["MIDA approves Stratos<br/>data center project<br/>April 2026"] -.->|"two months later"| G
+
+    classDef role fill:#F2F0EC,stroke:#d8d4cc,color:#141414
+    classDef client fill:#fdf3ea,stroke:#b5651d,color:#141414
+    classDef pac fill:#141414,stroke:#B8860B,color:#F4E9DD
+    classDef event fill:#141414,stroke:#8C3B44,color:#F4E9DD
+    class A,B,C role
+    class D,E client
+    class F pac
+    class G,H event
+      </div>
+    </div>
+    <div class="flag-box">
+      MIDA's own board minutes (8/20/2026) show Resolution 2026-12 appointing him, moved by board member Gary Harter, approved unanimously. He replaced Paul Morris, MIDA's executive director since 2008. His lobbying client roster — including MIDA — terminated on 8/3/2026, the date his MIDA role began.
+    </div>
+    <p style="font-size:0.9rem; color: var(--gray);">His statement on taking the job (emailed, Salt Lake Tribune, 6/26/26): <em>"I'm glad to take this on. MIDA does work that actually shows up in people's lives in such an impactful way, and my job is to make sure we do it well and do it in the open."</em> His Election Hive bio was removed from the firm's website; Election Hive manages campaigns for Cox, Sen. Mike Lee, and Derek Brown.</p>
+  </section>
+
+  <section id="brown-committees">
+    <h2>Derek Brown's Three Committee Names</h2>
+    <p>Utah's own disclosure system shows Derek Brown operating under three differently-named committees across different years — confirmed directly against disclosures.utah.gov, not assumed:</p>
+    <table class="pac-table">
+      <tr><th>Committee name</th><th>Confirmed activity</th></tr>
+      <tr><td>Derek Brown for Attorney General</td><td>Received $15,100 from Lincoln Hill PAC (documented above)</td></tr>
+      <tr><td>Committee to Elect Derek Brown</td><td>Received $500 from SEL Inc (2/2/2024) and $1,000 from UMPAC (9/18/2025)</td></tr>
+      <tr><td>Committee to Elect Derik Brown <em>(sic)</em></td><td>Received $1,000 from Lincoln Hill PAC (11/16/2023) — that exact misspelling is the real name on file with the state</td></tr>
+    </table>
+    <p style="font-size:0.85rem; color: var(--gray);">All three most likely trace to the same person across different points in his career, given inconsistent name entry in Utah's own filing system — but this hasn't been confirmed against the underlying filer ID, so it's presented here as three name-variants rather than three separate legal facts merged into one.</p>
+  </section>
+
+  <section id="related">
+    <h2>Related PAC Case Files</h2>
+    <p>The full financial detail behind each PAC named on this page — funders, recipients, vendors, and a searchable transaction explorer — lives in their own dedicated case files.</p>
+    <div class="merger-note" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <span>Lincoln Hill PAC — the dissolved corporation naming three Directors, including the sitting Attorney General</span>
+      <a href="lincoln-hill-pac-case.html" style="font-family:'IBM Plex Mono',monospace; font-size:0.8rem; font-weight:700; white-space:nowrap;">Read the PAC case file →</a>
+    </div>
+    <div class="merger-note" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <span>Lincoln Hill Partners PAC — the DBA structure, the year-by-year spending, and the Fillmore round trip</span>
+      <a href="lincoln-hill-partners-pac-case.html" style="font-family:'IBM Plex Mono',monospace; font-size:0.8rem; font-weight:700; white-space:nowrap;">Read the PAC case file →</a>
+    </div>
+  </section>
+
+  <section id="sources">
+    <details class="sources-box">
+      <summary>Sources</summary>
+      <ul>
+        <li>Lincoln Hill Partners merger press release, October 4, 2021 (self-published, corroborated by principals' own LinkedIn profiles)</li>
+        <li>Lincoln Shurtz, Casey Hill, Chase Everton lobbyist registrations, disclosures.utah.gov</li>
+        <li>Lincoln Hill PAC and Lincoln Hill Partners PAC transaction histories, disclosures.utah.gov (DEX exports, 2021–2026), including a 7/10–8/11/2026 contributions report confirming the Diamante Vista and Fides LLC $8,000 subtotal, and a full 5-file/258-transaction raw export reconciling exactly to the $627,000 total</li>
+        <li>Derek Brown for AG campaign finance disclosures, disclosures.utah.gov</li>
+        <li>Salt Lake Tribune (Threads post, 5/19/2026) — confirms Shurtz and Hill's simultaneous O'Leary Ventures lobbying registration and Election Hive's role managing Adams/Cox/Brown campaigns</li>
+        <li>Integrity Strategies LLC and Fides LLC corporate registration records, Utah Division of Corporations, including Fides LLC's own Certificate of Organization confirming its stated purpose as "Political advisory and consulting"</li>
+        <li>Lincoln Fillmore campaign finance disclosures, disclosures.utah.gov</li>
+        <li>Diamante Vista LLC, Allvest Information Services Inc., Red Hill Strategic Inc., Red Hill Realty LLC, and Red Hill AQ LLC — Utah Division of Corporations entity records (opencorporates.com and corporations.utah.gov)</li>
+        <li>Red Hill Group LLC — Wyoming Secretary of State business entity filing (wyobiz.wyo.gov), Filing ID 2024-001488905</li>
+        <li>McCauley & Associates, P.C. — Utah entity registry; Mike McCauley's Utah First PAC and Burgess 4 Utah treasurer roles per FEC/ProPublica itemizer data and FEC MUR 8066</li>
+        <li>Chad Westover — Ballotpedia, LinkedIn, campaign website (chadforutah.com), OpenCorporates business entity records</li>
+        <li>Derek Brown's three committee names — disclosures.utah.gov, individual expenditure searches across 2023-2026 report years</li>
+        <li>SchoolAI (School AI Inc) — Bloomberg company profile, Built In, TIPS vendor profile</li>
+        <li>Dan Hemmert / HEMMCO / MIDA — Hemmert's own LinkedIn, archived Election Hive bio (Wayback Machine), HEMMCO lobbyist registration (disclosures.utah.gov), MIDA board meeting minutes (utah.gov, Resolution 2026-12), MIDA's own team page (midaut.org/ourteam), Salt Lake Tribune (6/26/26), Cache Valley Daily (7/1/26)</li>
+        <li>Lincoln Hill PAC corporate registration (Utah Entity #12822174-0140) and "Lincoln Hill Partners" Assumed Name/DBA filing (Utah Entity #12108082-0151) and Fides LLC's own registration (Utah Entity #12063536-0160) — all corporations.utah.gov</li>
+      </ul>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  INDEPENDENT &middot; ACCOUNTABILITY &middot; JOURNALISM
+  <span class="sub">The Weber County Hive</span>
+</footer>
+
+<script>
+  function initPage(attemptsLeft) {
+    attemptsLeft = attemptsLeft === undefined ? 20 : attemptsLeft;
+    const mermaidReady = typeof mermaid !== 'undefined';
+    const chartReady = typeof Chart !== 'undefined';
+
+    if ((!mermaidReady || !chartReady) && attemptsLeft > 0) {
+      setTimeout(function() { initPage(attemptsLeft - 1); }, 150);
+      return;
+    }
+
+    if (mermaidReady) {
+      try {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'base',
+          themeVariables: {
+            primaryColor: '#F2F0EC',
+            primaryTextColor: '#141414',
+            primaryBorderColor: '#d8d4cc',
+            lineColor: '#8B6F47',
+            fontFamily: 'Georgia, serif'
+          }
+        });
+      } catch (e) {
+        showFallback('.diagram-box', 'Diagram failed to render (' + e.message + '). The underlying facts are described in the surrounding text.');
+      }
+    } else {
+      showFallback('.diagram-box', 'Diagram library did not load in time. The underlying facts are described in the surrounding text.');
+    }
+
+    if (chartReady) {
+      try {
+        const ctx = document.getElementById('partnersPacChart');
+        if (ctx) {
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['2021', '2022', '2023', '2024', '2025', '2026 (partial)'],
+              datasets: [{
+                label: 'Lincoln Hill Partners PAC — Annual Spending',
+                data: [23500, 36250, 58240, 347200, 200000, 95016],
+                backgroundColor: ['#d8d4cc','#d8d4cc','#d8d4cc','#B8860B','#B8860B','#8B6F47'],
+                borderColor: '#141414',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: 'Spending grew nearly 500% the year after the PAC administratively dissolved (July 2023)',
+                  color: '#141414',
+                  font: { size: 12 }
+                }
+              },
+              scales: {
+                y: {
+                  ticks: { callback: (v) => '$' + v.toLocaleString(), color: '#6a6a6a' },
+                  grid: { color: '#d8d4cc' }
+                },
+                x: { ticks: { color: '#6a6a6a' }, grid: { display: false } }
+              }
+            }
+          });
+        }
+      } catch (e) {
+        showFallback('.chart-box', 'Chart failed to render (' + e.message + '). See the table above for the same figures.');
+      }
+    } else {
+      showFallback('.chart-box', 'Chart library did not load in time. See the table above for the same figures.');
+    }
+  }
+
+  function showFallback(selector, message) {
+    document.querySelectorAll(selector).forEach(function(box) {
+      box.innerHTML = '<p style="color:#8C3B44; font-family:monospace; font-size:0.85rem; margin:0;">' + message + '</p>';
+    });
+  }
+
+  initPage();
+</script>
+
+</body>
+</html>
