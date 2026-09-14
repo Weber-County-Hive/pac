@@ -98,5 +98,25 @@ const CASES = [
     status: "documented",
     updated: "Sep 13, 2026",
     link: "nupac.html"
+  },
+  {
+    caseNumber: "PAC-10",
+    title: "Dissolved on Paper, Active in Practice",
+    category: "Campaign Finance & Ethics",
+    summary: "A nonprofit corporation that named a sitting Attorney General as one of three Directors was administratively dissolved in July 2023 — and has raised and spent $627,000 in the years since, without ever re-registering.",
+    officials: ["Casey Hill", "Lincoln Shurtz", "Derek Brown", "Mike McCauley"],
+    status: "documented",
+    updated: "Sep 14, 2026",
+    link: "lincoln-hill-pac-case.html"
+  },
+  {
+    caseNumber: "PAC-11",
+    title: "+496% the Year It Dissolved",
+    category: "Campaign Finance & Ethics",
+    summary: "A PAC that legally traces back to one man's own consulting entity, dissolved as a corporation in mid-2023 — the same year its spending grew nearly fivefold. The name itself was filed nine months before its public 'merger' story was ever announced.",
+    officials: ["Lincoln Shurtz", "Casey Hill", "Derek Brown", "Lincoln Fillmore"],
+    status: "documented",
+    updated: "Sep 14, 2026",
+    link: "lincoln-hill-partners-pac-case.html"
   }
 ];
