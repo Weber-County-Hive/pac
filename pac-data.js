@@ -107,7 +107,8 @@ const CASES = [
     officials: ["Casey Hill", "Lincoln Shurtz", "Derek Brown", "Mike McCauley"],
     status: "documented",
     updated: "Sep 14, 2026",
-    link: "lincoln-hill-pac-case.html"
+    link: "lincoln-hill-pac-case.html",
+    pairWith: "PAC-12"
   },
   {
     caseNumber: "PAC-11",
@@ -118,5 +119,16 @@ const CASES = [
     status: "documented",
     updated: "Sep 14, 2026",
     link: "lincoln-hill-partners-pac-case.html"
+  },
+  {
+    caseNumber: "PAC-12",
+    title: "The Men Behind Lincoln Hill",
+    category: "Campaign Finance & Ethics",
+    summary: "Network profile: the four principals behind Lincoln Hill Partners and its two PACs — a merger story that traces back to one man's own entity, a Red Hill naming maze spanning four unrelated companies, and the MIDA appointment of a man who lobbied it until two days before running it.",
+    officials: ["Lincoln Shurtz", "Casey Hill", "Derek Brown", "Chase Everton", "Dan Hemmert"],
+    status: "documented",
+    updated: "Sep 14, 2026",
+    link: "lincoln-hill-men-behind.html",
+    pairWith: "PAC-10"
   }
 ];
