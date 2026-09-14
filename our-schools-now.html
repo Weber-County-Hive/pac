@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Schools Now | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:780px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:720px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:250px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:100px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.78rem;font-weight:600;margin-top:2px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:560px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.7rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:260px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .donut-row{display:flex;flex-wrap:wrap;gap:28px;margin:20px 0;align-items:flex-start;}
+  .donut-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:20px;text-align:center;}
+  .donut{width:160px;height:160px;border-radius:50%;margin:0 auto 14px;position:relative;}
+  .donut::after{content:"";position:absolute;top:24px;left:24px;width:112px;height:112px;border-radius:50%;background:#fff;}
+  .donut-label{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:4px;}
+  .donut-sub{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+  .donut-legend{display:flex;flex-direction:column;gap:5px;font-size:0.82rem;text-align:left;max-width:340px;margin:0 auto;}
+  .donut-legend span.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;flex-shrink:0;}
+
+  .quick-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin:18px 0;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:10px 12px;text-align:left;border:1px solid var(--line);cursor:pointer;user-select:none;}
+  .quick-table th:hover{background:var(--line);}
+  .quick-table th.sort-asc::after{content:" ▲";font-size:0.6rem;}
+  .quick-table th.sort-desc::after{content:" ▼";font-size:0.6rem;}
+  .quick-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+  .quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+
+  ul.tidy li{margin-bottom:8px;}
+  .mermaid-box{background:#fff;border:1px solid var(--line);padding:20px;margin:20px 0;overflow-x:auto;}
+  .mermaid-box .mermaid{display:flex;justify-content:center;}
+  .mermaid-box svg{width:100% !important;height:auto !important;min-width:640px;}
+  .mermaid-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Issues Committee</div>
+  <h1 class="title">Our Schools Now: <em>The Tax-Increase Campaign an "Anti-Tax-Increase" PAC's Parent Owns</em></h1>
+  <p class="subtitle">A $2 million 2018 ballot campaign to raise taxes for Utah schools — run by the identical four officers as Education First Utah's Executive Committee, owned by the same parent nonprofit, and formally declared as an affiliated organization on its own state filing.</p>
+  <div class="meta-row">
+    <span class="meta-pill">Created as a PIC 11/9/2016</span>
+    <span class="meta-pill">$2,029,434.54 raised, 2018</span>
+    <span class="meta-pill">Also known as "Our Kids 1st" &amp; "Utah Students for Question 1"</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Was This</a>
+  <a href="#affiliation">The Education First Affiliation</a>
+  <a href="#money">The Money</a>
+  <a href="#explorer">Donor Explorer</a>
+  <a href="#reflect">Worth Asking</a>
+  <a href="#open">Research Status</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<div class="callout-box">
+<p><strong>New here?</strong> Our Schools Now was a real, high-profile 2018 Utah ballot campaign to raise taxes and increase school funding statewide. It's registered with the state as a Political Issues Committee (PIC) — a different category than a candidate-focused PAC, which is why it doesn't turn up in a standard PAC search. What makes it relevant to this project: its own state filing names <strong>"Education First"</strong> as its formally affiliated organization, and its four governing officers are the exact same four people who run Education First Utah's Executive Committee.</p>
+</div>
+
+<section id="what">
+<h2>1. What Was This Organization?</h2>
+<p>Our Schools Now's own Articles of Incorporation, filed 10/12/2016, state its purpose in plain language: <em>"to pass a citizen's ballot initiative to increase funding for Utah schools."</em> It was organized under IRC 501(c)(4). Its PIC registration with the Utah Lieutenant Governor's office — created 11/9/2016 — lists two additional names it operated under: <strong>"Our Kids 1st"</strong> and <strong>"Utah Students for Question 1,"</strong> the latter naming the actual 2018 ballot measure (Question 1) the campaign was built around.</p>
+
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2016</div><div class="timeline-label">Incorporated &amp; PIC registered</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2018</div><div class="timeline-label">$2M+ raised; Question 1 campaign</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2019</div><div class="timeline-label">Winddown, ~$96K spent</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2021</div><div class="timeline-label">Final closeout, under $12</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2019</div><div class="timeline-label">"Our Schools Now PAC" DBA filed — parent: Education First</div></div>
+</div>
+
+<p>A separate DBA, "Our Schools Now PAC" (Utah entity #11248246-0151), was filed 4/8/2019 — active to this day, last renewed 2022. Its own principal-information filing names its owner directly: <strong>"Education First, A Utah Nonprofit Corporation"</strong> — the exact same parent entity (#10572869-0140, same "Corportion" misspelling) that owns the Education First Utah DBA covered in this project's companion case file.</p>
+</section>
+
+<section id="affiliation">
+<h2>2. The Education First Affiliation</h2>
+<p>This isn't an inferred connection. Our Schools Now's own PIC registration with the state has a field for "Organizations Affiliated with the PIC" — and it names <strong>"Education First,"</strong> at the identical phone number (801) 693-2803, PO Box 10, Centerville, UT address used by the PIC's own Secretary/Treasurer.</p>
+
+<div class="mermaid-box">
+<div class="mermaid">
+flowchart TB
+  EF["Education First, A Utah<br/>Nonprofit Corporation<br/>(#10572869-0140)"]
+  EF -->|"owns"| EFU["Education First Utah DBA<br/>'not advocating any tax increases'"]
+  EF -->|"owns"| OSNPAC["Our Schools Now PAC DBA<br/>filed 2019"]
+  OSN["Our Schools Now / Our Kids 1st /<br/>Utah Students for Question 1<br/>(#10127348-0140)"]
+  OSN -->|"formally declared<br/>affiliated organization"| EF
+  OSN -->|"raised $2,029,434.54<br/>for a tax increase, 2018"| Q1["Question 1<br/>ballot initiative"]
+</div>
+<div class="mermaid-caption">One parent nonprofit, two differently-branded PACs, and a formally declared affiliation with a third organization built to pass a tax increase.</div>
+</div>
+
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Scott Anderson</h4>
+    <div class="roster-sub">Chairman — Banker, Zions Bank</div>
+    <p style="margin:0;">Listed at Zions Bank's own headquarters, 1 South Main, 2nd Floor, Salt Lake City. Also Education First Utah's own Co-Chair, and a confirmed $50,000 personal donor to CMV PAC in this project's separate case file.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Robert Scott Marquardt</h4>
+    <div class="roster-sub">Secretary &amp; Treasurer/CFO — CEO</div>
+    <p style="margin:0;">Uses his mtctrains.com email on this official filing. Listed occupation: CEO of Management &amp; Training Corporation. Education First Utah's own site lists him only as "President" — this state filing is more specific about his title.</p>
+  </div>
+  <div class="roster-card">
+    <h4>Nolan Karras &amp; Jesselie Anderson</h4>
+    <div class="roster-sub">Directors</div>
+    <p style="margin:0;">Both also sit on Education First Utah's Executive Committee. Karras is Former Utah Speaker of the House. Together with Anderson and Marquardt, these four people make up the entire governing board of both organizations.</p>
+  </div>
+</div>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>The same four people who run Education First Utah's Executive Committee are, name for name, Our Schools Now's entire governing board.</strong> Not overlapping membership — the identical small team, confirmed independently via both OpenCorporates' officer records and Our Schools Now's own official PIC registration with the state.</p>
+</div>
+</section>
+
+<section id="money">
+<h2>3. The Money</h2>
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$2,029,434.54</span><span class="stat-label">Raised in 2018, across 293 contributions</span></div>
+  <div class="stat-cell"><span class="stat-num">$2,310,818.06</span><span class="stat-label">Spent in 2018, across 355 expenditures</span></div>
+  <div class="stat-cell"><span class="stat-num">$250,000</span><span class="stat-label">Gail Miller's single contribution — the largest donor</span></div>
+</div>
+<p>2019 and 2021 show only residual winddown activity — $415.68 raised and $95,918.74 spent in 2019, and under $12 spent in 2021 as a final closeout. The entire campaign happened in calendar year 2018.</p>
+
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">Top 10 donors' share of the total</div>
+    <div class="donut-sub">$1,151,046.32 of $2,029,434.54</div>
+    <div class="donut" style="background:conic-gradient(#6E1F2B 0% 21.7%, #8C3B44 21.7% 34.7%, #B4863C 34.7% 43.4%, #C9BBA4 43.4% 60.5%, #4A3B35 60.5% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#6E1F2B;"></span>Gail Miller — $250,000</span>
+      <span><span class="sw" style="background:#8C3B44;"></span>Vivint Inc — $150,000</span>
+      <span><span class="sw" style="background:#B4863C;"></span>MTC — $101,046.32</span>
+      <span><span class="sw" style="background:#C9BBA4;"></span>Kem Gardner Family Partnership, Ashtons, Zions Mgmt, Karen Huntsman, NEA — $100,000 each</span>
+      <span><span class="sw" style="background:#4A3B35;"></span>Everyone else — $878,388.22</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout-box">
+<p style="margin:0;"><strong>Management &amp; Training Corporation gave $101,046.32 directly to a tax-increase campaign</strong> — not through an executive's personal check, the company itself. Combined with Gail Miller's $250,000 and Clyde Companies' $55,000, three names already documented elsewhere in this project's Education First Utah/CMV PAC network account for over $400,000 of this campaign's funding.</p>
+</div>
+</section>
+
+<section id="explorer">
+<h2>4. Donor Explorer</h2>
+<p>All 292 named contributions to Our Schools Now in 2018 (one $1 entry from "Erin Wynn" and similar are included; a handful of entries under $50 are omitted from notes but present in the data). Search by name, or filter to the largest gifts.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search donor name…">
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="flagged">$25,000+ only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Donor</th><th>Amount</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+<section id="reflect">
+<h2>5. Worth Asking</h2>
+<div class="callout-box">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>A single parent nonprofit owns two differently-branded PACs — one that says it doesn't advocate tax increases, one that spent $2 million trying to pass one.</strong> Is that two organizations with genuinely different positions, or one operational team keeping both messaging options available depending on the moment?</li>
+<li><strong>Management &amp; Training Corporation, a private prison company, gave over $100,000 directly to a public school funding campaign — while its own general counsel, treasury director, and CEO run the parallel PAC that avoids taking a tax position at all.</strong> What does a private corrections contractor gain from either position on school funding?</li>
+</ul>
+</div>
+</section>
+
+<section id="open">
+<h2>6. Research Status</h2>
+<div class="callout-box callout-open">
+<p style="margin:0 0 8px;"><strong>Still being checked — not yet confirmed one way or the other:</strong></p>
+<ul class="tidy" style="margin-bottom:0;">
+<li>The 355 individual 2018 expenditures haven't been analyzed the way the 293 contributions have — vendor names, consultants, and signature-gathering costs (a $44,820 payment to "Gather Inc" is visible in the raw data) could reveal another layer of the same network.</li>
+<li>Whether "Our Schools Now PAC" (the 2019 DBA, owned by the Education First parent) has ever reported any of its own contributions or expenditures separately from the original "Our Schools Now" PIC — not yet checked against disclosures.utah.gov.</li>
+<li>David H. Broadbent, an inactive former Our Schools Now officer, hasn't been cross-referenced against anything else in this project.</li>
+<li>Whether the "MP" stamp visible on the original Articles of Incorporation filing is Michael Petrogeorge's initials (he filed Education First Utah's own DBA in a similar fashion) — plausible but not confirmed from the document alone.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>7. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>Education First Utah &amp; Utah Behavior Services: the companion case file — same parent nonprofit, same MTC executives, same small leadership circle</span>
+  <a class="cta" href="education-first-utah.html">Read the case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>CMV PAC: Gail Miller's other major political operation</span>
+  <a class="cta" href="cmv-pac.html">Read the case file →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — full raw DEX itemized contribution/expenditure exports for Our Schools Now (PIC), 2018-2021, the only years with reported activity</li>
+<li>Utah Dept. of Commerce, Division of Corporations &amp; Commercial Code — Articles of Incorporation, Our Schools Now (#10127348-0140), filed 10/12/2016; Business Entity Search results for Our Schools Now and Our Schools Now PAC (#11248246-0151)</li>
+<li>Our Schools Now's own PIC registration statement, Utah Lieutenant Governor's Office — officer/director information and "Organizations Affiliated with the PIC" field naming Education First</li>
+<li>OpenCorporates — Our Schools Now officer records (Wolfgramm, Jesselie Anderson, Karras, Robert S. Marquardt)</li>
+<li>This project's own companion case file: Education First Utah &amp; Utah Behavior Services</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"8/20/2018", name:"Gail Miller", amt:250000.0, notes:"", flag:true},
+  {date:"9/4/2018", name:"Vivint Inc", amt:150000.0, notes:"", flag:true},
+  {date:"6/1/2018", name:"Kem Gardner Family Partnership", amt:100000.0, notes:"", flag:true},
+  {date:"6/25/2018", name:"Alan & Karen Ashton", amt:100000.0, notes:"", flag:true},
+  {date:"8/13/2018", name:"Management & Training Corporation", amt:100000.0, notes:"", flag:true},
+  {date:"9/24/2018", name:"Zions Management Service Company", amt:100000.0, notes:"", flag:true},
+  {date:"10/10/2018", name:"Karen Huntsman", amt:100000.0, notes:"", flag:true},
+  {date:"10/12/2018", name:"Naitonal Education Association", amt:100000.0, notes:"", flag:true},
+  {date:"2/27/2018", name:"Joseph & Paula Swaner Sargetakis", amt:50000.0, notes:"", flag:true},
+  {date:"7/20/2018", name:"Khosrow Semnani", amt:50000.0, notes:"", flag:true},
+  {date:"9/13/2018", name:"Bruce Bastian", amt:50000.0, notes:"", flag:true},
+  {date:"10/10/2018", name:"Clyde Companies Inc", amt:50000.0, notes:"", flag:true},
+  {date:"10/19/2018", name:"United Way of Salt Lake", amt:50000.0, notes:"", flag:true},
+  {date:"10/25/2018", name:"O.C. Tanner", amt:50000.0, notes:"", flag:true},
+  {date:"1/2/2018", name:"Scott Beck", amt:30000.0, notes:"", flag:true},
+  {date:"9/26/2018", name:"Harris Simmons", amt:30000.0, notes:"", flag:true},
+  {date:"6/25/2018", name:"Sentry Financial Corporation", amt:25000.0, notes:"", flag:true},
+  {date:"7/16/2018", name:"R & S Boyer Family LC", amt:25000.0, notes:"", flag:true},
+  {date:"8/6/2018", name:"JLS Holdings", amt:25000.0, notes:"", flag:true},
+  {date:"8/13/2018", name:"Mark & Kathie Miller", amt:25000.0, notes:"", flag:true},
+  {date:"10/1/2018", name:"EnergySolutions", amt:25000.0, notes:"", flag:true},
+  {date:"10/22/2018", name:"Fred Lampropoulos", amt:25000.0, notes:"", flag:true},
+  {date:"3/7/2018", name:"Harris Simmons", amt:20000.0, notes:"", flag:false},
+  {date:"6/22/2018", name:"Robert Garff", amt:20000.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Jane Marquardt", amt:20000.0, notes:"", flag:false},
+  {date:"1/2/2018", name:"Cache Valley Electric", amt:15000.0, notes:"", flag:false},
+  {date:"10/1/2018", name:"John Miller", amt:15000.0, notes:"", flag:false},
+  {date:"1/2/2018", name:"The Boyer Family Foundation Trust", amt:10000.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Aaron & Monica Skonnard", amt:10000.0, notes:"", flag:false},
+  {date:"2/15/2018", name:"J Steven Price", amt:10000.0, notes:"", flag:false},
+  {date:"2/22/2018", name:"Marc Harrison", amt:10000.0, notes:"", flag:false},
+  {date:"3/23/2018", name:"Intermountain Staffing", amt:10000.0, notes:"", flag:false},
+  {date:"3/26/2018", name:"Rustler Investments Inc", amt:10000.0, notes:"", flag:false},
+  {date:"4/3/2018", name:"David Carlebach", amt:10000.0, notes:"", flag:false},
+  {date:"7/2/2018", name:"Bonnie Jean Beesley", amt:10000.0, notes:"", flag:false},
+  {date:"7/26/2018", name:"The Sinclair Companies", amt:10000.0, notes:"", flag:false},
+  {date:"8/3/2018", name:"R&O Construction", amt:10000.0, notes:"", flag:false},
+  {date:"8/13/2018", name:"Bill Moreton", amt:10000.0, notes:"", flag:false},
+  {date:"8/23/2018", name:"Bryce Thurgood", amt:10000.0, notes:"", flag:false},
+  {date:"8/27/2018", name:"Dan Lofgren", amt:10000.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Leavitt Group Enterprises Inc.", amt:10000.0, notes:"", flag:false},
+  {date:"9/12/2018", name:"Christine Ivory", amt:10000.0, notes:"", flag:false},
+  {date:"9/13/2018", name:"Ron Smart", amt:10000.0, notes:"", flag:false},
+  {date:"9/17/2018", name:"Jan & Bryson Garbett", amt:10000.0, notes:"", flag:false},
+  {date:"9/19/2018", name:"Angela Dumke", amt:10000.0, notes:"", flag:false},
+  {date:"10/10/2018", name:"The Beck Family Trust", amt:10000.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Cache Valley Electric", amt:10000.0, notes:"", flag:false},
+  {date:"10/16/2018", name:"Karl Sun", amt:10000.0, notes:"", flag:false},
+  {date:"10/16/2018", name:"Spence Eccles", amt:10000.0, notes:"", flag:false},
+  {date:"10/19/2018", name:"Daniel & Peggy Campbell", amt:10000.0, notes:"", flag:false},
+  {date:"10/19/2018", name:"David Simmons", amt:10000.0, notes:"", flag:false},
+  {date:"10/19/2018", name:"Nu Skin International Inc", amt:10000.0, notes:"", flag:false},
+  {date:"10/22/2018", name:"Rustler Investments Inc", amt:10000.0, notes:"", flag:false},
+  {date:"10/23/2018", name:"Steve Price", amt:10000.0, notes:"", flag:false},
+  {date:"11/1/2018", name:"Keller Investment Properties", amt:10000.0, notes:"", flag:false},
+  {date:"11/5/2018", name:"Ron Jibson", amt:10000.0, notes:"", flag:false},
+  {date:"10/22/2018", name:"Utah Credit Union Association", amt:8000.0, notes:"", flag:false},
+  {date:"2/8/2018", name:"Jan & Bryson Garbett", amt:5000.0, notes:"", flag:false},
+  {date:"2/8/2018", name:"Clyde Companies Inc", amt:5000.0, notes:"", flag:false},
+  {date:"3/26/2018", name:"Crystal Maggelet", amt:5000.0, notes:"", flag:false},
+  {date:"6/25/2018", name:"WCF Insurance", amt:5000.0, notes:"", flag:false},
+  {date:"7/16/2018", name:"Matthew & Mariann Hawkins", amt:5000.0, notes:"", flag:false},
+  {date:"7/16/2018", name:"John Lindquist", amt:5000.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Tami Marquardt", amt:5000.0, notes:"", flag:false},
+  {date:"7/27/2018", name:"Dinesh Patel", amt:5000.0, notes:"", flag:false},
+  {date:"7/30/2018", name:"Nolan Karras", amt:5000.0, notes:"", flag:false},
+  {date:"8/2/2018", name:"John Milliken", amt:5000.0, notes:"", flag:false},
+  {date:"8/8/2018", name:"Rich Wilson", amt:5000.0, notes:"", flag:false},
+  {date:"9/24/2018", name:"Matt Hawkins", amt:5000.0, notes:"", flag:false},
+  {date:"9/26/2018", name:"Jane Marquardt", amt:5000.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"AGC of America Utah Chapter", amt:5000.0, notes:"", flag:false},
+  {date:"10/25/2018", name:"Robert & Katharine Garff", amt:5000.0, notes:"", flag:false},
+  {date:"11/5/2018", name:"Intermountain Staffing", amt:5000.0, notes:"", flag:false},
+  {date:"10/30/2018", name:"Terry Buckner", amt:3000.0, notes:"", flag:false},
+  {date:"9/25/2018", name:"Clark & Christine Ivory", amt:2571.58, notes:"", flag:false},
+  {date:"4/10/2018", name:"Terry Buckner", amt:2500.0, notes:"", flag:false},
+  {date:"8/16/2018", name:"Karla Bergeson", amt:2500.0, notes:"", flag:false},
+  {date:"8/24/2018", name:"John Ames", amt:2500.0, notes:"", flag:false},
+  {date:"8/31/2018", name:"James Hinckley", amt:2000.0, notes:"", flag:false},
+  {date:"10/11/2018", name:"Election Hive LLC", amt:2000.0, notes:"", flag:false},
+  {date:"10/30/2018", name:"Stokes Strategies", amt:2000.0, notes:"", flag:false},
+  {date:"12/3/2018", name:"Gathering Inc", amt:2000.0, notes:"", flag:false},
+  {date:"9/10/2018", name:"Management & Training Corporation", amt:1046.32, notes:"", flag:false},
+  {date:"1/26/2018", name:"Michael Falk", amt:1000.0, notes:"", flag:false},
+  {date:"1/29/2018", name:"Randy Cox", amt:1000.0, notes:"", flag:false},
+  {date:"2/12/2018", name:"Keith & Nina Barnes", amt:1000.0, notes:"", flag:false},
+  {date:"2/26/2018", name:"Julie & William Barrett", amt:1000.0, notes:"", flag:false},
+  {date:"3/12/2018", name:"Bruce Bingham", amt:1000.0, notes:"", flag:false},
+  {date:"7/6/2018", name:"Bruce Bingham", amt:1000.0, notes:"", flag:false},
+  {date:"7/20/2018", name:"Richard & Karen Fairbanks", amt:1000.0, notes:"", flag:false},
+  {date:"7/26/2018", name:"Elsa & Dick Gary", amt:1000.0, notes:"", flag:false},
+  {date:"7/27/2018", name:"Brad Mortensen", amt:1000.0, notes:"", flag:false},
+  {date:"8/13/2018", name:"J. Clair & Suzanne Morris", amt:1000.0, notes:"", flag:false},
+  {date:"8/22/2018", name:"Dimon McFerson", amt:1000.0, notes:"", flag:false},
+  {date:"8/31/2018", name:"Elizabeth Hammond", amt:1000.0, notes:"", flag:false},
+  {date:"9/21/2018", name:"Scott & Kathy Wyatt", amt:1000.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Jane Marquardt", amt:661.64, notes:"", flag:false},
+  {date:"6/1/2018", name:"Karla Bergeson", amt:500.0, notes:"", flag:false},
+  {date:"7/5/2018", name:"Josh Kanter", amt:500.0, notes:"", flag:false},
+  {date:"7/12/2018", name:"Ada & Keith Wilson", amt:500.0, notes:"", flag:false},
+  {date:"7/23/2018", name:"Lew Cramer", amt:500.0, notes:"", flag:false},
+  {date:"7/30/2018", name:"Patricia Richards", amt:500.0, notes:"", flag:false},
+  {date:"8/28/2018", name:"Kim Henrichsen", amt:500.0, notes:"", flag:false},
+  {date:"8/30/2018", name:"Phillip Clinger", amt:500.0, notes:"", flag:false},
+  {date:"9/4/2018", name:"The McQueen Financial Group", amt:500.0, notes:"", flag:false},
+  {date:"9/13/2018", name:"Alice & Kevin Steiner", amt:500.0, notes:"", flag:false},
+  {date:"9/13/2018", name:"Nathan Rafferty", amt:500.0, notes:"", flag:false},
+  {date:"10/16/2018", name:"James Jardine", amt:500.0, notes:"", flag:false},
+  {date:"10/25/2018", name:"Rich & Joan Kendell", amt:500.0, notes:"", flag:false},
+  {date:"10/31/2018", name:"Ted McDonough", amt:500.0, notes:"", flag:false},
+  {date:"7/13/2018", name:"Suzanne Pierce-Moore", amt:250.0, notes:"", flag:false},
+  {date:"8/6/2018", name:"Stuart Jones", amt:250.0, notes:"", flag:false},
+  {date:"8/20/2018", name:"Thomas Dee", amt:250.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Dixie Huefner", amt:250.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Val Chin", amt:250.0, notes:"", flag:false},
+  {date:"9/12/2018", name:"Tim and Shannon Dulaney", amt:250.0, notes:"", flag:false},
+  {date:"9/16/2018", name:"Abigail Hawkins", amt:250.0, notes:"", flag:false},
+  {date:"10/5/2018", name:"Brian Greeff", amt:250.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"Carl Barton", amt:250.0, notes:"", flag:false},
+  {date:"1/30/2018", name:"Keith & Trish Buswell", amt:200.0, notes:"", flag:false},
+  {date:"6/28/2018", name:"Bob & Lois Linnell", amt:200.0, notes:"", flag:false},
+  {date:"7/13/2018", name:"Keith & Trish Buswell", amt:200.0, notes:"", flag:false},
+  {date:"8/27/2018", name:"Jeff Robison", amt:200.0, notes:"", flag:false},
+  {date:"10/11/2018", name:"Mark Buchi", amt:200.0, notes:"", flag:false},
+  {date:"10/22/2018", name:"Steve Young", amt:200.0, notes:"", flag:false},
+  {date:"7/5/2018", name:"John Hullinger", amt:150.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Gregory Gordon", amt:150.0, notes:"", flag:false},
+  {date:"7/5/2018", name:"Patti Harrington", amt:110.0, notes:"", flag:false},
+  {date:"3/28/2018", name:"Sharlene Nielson", amt:100.0, notes:"", flag:false},
+  {date:"3/28/2018", name:"Spencer Stokes", amt:100.0, notes:"", flag:false},
+  {date:"3/30/2018", name:"Cecelia Foxley", amt:100.0, notes:"", flag:false},
+  {date:"6/20/2018", name:"Sharlene Nielson", amt:100.0, notes:"", flag:false},
+  {date:"7/12/2018", name:"Paul Neuenschwander", amt:100.0, notes:"", flag:false},
+  {date:"7/13/2018", name:"Barney & Marilee Chapman", amt:100.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Cynthia Phillips", amt:100.0, notes:"", flag:false},
+  {date:"8/28/2018", name:"John Robison", amt:100.0, notes:"", flag:false},
+  {date:"9/12/2018", name:"Kathleen Carlile", amt:100.0, notes:"", flag:false},
+  {date:"9/14/2018", name:"Rochelle Kaplan", amt:100.0, notes:"", flag:false},
+  {date:"9/15/2018", name:"Maci LeMonnier", amt:100.0, notes:"", flag:false},
+  {date:"9/18/2018", name:"Ann Johnson", amt:100.0, notes:"", flag:false},
+  {date:"9/22/2018", name:"Robert Walton-Steadman", amt:100.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"Scott Hagen", amt:100.0, notes:"", flag:false},
+  {date:"10/14/2018", name:"Kathryn Lindquist", amt:100.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Jennifer Nielsen", amt:100.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Dennis Morrill", amt:100.0, notes:"", flag:false},
+  {date:"10/22/2018", name:"Ross Romero", amt:100.0, notes:"", flag:false},
+  {date:"10/22/2018", name:"Steven Tyler", amt:100.0, notes:"", flag:false},
+  {date:"6/15/2018", name:"Becky Caldwell", amt:75.0, notes:"", flag:false},
+  {date:"6/27/2018", name:"Tom Larson", amt:75.0, notes:"", flag:false},
+  {date:"1/5/2018", name:"Cynthia Vitko JD MD", amt:50.0, notes:"", flag:false},
+  {date:"1/18/2018", name:"Jonathan Lawes", amt:50.0, notes:"", flag:false},
+  {date:"1/29/2018", name:"Theresa Olsen", amt:50.0, notes:"", flag:false},
+  {date:"3/28/2018", name:"Beverly Cooper", amt:50.0, notes:"", flag:false},
+  {date:"3/29/2018", name:"Douglas Ogilvy", amt:50.0, notes:"", flag:false},
+  {date:"4/13/2018", name:"Chris Scott", amt:50.0, notes:"", flag:false},
+  {date:"6/15/2018", name:"Jerre Holmes", amt:50.0, notes:"", flag:false},
+  {date:"6/15/2018", name:"Dale Lamborn", amt:50.0, notes:"", flag:false},
+  {date:"7/9/2018", name:"Lynne Ward", amt:50.0, notes:"", flag:false},
+  {date:"7/11/2018", name:"Jonathan Lawes", amt:50.0, notes:"", flag:false},
+  {date:"7/13/2018", name:"Laura Chipman", amt:50.0, notes:"", flag:false},
+  {date:"7/19/2018", name:"Courtney Opdyke", amt:50.0, notes:"", flag:false},
+  {date:"8/1/2018", name:"Karl Swan", amt:50.0, notes:"", flag:false},
+  {date:"9/5/2018", name:"Stephanie Fowler", amt:50.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Valerie Gates", amt:50.0, notes:"", flag:false},
+  {date:"9/20/2018", name:"Steve Haws", amt:50.0, notes:"", flag:false},
+  {date:"9/21/2018", name:"Dale Lamborn", amt:50.0, notes:"", flag:false},
+  {date:"9/23/2018", name:"Peter Reese", amt:50.0, notes:"", flag:false},
+  {date:"9/24/2018", name:"Dr. Marne Isakson", amt:50.0, notes:"", flag:false},
+  {date:"10/8/2018", name:"Jeannie Welch", amt:50.0, notes:"", flag:false},
+  {date:"10/11/2018", name:"Marian Ingham", amt:50.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"Kate Noel", amt:50.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Sharlene Nielson", amt:50.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"David Matty", amt:50.0, notes:"", flag:false},
+  {date:"10/22/2018", name:"Mona Burton", amt:50.0, notes:"", flag:false},
+  {date:"9/7/2018", name:"Matt Dimick", amt:40.0, notes:"", flag:false},
+  {date:"2/1/2018", name:"Bill Fisher", amt:35.0, notes:"", flag:false},
+  {date:"8/23/2018", name:"Lynn Buchanan", amt:35.0, notes:"", flag:false},
+  {date:"10/17/2018", name:"Elizabeth Zenter", amt:35.0, notes:"", flag:false},
+  {date:"8/15/2018", name:"Rebekah Westfall", amt:30.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Patti Sargent", amt:30.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Christina Miller", amt:25.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Michael Johnson", amt:25.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Linda Sorenson", amt:25.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Karlen Luthy", amt:25.0, notes:"", flag:false},
+  {date:"2/2/2018", name:"Sharon Roghaar", amt:25.0, notes:"", flag:false},
+  {date:"3/28/2018", name:"Hollie Pettersson", amt:25.0, notes:"", flag:false},
+  {date:"3/28/2018", name:"Lynne Herring", amt:25.0, notes:"", flag:false},
+  {date:"3/29/2018", name:"Tracy Olsen", amt:25.0, notes:"", flag:false},
+  {date:"6/12/2018", name:"Angie Johnson", amt:25.0, notes:"", flag:false},
+  {date:"6/15/2018", name:"Patti Sargent", amt:25.0, notes:"", flag:false},
+  {date:"6/29/2018", name:"Norman Jones", amt:25.0, notes:"", flag:false},
+  {date:"7/13/2018", name:"Patti Sargent", amt:25.0, notes:"", flag:false},
+  {date:"7/16/2018", name:"Linda Howell", amt:25.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"LeAnne Heagren", amt:25.0, notes:"", flag:false},
+  {date:"7/19/2018", name:"Stacey Mollinet", amt:25.0, notes:"", flag:false},
+  {date:"8/20/2018", name:"David Westerby", amt:25.0, notes:"", flag:false},
+  {date:"8/23/2018", name:"Sarah Evans", amt:25.0, notes:"", flag:false},
+  {date:"9/3/2018", name:"Tim Sheehan", amt:25.0, notes:"", flag:false},
+  {date:"9/3/2018", name:"Barbara Antonetti", amt:25.0, notes:"", flag:false},
+  {date:"9/3/2018", name:"Sara Madahamiri", amt:25.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Karen Stirling", amt:25.0, notes:"", flag:false},
+  {date:"9/10/2018", name:"McKenna Holmes", amt:25.0, notes:"", flag:false},
+  {date:"9/14/2018", name:"Jodie Sanders", amt:25.0, notes:"", flag:false},
+  {date:"9/19/2018", name:"Donald Gartman", amt:25.0, notes:"", flag:false},
+  {date:"9/21/2018", name:"Chalese Craig", amt:25.0, notes:"", flag:false},
+  {date:"9/28/2018", name:"Rayna Lofgren", amt:25.0, notes:"", flag:false},
+  {date:"10/11/2018", name:"Julie King", amt:25.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Christopher Kruegar", amt:25.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Liz Mueller", amt:25.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Kristan Norton", amt:25.0, notes:"", flag:false},
+  {date:"10/17/2018", name:"Bill Fisher", amt:25.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Lyndsey Jarman", amt:20.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"David Oakeson", amt:20.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Royd Darrington", amt:20.0, notes:"", flag:false},
+  {date:"3/28/2018", name:"Joe Rivest", amt:20.0, notes:"", flag:false},
+  {date:"6/6/2018", name:"Josh Stewart", amt:20.0, notes:"", flag:false},
+  {date:"6/15/2018", name:"Heidi Schubert", amt:20.0, notes:"", flag:false},
+  {date:"7/12/2018", name:"Ashley Nelson", amt:20.0, notes:"", flag:false},
+  {date:"8/23/2018", name:"Lynn Stoddaard", amt:20.0, notes:"", flag:false},
+  {date:"9/4/2018", name:"Steve Christensen", amt:20.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"John Bennion", amt:20.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Ben Breinholt", amt:20.0, notes:"", flag:false},
+  {date:"9/19/2018", name:"Chris Scott", amt:20.0, notes:"", flag:false},
+  {date:"9/19/2018", name:"Marianne Holtkamp", amt:20.0, notes:"", flag:false},
+  {date:"9/27/2018", name:"Prepared Pilot LLC", amt:20.0, notes:"", flag:false},
+  {date:"10/5/2018", name:"Jay Askren", amt:20.0, notes:"", flag:false},
+  {date:"10/10/2018", name:"Sherry Schomaker", amt:20.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"Donald Jensen", amt:20.0, notes:"", flag:false},
+  {date:"10/20/2018", name:"Radventures LLC", amt:20.0, notes:"", flag:false},
+  {date:"6/12/2018", name:"Rochelle Kaplan", amt:19.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Ashely Nelson", amt:15.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Mary Van Siclen", amt:15.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Allison Holbrook", amt:15.0, notes:"", flag:false},
+  {date:"9/12/2018", name:"Cathie Upstill", amt:15.0, notes:"", flag:false},
+  {date:"9/22/2018", name:"Zach Miller", amt:15.0, notes:"", flag:false},
+  {date:"10/9/2018", name:"Emily Syphus", amt:15.0, notes:"", flag:false},
+  {date:"9/28/2018", name:"Marci Woolley", amt:12.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Marilyn Foster", amt:10.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Camille Anderson", amt:10.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Mila Gleason", amt:10.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Shelley Burke", amt:10.0, notes:"", flag:false},
+  {date:"1/30/2018", name:"Ashlee Ekins", amt:10.0, notes:"", flag:false},
+  {date:"1/30/2018", name:"Nachely Gonzalez", amt:10.0, notes:"", flag:false},
+  {date:"1/31/2018", name:"Jana Bradshaw", amt:10.0, notes:"", flag:false},
+  {date:"2/1/2018", name:"Kris Nelson", amt:10.0, notes:"", flag:false},
+  {date:"2/1/2018", name:"Dale Porter", amt:10.0, notes:"", flag:false},
+  {date:"2/5/2018", name:"Josh Baldi", amt:10.0, notes:"", flag:false},
+  {date:"3/29/2018", name:"Patti Harrington", amt:10.0, notes:"", flag:false},
+  {date:"3/29/2018", name:"Dianne Phillips", amt:10.0, notes:"", flag:false},
+  {date:"3/29/2018", name:"Terri Roylance", amt:10.0, notes:"", flag:false},
+  {date:"4/1/2018", name:"Dale Porter", amt:10.0, notes:"", flag:false},
+  {date:"6/12/2018", name:"David Westerby", amt:10.0, notes:"", flag:false},
+  {date:"6/15/2018", name:"David Westerby", amt:10.0, notes:"", flag:false},
+  {date:"6/25/2018", name:"Travis Chamberlain", amt:10.0, notes:"", flag:false},
+  {date:"7/12/2018", name:"Mila Gleason", amt:10.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Amanda Salgado", amt:10.0, notes:"", flag:false},
+  {date:"7/18/2018", name:"Erin Bean", amt:10.0, notes:"", flag:false},
+  {date:"7/22/2018", name:"Terri Roylance", amt:10.0, notes:"", flag:false},
+  {date:"8/9/2018", name:"Jill Weber", amt:10.0, notes:"", flag:false},
+  {date:"9/5/2018", name:"Courtney Marden", amt:10.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"David Myers", amt:10.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Moses Baca", amt:10.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Daphane Marchant", amt:10.0, notes:"", flag:false},
+  {date:"9/6/2018", name:"Kimberly Oldroyd", amt:10.0, notes:"", flag:false},
+  {date:"9/7/2018", name:"Edith Lang", amt:10.0, notes:"", flag:false},
+  {date:"9/7/2018", name:"Matt Shake", amt:10.0, notes:"", flag:false},
+  {date:"9/8/2018", name:"Art Warsoff", amt:10.0, notes:"", flag:false},
+  {date:"9/9/2018", name:"Heather Sikes", amt:10.0, notes:"", flag:false},
+  {date:"9/11/2018", name:"Joyce and Jack Dolcourt", amt:10.0, notes:"", flag:false},
+  {date:"9/17/2018", name:"Janene Salt", amt:10.0, notes:"", flag:false},
+  {date:"9/19/2018", name:"Karen Asay", amt:10.0, notes:"", flag:false},
+  {date:"9/19/2018", name:"Julie Pereira", amt:10.0, notes:"", flag:false},
+  {date:"9/20/2018", name:"Jay and Naoma Eastley", amt:10.0, notes:"", flag:false},
+  {date:"9/20/2018", name:"Liesel Stout", amt:10.0, notes:"", flag:false},
+  {date:"9/21/2018", name:"Catharina Jacketta", amt:10.0, notes:"", flag:false},
+  {date:"9/23/2018", name:"Kathleen Vanorman", amt:10.0, notes:"", flag:false},
+  {date:"10/1/2018", name:"Ladene Damewood", amt:10.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"Venice Kimball", amt:10.0, notes:"", flag:false},
+  {date:"10/12/2018", name:"Donald Roberts", amt:10.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Rebecca Monson", amt:10.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Ann Geary", amt:10.0, notes:"", flag:false},
+  {date:"10/15/2018", name:"Kate Thomas", amt:10.0, notes:"", flag:false},
+  {date:"10/17/2018", name:"Oralia Mendez", amt:10.0, notes:"", flag:false},
+  {date:"10/17/2018", name:"Tamela Blake", amt:10.0, notes:"", flag:false},
+  {date:"10/17/2018", name:"Lois Miller", amt:10.0, notes:"", flag:false},
+  {date:"10/17/2018", name:"DeeAnn Gibson", amt:10.0, notes:"", flag:false},
+  {date:"10/19/2018", name:"David Ruster", amt:10.0, notes:"", flag:false},
+  {date:"6/12/2018", name:"Marilyn Foster", amt:9.0, notes:"", flag:false},
+  {date:"6/20/2018", name:"Joyce Cottrell", amt:9.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Nomi Sheppard", amt:5.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Marnie Meredith", amt:5.0, notes:"", flag:false},
+  {date:"1/26/2018", name:"Cathy Ambrose", amt:5.0, notes:"", flag:false},
+  {date:"8/3/2018", name:"Erin Wynn", amt:1.0, notes:"", flag:false}
+];
+
+function fmtAmt(n){
+  return "$" + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (activePill === 'flagged' && !t.flag) return;
+    if (q && t.name.toLowerCase().indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">$25k+</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' contributions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: "'IBM Plex Mono', monospace",
+      fontSize: '18px',
+      primaryColor: '#F3ECE0',
+      primaryTextColor: '#211714',
+      primaryBorderColor: '#6E1F2B',
+      lineColor: '#6E1F2B',
+      secondaryColor: '#E9E0D0',
+      secondaryTextColor: '#211714',
+      secondaryBorderColor: '#B4863C',
+      tertiaryColor: '#ffffff',
+      tertiaryTextColor: '#211714',
+      tertiaryBorderColor: '#C9BBA4',
+      clusterBkg: '#E9E0D0',
+      edgeLabelBackground: '#F3ECE0'
+    },
+    flowchart: { curve: 'basis', htmlLabels: true, nodeSpacing: 40, rankSpacing: 60, padding: 20 }
+  });
+</script>
+
+</body>
+</html>

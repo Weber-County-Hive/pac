@@ -37,7 +37,8 @@ const CASES = [
     officials: ["Rich McKeown", "Val Oveson", "Michael O. Leavitt", "Gail Miller"],
     status: "documented",
     updated: "Sep 12, 2026",
-    link: "cmv-pac.html"
+    link: "cmv-pac.html",
+    pairWith: "PAC-13"
   },
   {
     caseNumber: "PAC-04",
@@ -130,5 +131,27 @@ const CASES = [
     updated: "Sep 14, 2026",
     link: "lincoln-hill-men-behind.html",
     pairWith: "PAC-10"
+  },
+  {
+    caseNumber: "PAC-13",
+    title: "Same Filer, Three Executives, One Company",
+    category: "Campaign Finance & Ethics",
+    summary: "An \"education advocacy\" PAC's own founding paperwork was filed by a private prison company's general counsel, using its treasury director as registered agent and its president as Executive Committee chair — while a separate autism-therapy company's giving arm sent an identical check to the same sitting MIDA Vice Chair one week later.",
+    officials: ["Bob Marquardt", "Ammaron Wolfgramm", "Jerry Stevenson", "Mike Schultz", "Gail Miller"],
+    status: "documented",
+    updated: "Sep 14, 2026",
+    link: "education-first-utah.html",
+    pairWith: "PAC-03"
+  },
+  {
+    caseNumber: "PAC-14",
+    title: "The Tax-Increase Campaign an \"Anti-Tax-Increase\" PAC's Parent Owns",
+    category: "Campaign Finance & Ethics",
+    summary: "Our Schools Now, a $2 million 2018 tax-increase ballot campaign, is run by the identical four officers as Education First Utah's Executive Committee, and its own state filing formally declares Education First as its affiliated organization.",
+    officials: ["Gail Miller", "Scott Anderson", "Robert Scott Marquardt", "Nolan Karras"],
+    status: "documented",
+    updated: "Sep 14, 2026",
+    link: "our-schools-now.html",
+    pairWith: "PAC-13"
   }
 ];
