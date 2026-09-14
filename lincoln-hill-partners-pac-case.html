@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lincoln Hill Partners PAC | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:760px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:700px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:110px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.82rem;font-weight:600;margin-top:2px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.86rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:520px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.72rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:240px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .bar-chart{background:#fff;border:1px solid var(--line);padding:24px 24px 12px;margin:20px 0;}
+  .bar-row{display:flex;align-items:flex-end;gap:14px;height:200px;justify-content:space-between;}
+  .bar-col{display:flex;flex-direction:column;align-items:center;flex:1;height:100%;justify-content:flex-end;}
+  .bar-fill{width:100%;max-width:56px;background:var(--line);position:relative;}
+  .bar-fill.hi{background:var(--gold);}
+  .bar-fill .val{position:absolute;top:-20px;left:0;right:0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--ink-soft);}
+  .bar-year{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);margin-top:8px;}
+  .bar-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);margin-top:14px;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+
+  /* Flip cards — Start Here relationships */
+  .flip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:20px 0;}
+  .flip-card{perspective:900px;height:200px;}
+  .flip-card-inner{position:relative;width:100%;height:100%;text-align:center;transition:transform 0.5s;transform-style:preserve-3d;cursor:pointer;}
+  .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
+  .flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;border:1px solid var(--line);overflow:hidden;}
+  .flip-card-front{background:#fff;}
+  .flip-card-front .fc-name{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;color:var(--maroon);}
+  .flip-card-front .fc-hint{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--ink-soft);margin-top:8px;text-transform:uppercase;}
+  .flip-card-back{background:var(--void);color:var(--paper);transform:rotateY(180deg);}
+  .flip-card-back .fc-role{font-weight:600;font-size:0.78rem;color:var(--gold);margin-bottom:6px;}
+  .flip-card-back .fc-def{font-size:0.7rem;line-height:1.35;}
+
+  /* Donor dropdown table */
+  details.donor-drop{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);margin:16px 0;overflow:hidden;}
+  details.donor-drop summary{cursor:pointer;padding:14px 20px;list-style:none;font-weight:600;font-family:'Fraunces',serif;font-size:1.05rem;}
+  details.donor-drop summary::-webkit-details-marker{display:none;}
+  details.donor-drop .drop-body{padding:0 20px 18px;}
+  table.donor-table{width:100%;border-collapse:collapse;font-size:0.86rem;}
+  table.donor-table th{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;background:var(--paper-dim);padding:8px 10px;text-align:left;border:1px solid var(--line);}
+  table.donor-table td{padding:7px 10px;border:1px solid var(--line);}
+  table.donor-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;color:var(--bad);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Action Committee</div>
+  <h1 class="title">Lincoln Hill Partners PAC: <em>+496% the Year It Dissolved</em></h1>
+  <p class="subtitle">A PAC that legally traces back to one man's own consulting entity, dissolved as a corporation in mid-2023 — the same year its spending grew nearly fivefold.</p>
+  <div class="meta-row">
+    <span class="meta-pill">"Lincoln Hill Partners" = a DBA of Fides LLC</span>
+    <span class="meta-pill">Administratively Dissolved, summer 2023</span>
+    <span class="meta-pill">$347,200 spent the year after dissolving (+496%)</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This PAC</a>
+  <a href="#dba">The DBA Structure</a>
+  <a href="#spending">Year-by-Year Spending</a>
+  <a href="#2026">2026 Ledger</a>
+  <a href="#fillmore">The Fillmore Round Trip</a>
+  <a href="#reflect">Worth Asking</a>
+  <a href="#open">Research Status</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<section id="start-here">
+<h2 style="border-bottom:2px solid var(--maroon);padding-bottom:8px;">Start Here — Key Relationships</h2>
+<p>Tap a name to see how each person or entity connects to this PAC.</p>
+<div class="flip-grid">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Fides LLC</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Owns the "Lincoln Hill Partners" Name</div><div class="fc-def">Lincoln Shurtz's own entity. Filed the "Lincoln Hill Partners" Assumed Name/DBA on 1/11/2021, nine months before the public four-principal merger was announced.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Lincoln Shurtz</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Sole Registered Agent</div><div class="fc-def">Registered agent and Applicant for the "Lincoln Hill Partners" DBA, through his entity Fides LLC.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Gov. Spencer Cox</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Top Recipient</div><div class="fc-def">Friends of Spencer Cox has received $82,500+ total across 2022–2025, including one $57,500 payment in 2024.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Lincoln Fillmore</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Two-Way Money Flow</div><div class="fc-def">Received $4,000 from this PAC in 2026 alone; his own campaign separately gave $1,500 back to a related Lincoln Hill PAC in 2023.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">House Speaker Leadership PAC</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Recurring Recipient</div><div class="fc-def">Received escalating annual payments: $10,000 (2023) → $12,000 (2024) → $30,000 (2025) → $30,000 (2026).</div></div>
+  </div></div>
+</div>
+</section>
+
+
+<div class="callout-box">
+<p><strong>New here?</strong> "Lincoln Hill Partners" is the name used both for a Utah lobbying firm and for this PAC — but the name itself is legally just an Assumed Name (DBA) filed under one man's own consulting entity, months before the firm's public "four-principal merger" story was ever announced. The PAC built under that name was administratively dissolved in 2023 and never stopped spending.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This PAC?</h2>
+<p>Lincoln Hill Partners PAC is a separate entity from Lincoln Hill PAC (no "Partners" — see that PAC's own case file, linked in Related Coverage), though the two share funders, recipients, and the same core group of people. This PAC's own giving history runs back to at least 2021, predating the public October 2021 announcement that Lincoln Hill Partners had formed via a merger of two existing lobbying firms.</p>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$23,500</span><span class="stat-label">First confirmed year, 2021</span></div>
+  <div class="stat-cell"><span class="stat-num">$347,200</span><span class="stat-label">2024 spending — a +496% jump</span></div>
+  <div class="stat-cell"><span class="stat-num">43+</span><span class="stat-label">Recipients sharing one Capitol-area address, 2023 alone</span></div>
+</div>
+</section>
+
+<section id="dba">
+<h2>2. The DBA Structure</h2>
+<p>Utah's Division of Corporations lists "LINCOLN HILL PARTNERS" as an Assumed Name (DBA) — Entity #12108082-0151, formed <strong>1/11/2021</strong>. Both the registered agent and the Applicant/Principal on that filing are the same entity: <strong>Fides LLC</strong>, Lincoln Shurtz's own consulting company (formed a month earlier, 12/14/2020, stated purpose "Political advisory and consulting").</p>
+
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">12/14/2020</div><div class="timeline-label">Fides LLC formed</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">1/11/2021</div><div class="timeline-label">"Lincoln Hill Partners" DBA filed under Fides LLC</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">10/4/2021</div><div class="timeline-label">Public four-principal merger announced</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">Summer 2023</div><div class="timeline-label">PAC administratively dissolved</div></div>
+</div>
+
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>The name predates the story told about it.</strong> The public narrative is a merger of two established firms, credited to four named principals. But the actual "Lincoln Hill Partners" name was filed under one of those four principals' own personal entity, nine months before that merger was ever announced. The DBA's own address, 68 East 300 North, Salt Lake City, is the same address that recurs across 43+ separate recipients in this PAC's own 2023 filings.</p>
+</div>
+</section>
+
+<section id="spending">
+<h2>3. Year-by-Year Spending</h2>
+<div class="bar-chart">
+  <div class="bar-row">
+    <div class="bar-col"><div class="bar-fill" style="height:6.8%;"><span class="val">$23.5K</span></div><div class="bar-year">2021</div></div>
+    <div class="bar-col"><div class="bar-fill" style="height:10.4%;"><span class="val">$36.3K</span></div><div class="bar-year">2022</div></div>
+    <div class="bar-col"><div class="bar-fill" style="height:16.8%;"><span class="val">$58.2K</span></div><div class="bar-year">2023</div></div>
+    <div class="bar-col"><div class="bar-fill hi" style="height:100%;"><span class="val">$347.2K</span></div><div class="bar-year">2024</div></div>
+    <div class="bar-col"><div class="bar-fill hi" style="height:57.6%;"><span class="val">$200K+</span></div><div class="bar-year">2025</div></div>
+    <div class="bar-col"><div class="bar-fill" style="height:27.4%;"><span class="val">~$95K</span></div><div class="bar-year">2026*</div></div>
+  </div>
+  <div class="bar-caption">*2026 partial-year figure. The PAC administratively dissolved partway through 2023 — spending nearly quintupled the following year.</div>
+</div>
+
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>2021–2023</h4>
+    <div class="roster-sub">Before and around dissolution</div>
+    <ul>
+      <li>2021: UHREC $5,000, NUPAC $5,000, Adams Leadership PAC $2,000</li>
+      <li>2022: Gov. Cox $10,000 (largest that year)</li>
+      <li>2023: Cox $7,500; House Speaker Leadership PAC $10,000; Jefferson Moss $1,000 direct personal payment</li>
+    </ul>
+  </div>
+  <div class="roster-card">
+    <h4>2024–2026</h4>
+    <div class="roster-sub">After dissolution, spending escalates</div>
+    <ul>
+      <li>2024: Cox $57,500 single payment; HSLPAC $12,000; NUPAC $10,000; Jon Hawkins $10,000; Derek Brown $5,000</li>
+      <li>2025: HSLPAC $30,000; Derek Brown $20,000; Cox total 2022–25: $82,500+</li>
+      <li>2026 (partial): HSLPAC $30,000; UHREC $8,000; Adams Leadership PAC $6,000</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<details class="donor-drop">
+<summary>Top Recipients, All Years (2021–2026) ▾</summary>
+<div class="drop-body">
+<table class="donor-table">
+<thead><tr><th>Recipient</th><th>Total (approx.)</th></tr></thead>
+<tbody>
+<tr><td>Friends of Spencer Cox</td><td class="amt">$82,500+</td></tr>
+<tr><td>House Speaker Leadership PAC</td><td class="amt">$82,000</td></tr>
+<tr><td>Northern Utah Legislative PAC (NUPAC)</td><td class="amt">$30,000</td></tr>
+<tr><td>Derek Brown (campaign)</td><td class="amt">$25,000</td></tr>
+<tr><td>Utah Home &amp; Real Estate Coalition (UHREC)</td><td class="amt">$18,000</td></tr>
+<tr><td>Adams Leadership PAC</td><td class="amt">$14,000</td></tr>
+<tr><td>Jon Hawkins</td><td class="amt">$10,000</td></tr>
+<tr><td>Lincoln Fillmore (campaign)</td><td class="amt">$5,500+</td></tr>
+<tr><td>Scott Sandall</td><td class="amt">$7,500</td></tr>
+<tr><td>Daniel McCay</td><td class="amt">$5,000</td></tr>
+</tbody>
+</table>
+</div>
+</details>
+
+<section id="2026">
+<h2>4. Full 2026 Ledger, Itemized</h2>
+<p>The complete itemized contribution report through 8/25/2026 — every recipient by name, confirming the PAC remains fully active.</p>
+<div class="tx-scroll">
+<table class="tx-table">
+  <thead><tr><th>Date</th><th>Recipient</th><th>Amount</th></tr></thead>
+  <tbody>
+    <tr><td class="mono">1/14/26</td><td>Rep. Jacob Fitisemanu (D)</td><td class="amt" style="color:var(--bad);">$250.00</td></tr>
+    <tr><td class="mono">1/14/26</td><td>Rep. Verona Mauga (D)</td><td class="amt" style="color:var(--bad);">$250.00</td></tr>
+    <tr><td class="mono">1/14/26</td><td>ActBlue Utah</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">1/15/26</td><td>Rep. Andrew Stoddard (D)</td><td class="amt" style="color:var(--bad);">$250.00</td></tr>
+    <tr><td class="mono">1/16/26</td><td>Adams Leadership PAC</td><td class="amt" style="color:var(--bad);">$5,000.00 + $1,000.00</td></tr>
+    <tr><td class="mono">4/29/26</td><td>David Benson</td><td class="amt" style="color:var(--bad);">$800.00</td></tr>
+    <tr><td class="mono">5/15/26</td><td>Sen. Tamara Tran</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">6/5/26</td><td>Republican Women Lead</td><td class="amt" style="color:var(--bad);">$2,500.00</td></tr>
+    <tr><td class="mono">6/9/26</td><td>Rep. Carl Albrecht</td><td class="amt" style="color:var(--bad);">$1,500.00</td></tr>
+    <tr><td class="mono">6/18/26</td><td>Rep. Carl Albrecht (2nd)</td><td class="amt" style="color:var(--bad);">$500.00</td></tr>
+    <tr><td class="mono">6/18/26</td><td>Sen. Derrin Owens</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">6/18/26</td><td>Sen. David Hinkins</td><td class="amt" style="color:var(--bad);">$800.00</td></tr>
+    <tr><td class="mono">6/19/26</td><td>Sen. Chris Wilson</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">6/22/26</td><td>Sen. Evan Vickers</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">7/15/26</td><td>Sen. Wayne Harper</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">7/18/26</td><td>Lincoln Fillmore</td><td class="amt" style="color:var(--bad);">$1,500.00</td></tr>
+    <tr><td class="mono">7/23/26</td><td>Sen. Mike McKell</td><td class="amt" style="color:var(--bad);">$1,000.00 + $5,000.00</td></tr>
+    <tr><td class="mono">8/4/26</td><td>Lincoln Fillmore (2nd)</td><td class="amt" style="color:var(--bad);">$2,500.00</td></tr>
+    <tr><td class="mono">8/7/26</td><td>Rep. Jen Dailey-Provost (D)</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">8/11/26</td><td>Douglas Welton</td><td class="amt" style="color:var(--bad);">$2,400.00</td></tr>
+    <tr><td class="mono">8/11/26</td><td>Rep. Steven Eliason</td><td class="amt" style="color:var(--bad);">$800.00</td></tr>
+    <tr><td class="mono">8/24/26</td><td>Rep. Walter Brooks</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+    <tr><td class="mono">8/25/26</td><td>Rep. Jon Hawkins</td><td class="amt" style="color:var(--bad);">$1,000.00</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="callout-box" style="margin-top:16px;">
+<p style="margin:0;"><strong>Real bipartisan reach in 2026 specifically:</strong> four named Democratic legislators (Fitisemanu, Mauga, Stoddard, Dailey-Provost) plus a direct $1,000 payment to <strong>ActBlue Utah</strong> itself — the Democratic fundraising platform — all in one year, from a PAC whose largest sums otherwise go to Republican leadership.</p>
+</div>
+</section>
+
+<section id="fillmore">
+<h2>5. The Fillmore Round Trip</h2>
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node hub">Lincoln Hill Partners PAC</div>
+  </div>
+  <div class="flow-arrow-down">↓ gives</div>
+  <div class="flow-tier">
+    <div class="flow-node overlap">Lincoln Fillmore's Campaign<span class="sub">$4,000 in 2026 alone (8/4 + 7/18)</span></div>
+  </div>
+  <div class="flow-arrow-down">↓ gives back</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">Lincoln Hill PAC<span class="sub">$1,500 total (7/5/23 + 12/27/23)</span></div>
+  </div>
+  <div class="flow-caption">A documented two-way flow, not a one-time coincidence.</div>
+</div>
+<p>Several other individual recipients funded by this PAC in 2022–2023 (Balderree, Weiler, Harper, Teuscher, Lee) later donated to Fillmore's own campaign in 2024 — a reverse flow of roughly $4,250, separate from the direct round-trip above.</p>
+</section>
+
+<section id="reflect">
+<h2>6. Worth Asking</h2>
+<div class="callout-box">
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>Why does a name legally owned by one person's entity get presented publicly as an equal four-way partnership?</strong> The DBA filing predates the merger announcement by nine months.</li>
+<li><strong>What explains the 30+ month gap between administrative dissolution and any correction?</strong> No renewal has ever been filed.</li>
+<li><strong>Is the Fillmore round-trip a normal reciprocal political relationship, or something closer to a circular funding pattern?</strong> The dates and amounts are documented; the reason isn't.</li>
+</ul>
+</div>
+</section>
+
+<section id="open">
+<h2>7. Research Status</h2>
+<div class="callout-box callout-finding">
+<p style="margin:0;"><strong>Resolved during research:</strong> the PAC did not disappear from Utah's disclosure system, as initial searching suggested — its own money trail surfaces through recipient committees' incoming-contribution reports even when a name search on the PAC itself doesn't immediately return it, a data-navigation quirk of Utah's disclosure portal rather than evidence the PAC stopped operating.</p>
+</div>
+<div class="callout-box callout-open">
+<p style="margin:0;"><strong>Still open:</strong> whether "Lincoln Hill PAC" and "Lincoln Hill Partners PAC" file under a shared underlying filer ID at the state level, or are treated as fully independent committees despite the overlapping name, personnel, and address.</p>
+</div>
+</section>
+
+<section id="related">
+<h2>8. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>Lincoln Hill PAC: the sister entity, its own corporate dissolution, and the Directors — including Utah's sitting Attorney General</span>
+  <a class="cta" href="lincoln-hill-pac-case.html">Read the PAC case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>The Men Behind Lincoln Hill: full profiles of all four principals, the Red Hill naming maze, and the Dan Hemmert/MIDA thread</span>
+  <a class="cta" href="lincoln-hill-men-behind.html">Read the network profile →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — full itemized 2026 contribution report through 8/25/2026, plus year-by-year historical DEX data 2021-2026</li>
+<li>Utah Division of Corporations — "LINCOLN HILL PARTNERS" Assumed Name/DBA filing (Entity #12108082-0151) and Fides LLC's own registration (Entity #12063536-0160)</li>
+<li>Lincoln Fillmore campaign finance disclosures, disclosures.utah.gov</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

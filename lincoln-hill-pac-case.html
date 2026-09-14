@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lincoln Hill PAC | The Weber County Hive — PAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:760px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:700px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .roster-compare{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0;}
+  .roster-card{flex:1;min-width:260px;background:#fff;border:1px solid var(--line);padding:18px 20px;}
+  .roster-card h4{margin:0 0 4px;font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;}
+  .roster-card .roster-sub{font-family:'IBM Plex Mono', monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:12px;}
+  .roster-card ul{margin:0;padding-left:20px;}
+  .roster-card li{margin-bottom:6px;}
+
+  .timeline{display:flex;justify-content:space-between;position:relative;margin:28px 0 8px;padding-top:6px;flex-wrap:wrap;gap:14px 0;}
+  .timeline::before{content:"";position:absolute;top:15px;left:2%;right:2%;height:2px;background:var(--line);}
+  .timeline-node{position:relative;flex:1;min-width:110px;text-align:center;z-index:1;}
+  .timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--maroon);border:3px solid var(--paper);margin:0 auto 8px;}
+  .timeline-date{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .timeline-label{font-size:0.82rem;font-weight:600;margin-top:2px;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .tx-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0;align-items:center;}
+  .tx-controls input, .tx-controls select{
+    font-family:'IBM Plex Mono', monospace;font-size:0.8rem;
+    padding:8px 10px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  .tx-controls input{flex:1;min-width:180px;}
+  .tx-pill-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .tx-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:16px;cursor:pointer;}
+  .tx-pill.active{background:var(--void);color:var(--paper-dim);border-color:var(--void);}
+  table.tx-table{width:100%;border-collapse:collapse;font-size:0.86rem;background:#fff;margin-top:10px;}
+  table.tx-table th{font-family:'IBM Plex Mono', monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:9px 10px;text-align:left;border:1px solid var(--line);position:sticky;top:0;}
+  table.tx-table td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;}
+  table.tx-table tr.contribution td.amt{color:var(--good);}
+  table.tx-table tr.expenditure td.amt{color:var(--bad);}
+  td.amt{font-family:'IBM Plex Mono', monospace;text-align:right;white-space:nowrap;}
+  .tx-scroll{max-height:520px;overflow-y:auto;border:1px solid var(--line);}
+  .tx-count{font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);margin:8px 0;}
+  .flag{font-size:0.72rem;font-family:'IBM Plex Mono', monospace;background:var(--paper-dim);color:var(--gold);border:1px solid var(--line);padding:1px 6px;}
+
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:240px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+  .flow-caption{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);margin-top:10px;}
+
+  .hbar-chart{background:#fff;border:1px solid var(--line);padding:20px 24px;margin:20px 0;}
+  .hbar-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .hbar-label{width:190px;flex-shrink:0;font-size:0.85rem;font-weight:600;}
+  .hbar-track{flex:1;background:var(--paper-dim);height:26px;position:relative;border:1px solid var(--line);}
+  .hbar-fill{height:100%;background:var(--bad);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+  .hbar-fill.primary{background:var(--good);}
+  .hbar-fill.gold{background:var(--gold);}
+  .hbar-fill span{color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;}
+  .hbar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .hbar-legend span.sw{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:middle;}
+
+  .donut-row{display:flex;flex-wrap:wrap;gap:28px;margin:20px 0;align-items:flex-start;}
+  .donut-card{flex:1;min-width:220px;background:#fff;border:1px solid var(--line);padding:20px;text-align:center;}
+  .donut{width:140px;height:140px;border-radius:50%;margin:0 auto 14px;position:relative;}
+  .donut::after{content:"";position:absolute;top:20px;left:20px;width:100px;height:100px;border-radius:50%;background:#fff;}
+  .donut-label{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:4px;}
+  .donut-sub{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px;}
+  .donut-legend{display:flex;flex-direction:column;gap:4px;font-size:0.82rem;text-align:left;max-width:220px;margin:0 auto;}
+  .donut-legend span.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+
+  /* Flip cards — Start Here relationships */
+  .flip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:20px 0;}
+  .flip-card{perspective:900px;height:200px;}
+  .flip-card-inner{position:relative;width:100%;height:100%;text-align:center;transition:transform 0.5s;transform-style:preserve-3d;cursor:pointer;}
+  .flip-card.flipped .flip-card-inner{transform:rotateY(180deg);}
+  .flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;border:1px solid var(--line);overflow:hidden;}
+  .flip-card-front{background:#fff;}
+  .flip-card-front .fc-name{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;color:var(--maroon);}
+  .flip-card-front .fc-hint{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--ink-soft);margin-top:8px;text-transform:uppercase;}
+  .flip-card-back{background:var(--void);color:var(--paper);transform:rotateY(180deg);}
+  .flip-card-back .fc-role{font-weight:600;font-size:0.78rem;color:var(--gold);margin-bottom:6px;}
+  .flip-card-back .fc-def{font-size:0.7rem;line-height:1.35;}
+
+  /* Donor dropdown table */
+  details.donor-drop{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);margin:16px 0;overflow:hidden;}
+  details.donor-drop summary{cursor:pointer;padding:14px 20px;list-style:none;font-weight:600;font-family:'Fraunces',serif;font-size:1.05rem;}
+  details.donor-drop summary::-webkit-details-marker{display:none;}
+  details.donor-drop .drop-body{padding:0 20px 18px;}
+  table.donor-table{width:100%;border-collapse:collapse;font-size:0.86rem;}
+  table.donor-table th{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;text-transform:uppercase;background:var(--paper-dim);padding:8px 10px;text-align:left;border:1px solid var(--line);}
+  table.donor-table td{padding:7px 10px;border:1px solid var(--line);}
+  table.donor-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;color:var(--good);}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span>The Weber County Hive · PAC</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+
+<header class="masthead">
+  <div class="eyebrow">Case File · Political Action Committee</div>
+  <h1 class="title">Lincoln Hill PAC: <em>Dissolved on Paper, Active in Practice</em></h1>
+  <p class="subtitle">A nonprofit corporation that named a sitting Attorney General as one of three Directors was administratively dissolved in July 2023 — and has raised and spent $627,000 in the years since, without ever re-registering.</p>
+  <div class="meta-row">
+    <span class="meta-pill">Corporation formed 4/26/2022</span>
+    <span class="meta-pill">Administratively Dissolved 7/20/2023</span>
+    <span class="meta-pill">$627,000 in / $495,965.46 out, 2022–2026</span>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="index.html">← Back to PAC docket</a></div>
+
+<nav class="jump">
+  <a href="#what">What Is This PAC</a>
+  <a href="#dissolved">The Dissolution</a>
+  <a href="#funders">Who Funds It</a>
+  <a href="#recipients">Where It Goes</a>
+  <a href="#vendors">The Vendors</a>
+  <a href="#explorer">Transaction Explorer</a>
+  <a href="#reflect">Worth Asking</a>
+  <a href="#open">Research Status</a>
+  <a href="#related">Related Coverage</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+<section id="start-here">
+<h2 style="border-bottom:2px solid var(--maroon);padding-bottom:8px;">Start Here — Key Relationships</h2>
+<p>Tap a name to see how each person or entity connects to this PAC.</p>
+<div class="flip-grid">
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Lincoln Shurtz</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Director / Largest Funder</div><div class="fc-def">Co-founded this PAC. His entity Fides LLC gave $339,500, the largest single source of funding.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Casey Hill</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Director</div><div class="fc-def">Registered lobbyist, listed as a Director on the PAC's corporate registration.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Derek Brown</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Director / Recipient</div><div class="fc-def">Utah Attorney General. Listed as a Director, and his campaign committee received $15,100 from this PAC.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Mike McCauley</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Registered Agent / Vendor</div><div class="fc-def">His firm, McCauley &amp; Associates, is this PAC's registered agent and a paid vendor ($8,825). Also Treasurer of Sen. Curtis's federal leadership PAC.</div></div>
+  </div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner">
+    <div class="flip-card-front"><div class="fc-name">Scott Ryan Smith</div><div class="fc-hint">Tap</div></div>
+    <div class="flip-card-back"><div class="fc-role">Donor</div><div class="fc-def">Qualtrics co-founder. Gave $80,000, 12 days after an identical $80,000 gift from Fides LLC.</div></div>
+  </div></div>
+</div>
+</section>
+
+
+<div class="callout-box">
+<p><strong>New here?</strong> Lincoln Hill PAC is registered with Utah's Lieutenant Governor as an active political action committee — but its underlying corporate registration was administratively dissolved in July 2023, and no one has ever re-registered it. Its own corporate filing names three Directors: two registered lobbyists, and Utah's sitting Attorney General.</p>
+</div>
+
+<section id="what">
+<h2>1. What Is This PAC?</h2>
+<p>Lincoln Hill PAC was created April 27, 2022, co-founded by the four principals of the lobbying firm Lincoln Hill Partners. Its corporate registration (Utah Entity #12822174-0140) is filed as a domestic nonprofit corporation, formed 4/26/2022, with registered agent <strong>McCauley &amp; Associates</strong> — the accounting firm of Mike McCauley, who separately serves as Treasurer of a U.S. Senator's own federal leadership PAC (see Section 5).</p>
+
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Directors of Record</h4>
+    <div class="roster-sub">Per the PAC's own corporate registration</div>
+    <ul>
+      <li><strong>Casey Hill</strong> — registered lobbyist, Election Hive-connected</li>
+      <li><strong>Lincoln Shurtz</strong> — registered lobbyist, MIDA lobbyist</li>
+      <li><strong>Derek Brown</strong> — sitting Utah Attorney General</li>
+    </ul>
+    <p style="margin:10px 0 0;font-size:0.85rem;color:var(--ink-soft);">Chase Everton, the fourth publicly-credited firm principal, is not listed as a Director of this entity.</p>
+  </div>
+</div>
+
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$627,000</span><span class="stat-label">Total raised, 2022–2026</span></div>
+  <div class="stat-cell"><span class="stat-num">$495,965</span><span class="stat-label">Total spent, 2022–2026</span></div>
+  <div class="stat-cell"><span class="stat-num">16</span><span class="stat-label">Deleted transaction entries</span></div>
+</div>
+</section>
+
+<section id="dissolved">
+<h2>2. The Dissolution</h2>
+<div class="timeline">
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">4/26/2022</div><div class="timeline-label">Corporation formed</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">4/27/2022</div><div class="timeline-label">PAC co-founded</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">7/20/2023</div><div class="timeline-label">Administratively Dissolved</div></div>
+  <div class="timeline-node"><div class="timeline-dot"></div><div class="timeline-date">2023–2026</div><div class="timeline-label">Continued raising/spending regardless</div></div>
+</div>
+<p>Utah's own Division of Corporations lists Lincoln Hill PAC's status as "Inactive — Administratively Dissolved," with an expiration date of 7/20/2023 and no renewal on file since. That dissolution sits in the middle of the PAC's own five-year giving history — meaning more than half of the $627,000 it has raised and spent came <em>after</em> its underlying corporation stopped existing.</p>
+<div class="callout-box callout-note">
+<p style="margin:0;"><strong>For context:</strong> the related entity "Lincoln Hill Partners" — the name used for both the lobbying firm and this PAC's own branding — is itself legally just an Assumed Name (DBA), filed under Fides LLC (Lincoln Shurtz's own entity) on 1/11/2021, months before the firm's October 2021 merger was ever publicly announced. Full detail on that structure lives in the "Men Behind Lincoln Hill" profile, linked in Related Coverage below.</p>
+</div>
+</section>
+
+<section id="funders">
+<h2>3. Who Funds It</h2>
+<div class="donut-row">
+  <div class="donut-card">
+    <div class="donut-label">Where the $627,000 came from</div>
+    <div class="donut-sub">Top five funders, 2022–2026</div>
+    <div class="donut" style="background:conic-gradient(#B4863C 0% 54.2%, #8C3B44 54.2% 67%, #3F6B3F 67% 74.2%, #C9BBA4 74.2% 81%, #E9E0D0 81% 100%);"></div>
+    <div class="donut-legend">
+      <span><span class="sw" style="background:#B4863C;"></span>54.2% — Fides LLC (Lincoln Shurtz's own entity), $339,500</span>
+      <span><span class="sw" style="background:#8C3B44;"></span>12.8% — Scott Ryan Smith, $80,000</span>
+      <span><span class="sw" style="background:#3F6B3F;"></span>7.2% — EnergySolutions, $45,000</span>
+      <span><span class="sw" style="background:#C9BBA4;"></span>6.8% — Legislative Insight Consulting, $42,500</span>
+      <span><span class="sw" style="background:#E9E0D0;"></span>19% — everyone else, 90+ additional donors</span>
+    </div>
+  </div>
+</div>
+
+<div class="callout-box callout-finding">
+<p><strong>The $80,000 match.</strong> Scott Ryan Smith — Qualtrics co-founder and owner of the Utah Jazz and Utah Mammoth — personally gave $80,000, landing 12 days after an identical $80,000 donation from Fides LLC. Qualtrics became a registered Casey Hill lobbying client the following January. Fides LLC's own Certificate of Organization states its purpose plainly as "Political advisory and consulting" — Shurtz is his own registered agent for it.</p>
+</div>
+
+<p><strong>Other confirmed funders:</strong> Integrity Strategies LLC (Derek Brown's own entity) $17,500 — using a dissolved Illinois shell entity's address; Koda Resources $19,500; Bankhead Strategies $15,000; Red Hill Public Strategies/Strategic (Scarborough, ME) $30,000 combined across two name variants; HEMMCO LLC (Dan Hemmert's own entity) $5,000; Angeles/Angels Share Holdings $32,500 combined.</p>
+
+<details class="donor-drop">
+<summary>Top 15 Donors, Full List ▾</summary>
+<div class="drop-body">
+<table class="donor-table">
+<thead><tr><th>Donor</th><th>Amount</th></tr></thead>
+<tbody>
+<tr><td>Fides LLC (Lincoln Shurtz)</td><td class="amt">$339,500</td></tr>
+<tr><td>Scott Ryan Smith</td><td class="amt">$80,000</td></tr>
+<tr><td>EnergySolutions</td><td class="amt">$45,000</td></tr>
+<tr><td>Legislative Insight Consulting</td><td class="amt">$42,500</td></tr>
+<tr><td>Angeles/Angels Share Holdings (combined)</td><td class="amt">$32,500</td></tr>
+<tr><td>Red Hill Public Strategies/Strategic (combined)</td><td class="amt">$30,000</td></tr>
+<tr><td>Koda Resources</td><td class="amt">$19,500</td></tr>
+<tr><td>Integrity Strategies LLC (Derek Brown)</td><td class="amt">$17,500</td></tr>
+<tr><td>Bankhead Strategies</td><td class="amt">$15,000</td></tr>
+<tr><td>HEMMCO LLC (Dan Hemmert)</td><td class="amt">$5,000</td></tr>
+<tr><td>Allvest Information Services Inc.</td><td class="amt">$5,000</td></tr>
+<tr><td>Chad Westover</td><td class="amt">$5,000</td></tr>
+<tr><td>School AI Inc</td><td class="amt">$2,500</td></tr>
+<tr><td>Diamante Vista, L.L.C.</td><td class="amt">$1,000</td></tr>
+</tbody>
+</table>
+</div>
+</details>
+</section>
+
+<section id="recipients">
+<h2>4. Where It Goes</h2>
+<div class="flow-box">
+  <div class="flow-tier">
+    <div class="flow-node overlap">Fides LLC<span class="sub">$339,500</span></div>
+    <div class="flow-node overlap">Scott Ryan Smith<span class="sub">$80,000</span></div>
+    <div class="flow-node">EnergySolutions<span class="sub">$45,000</span></div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node hub">Lincoln Hill PAC</div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node flagged">Friends of Spencer Cox<span class="sub">$80,000</span></div>
+    <div class="flow-node flagged">House Speaker<br>Leadership PAC<span class="sub">$50,000</span></div>
+    <div class="flow-node">Derek Brown for AG<span class="sub">$15,100</span></div>
+  </div>
+  <div class="flow-caption">One of the three Directors of this dissolved corporation is also one of its confirmed recipients.</div>
+</div>
+
+<div class="hbar-chart">
+  <div class="hbar-row">
+    <div class="hbar-label">Friends of Spencer Cox</div>
+    <div class="hbar-track"><div class="hbar-fill" style="width:100%;"><span>$80,000</span></div></div>
+  </div>
+  <div class="hbar-row">
+    <div class="hbar-label">House Speaker Leadership PAC</div>
+    <div class="hbar-track"><div class="hbar-fill gold" style="width:62.5%;"><span>$50,000</span></div></div>
+  </div>
+  <div class="hbar-row">
+    <div class="hbar-label">Derek Brown for AG</div>
+    <div class="hbar-track"><div class="hbar-fill primary" style="width:18.9%;"><span>$15,100</span></div></div>
+  </div>
+  <div class="hbar-row" style="margin-bottom:0;">
+    <div class="hbar-label">NCSL–Leadership Fund Harper</div>
+    <div class="hbar-track"><div class="hbar-fill" style="width:18.75%;background:var(--ink-soft);"><span>$15,000</span></div></div>
+  </div>
+</div>
+
+<p>Smaller sums also went to then-House Minority Leader Brian King ($750), Senate Minority Leader Luz Escamilla ($1,000), the House Minority PAC ($500), Utah's Senate Democratic caucus PAC ($500), and several other Democratic legislators.</p>
+</section>
+
+<section id="vendors">
+<h2>5. The Vendors Behind the Numbers</h2>
+<div class="roster-compare">
+  <div class="roster-card">
+    <h4>Lux Events Inc</h4>
+    <div class="roster-sub">$18,007.76 across 3 payments</div>
+    <p style="margin:0;">LUX Catering &amp; Events, a Salt Lake City catering company founded in 1995.</p>
+  </div>
+  <div class="roster-card">
+    <h4>McCauley &amp; Associates</h4>
+    <div class="roster-sub">$8,825 across 7 payments</div>
+    <p style="margin:0;">The PAC's own registered agent (see Section 1) is also a paid vendor. Its principal, Mike McCauley, is Treasurer of Sen. John Curtis's federal leadership PAC (Utah First PAC) across multiple election cycles, and was formerly Treasurer of Rep. Burgess Owens' campaign committee — a role that drew an FEC complaint (MUR 8066, closed in 2023, no violation found).</p>
+  </div>
+</div>
+<div class="flow-box" style="margin-top:20px;">
+  <div class="flow-tier">
+    <div class="flow-node hub">Mike McCauley / McCauley &amp; Associates</div>
+  </div>
+  <div class="flow-arrow-down">↓</div>
+  <div class="flow-tier">
+    <div class="flow-node overlap">Lincoln Hill PAC<span class="sub">Registered agent + paid vendor, $8,825</span></div>
+    <div class="flow-node overlap">Utah First PAC<span class="sub">Treasurer (Sen. Curtis)</span></div>
+    <div class="flow-node">Burgess 4 Utah<span class="sub">Former Treasurer (Rep. Owens)</span></div>
+  </div>
+</div>
+</section>
+
+<section id="explorer">
+<h2>6. Transaction Explorer</h2>
+<p>A representative set of confirmed transactions from the PAC's full multi-year DEX export. Search by name, or filter by type.</p>
+
+<div class="tx-controls">
+  <input type="text" id="txSearch" placeholder="Search name or purpose…">
+  <div class="tx-pill-group">
+    <button class="tx-pill active" data-type="all">All</button>
+    <button class="tx-pill" data-type="contribution">Contributions</button>
+    <button class="tx-pill" data-type="expenditure">Expenditures</button>
+    <button class="tx-pill" data-type="flagged">Flagged only</button>
+  </div>
+</div>
+<div class="tx-count" id="txCount"></div>
+<div class="tx-scroll">
+<table class="tx-table" id="txTable">
+  <thead><tr><th>Date</th><th>Type</th><th>Name</th><th>Amount</th><th>Purpose</th><th>Notes</th></tr></thead>
+  <tbody id="txBody"></tbody>
+</table>
+</div>
+</section>
+
+
+<section id="reflect">
+<h2>7. Worth Asking</h2>
+<div class="callout-box">
+<ul class="tidy" style="margin-bottom:0;">
+<li>Why has a dissolved corporation never been asked to re-register? Utah's own registry has shown "Administratively Dissolved" since July 2023.</li>
+<li>Does the Attorney General's office have any role in overseeing PAC compliance that would touch a PAC he is personally listed as a Director of?</li>
+<li>Is the $80,000 Fides LLC/Scott Ryan Smith timing coincidental, or does it reflect coordination between a firm principal and a client whose company joined the firm's roster the following month?</li>
+</ul>
+</div>
+</section>
+
+<section id="open">
+<h2>8. Research Status</h2>
+<div class="callout-box callout-finding">
+<p style="margin:0 0 8px;"><strong>Resolved during research:</strong></p>
+<ul class="tidy" style="margin-bottom:0;">
+<li><strong>Diamante Vista</strong> ($1,000) — identified as Diamante Vista, L.L.C. (Murray, UT). No connection found to any principal in this network; the LLC's own registered address doesn't match the address on its contribution filing, an unexplained discrepancy.</li>
+<li><strong>Allvest Information Services Inc.</strong> ($5,000) — a Washington-domiciled foreign corporation registered in Utah since 2004. No connection found.</li>
+<li><strong>School AI Inc</strong> ($2,500) — a real, substantial Lehi-based AI-in-education company (SchoolAI), giving it an obvious policy interest in how Utah regulates AI in schools.</li>
+<li>A previously-flagged "Committee to Elect Derik Brown" oddity is confirmed genuine — that exact misspelling is the real name on file with the state for a $1,000 payment (11/16/2023), one of at least three Brown-committee name variants in Utah's system.</li>
+</ul>
+</div>
+<div class="callout-box callout-open">
+<p style="margin:0 0 8px;"><strong>Still open:</strong></p>
+<ul class="tidy" style="margin-bottom:0;">
+<li>John Gilmore, Central 9th Community Council, Northern Utah PAC, Huntsman Mental Health Foundation, Liberty &amp; Legacy PAC, Neighbors for Keven Stratton, and Utah Hispanic Chamber — all $5,000-range recipients, not yet individually researched.</li>
+<li>Whether the Attorney General's office has taken, or is required to take, any position on a PAC's own corporate dissolution status when that PAC lists the Attorney General himself as a Director.</li>
+</ul>
+</div>
+</section>
+
+<section id="related">
+<h2>9. Related Coverage</h2>
+<div class="profile-link-box">
+  <span>Lincoln Hill Partners PAC: the second dissolved entity in this network, its own five-year spending history, and the Lincoln Fillmore round-trip</span>
+  <a class="cta" href="lincoln-hill-partners-pac-case.html">Read the PAC case file →</a>
+</div>
+<div class="profile-link-box">
+  <span>The Men Behind Lincoln Hill: full profiles of all four principals, the Red Hill naming maze, and the Dan Hemmert/MIDA thread</span>
+  <a class="cta" href="lincoln-hill-men-behind.html">Read the network profile →</a>
+</div>
+</section>
+
+<details class="sources" id="sources">
+<summary>Sources</summary>
+<ul>
+<li>Utah Lieutenant Governor's Office, disclosures.utah.gov — Lincoln Hill PAC full DEX transaction exports, 2021–2026 (5 files, 258 transactions, reconciling exactly to $627,000)</li>
+<li>Utah Division of Corporations — Lincoln Hill PAC corporate registration (Entity #12822174-0140), Fides LLC (Entity #12063536-0160), Integrity Strategies LLC</li>
+<li>Diamante Vista LLC, Allvest Information Services Inc. — Utah Division of Corporations entity records</li>
+<li>McCauley &amp; Associates, P.C. — Utah entity registry; Mike McCauley's Utah First PAC and Burgess 4 Utah treasurer roles per FEC/ProPublica itemizer data and FEC MUR 8066</li>
+<li>SchoolAI (School AI Inc) — Bloomberg company profile, Built In, TIPS vendor profile</li>
+</ul>
+</details>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>The Weber County Hive · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TRANSACTIONS = [
+  {date:"4/29/2022", type:"contribution", name:"EnergySolutions", amt:20000, purpose:"", notes:"", flag:false},
+  {date:"6/3/2022", type:"expenditure", name:"Wilson Leadership Pac", amt:-5000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/5/2023", type:"expenditure", name:"The Brad Wilson Campaign", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/5/2023", type:"expenditure", name:"Elect Mike Schultz", amt:-1000, purpose:"Donations", notes:"", flag:false},
+  {date:"1/3/2024", type:"contribution", name:"Red Hill Public Strategies LLC", amt:5000, purpose:"", notes:"Scarborough, ME — one of two name variants totaling $30,000", flag:true},
+  {date:"1/9/2024", type:"expenditure", name:"SenDem PAC", amt:-500, purpose:"Donations", notes:"Democratic recipient", flag:false},
+  {date:"1/2/2025", type:"contribution", name:"Fides LLC", amt:50000, purpose:"", notes:"Lincoln Shurtz's own entity", flag:true},
+  {date:"1/3/2025", type:"expenditure", name:"Committee to Elect Jordan Teuscher", amt:-500, purpose:"Other", notes:"", flag:false},
+  {date:"1/8/2026", type:"contribution", name:"Koda Resources", amt:12000, purpose:"", notes:"Denver, CO", flag:false},
+  {date:"1/8/2026", type:"expenditure", name:"Utah Republican House Campaign Committee", amt:-8000, purpose:"Other", notes:"", flag:false},
+  {date:"7/10/2026", type:"contribution", name:"Diamante Vista", amt:1000, purpose:"", notes:"Eagle Mountain filing address doesn't match LLC's registered address — unexplained", flag:true},
+  {date:"8/11/2026", type:"contribution", name:"Fides LLC", amt:7000, purpose:"", notes:"Resolves a previously unmatched $8,000 subtotal with Diamante Vista", flag:true},
+];
+
+function fmtAmt(n){
+  const abs = Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return (n < 0 ? "-$" : "$") + abs;
+}
+
+function renderTable(){
+  const q = document.getElementById('txSearch').value.toLowerCase();
+  const activePill = document.querySelector('.tx-pill.active').getAttribute('data-type');
+  const tbody = document.getElementById('txBody');
+  tbody.innerHTML = '';
+  let count = 0;
+  TRANSACTIONS.forEach(function(t){
+    if (activePill === 'contribution' && t.type !== 'contribution') return;
+    if (activePill === 'expenditure' && t.type !== 'expenditure') return;
+    if (activePill === 'flagged' && !t.flag) return;
+    const haystack = (t.name + ' ' + t.purpose + ' ' + t.notes).toLowerCase();
+    if (q && haystack.indexOf(q) === -1) return;
+    count++;
+    const tr = document.createElement('tr');
+    tr.className = t.type;
+    tr.innerHTML =
+      '<td class="mono">' + t.date + '</td>' +
+      '<td class="mono">' + t.type + '</td>' +
+      '<td>' + t.name + (t.flag ? ' <span class="flag">flagged</span>' : '') + '</td>' +
+      '<td class="amt">' + fmtAmt(t.amt) + '</td>' +
+      '<td>' + (t.purpose || '—') + '</td>' +
+      '<td>' + (t.notes || '') + '</td>';
+    tbody.appendChild(tr);
+  });
+  document.getElementById('txCount').textContent = count + ' of ' + TRANSACTIONS.length + ' transactions shown';
+}
+
+document.getElementById('txSearch').addEventListener('input', renderTable);
+document.querySelectorAll('.tx-pill').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.tx-pill').forEach(function(b){ b.classList.toggle('active', b === btn); });
+    renderTable();
+  });
+});
+renderTable();
+</script>
+
+</body>
+</html>
