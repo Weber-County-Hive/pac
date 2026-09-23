@@ -153,5 +153,15 @@ const CASES = [
     updated: "Sep 14, 2026",
     link: "our-schools-now.html",
     pairWith: "PAC-13"
+  },
+  {
+    caseNumber: "PAC-15",
+    title: "36 Endorsed. 13 Paid Who Weren't.",
+    category: "Campaign Finance & Ethics",
+    summary: "The Doers Network publicly endorses 36 candidates, but its 2026 filings show $80,800 paid to a different list, with 13 recipients it never endorsed, including the Senate President and House Speaker. Its Utah County board chair is a sitting senator's spouse, and it shares a registered-agent suite and an incorporator with All In For Utah PAC.",
+    officials: ["Nicki Brammer", "Steve Hiatt", "Adam Gardiner", "Matthew T. Sanderson", "Tamara Tran"],
+    status: "documented",
+    updated: "Sep 23, 2026",
+    link: "weber-hive-doers-network.html"
   }
 ];
