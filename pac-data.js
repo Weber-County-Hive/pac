@@ -84,10 +84,10 @@ const CASES = [
     caseNumber: "PAC-08",
     title: "Dissolved, But Not Before Funding the Attack Ads",
     category: "Campaign Finance & Ethics",
-    summary: "Two brothers' lobbying firm fed $134,400 into a PAC that funded 56+ Republican candidates statewide — then a related, nearly-identically-named entity ran attack ads against three Democratic candidates while reporting zero dollars raised or spent.",
+    summary: "Two brothers' lobbying firm fed $134,400 into a PAC that funded 56+ Republican candidates statewide — then its predecessor committee ran ads in 2026 legislative races, reporting $0 through 6/11 and later $2,200 in advertising plus $1,635 in donated print and texts on its September 30th Report.",
     officials: ["Greg Hartley", "Jeff Hartley", "Mike Schultz"],
     status: "documented",
-    updated: "Sep 12, 2026",
+    updated: "Sep 30, 2026",
     link: "h3-pac.html"
   },
   {
