@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adams Leadership PAC | Utah Hive Politics — PAC</title>
+<meta name="description" content="Adams Leadership PAC: $1,221,703.57 out from 2019 through Sept. 25, 2026, from the state's own records.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
+    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
+    --line:#C9BBA4; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#8C3B44;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:780px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:720px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .bar-chart{background:#fff;border:1px solid var(--line);padding:20px 24px;margin:20px 0;}
+  .bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .bar-label{width:60px;flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;}
+  .bar-track{flex:1;background:var(--paper-dim);height:22px;position:relative;border:1px solid var(--line);}
+  .bar-fill{height:100%;background:var(--good);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+  .bar-fill.exp{background:var(--bad);}
+  .bar-fill span{color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;}
+  .bar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .bar-legend span.sw{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:middle;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:260px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+
+  .quick-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin:18px 0;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:10px 12px;text-align:left;border:1px solid var(--line);cursor:pointer;user-select:none;}
+  .quick-table th:hover{background:var(--line);}
+  .quick-table th.sort-asc::after{content:" ▲";font-size:0.6rem;}
+  .quick-table th.sort-desc::after{content:" ▼";font-size:0.6rem;}
+  .quick-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+  .quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+
+/* Utah Hive Politics branding (added Oct. 4, 2026) */
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px;}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none;}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none;}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block;}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;letter-spacing:.02em;display:block;margin-top:2px;}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px;}
+.hb-foot .hb-name{font-size:14px;}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block;}
+.hive-across{margin-top:4px;}
+.hive-across p{margin:6px 0 0;}
+.hive-across .links{display:flex;flex-wrap:wrap;gap:10px 18px!important;}
+.hive-solo{background:#181210;color:#D8CCBC;padding:32px 24px 34px;margin-top:40px;font-family:'Source Sans 3',sans-serif;}
+.hive-solo .in{max-width:900px;margin:0 auto;}
+.hive-solo h3{font-family:'Fraunces',Georgia,serif;color:#fff;font-size:20px;margin:0 0 6px;}
+.hive-solo p{font-size:14.5px;margin:6px 0 0;color:#B8A899;}
+.hive-solo a{color:#D9B868;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.hive-solo a:hover{color:#fff;}
+.mh-row{display:flex;gap:24px;align-items:center;}
+.mh-row img{width:96px;height:96px;flex:none;}
+@media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}.mh-row{flex-direction:column;align-items:flex-start;gap:12px}.mh-row img{width:68px;height:68px}}
+</style><style>
+.pub-date{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+.pub-date b{color:#fff;background:var(--maroon);padding:1px 6px;font-weight:600;}
+.plain{background:#fff;border-left:4px solid var(--gold);padding:14px 18px;margin:16px 0;font-size:17px;}
+.plain b.k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);display:block;}
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0;}
+.flip{perspective:900px;height:150px;cursor:pointer;}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+.flip.on .in{transform:rotateY(180deg);}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);padding:14px;display:flex;flex-direction:column;justify-content:center;}
+.flip .f{background:var(--void);color:#fff;text-align:center;}
+.flip .f strong{font-family:'Fraunces',serif;font-size:20px;}
+.flip .f span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold);margin-top:6px;letter-spacing:.08em;}
+.flip .b{background:#fff;transform:rotateY(180deg);font-size:14.5px;line-height:1.45;}
+.mermaid{background:#fff;border:1px solid var(--line);padding:16px;margin:18px 0;text-align:center;overflow-x:auto;}
+.mermaid svg{max-width:100%;height:auto;min-height:340px;}
+.grade-table{width:100%;border-collapse:collapse;background:#fff;margin:14px 0;font-size:.95rem;}
+.grade-table th,.grade-table td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left;}
+.grade-table th{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;background:var(--paper-dim);}
+.gl{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--maroon);text-align:center!important;width:70px;}
+.overall{background:var(--void);color:#fff;padding:16px 20px;display:flex;gap:18px;align-items:center;margin:10px 0 18px;}
+.overall .gl{color:var(--gold);font-size:2.4rem;width:auto;}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+.person{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:14px 16px;font-size:.95rem;}
+.person h4{font-family:'Fraunces',serif;font-size:1.1rem;margin:0 0 4px;}
+.person .why{color:var(--ink-soft);}
+.person a{font-family:'IBM Plex Mono',monospace;font-size:.75rem;}
+.qa li{margin-bottom:10px;}
+.qa .who{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--maroon);display:block;}
+.note-limits{font-size:.9rem;color:var(--ink-soft);}
+.quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+.quick-table tr.tot td{font-weight:700;background:var(--paper-dim);}
+@media(max-width:600px){.quick-table{font-size:.78rem}.quick-table td,.quick-table th{padding:6px 7px}.stat-num{font-size:1.15rem}.grade-table{font-size:.85rem}.gl{width:44px}main{padding:8px 16px 50px}}
+</style>
+<link rel="icon" type="image/png" href="hive-bee.png">
+</head>
+<body>
+<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span></span></a></div>
+<div class="topbar">
+  <span>Utah Hive Politics · PAC · from the publisher of The Weber County Hive</span>
+  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+</div>
+<div class="breadcrumb"><a href="index.html">PAC docket</a> / PAC-16 · Adams Leadership PAC</div>
+<header class="masthead">
+  <div class="eyebrow">Case File · PAC-16 · Leadership PAC</div>
+  <h1 class="title">Adams Leadership PAC: <em>$1.22 Million Out, and $258,103 to the Treasurer&rsquo;s Firm</em></h1>
+  <p class="subtitle">Senate President J. Stuart Adams&rsquo;s leadership PAC reported $1,221,703.57 in spending from November 2019 through Sept. 25, 2026, $511,977.86 of it in 2026. Its treasurer, Kyle Palmer, also runs Irish Elk LLC, which the PAC paid $258,103.65 from 2021 through 2026. All figures come from the PAC&rsquo;s own filings with the state.</p>
+  <div class="pub-date">Published Oct. 4, 2026 · <b>Updated Oct. 4, 2026</b> · checked against the 2026 September 30th Report</div>
+  <div class="meta-row">
+    <span class="meta-pill">Created Sept. 5, 2019</span>
+    <span class="meta-pill">Officers: J. Stuart Adams · Kyle Palmer (treasurer)</span>
+    <span class="meta-pill">$622.43 on hand, Sept. 25, 2026</span>
+  </div>
+</header>
+<nav class="jump"><a href="#start">Start here</a><a href="#words">Words</a><a href="#who">Who runs it</a><a href="#scale">The money, year by year</a><a href="#flow">Where it went</a><a href="#q3">The Sept. 30 report</a><a href="#people">People in this record</a><a href="#grades">Grades</a><a href="#ask">Questions to ask</a><a href="#limits">Limits</a><a href="#sources">Sources</a></nav>
+<main>
+<section id="start"><h2>1. Start Here</h2>
+<p class="plain"><b class="k">IN PLAIN WORDS</b>A leadership PAC is a political committee a lawmaker sponsors. It collects money from companies, groups and people, and gives it to other campaigns or spends it on political work. This one is sponsored by Senate President J. Stuart Adams. Its treasurer, Kyle Palmer, is a consultant whose firm the PAC also pays. That arrangement is legal in Utah and is disclosed on the PAC&rsquo;s reports.</p>
+<div class="stat-strip">
+  <div class="stat-cell"><span class="stat-num">$1,221,703.57</span><span class="stat-label">Spent, Nov. 15, 2019 – Sept. 25, 2026</span></div>
+  <div class="stat-cell"><span class="stat-num">$511,977.86</span><span class="stat-label">Spent in 2026 alone (through Sept. 25)</span></div>
+  <div class="stat-cell"><span class="stat-num">$258,103.65</span><span class="stat-label">Paid to Irish Elk LLC, 2021–2026</span></div>
+  <div class="stat-cell"><span class="stat-num">$100,000</span><span class="stat-label">To Committee to Elect Stuart Adams, 2026</span></div>
+</div>
+<h3>What the records show</h3>
+<ul class="tidy">
+<li><strong>Spending grew in 2026.</strong> The PAC reported $69,552.09 out in 2021 and $511,977.86 in the first nine months of 2026, its largest year.</li>
+<li><strong>The treasurer&rsquo;s firm is the PAC&rsquo;s largest payee.</strong> Irish Elk LLC was paid $258,103.65 from 2021 through 2026. Kyle Palmer was also paid $17,837.47 personally in 2020 through 2024, listed as fundraising fees and similar items.</li>
+<li><strong>$100,000 went to Adams&rsquo;s own campaign in 2026:</strong> $45,000 on Jan. 12 and $55,000 on July 22, a month after the June 23 primary.</li>
+<li><strong>Election Hive was paid $94,594.72</strong> across the PAC&rsquo;s life, including $68,000 during the 2026 primary.</li>
+<li><strong>The Utah Republican Party received $71,903.73,</strong> including $48,603.73 on May 20, 2026.</li>
+<li><strong>Travel:</strong> $86,181.27 to airlines and travel agencies from 2023 through 2025.</li>
+<li><strong>The account ended the Sept. 30th period with $622.43,</strong> after starting the period with $180,001.43.</li>
+</ul>
+<div class="callout-box callout-note"><p><strong>A correction to an earlier tracker line.</strong> An older Hive research tracker listed &ldquo;Adams PAC → House Speaker Leadership PAC, $68,000 (2026 Primary).&rdquo; That payment does not appear in the PAC&rsquo;s state records. The 2026 Primary report instead shows $58,000 and $10,000 to Election Hive, which total $68,000. This page uses the state records.</p></div>
+</section>
+
+<section id="words"><h2>2. Words Used on This Page</h2>
+<div class="flips"><div class="flip"><div class="in"><div class="f"><strong>Leadership PAC</strong><span>TAP FOR THE MEANING</span></div><div class="b">A political committee sponsored by a sitting lawmaker. It can give to other candidates, parties and PACs, and pay for political work.</div></div></div><div class="flip"><div class="in"><div class="f"><strong>Treasurer</strong><span>TAP FOR THE MEANING</span></div><div class="b">The person who signs the PAC&rsquo;s reports and keeps its books. Here, Kyle Palmer, who also holds that role at several other PACs.</div></div></div><div class="flip"><div class="in"><div class="f"><strong>Statement of Organization</strong><span>TAP FOR THE MEANING</span></div><div class="b">The form that registers a PAC with the state and names its officers.</div></div></div><div class="flip"><div class="in"><div class="f"><strong>DEX export</strong><span>TAP FOR THE MEANING</span></div><div class="b">A spreadsheet download from the state&rsquo;s disclosure website listing every entry a PAC filed, including entries later amended or deleted.</div></div></div><div class="flip"><div class="in"><div class="f"><strong>In-kind</strong><span>TAP FOR THE MEANING</span></div><div class="b">Goods or services given instead of cash and reported at their value, like a donated event venue.</div></div></div><div class="flip"><div class="in"><div class="f"><strong>Political Support</strong><span>TAP FOR THE MEANING</span></div><div class="b">The category a PAC uses on its report when it gives money to a candidate&rsquo;s campaign.</div></div></div></div>
+</section>
+
+<section id="who"><h2>3. Who Runs It</h2>
+<p>The PAC&rsquo;s Statement of Organization lists:</p>
+<ul class="tidy">
+<li><strong>Created:</strong> Sept. 5, 2019</li>
+<li><strong>Primary Officer 1:</strong> Stuart Adams, listed as Senate President</li>
+<li><strong>Primary Officer 2 and Treasurer/CFO:</strong> Kyle Palmer, listed as a consultant</li>
+<li><strong>Address:</strong> 1123 E Fairfield Road, PO Box 1949, Layton</li>
+</ul>
+<p>Adams lost the June 23, 2026 Republican primary for Senate District 7 to Stephanie Hollist. He remains Senate President until his term ends. See the <a href="https://weber-county-hive.github.io/candidates2026/sd7-hollist-rushforth-ostler.html">SD-7 case file</a>.</p>
+<p>Kyle Palmer is also treasurer of the <a href="utah-republican-senate-campaign-committee.html">Utah Republican Senate Campaign Committee</a> (PAC-17), which Adams also helps run, and of <a href="uhrec-pac.html">UHREC</a>, the <a href="house-speaker-leadership-pac.html">House Speaker Leadership PAC</a> and <a href="nupac.html">NUPAC</a>.</p>
+</section>
+
+<section id="scale"><h2>4. The Money, Year by Year</h2>
+<p class="plain"><b class="k">IN PLAIN WORDS</b>The PAC spent little in its first months and the most in 2024 and 2026.</p>
+<div style="overflow-x:auto;"><table class="quick-table sortable"><thead><tr><th>Year</th><th>Money out</th><th>Paid to Irish Elk LLC</th></tr></thead><tbody><tr><td>2019 (from Nov. 15)</td><td class="amt">$155.88</td><td>—</td></tr><tr><td>2020</td><td class="amt">$36,302.87</td><td>—</td></tr><tr><td>2021</td><td class="amt">$69,552.09</td><td class="amt">$26,150</td></tr><tr><td>2022</td><td class="amt">$145,324.16</td><td class="amt">$62,800</td></tr><tr><td>2023</td><td class="amt">$101,800.83</td><td class="amt">$26,485</td></tr><tr><td>2024</td><td class="amt">$209,848.77</td><td class="amt">$34,902.55</td></tr><tr><td>2025</td><td class="amt">$146,741.11</td><td class="amt">$32,885</td></tr><tr><td>2026 (through Sept. 25)</td><td class="amt">$511,977.86</td><td class="amt">$74,881.10</td></tr><tr class="tot"><td>Total</td><td class="amt">$1,221,703.57</td><td class="amt">$258,103.65</td></tr></tbody></table></div>
+<p>Money in: $1,279,352 from 2019 through Sept. 25, 2026, counting $12,000 of in-kind gifts in 2026 (Snowbasin/Ski Utah $8,000 and the Utah Restaurant Association $4,000). The 2026 report counts $365,901 in contributions; the export shows $377,901, and the $12,000 difference equals those two in-kind gifts.</p>
+<p class="note-limits">Excluded from the 2021 total: $1,025 in bank and returned-check lines (a $25 Zions Bank stop-payment fee and a $1,000 returned contribution listed as &ldquo;Zions Bank/Tourism Works PAC&rdquo;). The exports include 71 entries marked deleted; deleted entries are not counted. Amending a report is allowed and common.</p>
+</section>
+
+<section id="flow"><h2>5. Where the Money Went</h2>
+<div class="mermaid">
+flowchart LR
+  IN["Companies, groups and people<br/>$1,279,352 in, 2019–2026"] --> P(["ADAMS LEADERSHIP PAC<br/>Treasurer: Kyle Palmer"])
+  P -->|"$258,103.65"| IE["Irish Elk LLC<br/>(Palmer's firm)"]
+  P -->|"$100,000 in 2026"| SA["Committee to Elect<br/>Stuart Adams"]
+  P -->|"$94,594.72"| EH["Election Hive"]
+  P -->|"$86,181.27, 2023–25"| TR["Airlines and<br/>travel agencies"]
+  P -->|"$71,903.73"| GOP["Utah Republican Party"]
+  P -->|"$24,300"| NU["Northern Utah PAC"]
+  P -->|"$17,837.47, 2020–24"| KP["Kyle Palmer, personally"]
+</div>
+<p class="note-limits">Each amount is the total of entries in the PAC&rsquo;s own exports and reports for that payee. Other payees are not shown.</p>
+<h3>Other payments noted in the records</h3>
+<ul class="tidy">
+<li>John Adams for Commissioner: $5,000 (Jan. 18, 2026)</li>
+<li>2020: Matt Hymas for State School Board $5,000; an ALEC policy conference $5,000; the Senate President&rsquo;s Dinner (LUX Events) $4,740.71</li>
+<li>2019: the PAC opened with a $100 &ldquo;establishing balance&rdquo; deposit from Kyle Palmer, repaid to him Dec. 30, 2019</li>
+</ul>
+</section>
+
+<section id="q3"><h2>6. The 2026 September 30th Report</h2>
+<p>Period June 12 to Sept. 25, 2026, submitted Sept. 25 (due Sept. 30). Beginning balance $180,001.43; contributions $30,500; spending $209,879; ending balance $622.43. Every itemized line below adds up to the report&rsquo;s totals.</p>
+<h3>Money in, $30,500</h3>
+<div style="overflow-x:auto;"><table class="quick-table sortable"><thead><tr><th>Date</th><th>Contributor</th><th>Amount</th></tr></thead><tbody><tr><td>6/24/2026</td><td>Republican State Leadership Committee</td><td class="amt">$15,000</td></tr><tr><td>6/23/2026</td><td>American Kratom Association</td><td class="amt">$5,000</td></tr><tr><td>6/23/2026</td><td>Committee to Expand the Middle Class Candidate Committee</td><td class="amt">$3,500</td></tr><tr><td>6/23/2026</td><td>AFCU Development Fund, Inc.</td><td class="amt">$2,500</td></tr><tr><td>6/19–6/24/2026</td><td>Five individuals ($500 to $2,500 each; names are on the state report)</td><td class="amt">$4,500</td></tr><tr class="tot"><td>Total</td><td></td><td class="amt">$30,500</td></tr></tbody></table></div>
+<h3>Money out, $209,879</h3>
+<div style="overflow-x:auto;"><table class="quick-table sortable"><thead><tr><th>Payee</th><th>Purpose on the report</th><th>Amount</th></tr></thead><tbody><tr><td>Committee to Elect Stuart Adams (7/22)</td><td>Political Support</td><td class="amt">$55,000</td></tr><tr><td>G2 Consulting (3 payments, 6/23)</td><td>Other - Consulting</td><td class="amt">$48,228.62</td></tr><tr><td>Roost Company (5 payments, 6/15–6/23)</td><td>Other - Consulting</td><td class="amt">$33,500</td></tr><tr><td>Irish Elk, LLC (6/17)</td><td>Other - Consulting $12,000; Other - Fundraising Fees $13,095.10</td><td class="amt">$25,095.10</td></tr><tr><td>RateNow (4 payments, 6/22–6/24)</td><td>Advertising</td><td class="amt">$17,135.98</td></tr><tr><td>Majority 51 (6/24)</td><td>Other - Consulting</td><td class="amt">$13,748.80</td></tr><tr><td>G1 Consulting (6/23)</td><td>Other - Consulting</td><td class="amt">$7,000</td></tr><tr><td>Tactical Campaigns (6/15, 6/24)</td><td>Constituent Services; Other - Consulting</td><td class="amt">$4,917.78</td></tr><tr><td>Election Hive (6/15)</td><td>Other - Consulting</td><td class="amt">$2,594.72</td></tr><tr><td>Utah Republican Party (6/22)</td><td>Donations</td><td class="amt">$1,500</td></tr><tr><td>A temporary PAC contractor (6/15)</td><td>Other - PAC Temp. Contractor</td><td class="amt">$1,158</td></tr><tr class="tot"><td>Total</td><td></td><td class="amt">$209,879</td></tr></tbody></table></div>
+<p>Timing, from the report&rsquo;s dates: $135,957.34 was paid from June 15 through June 23, primary day, and $18,921.66 on June 24. The Republican State Leadership Committee&rsquo;s $15,000 is dated June 24, the day after the primary. The $55,000 to Adams&rsquo;s campaign is dated July 22.</p>
+<p>Roost Company also appears in the <a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6 case file</a>, where it is Rep. Rob Bishop&rsquo;s largest vendor. Election Hive also appears in the <a href="https://weber-county-hive.github.io/candidates2026/ut2-moore-crosby.html">UT-2 case file</a>.</p>
+</section>
+
+<section id="people"><h2>7. People and Firms in This Record</h2>
+<div class="people">
+<div class="person"><h4>J. Stuart Adams</h4><div class="why">Senate President; Primary Officer 1 of this PAC and of PAC-17. Lost the 2026 SD-7 primary.</div><a href="https://weber-county-hive.github.io/candidates2026/sd7-hollist-rushforth-ostler.html">SD-7 case file →</a></div>
+<div class="person"><h4>Kyle Palmer</h4><div class="why">Treasurer of this PAC, PAC-17, UHREC, the House Speaker Leadership PAC and NUPAC. Runs Irish Elk LLC.</div><a href="utah-republican-senate-campaign-committee.html">PAC-17 →</a> <a href="uhrec-pac.html">UHREC →</a> <a href="house-speaker-leadership-pac.html">Speaker PAC →</a> <a href="nupac.html">NUPAC →</a></div>
+<div class="person"><h4>Irish Elk LLC</h4><div class="why">Paid $258,103.65 by this PAC (2021–2026) and at least $386,453.15 by PAC-17. Also paid by Sen. Jill Koford&rsquo;s campaign.</div><a href="https://weber-county-hive.github.io/candidates2026/sd5-koford-hernandez.html">SD-5 case file →</a></div>
+<div class="person"><h4>Election Hive</h4><div class="why">Consulting firm paid $94,594.72 by this PAC. Also paid by Rep. Blake Moore&rsquo;s campaign.</div><a href="https://weber-county-hive.github.io/candidates2026/ut2-moore-crosby.html">UT-2 case file →</a></div>
+<div class="person"><h4>Roost Company</h4><div class="why">Paid $33,500 by this PAC in June 2026. Rep. Rob Bishop&rsquo;s largest campaign vendor.</div><a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6 case file →</a></div>
+<div class="person"><h4>Republican State Leadership Committee</h4><div class="why">National committee that gave the PAC $15,000 on June 24, 2026, the day after the primary.</div></div>
+</div>
+</section>
+
+<section id="grades"><h2>8. Graded by the Rubric</h2>
+<table class="grade-table"><thead><tr><th>Question</th><th>Grade</th><th>Why</th></tr></thead><tbody>
+<tr><td>Power</td><td class="gl">D</td><td>On the 2026 September 30th Report, individual people gave $4,500 of the $30,500 counted (14.8%). The rest came from companies, groups and committees. Fixed scale: 10–33% = D. Earlier years were not split by category, so this grade uses the latest report, as the scale allows.</td></tr>
+<tr><td>Transparency</td><td class="gl">C</td><td>The report was submitted Sept. 25, before its Sept. 30 due date, and every contributor and payee is named. Most consulting lines show only the category &ldquo;Other - Consulting.&rdquo; The public report shows the category; it may not show descriptions a filer types. That meets the law.</td></tr>
+<tr><td>Financial accountability</td><td class="gl">C</td><td>Payments to the treasurer&rsquo;s own firm and to the sponsor&rsquo;s own campaign are itemized and dated, as Utah law requires. The record does not show what work the consulting payments bought.</td></tr>
+<tr><td>Environmental impact</td><td class="gl">N/A</td><td>Not part of this record.</td></tr>
+<tr><td>Community impact</td><td class="gl">N/A</td><td>Not part of this record.</td></tr>
+</tbody></table>
+<div class="overall"><span class="gl">C−</span><span>Overall: the average of D, C and C (1.67), between D and C.</span></div>
+<p class="note-limits">How to read these: a C means the record meets what Utah law requires, the status quo. A B or A means the PAC went beyond it, and the record shows it. D means something is vague or bundled, or a public check is weakened; F means something required is missing, or a check is removed with nothing in its place. Power uses the Hive&rsquo;s fixed money scale, the same for every committee and party: A = 90% or more of counted money from individual people; B = 67–89%; C = 34–66%; D = 10–33%; F = under 10%. Overall is the average of the graded rows (A = 4 … F = 0; N/A and dashes left out), with a plus or minus showing where it falls between letters. Grades judge the record, not the people, and change when the record changes.</p>
+<p class="note-limits">Going beyond the law would look like: saying on each report what each consulting payment bought, and raising most of the money from individual people.</p>
+</section>
+
+<section id="ask"><h2>9. Questions to Ask, and Who Can Answer</h2>
+<ul class="qa">
+<li><span class="who">Ask the Lieutenant Governor&rsquo;s elections office (disclosure@utah.gov, 801-538-1041):</span>Does Utah have any rule on a PAC treasurer&rsquo;s own business being paid by the PAC, and where is it written?</li>
+<li><span class="who">Ask your state senator or representative:</span>Would you support requiring PAC reports to say what each consulting payment bought?</li>
+<li><span class="who">Ask the Lieutenant Governor&rsquo;s elections office:</span>What happens to a leadership PAC&rsquo;s remaining money when its sponsor leaves office?</li>
+</ul>
+</section>
+
+<section id="limits"><h2>10. Limits of This Page</h2>
+<ul class="tidy note-limits">
+<li>Totals are sums of the entries in the PAC&rsquo;s exports and reports. Deleted entries are left out.</li>
+<li>Money in by year was not recorded for 2021 through 2025, only the combined total.</li>
+<li>This page does not say what any consulting payment bought, because the records do not say.</li>
+<li>Individual donors are counted but not named here; their names are on the state&rsquo;s reports.</li>
+<li>Corrections are welcome at <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a> and will be made and dated on this page.</li>
+</ul>
+</section>
+
+<section id="sources"><h2>11. Sources</h2>
+<details class="sources"><summary>Primary documents (tap to open)</summary><ul>
+<li>Adams Leadership PAC, 2026 September 30th Report (period 6/12–9/25/2026, submitted 9/25/2026), <a href="https://disclosures.utah.gov/" target="_blank" rel="noopener">disclosures.utah.gov</a>. Read as pasted text Sept. 30 and Oct. 4, 2026; itemized lines match both totals.</li>
+<li>DEX exports, 2021–2026: DEX20260930_212827, _212829, _212832, _212834, _212836, _212838 (disclosures.utah.gov), read directly as CSV files, Sept. 30, 2026. 71 entries marked deleted.</li>
+<li>DEX exports, 2019 and 2020: DEX20260930_213305 (2019) and DEX20260930_213308 (2020), read directly as CSV files, Sept. 30, 2026.</li>
+<li>Adams Leadership PAC Statement of Organization, disclosures.utah.gov (read from a screenshot, July 1, 2026).</li>
+<li>Related Hive case files: <a href="https://weber-county-hive.github.io/candidates2026/sd7-hollist-rushforth-ostler.html">SD-7</a>, <a href="https://weber-county-hive.github.io/candidates2026/sd5-koford-hernandez.html">SD-5</a>, <a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6</a>, <a href="https://weber-county-hive.github.io/candidates2026/ut2-moore-crosby.html">UT-2</a>.</li>
+</ul></details>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <h3>Utah Hive Politics · PAC</h3>
+    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
+    <div class="links">
+      <a href="index.html">← Back to PAC docket</a>
+      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
+    </div>
+    <div class="hive-across"><p>Across the Hive:</p><div class="links"><a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive index</a><a href="https://weber-county-hive.github.io/sunday_buzz/">The Sunday Buzz</a><a href="https://weber-county-hive.github.io/Community-Calendar/">Community Calendar</a><a href="https://weber-county-hive.github.io/Utah-Hive-News-Spotlights/">News Spotlights</a><a href="https://weber-county-hive.github.io/Letters-Essays-to-the-Collective/">Letters &amp; Essays to the Collective</a><a href="https://weber-county-hive.github.io/candidates2026/">Candidates 2026</a><a href="https://weber-county-hive.github.io/Voter-Quick-Scan-2026/">Voter Quick Scan</a><a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/">PAC Money-Flow Ledger</a><a href="https://weber-county-hive.github.io/Transparency/">Transparency</a><a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a><a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a><a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a><a href="https://weber-county-hive.github.io/Bill-Tracker/">Bill Tracker</a><a href="https://weber-county-hive.github.io/committees/">Committees</a><a href="https://webercountyhive-coder.github.io/referendum/">Referendums</a><a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a><a href="https://weber-county-hive.github.io/audits/">Audits</a><a href="https://weber-county-hive.github.io/Education/">Education</a><a href="https://weber-county-hive.github.io/public-lands/">Public Lands</a></div><p>Tips and corrections: <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a></p></div>
+  </div>
+</footer>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span></div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{fontSize:'20px',fontFamily:'Source Sans 3, sans-serif',primaryColor:'#F3ECE0',primaryBorderColor:'#6E1F2B',lineColor:'#4A3B35',primaryTextColor:'#211714'},flowchart:{useMaxWidth:true,htmlLabels:true}});}
+document.querySelectorAll('.flip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+document.querySelectorAll('.quick-table.sortable').forEach(tb=>{tb.querySelectorAll('th').forEach((th,i)=>th.addEventListener('click',()=>{const rows=[...tb.querySelectorAll('tbody tr:not(.tot)')];const asc=!th.classList.contains('sort-asc');tb.querySelectorAll('th').forEach(x=>x.classList.remove('sort-asc','sort-desc'));th.classList.add(asc?'sort-asc':'sort-desc');const v=r=>{const t=r.children[i].textContent.replace(/[$,]/g,'');return isNaN(parseFloat(t))?t.toLowerCase():parseFloat(t)};rows.sort((a,b)=>(v(a)>v(b)?1:v(a)<v(b)?-1:0)*(asc?1:-1));const body=tb.querySelector('tbody');const tot=body.querySelector('tr.tot');rows.forEach(r=>body.insertBefore(r,tot));}));});
+</script>
+</body>
+</html>

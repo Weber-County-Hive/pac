@@ -239,11 +239,37 @@
     margin: 16px 0;
   }
   .chart-box canvas { max-height: 320px; }
+
+/* Utah Hive Politics branding (added Oct. 4, 2026) */
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px;}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none;}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none;}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block;}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;letter-spacing:.02em;display:block;margin-top:2px;}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px;}
+.hb-foot .hb-name{font-size:14px;}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block;}
+.hive-across{margin-top:4px;}
+.hive-across p{margin:6px 0 0;}
+.hive-across .links{display:flex;flex-wrap:wrap;gap:10px 18px!important;}
+.hive-solo{background:#181210;color:#D8CCBC;padding:32px 24px 34px;margin-top:40px;font-family:'Source Sans 3',sans-serif;}
+.hive-solo .in{max-width:900px;margin:0 auto;}
+.hive-solo h3{font-family:'Fraunces',Georgia,serif;color:#fff;font-size:20px;margin:0 0 6px;}
+.hive-solo p{font-size:14.5px;margin:6px 0 0;color:#B8A899;}
+.hive-solo a{color:#D9B868;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.hive-solo a:hover{color:#fff;}
+.mh-row{display:flex;gap:24px;align-items:center;}
+.mh-row img{width:96px;height:96px;flex:none;}
+@media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}.mh-row{flex-direction:column;align-items:flex-start;gap:12px}.mh-row img{width:68px;height:68px}}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="icon" type="image/png" href="hive-bee.png">
 </head>
 <body>
+<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span></span></a></div>
+
 
 <header>
   <div class="hex-logo">
@@ -336,7 +362,7 @@
         <h3>Derek Brown</h3>
         <p>Practiced law at Sidley &amp; Austin LLP in Washington, D.C. before the merger; the firm's release frames his role as legal/regulatory counsel. He co-founded Lincoln Hill PAC on 4/27/2022 — and remained listed as a Director/Officer even after being elected Attorney General.</p>
         <ul>
-          <li>Controls Integrity Strategies LLC, which donated $10,000 to Lincoln Hill PAC using a dissolved Illinois shell entity's address</li>
+          <li>Controls Integrity Strategies LLC, which donated $10,000 to Lincoln Hill PAC using a dissolved Illinois entity's address</li>
           <li>Documented 2024–2025 total received from this network: <strong>$294,000+</strong>, including $114,000+ from Election Hive alone</li>
           <li>As Attorney General, he holds the state's chief law enforcement office</li>
         </ul>
@@ -654,5 +680,8 @@ graph TD
   initPage();
 </script>
 
+
+<div class="hive-solo"><div class="in"><h3>Utah Hive Politics · PAC</h3><div class="links" style="display:flex;flex-wrap:wrap;gap:10px 18px;"><a href="index.html">← Back to PAC docket</a><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a></div><p>Across the Hive:</p><div style="display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:6px;"><a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive index</a><a href="https://weber-county-hive.github.io/sunday_buzz/">The Sunday Buzz</a><a href="https://weber-county-hive.github.io/Community-Calendar/">Community Calendar</a><a href="https://weber-county-hive.github.io/Utah-Hive-News-Spotlights/">News Spotlights</a><a href="https://weber-county-hive.github.io/Letters-Essays-to-the-Collective/">Letters &amp; Essays to the Collective</a><a href="https://weber-county-hive.github.io/candidates2026/">Candidates 2026</a><a href="https://weber-county-hive.github.io/Voter-Quick-Scan-2026/">Voter Quick Scan</a><a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/">PAC Money-Flow Ledger</a><a href="https://weber-county-hive.github.io/Transparency/">Transparency</a><a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a><a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a><a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a><a href="https://weber-county-hive.github.io/Bill-Tracker/">Bill Tracker</a><a href="https://weber-county-hive.github.io/committees/">Committees</a><a href="https://webercountyhive-coder.github.io/referendum/">Referendums</a><a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a><a href="https://weber-county-hive.github.io/audits/">Audits</a><a href="https://weber-county-hive.github.io/Education/">Education</a><a href="https://weber-county-hive.github.io/public-lands/">Public Lands</a></div><p>Tips and corrections: <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a></p></div></div>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span></div>
 </body>
 </html>

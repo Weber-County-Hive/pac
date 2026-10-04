@@ -31,9 +31,9 @@ const CASES = [
   },
   {
     caseNumber: "PAC-03",
-    title: "Count My Vote's Signature-Gathering Machine",
+    title: "Count My Vote's Signature-Gathering Spending",
     category: "Campaign Finance & Ethics",
-    summary: "The organization behind Utah's 2014 primary-ballot reform has quietly become one of the largest political funders in the state — with mega-donors including Gail Miller, the Leavitt family, and Zions Bank's former CEO.",
+    summary: "The organization behind Utah's 2014 primary-ballot reform has become one of the largest political funders in the state — with mega-donors including Gail Miller, the Leavitt family, and Zions Bank's former CEO.",
     officials: ["Rich McKeown", "Val Oveson", "Michael O. Leavitt", "Gail Miller"],
     status: "documented",
     updated: "Sep 12, 2026",
@@ -52,9 +52,9 @@ const CASES = [
   },
   {
     caseNumber: "PAC-05",
-    title: "Swept In By Accident, Funded By Design",
+    title: "A Brief Mention in One PAC File, a Fuller Story in His Own Reports",
     category: "Campaign Finance & Ethics",
-    summary: "A House candidate who lost his own convention by 42 points shows up in another PAC's file purely by coincidence — his real funding story is a signature-gathering machine and a repeat cast of statewide donors.",
+    summary: "A House candidate who lost his own convention by 42 points shows up in another PAC's file purely by coincidence — his real funding story is signature gathering paid for by another PAC and a repeat cast of statewide donors.",
     officials: ["Chris McConnehey", "Stuart Adams", "Scott Anderson", "Dan Hemmert"],
     status: "documented",
     updated: "Sep 12, 2026",
@@ -62,7 +62,7 @@ const CASES = [
   },
   {
     caseNumber: "PAC-06",
-    title: "One Man's Signature, Six-Figure Extraction",
+    title: "One Signature, Six Figures to the Treasurer's Firm",
     category: "Campaign Finance & Ethics",
     summary: "Speaker Mike Schultz's own leadership PAC has moved over $400,000 to candidates and party committees since 2023 — while its CFO, who holds the identical role on three other PACs, has personally taken over $175,000 out of this one alone.",
     officials: ["Mike Schultz", "Kyle Palmer", "Abby Osborne", "Jared Meyer"],
@@ -102,9 +102,9 @@ const CASES = [
   },
   {
     caseNumber: "PAC-10",
-    title: "Dissolved on Paper, Active in Practice",
+    title: "Dissolved as a Corporation in 2023, $627,000 Raised and Spent Since",
     category: "Campaign Finance & Ethics",
-    summary: "A nonprofit corporation that named a sitting Attorney General as one of three Directors was administratively dissolved in July 2023 — and has raised and spent $627,000 in the years since, without ever re-registering.",
+    summary: "A nonprofit corporation that named a sitting Attorney General as one of three Directors was administratively dissolved in July 2023 — and has raised and spent $627,000 in the years since, with no re-registration found in the state's records.",
     officials: ["Casey Hill", "Lincoln Shurtz", "Derek Brown", "Mike McCauley"],
     status: "documented",
     updated: "Sep 14, 2026",
@@ -161,7 +161,27 @@ const CASES = [
     summary: "The Doers Network publicly endorses 36 candidates, but its 2026 filings show $80,800 paid to a different list, with 13 recipients it never endorsed, including the Senate President and House Speaker. Its Utah County board chair is a sitting senator's spouse, and it shares a registered-agent suite and an incorporator with All In For Utah PAC.",
     officials: ["Nicki Brammer", "Steve Hiatt", "Adam Gardiner", "Matthew T. Sanderson", "Tamara Tran"],
     status: "documented",
-    updated: "Sep 23, 2026",
+    updated: "Oct 4, 2026",
     link: "weber-hive-doers-network.html"
+  },
+  {
+    caseNumber: "PAC-16",
+    title: "$1.22 Million Out, and $258,103 to the Treasurer's Firm",
+    category: "Campaign Finance & Ethics",
+    summary: "Senate President J. Stuart Adams's leadership PAC reported $1,221,703.57 in spending from 2019 through Sept. 25, 2026, $511,977.86 of it in 2026, including $100,000 to his own campaign. Its treasurer, Kyle Palmer, runs Irish Elk LLC, which the PAC paid $258,103.65.",
+    officials: ["Stuart Adams", "Kyle Palmer"],
+    status: "documented",
+    updated: "Oct 4, 2026",
+    link: "adams-leadership-pac.html"
+  },
+  {
+    caseNumber: "PAC-17",
+    title: "$3.46 Million Out Since 2018, and the Senators It Funds",
+    category: "Campaign Finance & Ethics",
+    summary: "The Utah Senate Republican Caucus's PAC, run by Stuart Adams and Kirk Cullimore with Kyle Palmer as treasurer, reported about $3.46 million in spending since 2018. Every gift on its latest report came from a company, group or PAC; its treasurer's firm was paid at least $386,453.15.",
+    officials: ["Stuart Adams", "Kirk Cullimore", "Kyle Palmer"],
+    status: "documented",
+    updated: "Oct 4, 2026",
+    link: "utah-republican-senate-campaign-committee.html"
   }
 ];

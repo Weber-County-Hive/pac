@@ -102,11 +102,37 @@
   footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
   footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
   footer.site-footer a:hover{color:#fff;}
+
+/* Utah Hive Politics branding (added Oct. 4, 2026) */
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px;}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none;}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none;}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block;}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;letter-spacing:.02em;display:block;margin-top:2px;}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px;}
+.hb-foot .hb-name{font-size:14px;}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block;}
+.hive-across{margin-top:4px;}
+.hive-across p{margin:6px 0 0;}
+.hive-across .links{display:flex;flex-wrap:wrap;gap:10px 18px!important;}
+.hive-solo{background:#181210;color:#D8CCBC;padding:32px 24px 34px;margin-top:40px;font-family:'Source Sans 3',sans-serif;}
+.hive-solo .in{max-width:900px;margin:0 auto;}
+.hive-solo h3{font-family:'Fraunces',Georgia,serif;color:#fff;font-size:20px;margin:0 0 6px;}
+.hive-solo p{font-size:14.5px;margin:6px 0 0;color:#B8A899;}
+.hive-solo a{color:#D9B868;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.hive-solo a:hover{color:#fff;}
+.mh-row{display:flex;gap:24px;align-items:center;}
+.mh-row img{width:96px;height:96px;flex:none;}
+@media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}.mh-row{flex-direction:column;align-items:flex-start;gap:12px}.mh-row img{width:68px;height:68px}}
 </style>
+<link rel="icon" type="image/png" href="hive-bee.png">
 </head>
 <body>
+<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span></span></a></div>
+
 <div class="topbar">
-  <span>The Weber County Hive · PAC</span>
+  <span>Utah Hive Politics · PAC · from the publisher of The Weber County Hive</span>
   <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
 </div>
 
@@ -230,7 +256,7 @@
 <p style="margin:0;">One specific claim tied to the MacPherson case did NOT hold up on re-verification: an earlier analysis claimed a UHREC payment landed during the exact legislative debate window for HB 82. No payment lands anywhere near those dates — that specific timing claim has been dropped. The $40,000 base total (now $70,000 with later payments) remains confirmed; the debate-window coincidence does not.</p>
 </div>
 
-<p style="font-size:0.85rem;color:var(--ink-soft);">Standard framing used throughout this file: Palmer "controls disbursements" or holds "sole signature authority" — not characterizations implying illegality. Every figure here is attributed to the specific filing it comes from.</p>
+<p style="font-size:0.85rem;color:var(--ink-soft);">Standard framing used throughout this file: Palmer "controls disbursements" or holds "sole signature authority" — not legal conclusions. Every figure here is attributed to the specific filing it comes from.</p>
 </section>
 
 <section id="coombs">
@@ -258,7 +284,7 @@
 <h2>6. Worth Asking</h2>
 <div class="callout-box">
 <ul class="tidy" style="margin-bottom:0;">
-<li><strong>UHREC, House Speaker Leadership PAC, and NUPAC all funnel large sums to the identical Kyle Palmer-controlled vendor, Irish Elk LLC.</strong> At what combined scale does routine multi-client PAC administration become something else worth naming differently?</li>
+<li><strong>UHREC, House Speaker Leadership PAC, and NUPAC all pay large sums to the identical Kyle Palmer-controlled vendor, Irish Elk LLC.</strong> At what combined scale does routine multi-client PAC administration become something else worth naming differently?</li>
 <li><strong>Right Insight received $125,727.42 as "the prior UHREC vendor before Irish Elk took over."</strong> What changed in that transition, and did it affect what services the PAC actually received for the money?</li>
 <li><strong>"Responsive Gov Action" gave $1,000 this period — it describes itself as the political arm of a nonpartisan election-administration nonprofit.</strong> Does a nonpartisan-mission organization giving to a partisan state leadership committee complicate that "nonpartisan" framing, even at a small dollar amount?</li>
 </ul>
@@ -281,7 +307,7 @@
 <section id="related">
 <h2>8. Related Coverage</h2>
 <div class="profile-link-box">
-  <span>House Speaker Leadership PAC: Kyle Palmer's identical role there, and the $199,851.63 he's personally extracted from that PAC alone.</span>
+  <span>House Speaker Leadership PAC: Kyle Palmer's identical role there, and the $199,851.63 paid to him and his firm by that PAC alone.</span>
   <a class="cta" href="house-speaker-leadership-pac.html">Read the case file →</a>
 </div>
 </section>
@@ -300,14 +326,17 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <h3>The Weber County Hive · PAC</h3>
+    <h3>Utah Hive Politics · PAC</h3>
     <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
     <div class="links">
       <a href="index.html">← Back to PAC docket</a>
       <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
     </div>
+  
+    <div class="hive-across"><p>Across the Hive:</p><div class="links"><a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive index</a><a href="https://weber-county-hive.github.io/sunday_buzz/">The Sunday Buzz</a><a href="https://weber-county-hive.github.io/Community-Calendar/">Community Calendar</a><a href="https://weber-county-hive.github.io/Utah-Hive-News-Spotlights/">News Spotlights</a><a href="https://weber-county-hive.github.io/Letters-Essays-to-the-Collective/">Letters &amp; Essays to the Collective</a><a href="https://weber-county-hive.github.io/candidates2026/">Candidates 2026</a><a href="https://weber-county-hive.github.io/Voter-Quick-Scan-2026/">Voter Quick Scan</a><a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/">PAC Money-Flow Ledger</a><a href="https://weber-county-hive.github.io/Transparency/">Transparency</a><a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a><a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a><a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a><a href="https://weber-county-hive.github.io/Bill-Tracker/">Bill Tracker</a><a href="https://weber-county-hive.github.io/committees/">Committees</a><a href="https://webercountyhive-coder.github.io/referendum/">Referendums</a><a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a><a href="https://weber-county-hive.github.io/audits/">Audits</a><a href="https://weber-county-hive.github.io/Education/">Education</a><a href="https://weber-county-hive.github.io/public-lands/">Public Lands</a></div><p>Tips and corrections: <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a></p></div>
   </div>
 </footer>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span></div>
 
 <script>
 (function(){
