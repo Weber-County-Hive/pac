@@ -78,6 +78,9 @@
   .kicker{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--rust);text-transform:uppercase;letter-spacing:.05em;}
   .mermaid-wrap{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem;margin:1.2rem 0;overflow-x:auto;}
   .mermaid{text-align:center;}
+  .mermaid svg{width:100%!important;max-width:none!important;height:auto;}
+  .swipe{display:none;font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--ink-soft);margin:0 0 6px;}
+  @media(max-width:640px){.mermaid svg{width:760px!important;}.swipe{display:block;}}
   .cap{font-size:.84rem;color:var(--ink-soft);margin:.6rem 0 0;}
   .chart-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1rem 1.2rem;margin:1.2rem 0;}
   .chart-card h3{font-size:1.05rem;margin:0 0 .2rem;}
@@ -141,7 +144,7 @@
   <div class="band-inner">
     <div class="eyebrow">The Weber County Hive &middot; PAC / Endorsement Network</div>
     <h1>Doers Network: The Endorsement List</h1>
-    <p class="mono" style="color:#dce3e7;font-size:.8rem;margin:6px 0 0;">Updated Oct. 4, 2026: added Utah Doers PAC&rsquo;s September 30th Report (section 05b) and board member Steve Hiatt&rsquo;s lobbyist registration</p>
+    <p class="mono" style="color:#dce3e7;font-size:.8rem;margin:6px 0 0;">Updated Oct. 4, 2026: added Utah Doers PAC&rsquo;s September 30th Report (section 05b) and the board members who are registered lobbyists (section 02b)</p>
     <p style="max-width:640px; color:#dce3e7;">A Utah political network that says it identifies, endorses, and supports "principled candidates." Its own site lists 36 endorsements for 2026. Its own campaign-finance filings show a different list of who it has actually paid: 12 endorsed candidates with no payment found, and 13 recipients it never endorsed.</p>
     <div class="meta-row">
       <span class="mono">2026 election cycle</span>
@@ -156,6 +159,7 @@
     <a href="#new-here">New Here?</a>
     <a href="#structure">Entity Structure</a>
     <a href="#board">Who Runs It</a>
+    <a href="#board-roles">Board Lobbyists</a>
     <a href="#endorsed">The Endorsement List</a>
     <a href="#funded">Who It Paid</a>
     <a href="#gap">Endorsed vs. Funded</a>
@@ -218,8 +222,9 @@
   </ol>
 
   <div class="mermaid-wrap">
+<p class="swipe">Swipe sideways to see the whole diagram →</p>
 <div class="mermaid">
-flowchart LR
+flowchart TB
     SAN["Matthew T. Sanderson<br/>Caplin &amp; Drysdale<br/>incorporator"]
     G["Original giving vehicle<br/>'Doers Network' / 'Doers Network Inc.' / 'Utah Doers'<br/>entity + EIN unconfirmed<br/>~$70K out before July"]
     C4["Utah Doers Network<br/>501(c)(4)<br/>incorporated 7/16/26"]
@@ -259,7 +264,7 @@ flowchart LR
   <h2 id="board"><span class="section-num">02</span>Who Runs It</h2>
   <p>The Doers Network organizes its board by county. Utah County, Salt Lake County, and Davis County each have their own regional board; nearly every seat across all three is held by a current or former elected official, party officer, or professional in government relations/lobbying &mdash; not a cross-section of community volunteers.</p>
   <div class="box callout-finding">
-    <strong>The single most important fact on this page:</strong> the Utah County board's Chair is <strong>Nicki Brammer</strong> &mdash; spouse of Sen. Brady Brammer, who personally received $2,000 from the Doers Network on 4/27/26. This isn't an arms-length donor relationship; his own household sits on the organization's leadership.
+    <strong>The single most important fact on this page:</strong> the Utah County board's Chair is <strong>Nicki Brammer</strong> &mdash; spouse of Sen. Brady Brammer, whose campaign received $7,000 from the Doers Network in 2026 ($2,000 on 4/27/26 and $5,000 on 6/4/26, per his campaign reports). A member of his household is on the organization's leadership.
   </div>
 
 
@@ -272,7 +277,18 @@ flowchart LR
       <div class="flip-face flip-back">Gardner is married to <strong>Amelia Powers Gardner</strong>. Price, who chairs the Salt Lake County board, is Powers Gardner's senior policy advisor. One household, two boards.</div></div></button>
     <button class="flip wide" type="button" aria-pressed="false"><div class="flip-inner">
       <div class="flip-face flip-front"><span class="kicker">Succession link</span><h4>Steve Hiatt</h4><p>Davis County board</p><div class="hint">tap for the detail</div></div>
-      <div class="flip-face flip-back">Former Kaysville mayor. His successor, <strong>Tamara Tran</strong>, is the Doers Network's largest 2026 recipient ($10,600), and Hiatt endorsed her on her Senate campaign site.</div></div></button>
+      <div class="flip-face flip-back">Former Kaysville mayor and registered Utah lobbyist (The Hiatt Group LLC). His successor, <strong>Tamara Tran</strong>, is the Doers Network's largest 2026 recipient ($10,600), and Hiatt endorsed her on her Senate campaign site.</div></div></button>
+  </div>
+  <div id="hiatt-lobbyist" style="background:#fff;border:1px solid #c9d3d8;border-left:5px solid #c0572e;padding:16px 20px;margin:18px 0;">
+    <div style="font-family:monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#c0572e;">Added Oct. 4, 2026</div>
+    <h3 style="margin:6px 0 8px;">Davis County board member Steve Hiatt is a registered lobbyist</h3>
+    <ul style="margin:0;padding-left:20px;">
+      <li><strong>Registration:</strong> Steve A. Hiatt&rsquo;s Utah lobbyist registration was created Sept. 19, 2018. It lists his business as The Hiatt Group LLC of Kaysville and lists no government position.</li>
+      <li><strong>Clients:</strong> 25 outside clients are listed, including Clearfield City, the Intermountain Power Agency, Pfizer, State Farm, T-Mobile USA, Western Governors University, Live Nation&ndash;Ticketmaster, the Utah Dental Association, the Utah Optometric Association and the Humane Society of the United States. The registration does not show when each client was added or which are current.</li>
+      <li><strong>Clearfield contract:</strong> a Dec. 21, 2021 Clearfield City Council packet proposes hiring him for lobbyist services at $4,000 a month; the agreement is with The Hiatt Group, LLC, signed &ldquo;Steve Hiatt, President.&rdquo;</li>
+      <li><strong>Campaign gift:</strong> a Steve Hiatt gave Rep. Rob Bishop (<a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6</a>) $100 on June 22, 2026. The address on Bishop&rsquo;s report is the same Kaysville address listed for The Hiatt Group on the registration.</li>
+    </ul>
+    <p style="font-size:.85rem;margin:10px 0 0;color:#4a5a63;">Sources: Utah lobbyist registration and Rob Bishop&rsquo;s 2026 September 30th Report (disclosures.utah.gov), read as pasted text Oct. 4, 2026; <a href="https://www.utah.gov/pmn/files/794215.pdf" target="_blank" rel="noopener">Clearfield City Council packet, Dec. 21, 2021</a>.</p>
   </div>
 
   <div class="chart-card">
@@ -286,7 +302,7 @@ flowchart LR
     <table>
       <thead><tr><th>Name</th><th>Background</th></tr></thead>
       <tbody>
-        <tr><td><strong>Nicki Brammer</strong><br><span class="tag">Chair</span></td><td>Spouse of Sen. Brady Brammer (SD 21), who received $2,000 from Doers Network 4/27/26.</td></tr>
+        <tr><td><strong>Nicki Brammer</strong><br><span class="tag">Chair</span></td><td>Spouse of Sen. Brady Brammer (SD 21), whose campaign received $7,000 from the Doers Network in 2026 ($2,000 on 4/27/26 and $5,000 on 6/4/26).</td></tr>
         <tr><td>Wade Eyerly</td><td>National security veteran (White House, Pentagon, Iraq); founded an insurer and two airlines, including Surf Air; Romney National Finance Committee (both campaigns); worked for Gov. Huntsman.</td></tr>
         <tr><td>Tobin Gardner</td><td>Co-Founder, Utah Blockchain Coalition. Married to Amelia Powers Gardner, sitting Utah County Commissioner (censured by county GOP 2025/26 over a residency dispute; not seeking reelection).</td></tr>
         <tr><td>Melissa Clark</td><td>Sitting Eagle Mountain City Council member; CEO, Valley Crossroads Chamber; founded LaunchPad Business Resource Center.</td></tr>
@@ -342,6 +358,28 @@ flowchart LR
     <p style="font-size:.85rem; color:var(--ink-soft);">Both staff directors have direct pipelines into Utah GOP legislative leadership predating their time at Doers Network.</p>
   </details>
 
+
+
+  <h2 id="board-roles"><span class="section-num">02b</span>What Board Members Do Outside the Doers Network</h2>
+  <p style="font-family:monospace;font-size:.8rem;color:var(--ink-soft);">Added Oct. 4, 2026 · starting with the three board members who are registered Utah lobbyists</p>
+  <p>Three Doers Network board members are registered lobbyists, paid to represent clients before the Legislature and other government bodies. This section lists each one&rsquo;s registration, the gifts the Hive has found from them in state records, and places where a client&rsquo;s name also shows up as a donor in other Hive files. Lobbying, serving on this board and giving to campaigns are all legal. A shared name is a connection, not an accusation.</p>
+  <div class="table-scroll"><table style="width:100%;border-collapse:collapse;background:#fff;margin:12px 0;font-size:.95rem;">
+  <thead><tr><th style="border:1px solid #c9d3d8;padding:9px 11px;text-align:left;background:#eef2f4;font-family:monospace;font-size:.72rem;text-transform:uppercase;">Board member</th><th style="border:1px solid #c9d3d8;padding:9px 11px;text-align:left;background:#eef2f4;font-family:monospace;font-size:.72rem;text-transform:uppercase;">Lobbyist registration</th><th style="border:1px solid #c9d3d8;padding:9px 11px;text-align:left;background:#eef2f4;font-family:monospace;font-size:.72rem;text-transform:uppercase;">Gifts found in state records</th></tr></thead><tbody>
+  <tr><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;"><strong>Steve Hiatt</strong><br>Davis County board<br>Former Kaysville mayor</td><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;">The Hiatt Group LLC, Kaysville. Registration created Sept. 19, 2018. 25 outside clients listed, including Clearfield City and the Intermountain Power Agency.<details style="margin-top:6px;"><summary style="cursor:pointer;font-family:monospace;font-size:.8rem;">All 25 outside clients listed</summary><p style="font-size:.9rem;margin:6px 0 0;">Old Republic National Title Insurance Company; American Institute of Architects, Utah Chapter; Roseman University of Health Sciences; Hunter and Company; KKOS Lawyers; The Humane Society of the United States; Young Electric Sign Company (YESCO); Nomi Health; 106 Reforestation; American Council of Life Insurers; Cicero Action; Harry Adelson, ND; Justice Action Network; Western Governors University; Payactiv; Pfizer; State Farm Insurance Companies; Utah Assisted Living Association; Utah Association of Naturopathic Physicians; Utah Dental Association; Utah Optometric Association; Live Nation Entertainment&ndash;Ticketmaster; Clearfield City; Intermountain Power Agency; T-Mobile USA. (His own firm is also listed.)</p></details></td><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;">Rep. Rob Bishop, <a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6</a>: $100 (6/22/26). The address on Bishop&rsquo;s report is the same Kaysville address listed for his firm.</td></tr>
+  <tr><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;"><strong>Adam Gardiner</strong><br>Salt Lake County board<br>State Director for Sen. Mitt Romney, per his bio</td><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;">ASG Consulting. Registration on file with reports for 2021&ndash;2026. About 40 clients listed since 2021, with begin and end dates.<details style="margin-top:6px;"><summary style="cursor:pointer;font-family:monospace;font-size:.8rem;">Clients with no end date on his registration (17), and selected past clients</summary><p style="font-size:.9rem;margin:6px 0 0;"><strong>No end date listed:</strong> Advocacy Group Inc; American Policy Ventures; Rebuild Local News; Polyisocyanurate Insulation Manufacturers Association; Four Points Energy; Utah Credit Union Association; Clenera; Energy Fuels; Select Health; State Armor Action; City of West Jordan; Utah Transit Authority; Standard Wellness; Pharmaceutical Care Management Association; Utah Interactive LLC; Intermountain Healthcare; TLS Entertainment LLC.<br><strong>Selected past clients (with end dates):</strong> Wolverine Fuels LLC (to 3/2/26); Dorsey and Whitney (to 3/2/26); Utah Aerospace and Defense Association / 47G (to 3/31/25); Huntsman International (to 10/3/24); Oakwood Consulting (to 2/23/23); DOMO (to 11/1/22).</p></details></td><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;">Rep. Rob Bishop, <a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6</a>: $1,000 (2/26/26). Stephanie Gricius: $250, filed under ASG. Mike Bird: $500.</td></tr>
+  <tr><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;"><strong>Cody Stewart</strong><br>Davis County board<br>Former staff director, House Natural Resources Committee under Rob Bishop (LegiStorm, 2019)</td><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;">Integrated Government Services LLC, Farmington. Registration created Oct. 14, 2021. 7 clients listed, including Davis County and Grand County.<details style="margin-top:6px;"><summary style="cursor:pointer;font-family:monospace;font-size:.8rem;">All 7 clients listed</summary><p style="font-size:.9rem;margin:6px 0 0;">Grand County; yes. every kid., Inc.; Davis County; Bennett Group; Energy Fuels; Alta Ski Area; Autism Families Alliance.</p></details></td><td style="border:1px solid #c9d3d8;padding:9px 11px;vertical-align:top;">Rep. Rob Bishop, <a href="https://weber-county-hive.github.io/candidates2026/hd6-bishop-rich.html">HD-6</a>: $1,000 (6/22/26). The address on Bishop&rsquo;s report is the same Farmington address listed for his firm.</td></tr>
+  </tbody></table></div>
+  <h3>Where the names meet</h3>
+  <p>Clients of these lobbyists whose names also appear as donors in other Hive case files. Each line is a name match in the filings; the Hive has not found any record showing why a donor gave.</p>
+  <ul>
+    <li><strong>Energy Fuels</strong> is a client of both Gardiner (since 4/16/24) and Stewart. Energy Fuels gave the Senate Republican caucus PAC $2,500 on Sept. 2, 2026. See <a href="utah-republican-senate-campaign-committee.html">PAC-17</a>.</li>
+    <li><strong>Select Health</strong> is a Gardiner client (since 1/10/24). &ldquo;SelectHealth&rdquo; gave the Senate Republican caucus PAC $35,500 from 2022 through May 2026 and $2,500 on Sept. 15, 2026. See <a href="utah-republican-senate-campaign-committee.html">PAC-17</a>.</li>
+    <li><strong>Wolverine Fuels</strong> was a Gardiner client until March 2, 2026. Wolverine Fuels Holding, LLC gave the caucus PAC $2,500 on Sept. 2, 2026, after that end date.</li>
+    <li><strong>Oakwood Consulting</strong> was a Gardiner client from 2021 to Feb. 23, 2023. Oakwood Consulting gave the caucus PAC $25,000 from 2022 through May 2026.</li>
+    <li><strong>Utah Credit Union Association</strong> is a Gardiner client (since 1/7/25). A committee filed as &ldquo;UCU Political Action Committee&rdquo; gave Rep. Rob Bishop $2,000 (5/5/26) and, as &ldquo;UCUPAC,&rdquo; gave the caucus PAC $6,000 (9/2/26). The Hive has not confirmed that the PAC belongs to the association, so this is a name match only.</li>
+    <li><strong>Rob Bishop</strong> received gifts from all three lobbyists on this board ($2,100 combined). Stewart previously worked for him on the House Natural Resources Committee.</li>
+  </ul>
+  <p style="font-size:.85rem;color:var(--ink-soft);">Sources: Utah lobbyist registrations for Steve A. Hiatt, Adam Gardiner and Cody Stewart (disclosures.utah.gov; Hiatt and Stewart read as pasted text Oct. 4, 2026, Gardiner Aug. 11, 2026); Rob Bishop&rsquo;s 2026 Convention, Primary and September 30th Reports; the Utah Republican Senate Campaign Committee&rsquo;s exports and 2026 September 30th Report. Registrations do not show which clients a lobbyist worked for on any particular issue. Other board members&rsquo; gifts and roles will be added as they are checked.</p>
 
   <h2 id="endorsed"><span class="section-num">03</span>The Endorsement List</h2>
   <p>The Doers Network's own "All" page lists 36 endorsed candidates across federal, state, and county races, as of 9/10/26. (Earlier versions of this page said 34; that was a miscount, corrected 9/23/26.)</p>
@@ -509,6 +547,7 @@ flowchart LR
 
 
   <div class="mermaid-wrap">
+<p class="swipe">Swipe sideways to see the whole diagram →</p>
 <div class="mermaid">
 flowchart LR
     subgraph SUITE["6905 S 1300 E #224 · same incorporator"]
@@ -530,7 +569,7 @@ flowchart LR
     <p class="cap">Solid arrows: money in filed reports. Dashed lines: household ties and endorsements. Shared vendors are described below.</p>
   </div>
   <h3>Shared incorporator and address</h3>
-  <p><strong>Matthew T. Sanderson</strong>, a Washington DC campaign-finance attorney, incorporated both Utah Doers Network and <strong>All In For Utah Foundation/PAC</strong> &mdash; a separate entity already tied to a Cox-orbit money network documented elsewhere. On Tamara Tran's own disclosures, All In For Utah PAC and Doers Network file from the <strong>exact same suite address</strong>, 6905 S 1300 E #224. Two "separate" political committees, one office.</p>
+  <p><strong>Matthew T. Sanderson</strong>, a Washington DC campaign-finance attorney, incorporated both Utah Doers Network and <strong>All In For Utah Foundation/PAC</strong> &mdash; a separate entity documented elsewhere on this site. On Tamara Tran's own disclosures, All In For Utah PAC and Doers Network file from the <strong>exact same suite address</strong>, 6905 S 1300 E #224. Two separately registered political committees list the same suite.</p>
 
   <h3>Board members giving personally, beyond the PAC's own checks</h3>
   <ul>
@@ -546,7 +585,7 @@ flowchart LR
   <p><strong>Tactical Campaigns</strong> appears in both <a href="#cand-tran">Tamara Tran's</a> and <a href="#cand-gricius">Stephanie Gricius's</a> expenditures. <strong>Majority 51</strong> shows up as a vendor paid by both <a href="#cand-tran">Tran's</a> and <a href="https://weber-county-hive.github.io/candidates2026/hd13-craythorne-anderson.html">Erik Craythorne's</a> (CASE 13) campaigns. Tran's campaign also paid $12,000 to a vendor called <strong>"Gathering"</strong> &mdash; not yet confirmed as the same Gathering Inc. tied to the 2025 signature-forgery prosecutions documented elsewhere on this site, but the name match is worth tracking.</p>
 
   <h3>A succession pipeline</h3>
-  <p>Davis County board member <strong>Steve Hiatt</strong> is the former Kaysville Mayor who preceded <a href="#cand-tran">Tamara Tran</a> in that office &mdash; she's now the Doers-backed candidate for the state Senate seat Jerry Stevenson is vacating. Separately, Salt Lake County Council Chair <strong>Aimee Winder Newton</strong> gave <a href="#cand-mike-bird">Mike Bird</a> $6,000 personally.</p>
+  <p>Davis County board member <strong>Steve Hiatt</strong> is the former Kaysville Mayor who preceded <a href="#cand-tran">Tamara Tran</a> in that office, and a <a href="#hiatt-lobbyist">registered lobbyist</a> &mdash; she's now the Doers-backed candidate for the state Senate seat Jerry Stevenson is vacating. Separately, Salt Lake County Council Chair <strong>Aimee Winder Newton</strong> gave <a href="#cand-mike-bird">Mike Bird</a> $6,000 personally.</p>
 
   <h2 id="questions"><span class="section-num">07</span>Questions Worth Asking</h2>
   <ul>
@@ -569,7 +608,7 @@ document.querySelectorAll('.flip').forEach(b=>b.addEventListener('click',()=>{b.
 (function(){const rows=[...document.querySelectorAll('#endorsed-table tr')];const cnt=document.getElementById('endCount');
 function apply(f){let n=0;rows.forEach(r=>{const show=f==='all'||(f==='paid'&&r.dataset.paid==='paid')||(f==='unpaid'&&r.dataset.paid==='unpaid')||(f==='gathered'&&r.dataset.gathered==='yes');r.style.display=show?'':'none';if(show)n++;});cnt.textContent=n+' of '+rows.length;}
 document.querySelectorAll('#endFilter button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#endFilter button').forEach(x=>x.classList.remove('on'));b.classList.add('on');apply(b.dataset.f);}));apply('all');})();
-if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'neutral',fontFamily:'IBM Plex Mono, monospace',flowchart:{htmlLabels:true,curve:'basis'}});}
+if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'neutral',fontFamily:'IBM Plex Mono, monospace',themeVariables:{fontSize:'20px'},flowchart:{htmlLabels:true,curve:'basis',useMaxWidth:false,nodeSpacing:40,rankSpacing:60}});}
 if(window.Chart){Chart.defaults.font.family="'Source Serif 4', Georgia, serif";Chart.defaults.color='#5a5248';const money=v=>'$'+Number(v).toLocaleString();
 new Chart(document.getElementById('paidChart'),{type:'bar',data:{labels:["Tamara Tran", "Jake Hunsaker", "Daniel McCay", "Brady Brammer", "Erik Craythorne", "Dave Parke", "Lili Bitner", "Matt MacPherson", "Jordan Teuscher", "David Benson", "JR Bird", "Casey Saxton", "Kirk Cullimore", "Jim Dunnigan", "Jon Hawkins", "Tracy Miller", "Anthony Loubet", "SAFE PAC (Utah Co. Sheriffs)", "Jason Thompson", "Terry Hutchinson", "Trina Christensen", "Mike Bird", "Erin Longacre", "Cal Roberts", "Jill Koford", "Ariel Defay", "Paul Cutler", "Stephanie Gricius", "Raymond Ward", "Darlene Pierucci", "Katrina Hall", "J Adams (Sen. Pres. Adams)", "Melissa Garff Ballard", "Steven Eliason", "Kristen Chevrier", "Mike Schultz (Speaker)", "Salt Lake County Republican Party"],datasets:[{data:[10600.0, 7000.0, 7000.0, 7000.0, 3750.0, 3750.0, 3750.0, 3500.0, 3500.0, 3000.0, 3000.0, 3000.0, 2000.0, 2000.0, 2000.0, 2000.0, 2000.0, 2000.0, 2000.0, 1500.0, 1500.0, 1500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 500.0, 200.0],backgroundColor:["#c0572e", "#c0572e", "#123449", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#123449", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#123449", "#123449", "#123449", "#123449", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#c0572e", "#123449", "#123449", "#123449", "#123449", "#123449", "#c0572e", "#123449", "#123449"],borderRadius:2}]},options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.parsed.x)}}},scales:{x:{ticks:{callback:money},grid:{color:'#e8e0cf'}},y:{grid:{display:false},ticks:{autoSkip:false,font:{size:11}}}}}});
 new Chart(document.getElementById('boardChart'),{type:'bar',data:{labels:['Utah County (8)','Salt Lake County (6)','Davis County (6)'],datasets:[{label:'Political / government background',data:[6,4,5],backgroundColor:'#c0572e',stack:'s'},{label:'Other',data:[2,2,1],backgroundColor:'#ddd5c3',stack:'s'}]},options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{x:{stacked:true,max:8,ticks:{stepSize:1}},y:{stacked:true,grid:{display:false}}}}});}
