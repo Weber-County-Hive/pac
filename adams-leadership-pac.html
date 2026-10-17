@@ -327,5 +327,6 @@ if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'base',themeVariab
 document.querySelectorAll('.flip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
 document.querySelectorAll('.quick-table.sortable').forEach(tb=>{tb.querySelectorAll('th').forEach((th,i)=>th.addEventListener('click',()=>{const rows=[...tb.querySelectorAll('tbody tr:not(.tot)')];const asc=!th.classList.contains('sort-asc');tb.querySelectorAll('th').forEach(x=>x.classList.remove('sort-asc','sort-desc'));th.classList.add(asc?'sort-asc':'sort-desc');const v=r=>{const t=r.children[i].textContent.replace(/[$,]/g,'');return isNaN(parseFloat(t))?t.toLowerCase():parseFloat(t)};rows.sort((a,b)=>(v(a)>v(b)?1:v(a)<v(b)?-1:0)*(asc?1:-1));const body=tb.querySelector('tbody');const tot=body.querySelector('tr.tot');rows.forEach(r=>body.insertBefore(r,tot));}));});
 </script>
+<script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
