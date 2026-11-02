@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F3ECE0; --paper-dim:#E9E0D0; --void:#181210; --void-2:#241A17;
-    --maroon:#6E1F2B; --maroon-dim:#8C3B44; --ink:#211714; --ink-soft:#4A3B35;
-    --line:#C9BBA4; --gold:#B4863C; --max:960px;
-    --good:#3F6B3F; --bad:#8C3B44;
+    --paper:#f4f0e6; --paper-dim:#ebe6da; --void:#0b2230; --void-2:#123449;
+    --maroon:#123449; --maroon-dim:#2a5470; --ink:#1f1b16; --ink-soft:#4a5560;
+    --line:#ddd5c3; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#b3261e;
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
@@ -98,7 +98,7 @@
   footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
   footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
   footer.site-footer h3{color:#fff;font-size:20px;}
-  footer.site-footer p{color:#B8A899;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer p{color:#a9b8c4;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
   footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
   footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
   footer.site-footer a:hover{color:#fff;}
@@ -125,30 +125,84 @@
 .hive-across{margin-top:4px;}
 .hive-across p{margin:6px 0 0;}
 .hive-across .links{display:flex;flex-wrap:wrap;gap:10px 18px!important;}
-.hive-solo{background:#181210;color:#D8CCBC;padding:32px 24px 34px;margin-top:40px;font-family:'Source Sans 3',sans-serif;}
+.hive-solo{background:#0b2230;color:#d6e0e8;padding:32px 24px 34px;margin-top:40px;font-family:'Source Sans 3',sans-serif;}
 .hive-solo .in{max-width:900px;margin:0 auto;}
 .hive-solo h3{font-family:'Fraunces',Georgia,serif;color:#fff;font-size:20px;margin:0 0 6px;}
-.hive-solo p{font-size:14.5px;margin:6px 0 0;color:#B8A899;}
+.hive-solo p{font-size:14.5px;margin:6px 0 0;color:#a9b8c4;}
 .hive-solo a{color:#D9B868;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
 .hive-solo a:hover{color:#fff;}
 .mh-row{display:flex;gap:24px;align-items:center;}
 .mh-row img{width:96px;height:96px;flex:none;}
 @media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}.mh-row{flex-direction:column;align-items:flex-start;gap:12px}.mh-row img{width:68px;height:68px}}
+.hbx-top{margin:0}
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;display:block;margin-top:2px}
+.hb-line-top{font-family:Georgia,serif;color:#e8d9b5;font-size:12.5px;display:block;margin-top:3px;line-height:1.4}
+.hbx-slim{background:#0e2438;color:#dbe7f0;font:600 14px/1.4 Arial,sans-serif;padding:7px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hbx-slim a{color:#F3E3B3;text-decoration:underline}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;line-height:1.5}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px}
+.hb-foot .hb-name,.hb-foot .hb-sub{display:block}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block}
+.hb-line{max-width:720px;margin:14px auto 0;color:#e8d9b5;font-size:15.5px;line-height:1.5}
+.hb-tips{margin:16px 0 4px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hb-btn{display:inline-block;border:2px solid #d4af37;background:#d4af37;color:#0d0b0a!important;font:700 15px Georgia,serif;padding:10px 18px;border-radius:6px;text-decoration:none!important}
+.hb-btn2{background:transparent;color:#d4af37!important}
+.hb-small{font-size:12.5px;color:#8a7650;margin:6px 0 0}
+.hb-small a{color:#d4af37;text-decoration:underline}
+.hb-foot p{max-width:720px;margin-left:auto!important;margin-right:auto!important}
+.hbx-tools{max-width:980px;margin:14px auto 4px;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;font-family:Arial,sans-serif;position:relative;z-index:2}
+.hbx-tool{display:inline-block;font:700 15px Arial,sans-serif;color:#13233F!important;background:#fff;border:1px solid #c8cfd6;border-radius:6px;padding:9px 13px;text-decoration:none!important;cursor:pointer;line-height:1.2}
+.hbx-tool:hover{border-color:#13233F}.hbx-cnchip b{color:#1f5f9e;font-family:ui-monospace,Menlo,monospace}
+.hbx-jump{flex-basis:100%;order:5;border:1px solid #c8cfd6;border-radius:6px;background:#fff;color:#13233F}.hbx-jump summary{cursor:pointer;padding:9px 13px;font:700 15px Arial,sans-serif}
+.hbx-jump ol{margin:0;padding:4px 16px 12px 36px}.hbx-jump li{margin:6px 0;font-size:16.5px}.hbx-jump a{color:#13233F}
+.hbx-shelfwrap{background:#0e2438;color:#dbe7f0;padding:26px 20px 30px;font:16px/1.5 Arial,sans-serif;margin-top:48px;position:relative;z-index:1}
+.hbx-shelfwrap .in{max-width:900px;margin:0 auto}
+.hbx-shelf{border:2px dashed #9fd0ee;border-radius:10px;padding:16px 18px}
+.hbx-cn-big{font:600 17px ui-monospace,Menlo,monospace;margin-bottom:12px;color:#fff}.hbx-cn-big b{color:#9fd0ee}
+.hbx-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.hbx-nav-btn{flex:1;min-width:220px;background:#12304a;border:1px solid #4d86ad;border-radius:8px;padding:12px 14px;color:#fff!important;text-decoration:none!important;font-size:16px}.hbx-nav-btn b{color:#9fd0ee;font-family:ui-monospace,Menlo,monospace}.hbx-off{opacity:.5}
+.hbx-list summary{cursor:pointer;font-weight:700;padding:6px 0}.hbx-list ol{list-style:none;margin:6px 0 0;padding:0}.hbx-list li{padding:6px 0;border-bottom:1px solid #2b4a63}.hbx-list a{color:#fff!important;text-decoration:none}
+.hbx-shelf-head{color:#9fd0ee;font:600 13px ui-monospace,Menlo,monospace;letter-spacing:.1em}.hbx-cn{font-family:ui-monospace,Menlo,monospace;color:#9fd0ee;margin-right:6px}
+.hbx-find{margin:14px 0 4px}.hbx-find label{display:block;font-weight:700;margin-bottom:6px}.hbx-find div{display:flex;gap:8px;flex-wrap:wrap}.hbx-find input{flex:1;min-width:0;width:100%;padding:12px 14px;font-size:17px;border:2px solid #4d86ad;border-radius:6px;color:#13233F;background:#fff}.hbx-find button{padding:12px 18px;font-size:16px;font-weight:700;background:#9fd0ee;color:#0e2438;border:0;border-radius:6px;cursor:pointer}
+.hbx-search{font-size:15px;margin-top:12px}.hbx-search a,.hbx-search b{color:#9fd0ee}
+.hbx-totop{display:none;position:fixed;right:16px;bottom:16px;z-index:50;background:#0e2438;color:#fff!important;border:2px solid #9fd0ee;border-radius:24px;padding:10px 16px;font:700 15px Arial,sans-serif;text-decoration:none!important;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hbx-dates{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+@media(max-width:600px){.hb-bar img{width:38px;height:38px}.hb-line-top{font-size:11.5px}}
+@media print{.hbx-tools,.hbx-totop{display:none}}
+/* Text sizes matched to the other Hive repos (Nov. 2, 2026): 19px reading text */
+main p:not(.hbx-dates),main li,section p,section li,article p,article li,.wrap > p:not(.hbx-dates),.callout p,.note p{font-size:19px!important;line-height:1.6}
+details li,details p,td,.flip-back,.flip-card-back,.card p,.sources li,dl dd{font-size:17px!important;line-height:1.55}
+.subtitle,.dek{font-size:19px!important;line-height:1.55}
+.flow-caption,.roster-sub,.mermaid-caption,.bar-caption,.donut-sub,.category,.paired-note{font-size:15px!important}
+.definition,.fc-def,.value{font-size:16px!important}
+.timeline-label{font-size:14px!important}
+.flag-box,.b,.why{font-size:17px!important;line-height:1.55}
+.callout-finding{font-size:19px!important}
+.wrap ul li{font-size:17px!important}
+.hbx-dates{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.03em;margin:12px 0 0;opacity:.85}
+.hb-foot .hb-name{font-size:16px}
+.hb-foot .hb-sub{font-size:12.5px}
+.hbx-tools{margin-top:16px;margin-bottom:14px}
+.hbx-shelfwrap+.hb-foot{margin-top:0}
+.hbx-shelf details.hbx-list li,.hbx-shelf details.hbx-list p{font-size:16px!important}
+@media(max-width:700px){main table,.wrap table,section table{display:block;overflow-x:auto;max-width:100%}main svg,section svg{max-width:100%;height:auto}}
 </style>
 <link rel="icon" type="image/png" href="hive-bee.png">
 </head>
 <body>
-<div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span></span></a></div>
+<div class="hbx-top"><div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-line-top">The people's publication. We investigate what's best for the public as a whole, not any party or special interest.</span></span></a></div>
+<div class="hbx-slim"><span>pac · PC 100.04</span><span><a href="index.html">← PAC docket</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">← Hive library (every repo)</a></span></div></div>
 
-<div class="topbar">
-  <span>Utah Hive Politics · PAC · from the publisher of The Weber County Hive</span>
-  <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
-</div>
 
 <header class="masthead">
   <div class="eyebrow">Case File · Political Action Committee</div>
   <h1 class="title">UINPAC: <em>The Democratic-Aligned Counterpart</em></h1>
   <p class="subtitle">A money-moving PAC sharing an office and a payment processor with the political consulting firm that appears to run it — and the entity that resolves a $5,500 typo already flagged in a separate PAC's own records.</p>
+  <p class="hbx-dates">Posted Sept. 12, 2026 &middot; Page look updated Nov. 2, 2026</p>
   <div class="meta-row">
     <span class="meta-pill">Created 6/23/2020</span>
     <span class="meta-pill">Also known as: Utah Investment Network PAC</span>
@@ -244,17 +298,17 @@
   <div class="donut-card">
     <div class="donut-label">Angela Choberka (D)</div>
     <div class="donut-sub">HD-9 · itemized, ~6/15–9/12/26</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 9.2%, #3F6B3F 9.2% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 9.2%, #3F6B3F 9.2% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>9.2% institutional — $1,250 from 3 entities (Fresh Air PAC, Women's Democratic Club of Utah, Friends of Elizabeth Weight)</span>
+      <span><span class="sw" style="background:#2a5470;"></span>9.2% institutional — $1,250 from 3 entities (Fresh Air PAC, Women's Democratic Club of Utah, Friends of Elizabeth Weight)</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>90.8% individual — $12,387.25 from 79 distinct donors, some giving more than once</span>
     </div>
   </div>
   <div class="donut-card">
     <div class="donut-label">Jake Sawyer (R)</div>
     <div class="donut-sub">HD-9 incumbent · 8/21–8/31/26, itemized exact</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 100%);"></div>
-    <div class="donut-legend"><span><span class="sw" style="background:#8C3B44;"></span>100% institutional — $21,250 across 9 line items, zero individual donors</span></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 100%);"></div>
+    <div class="donut-legend"><span><span class="sw" style="background:#2a5470;"></span>100% institutional — $21,250 across 9 line items, zero individual donors</span></div>
   </div>
 </div>
 <p style="margin:0 0 18px;">Sawyer's side of this is now confirmed two ways — UtahPolitics.news' own reporting, and his own itemized CFIS filing, which reconciles to the penny: House Speaker Leadership PAC $10,000, Utah House Republican Election Committee $5,000, Weber County Republican Party $3,000, plus six smaller corporate and trade-association checks (Home Builders Association of Utah, Google, Maverik Group, 1800 Contacts, Strata Networks, Association of Utah Nurse Practitioners). Not one individual name appears anywhere in the report. Choberka's own itemized filing, reconciled the same way, runs slightly different from the original "100% individual, $12,500 from 110 donors" figure cited from secondhand reporting — her real number is 90.8% individual, with three small institutional checks worth noting rather than omitting. Still about as stark a contrast as this kind of comparison gets, just not a perfect 100/100 split.</p>
@@ -263,18 +317,18 @@
   <div class="donut-card">
     <div class="donut-label">Luke Searle (R)</div>
     <div class="donut-sub">HD-59 · filed 6/21–8/17/26, confirmed exact</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 72.7%, #3F6B3F 72.7% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 72.7%, #3F6B3F 72.7% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>72.7% institutional — $16,250 from 4 PACs</span>
+      <span><span class="sw" style="background:#2a5470;"></span>72.7% institutional — $16,250 from 4 PACs</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>27.3% individual — $6,094.04 from 31 people, averaging $196.58 each</span>
     </div>
   </div>
   <div class="donut-card">
     <div class="donut-label">Celeste Johnson (D)</div>
     <div class="donut-sub">HD-59 · approximate, ~$61,488 total raised</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 21.1%, #3F6B3F 21.1% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 21.1%, #3F6B3F 21.1% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>~21.1% institutional — $13,000 from 2 PACs (Way Back PAC $8,000, Utah Women and Politics PAC $5,000)</span>
+      <span><span class="sw" style="background:#2a5470;"></span>~21.1% institutional — $13,000 from 2 PACs (Way Back PAC $8,000, Utah Women and Politics PAC $5,000)</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>~78.9% individual and other — including out-of-state gifts (Ostler family, Falls Church VA) not otherwise broken out</span>
     </div>
   </div>
@@ -285,19 +339,19 @@
   <div class="donut-card">
     <div class="donut-label">Rosemary Lesser (D)</div>
     <div class="donut-sub">HD-10 · full record through 9/12/26</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 27.7%, #3F6B3F 27.7% 79.0%, #C9BBA4 79.0% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 27.7%, #3F6B3F 27.7% 79.0%, #ddd5c3 79.0% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>27.7% institutional (confirmed) — $32,665 from 19 named PACs and committees</span>
+      <span><span class="sw" style="background:#2a5470;"></span>27.7% institutional (confirmed) — $32,665 from 19 named PACs and committees</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>51.3% individual (confirmed by name) — $60,505.81, incl. $11,600 from her own spouse and 158 distinct donors in her most recent report alone</span>
-      <span><span class="sw" style="background:#C9BBA4;"></span>20.9% not yet itemized by name — $24,684.86, confined to an earlier reporting period, described in her own filings as small-dollar and recurring</span>
+      <span><span class="sw" style="background:#ddd5c3;"></span>20.9% not yet itemized by name — $24,684.86, confined to an earlier reporting period, described in her own filings as small-dollar and recurring</span>
     </div>
   </div>
   <div class="donut-card">
     <div class="donut-label">Jim Alvey (R)</div>
     <div class="donut-sub">HD-10 · year-to-date as of Sept. 30 report</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 86.0%, #3F6B3F 86.0% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 86.0%, #3F6B3F 86.0% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>86.0% institutional — $42,000 from UHREC ($20,000) and House Speaker Leadership PAC ($15,000, both 8/12/26), plus Weber County GOP ($7,000, 8/27/26)</span>
+      <span><span class="sw" style="background:#2a5470;"></span>86.0% institutional — $42,000 from UHREC ($20,000) and House Speaker Leadership PAC ($15,000, both 8/12/26), plus Weber County GOP ($7,000, 8/27/26)</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>14.0% individual — $6,860, mostly small local gifts $20–$500, plus Koford's $200</span>
     </div>
   </div>
@@ -309,18 +363,18 @@
   <div class="donut-card">
     <div class="donut-label">Liz Oates (D)</div>
     <div class="donut-sub">HD-27 · full record, Year End 2025–Sept. 2026</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 40.8%, #3F6B3F 40.8% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 40.8%, #3F6B3F 40.8% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>40.8% institutional — $24,400 from 9 PACs/committees</span>
+      <span><span class="sw" style="background:#2a5470;"></span>40.8% institutional — $24,400 from 9 PACs/committees</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>59.2% individual — $35,465.29 from 189 people, averaging $134.85 each</span>
     </div>
   </div>
   <div class="donut-card">
     <div class="donut-label">Anthony Loubet (R)</div>
     <div class="donut-sub">HD-27 incumbent · 6/18–9/9/26</div>
-    <div class="donut" style="background:conic-gradient(#8C3B44 0% 83.8%, #3F6B3F 83.8% 100%);"></div>
+    <div class="donut" style="background:conic-gradient(#2a5470 0% 83.8%, #3F6B3F 83.8% 100%);"></div>
     <div class="donut-legend">
-      <span><span class="sw" style="background:#8C3B44;"></span>83.8% institutional — $29,951 from 10 entities</span>
+      <span><span class="sw" style="background:#2a5470;"></span>83.8% institutional — $29,951 from 10 entities</span>
       <span><span class="sw" style="background:#3F6B3F;"></span>16.2% individual — $5,801.91 from 12 people, averaging $483.49 each</span>
     </div>
   </div>
@@ -414,19 +468,8 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <h3>Utah Hive Politics · PAC</h3>
-    <p>A case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p>
-    <div class="links">
-      <a href="index.html">← Back to PAC docket</a>
-      <a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener">webercountyhive.substack.com ↗</a>
-    </div>
-  
-    <div class="hive-across"><p>Across the Hive:</p><div class="links"><a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive index</a><a href="https://weber-county-hive.github.io/sunday_buzz/">The Sunday Buzz</a><a href="https://weber-county-hive.github.io/community-calendar/">Community Calendar</a><a href="https://weber-county-hive.github.io/Utah-hive-news-spotlights/">News Spotlights</a><a href="https://weber-county-hive.github.io/Letters-Essays-to-the-Collective/">Letters &amp; Essays to the Collective</a><a href="https://weber-county-hive.github.io/candidates2026/">Candidates 2026</a><a href="https://weber-county-hive.github.io/Voter-Quick-Scan-2026/">Voter Quick Scan</a><a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/">PAC Money-Flow Ledger</a><a href="https://weber-county-hive.github.io/Transparency/">Transparency</a><a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a><a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a><a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a><a href="https://weber-county-hive.github.io/Bill-Tracker/">Bill Tracker</a><a href="https://weber-county-hive.github.io/committees/">Committees</a><a href="https://webercountyhive-coder.github.io/referendum/">Referendums</a><a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a><a href="https://weber-county-hive.github.io/audits/">Audits</a><a href="https://weber-county-hive.github.io/Education/">Education</a><a href="https://weber-county-hive.github.io/public-lands/">Public Lands</a></div><p>Tips and corrections: <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a></p></div>
-  </div>
-</footer>
-<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent · Accountability · Journalism</span></div>
+<div class="hbx-shelfwrap"><div class="in"><div class="hbx-shelf" id="hbx-shelf"></div></div></div>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent &middot; Accountability &middot; Journalism</span><p class="hb-line">The Weber County Hive and Utah Hive Politics: the people's publication. We investigate what's best for the public as a whole, not for any party or special interest group. We report public records. You decide.</p><p class="hb-tips"><a class="hb-btn" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">Send a tip</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html">Tips we checked</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">See a mistake? Tell us</a></p><p class="hb-small">Utah Hive Politics · PAC: a case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p><p class="hb-small">Across the Hive: <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive index</a> · <a href="https://weber-county-hive.github.io/sunday_buzz/">The Sunday Buzz</a> · <a href="https://weber-county-hive.github.io/community-calendar/">Community Calendar</a> · <a href="https://weber-county-hive.github.io/Utah-hive-news-spotlights/">News Spotlights</a> · <a href="https://weber-county-hive.github.io/Letters-Essays-to-the-Collective/">Letters &amp; Essays to the Collective</a> · <a href="https://weber-county-hive.github.io/candidates2026/">Candidates 2026</a> · <a href="https://weber-county-hive.github.io/Voter-Quick-Scan-2026/">Voter Quick Scan</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/">PAC Money-Flow Ledger</a> · <a href="https://weber-county-hive.github.io/Transparency/">Transparency</a> · <a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a> · <a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a> · <a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a> · <a href="https://weber-county-hive.github.io/Bill-Tracker/">Bill Tracker</a> · <a href="https://weber-county-hive.github.io/committees/">Committees</a> · <a href="https://webercountyhive-coder.github.io/referendum/">Referendums</a> · <a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a> · <a href="https://weber-county-hive.github.io/audits/">Audits</a> · <a href="https://weber-county-hive.github.io/Education/">Education</a> · <a href="https://weber-county-hive.github.io/public-lands/">Public Lands</a></p><p class="hb-small">Tips and corrections: <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a></p><p class="hb-small">We never name tipsters. When we correct a page, the fix and its date are shown on the page.</p><p class="hb-small"><a href="index.html">PAC docket</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Master Index (Hive library)</a> · <a href="https://webercountyhive.substack.com/">Read on Substack</a></p></div>
 
 <script>
 const TRANSACTIONS = [
@@ -504,6 +547,7 @@ document.querySelectorAll('.tx-pill').forEach(function(btn){
 renderTable();
 </script>
 
+<script src="pc-shelf.js?v=1"></script>
 <script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
