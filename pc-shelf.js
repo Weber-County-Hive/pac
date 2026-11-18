@@ -96,6 +96,11 @@ var HBX = {
       "callNumber": "PC 100.17",
       "slug": "utah-republican-senate-campaign-committee",
       "name": "Utah Republican Senate Campaign Committee: $3.46 Million Out"
+    },
+    {
+      "callNumber": "PC 100.18",
+      "slug": "who-decides-part-1-campaign-money",
+      "name": "Who Decides, Part 1: Campaign Money and the Caucus PACs"
     }
   ],
   "shelves": {

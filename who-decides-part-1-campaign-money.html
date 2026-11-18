@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Decides, Part 1: Campaign Money and the Caucus PACs | Utah Hive Politics — PAC</title>
+<meta name="description" content="Who Decides, Part 1: who writes Utah's campaign money rules, who runs the legislative caucus PACs, what changed from 2010 to 2026, and how each change graded for the public.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f0e6; --paper-dim:#ebe6da; --void:#0b2230; --void-2:#123449;
+    --maroon:#123449; --maroon-dim:#2a5470; --ink:#1f1b16; --ink-soft:#4a5560;
+    --line:#ddd5c3; --gold:#B4863C; --max:960px;
+    --good:#3F6B3F; --bad:#b3261e;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Source Sans 3',sans-serif;font-size:17px;line-height:1.62;}
+  a{color:var(--maroon);}
+  a:hover{color:var(--maroon-dim);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--ink);margin:0;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .topbar{background:var(--void);color:var(--paper-dim);padding:12px 24px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+  .topbar a{color:var(--paper-dim);text-decoration:none;opacity:.8;}
+  .topbar a:hover{opacity:1;color:#fff;}
+
+  header.masthead{padding:48px 24px 32px;border-bottom:3px solid var(--void);max-width:var(--max);margin:0 auto;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--maroon);display:inline-block;}
+  h1.title{font-size:clamp(30px,5vw,46px);line-height:1.1;letter-spacing:-0.01em;max-width:780px;}
+  h1.title em{font-style:italic;color:var(--maroon);}
+  .subtitle{font-size:18px;color:var(--ink-soft);max-width:720px;margin-top:18px;line-height:1.5;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .meta-pill{font-family:'IBM Plex Mono', monospace;font-size:0.72rem;letter-spacing:.04em;background:var(--paper-dim);border:1px solid var(--line);padding:5px 10px;color:var(--ink-soft);}
+
+  .breadcrumb{max-width:var(--max);margin:0 auto;padding:18px 24px 0;font-family:'IBM Plex Mono', monospace;font-size:0.78rem;color:var(--ink-soft);letter-spacing:.03em;}
+  .breadcrumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px dotted var(--ink-soft);}
+
+  nav.jump{max-width:var(--max);margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;gap:8px 14px;font-family:'IBM Plex Mono', monospace;font-size:0.75rem;border-bottom:1px solid var(--line);}
+  nav.jump a{text-decoration:none;color:var(--ink-soft);padding:4px 0;border-bottom:2px solid transparent;}
+  nav.jump a:hover{border-bottom:2px solid var(--maroon);color:var(--ink);}
+  main{max-width:var(--max);margin:0 auto;padding:8px 24px 60px;}
+  .callout-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:16px 20px;margin:22px 0;font-size:0.98rem;}
+  .callout-box p:first-child{margin-top:0;} .callout-box p:last-child{margin-bottom:0;}
+  .callout-finding{border-left-color:var(--good);}
+  .callout-note{border-left-color:var(--ink-soft);}
+  .callout-open{border-left-color:var(--ink-soft);}
+  section{margin:44px 0;}
+  h2{font-size:1.6rem;border-bottom:2px solid var(--maroon);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-size:1.2rem;margin:26px 0 10px;}
+  .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin:20px 0 26px;}
+  .stat-cell{background:#fff;border:1px solid var(--line);border-left:3px solid var(--maroon);padding:14px 18px;min-width:150px;flex:1;}
+  .stat-num{font-family:'IBM Plex Mono', monospace;font-size:1.4rem;font-weight:600;color:var(--gold);display:block;}
+  .stat-label{font-size:0.78rem;color:var(--ink-soft);}
+
+  .bar-chart{background:#fff;border:1px solid var(--line);padding:20px 24px;margin:20px 0;}
+  .bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .bar-label{width:60px;flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;}
+  .bar-track{flex:1;background:var(--paper-dim);height:22px;position:relative;border:1px solid var(--line);}
+  .bar-fill{height:100%;background:var(--good);display:flex;align-items:center;justify-content:flex-end;padding-right:8px;}
+  .bar-fill.exp{background:var(--bad);}
+  .bar-fill span{color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:600;}
+  .bar-legend{display:flex;gap:20px;justify-content:center;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--ink-soft);}
+  .bar-legend span.sw{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:middle;}
+
+  details.acc{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);margin:14px 0;overflow:hidden;}
+  details.acc summary{cursor:pointer;padding:16px 20px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;}
+  details.acc summary::-webkit-details-marker{display:none;}
+  details.acc summary::after{content:"+";font-family:'IBM Plex Mono', monospace;font-size:1.1rem;color:var(--maroon);flex-shrink:0;}
+  details.acc[open] summary::after{content:"–";}
+  details.acc .acc-body{padding:0 20px 18px;}
+
+  .flow-box{background:#fff;border:1px solid var(--line);padding:24px 20px;margin:20px 0;}
+  .flow-tier{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+  .flow-node{background:var(--paper-dim);border:1px solid var(--line);padding:10px 16px;font-size:0.85rem;text-align:center;min-width:140px;max-width:260px;}
+  .flow-node.hub{background:var(--maroon);color:#fff;border-color:var(--maroon);font-weight:600;}
+  .flow-node.overlap{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600;}
+  .flow-node.flagged{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .flow-node .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;opacity:0.85;margin-top:3px;}
+  .flow-arrow-down{text-align:center;color:var(--ink-soft);font-size:1.2rem;margin:2px 0;}
+
+  .quick-table{width:100%;border-collapse:collapse;font-size:0.85rem;background:#fff;margin:18px 0;}
+  .quick-table th{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:.03em;background:var(--paper-dim);padding:10px 12px;text-align:left;border:1px solid var(--line);cursor:pointer;user-select:none;}
+  .quick-table th:hover{background:var(--line);}
+  .quick-table th.sort-asc::after{content:" ▲";font-size:0.6rem;}
+  .quick-table th.sort-desc::after{content:" ▼";font-size:0.6rem;}
+  .quick-table td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+  .quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+
+  ul.tidy li{margin-bottom:8px;}
+  details.sources{background:#fff;border:1px solid var(--line);padding:14px 20px;margin-top:14px;}
+  details.sources summary{cursor:pointer;font-family:'IBM Plex Mono', monospace;font-size:0.85rem;font-weight:600;}
+  details.sources ul{padding-left:20px;font-size:0.9rem;}
+  .profile-link-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:16px 20px;margin:14px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .profile-link-box .cta{font-family:'IBM Plex Mono', monospace;font-size:0.8rem;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+  footer.site-footer{background:var(--void);color:var(--paper-dim);padding:40px 24px 50px;margin-top:20px;}
+  footer.site-footer .wrap{max-width:var(--max);margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  footer.site-footer h3{color:#fff;font-size:20px;}
+  footer.site-footer p{color:#a9b8c4;font-size:14px;max-width:560px;line-height:1.6;margin:0;}
+  footer.site-footer .links{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  footer.site-footer a{color:var(--gold);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;}
+  footer.site-footer a:hover{color:#fff;}
+
+/* Utah Hive Politics branding (added Oct. 4, 2026) */
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px;}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none;}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none;}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block;}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;letter-spacing:.02em;display:block;margin-top:2px;}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px;}
+.hb-foot .hb-name{font-size:14px;}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block;}
+.hive-across{margin-top:4px;}
+.hive-across p{margin:6px 0 0;}
+.hive-across .links{display:flex;flex-wrap:wrap;gap:10px 18px!important;}
+.hive-solo{background:#0b2230;color:#d6e0e8;padding:32px 24px 34px;margin-top:40px;font-family:'Source Sans 3',sans-serif;}
+.hive-solo .in{max-width:900px;margin:0 auto;}
+.hive-solo h3{font-family:'Fraunces',Georgia,serif;color:#fff;font-size:20px;margin:0 0 6px;}
+.hive-solo p{font-size:14.5px;margin:6px 0 0;color:#a9b8c4;}
+.hive-solo a{color:#D9B868;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.hive-solo a:hover{color:#fff;}
+.mh-row{display:flex;gap:24px;align-items:center;}
+.mh-row img{width:96px;height:96px;flex:none;}
+@media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}.mh-row{flex-direction:column;align-items:flex-start;gap:12px}.mh-row img{width:68px;height:68px}}
+</style><style>
+.pub-date{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-soft);margin-top:14px;}
+.pub-date b{color:#fff;background:var(--maroon);padding:1px 6px;font-weight:600;}
+.plain{background:#fff;border-left:4px solid var(--gold);padding:14px 18px;margin:16px 0;font-size:17px;}
+.plain b.k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);display:block;}
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0;}
+.flip{perspective:900px;height:150px;cursor:pointer;}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
+.flip.on .in{transform:rotateY(180deg);}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--line);padding:14px;display:flex;flex-direction:column;justify-content:center;}
+.flip .f{background:var(--void);color:#fff;text-align:center;}
+.flip .f strong{font-family:'Fraunces',serif;font-size:20px;}
+.flip .f span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold);margin-top:6px;letter-spacing:.08em;}
+.flip .b{background:#fff;transform:rotateY(180deg);font-size:14.5px;line-height:1.45;}
+.mermaid{background:#fff;border:1px solid var(--line);padding:16px;margin:18px 0;text-align:center;overflow-x:auto;}
+.mermaid svg{max-width:100%;height:auto;min-height:340px;}
+.grade-table{width:100%;border-collapse:collapse;background:#fff;margin:14px 0;font-size:.95rem;}
+.grade-table th,.grade-table td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left;}
+.grade-table th{font-family:'IBM Plex Mono',monospace;font-size:.7rem;text-transform:uppercase;background:var(--paper-dim);}
+.gl{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--maroon);text-align:center!important;width:70px;}
+.overall{background:var(--void);color:#fff;padding:16px 20px;display:flex;gap:18px;align-items:center;margin:10px 0 18px;}
+.overall .gl{color:var(--gold);font-size:2.4rem;width:auto;}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;}
+.person{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:14px 16px;font-size:.95rem;}
+.person h4{font-family:'Fraunces',serif;font-size:1.1rem;margin:0 0 4px;}
+.person .why{color:var(--ink-soft);}
+.person a{font-family:'IBM Plex Mono',monospace;font-size:.75rem;}
+.qa li{margin-bottom:10px;}
+.qa .who{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--maroon);display:block;}
+.note-limits{font-size:.9rem;color:var(--ink-soft);}
+.quick-table td.amt{font-family:'IBM Plex Mono',monospace;text-align:right;white-space:nowrap;}
+.quick-table tr.tot td{font-weight:700;background:var(--paper-dim);}
+@media(max-width:600px){.quick-table{font-size:.78rem}.quick-table td,.quick-table th{padding:6px 7px}.stat-num{font-size:1.15rem}.grade-table{font-size:.85rem}.gl{width:44px}main{padding:8px 16px 50px}}
+.hbx-top{margin:0}
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;display:block;margin-top:2px}
+.hb-line-top{font-family:Georgia,serif;color:#e8d9b5;font-size:12.5px;display:block;margin-top:3px;line-height:1.4}
+.hbx-slim{background:#0e2438;color:#dbe7f0;font:600 14px/1.4 Arial,sans-serif;padding:7px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hbx-slim a{color:#F3E3B3;text-decoration:underline}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;line-height:1.5}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px}
+.hb-foot .hb-name,.hb-foot .hb-sub{display:block}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block}
+.hb-line{max-width:720px;margin:14px auto 0;color:#e8d9b5;font-size:15.5px;line-height:1.5}
+.hb-tips{margin:16px 0 4px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hb-btn{display:inline-block;border:2px solid #d4af37;background:#d4af37;color:#0d0b0a!important;font:700 15px Georgia,serif;padding:10px 18px;border-radius:6px;text-decoration:none!important}
+.hb-btn2{background:transparent;color:#d4af37!important}
+.hb-small{font-size:12.5px;color:#8a7650;margin:6px 0 0}
+.hb-small a{color:#d4af37;text-decoration:underline}
+.hb-foot p{max-width:720px;margin-left:auto!important;margin-right:auto!important}
+.hbx-tools{max-width:980px;margin:14px auto 4px;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;font-family:Arial,sans-serif;position:relative;z-index:2}
+.hbx-tool{display:inline-block;font:700 15px Arial,sans-serif;color:#13233F!important;background:#fff;border:1px solid #c8cfd6;border-radius:6px;padding:9px 13px;text-decoration:none!important;cursor:pointer;line-height:1.2}
+.hbx-tool:hover{border-color:#13233F}.hbx-cnchip b{color:#1f5f9e;font-family:ui-monospace,Menlo,monospace}
+.hbx-jump{flex-basis:100%;order:5;border:1px solid #c8cfd6;border-radius:6px;background:#fff;color:#13233F}.hbx-jump summary{cursor:pointer;padding:9px 13px;font:700 15px Arial,sans-serif}
+.hbx-jump ol{margin:0;padding:4px 16px 12px 36px}.hbx-jump li{margin:6px 0;font-size:16.5px}.hbx-jump a{color:#13233F}
+.hbx-shelfwrap{background:#0e2438;color:#dbe7f0;padding:26px 20px 30px;font:16px/1.5 Arial,sans-serif;margin-top:48px;position:relative;z-index:1}
+.hbx-shelfwrap .in{max-width:900px;margin:0 auto}
+.hbx-shelf{border:2px dashed #9fd0ee;border-radius:10px;padding:16px 18px}
+.hbx-cn-big{font:600 17px ui-monospace,Menlo,monospace;margin-bottom:12px;color:#fff}.hbx-cn-big b{color:#9fd0ee}
+.hbx-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.hbx-nav-btn{flex:1;min-width:220px;background:#12304a;border:1px solid #4d86ad;border-radius:8px;padding:12px 14px;color:#fff!important;text-decoration:none!important;font-size:16px}.hbx-nav-btn b{color:#9fd0ee;font-family:ui-monospace,Menlo,monospace}.hbx-off{opacity:.5}
+.hbx-list summary{cursor:pointer;font-weight:700;padding:6px 0}.hbx-list ol{list-style:none;margin:6px 0 0;padding:0}.hbx-list li{padding:6px 0;border-bottom:1px solid #2b4a63}.hbx-list a{color:#fff!important;text-decoration:none}
+.hbx-shelf-head{color:#9fd0ee;font:600 13px ui-monospace,Menlo,monospace;letter-spacing:.1em}.hbx-cn{font-family:ui-monospace,Menlo,monospace;color:#9fd0ee;margin-right:6px}
+.hbx-find{margin:14px 0 4px}.hbx-find label{display:block;font-weight:700;margin-bottom:6px}.hbx-find div{display:flex;gap:8px;flex-wrap:wrap}.hbx-find input{flex:1;min-width:0;width:100%;padding:12px 14px;font-size:17px;border:2px solid #4d86ad;border-radius:6px;color:#13233F;background:#fff}.hbx-find button{padding:12px 18px;font-size:16px;font-weight:700;background:#9fd0ee;color:#0e2438;border:0;border-radius:6px;cursor:pointer}
+.hbx-search{font-size:15px;margin-top:12px}.hbx-search a,.hbx-search b{color:#9fd0ee}
+.hbx-totop{display:none;position:fixed;right:16px;bottom:16px;z-index:50;background:#0e2438;color:#fff!important;border:2px solid #9fd0ee;border-radius:24px;padding:10px 16px;font:700 15px Arial,sans-serif;text-decoration:none!important;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hbx-dates{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+@media(max-width:600px){.hb-bar img{width:38px;height:38px}.hb-line-top{font-size:11.5px}}
+@media print{.hbx-tools,.hbx-totop{display:none}}
+/* Text sizes matched to the other Hive repos (Nov. 2, 2026): 19px reading text */
+main p:not(.hbx-dates),main li,section p,section li,article p,article li,.wrap > p:not(.hbx-dates),.callout p,.note p{font-size:19px!important;line-height:1.6}
+details li,details p,td,.flip-back,.flip-card-back,.card p,.sources li,dl dd{font-size:17px!important;line-height:1.55}
+.subtitle,.dek{font-size:19px!important;line-height:1.55}
+.flow-caption,.roster-sub,.mermaid-caption,.bar-caption,.donut-sub,.category,.paired-note{font-size:15px!important}
+.definition,.fc-def,.value{font-size:16px!important}
+.timeline-label{font-size:14px!important}
+.flag-box,.b,.why{font-size:17px!important;line-height:1.55}
+.callout-finding{font-size:19px!important}
+.wrap ul li{font-size:17px!important}
+.hbx-dates{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.03em;margin:12px 0 0;opacity:.85}
+.hb-foot .hb-name{font-size:16px}
+.hb-foot .hb-sub{font-size:12.5px}
+.hbx-tools{margin-top:16px;margin-bottom:14px}
+.hbx-shelfwrap+.hb-foot{margin-top:0}
+.hbx-shelf details.hbx-list li,.hbx-shelf details.hbx-list p{font-size:16px!important}
+@media(max-width:700px){main table,.wrap table,section table{display:block;overflow-x:auto;max-width:100%}main svg,section svg{max-width:100%;height:auto}}
+</style>
+<style>
+.seatbar{display:flex;height:34px;border:1px solid var(--line);margin:6px 0 2px;}
+.seatbar span{display:flex;align-items:center;justify-content:center;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;}
+.s-r{background:#8a2b2b}.s-d{background:#24507a}.s-o{background:#6b6b6b}.s-v{background:#bdb6a6;color:#1f1b16!important}
+.seatlab{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);}
+.mark2{position:relative;height:16px;margin-bottom:14px;}
+.mark2 i{position:absolute;top:0;border-left:3px dashed #1f1b16;height:16px;}
+.mark2 em{position:absolute;top:0;font-size:12px;font-style:normal;font-family:'IBM Plex Mono',monospace;transform:translateX(6px);}
+.g-help{color:#2f6b2f;font-weight:700}.g-hurt{color:#b3261e;font-weight:700}.g-neu{color:#4a5560;font-weight:700}.g-mix{color:#8a6a1c;font-weight:700}
+.tag1{font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--paper-dim);border:1px solid var(--line);padding:1px 6px;margin-left:6px;}
+.counter{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:14px 0;}
+.counter div{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);padding:14px;text-align:center;}
+.counter b{display:block;font-family:'IBM Plex Mono',monospace;font-size:1.8rem;color:var(--maroon);}
+.counter span{font-size:15px;color:var(--ink-soft);}
+.series{background:#fff;border:1px solid var(--line);border-left:4px solid var(--maroon);padding:14px 18px;margin:18px 0;}
+.series ol{margin:8px 0 0;padding-left:22px}
+</style>
+<link rel="icon" type="image/png" href="hive-bee.png">
+</head>
+<body>
+<div class="hbx-top"><div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-line-top">The people's publication. We investigate what's best for the public as a whole, not any party or special interest.</span></span></a></div>
+<div class="hbx-slim"><span>pac · PC 100.18</span><span><a href="index.html">← PAC docket</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">← Hive library (every repo)</a></span></div></div>
+<div class="breadcrumb"><a href="index.html">PAC docket</a> / PAC-18 · Who Decides, Part 1</div>
+<header class="masthead">
+  <div class="eyebrow">Case File · PAC-18 · Who Decides series, Part 1</div>
+  <h1 class="title">Who Decides, Part 1: <em>Campaign Money, and the Leaders Who Run the Caucus PACs</em></h1>
+  <p class="subtitle">Utah sets no dollar limit on gifts to state candidates. The Legislature writes the money rules, and its own leaders are the listed officers of the caucus PACs that fund legislative races. This page lays out who the players are, what changed from 2010 to 2026, and how each change grades for the public.</p>
+  <div class="pub-date">Published Nov. 18, 2026 · <b>Updated Nov. 18, 2026</b> · election numbers are unofficial until the state canvass on Nov. 23, 2026</div>
+  <div class="meta-row">
+    <span class="meta-pill">No dollar limit on gifts to state candidates</span>
+    <span class="meta-pill">7 bills graded</span>
+    <span class="meta-pill">2 bill requests for 2027 to watch</span>
+  </div>
+</header>
+<nav class="jump"><a href="#start">Start here</a><a href="#words">Words</a><a href="#players">The players</a><a href="#seats">Who holds the seats</a><a href="#changed">What changed</a><a href="#money">The money</a><a href="#enforce">Enforcement</a><a href="#grades">Grades</a><a href="#y2027">2027 to watch</a><a href="#ask">Questions to ask</a><a href="#limits">Limits</a><a href="#behind">Behind this piece</a><a href="#sources">Sources</a></nav>
+<main>
+
+<div class="series"><b>The Who Decides series</b> follows who makes the big decisions in Utah, and who checks them.
+<ol>
+<li><b>Campaign money and the caucus PACs</b> (this page)</li>
+<li>The courts</li>
+<li>MIDA</li>
+<li>The Inland Port (UIPA)</li>
+<li>Point of the Mountain</li>
+<li>Utah Lake Authority</li>
+<li>PIDs, CRAs and tax increment</li>
+<li>Side by side: every bill, graded</li>
+</ol>
+<p style="margin:8px 0 0;font-size:16px!important">Series index: <a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a> (links are added as each part goes up).</p></div>
+
+<section id="start"><h2>1. Start Here</h2>
+<p class="plain"><b class="k">IN PLAIN WORDS</b>Lawmakers write the rules for how campaigns raise and spend money. In Utah those rules do not cap how much anyone can give a state candidate. Instead, campaigns have to report what they take in and spend. The two parties in the Legislature each run political action committees (PACs) that collect money and give it to candidates. State filings list the parties&rsquo; own legislative leaders as the officers of those PACs. State law allows this.</p>
+<p>Tap a card to flip it.</p>
+<div class="flips">
+<div class="flip"><div class="in"><div class="f"><strong>$0</strong><span>DOLLAR LIMIT ON A GIFT</span></div><div class="b">Utah sets no cap on what a person, PAC, business, union or party can give a state candidate (Ballotpedia, citing NCSL).</div></div></div>
+<div class="flip"><div class="in"><div class="f"><strong>~11</strong><span>STATES WITH NO LIMIT</span></div><div class="b">As of Feb. 2023, NCSL counted about 11 states with no limit on gifts from individuals to state candidates. Utah is one. Oregon&rsquo;s first limits start in 2027.</div></div></div>
+<div class="flip"><div class="in"><div class="f"><strong>3</strong><span>LIMIT BILLS THAT DIED</span></div><div class="b">2014 H.B. 297 (failed 35-38), 2014 H.B. 237 (never voted on), 2015 H.B. 60 (failed 31-40).</div></div></div>
+<div class="flip"><div class="in"><div class="f"><strong>2</strong><span>OFFICERS WITH THE POWER</span></div><div class="b">Every PAC must name two officers with &ldquo;primary decision-making authority&rdquo; (Utah Code &sect; 20A-11-601). Nothing in that section bars legislators.</div></div></div>
+</div>
+</section>
+
+<section id="words"><h2>2. Words Used on This Page</h2>
+<details class="acc"><summary>PAC (political action committee)</summary><div class="acc-body"><p>A fund that collects money and gives it to candidates or spends it on campaigns. It must file reports with the Lt. Governor&rsquo;s Office.</p></div></details>
+<details class="acc"><summary>Caucus PAC</summary><div class="acc-body"><p>A PAC run for one party&rsquo;s members in the House or Senate. Examples: the Utah House Republican Election Committee (UHREC) and SenDemPAC.</p></div></details>
+<details class="acc"><summary>Leadership PAC</summary><div class="acc-body"><p>A PAC sponsored by one lawmaker, often a leader. Examples: the House Speaker Leadership PAC and Adams Leadership PAC.</p></div></details>
+<details class="acc"><summary>Primary officers</summary><div class="acc-body"><p>The two people a PAC must name as having &ldquo;primary decision-making authority.&rdquo; No one else may use that authority (&sect; 20A-11-601(5)).</p></div></details>
+<details class="acc"><summary>Supermajority</summary><div class="acc-body"><p>Two-thirds of the members of a chamber: 50 of 75 in the House, 20 of 29 in the Senate. It takes two-thirds of each house to override a governor&rsquo;s veto (Utah Constitution, Art. VII, Sec. 8), or to make a bill take effect the day it is signed.</p></div></details>
+<details class="acc"><summary>Personal use</summary><div class="acc-body"><p>Spending campaign money on the candidate&rsquo;s own costs. Banned in Utah since 2010 (&sect; 20A-11-104).</p></div></details>
+</section>
+
+<section id="players"><h2>3. Who the Players Are</h2>
+<h3>Who writes the rules</h3>
+<p>The Legislature. Contribution limits, report dates and penalties are set in Utah Code Title 20A, Chapter 11. A change needs a majority of each house and the governor&rsquo;s signature, or two-thirds of each house to override a veto.</p>
+<h3>Who the filings list as running the caucus and leadership PACs</h3>
+<table class="quick-table">
+<thead><tr><th>PAC</th><th>Listed officers</th><th>Treasurer</th><th>Hive case file</th></tr></thead>
+<tbody>
+<tr><td>Utah House Republican Election Committee (UHREC)</td><td>Speaker Mike Schultz; Majority Leader Casey Snider; Majority Whip Candice Pierucci (officer)</td><td>Kyle Palmer</td><td><a href="uhrec-pac.html">PC 100.07</a></td></tr>
+<tr><td>Utah Republican Senate Campaign Committee (URSCC)</td><td>Senate President J. Stuart Adams; Sen. Kirk Cullimore</td><td>Kyle Palmer</td><td><a href="utah-republican-senate-campaign-committee.html">PC 100.17</a></td></tr>
+<tr><td>House Speaker Leadership PAC</td><td>Mike Schultz; chief of staff Abby Osborne</td><td>Kyle Palmer</td><td><a href="house-speaker-leadership-pac.html">PC 100.06</a></td></tr>
+<tr><td>Adams Leadership PAC</td><td>J. Stuart Adams; Kyle Palmer (second officer)</td><td>Kyle Palmer</td><td><a href="adams-leadership-pac.html">PC 100.16</a></td></tr>
+<tr><td>Northern Utah Legislative PAC (NUPAC)</td><td>Sen. Ann Millner; Rep. Casey Snider</td><td>Kyle M. Palmer</td><td><a href="nupac.html">NUPAC</a></td></tr>
+<tr><td>SenDemPAC (Senate Democrats)</td><td>Minority Leader Luz Escamilla; Sen. Kathleen Riebe; Sen. Jennifer Plumb (officer)</td><td>Luz Escamilla</td><td>&mdash;</td></tr>
+</tbody></table>
+<p class="note-limits">From each PAC&rsquo;s Statement of Organization on disclosures.utah.gov, as collected for the Hive case files above. Filings can be amended; check the current form before relying on any one name.</p>
+<div class="callout-box callout-note"><p><b>Both parties use the same setup.</b> The Senate Democrats&rsquo; PAC is led by its own leaders, just as the Republican caucus PACs are. The Republican committees raise and spend much more.</p>
+<p><b>The treasurer.</b> The filings list Kyle Palmer, occupation &ldquo;Consultant,&rdquo; as treasurer of six PACs: the five in this table plus the Utah County Legislative PAC. The same PACs report paying Irish Elk LLC, which state business records list him as manager of. See <a href="adams-leadership-pac.html">PC 100.16</a> and <a href="utah-republican-senate-campaign-committee.html">PC 100.17</a> for the amounts.</p></div>
+<h3>Who enforces the rules</h3>
+<ul class="tidy">
+<li><b>Lt. Governor&rsquo;s Office, Elections</b> (Lt. Gov. Deidre Henderson): receives state campaign reports, reviews complaints, issues guidance and can order penalties. It can refer a case to the Attorney General.</li>
+<li><b>Attorney General&rsquo;s Office:</b> handles criminal referrals.</li>
+<li><b>County clerks and county attorneys:</b> handle disclosures by county officials. The <b>State Auditor</b> can also receive complaints about local disclosure.</li>
+</ul>
+<h3>People named on this page, and why</h3>
+<div class="people">
+<div class="person"><h4>Mike Schultz</h4><span class="why">House Speaker; listed officer of UHREC and the House Speaker Leadership PAC.</span><br><a href="house-speaker-leadership-pac.html">PC 100.06</a> · <a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a></div>
+<div class="person"><h4>Casey Snider</h4><span class="why">House Majority Leader; listed officer of UHREC and NUPAC.</span><br><a href="uhrec-pac.html">PC 100.07</a> · <a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a></div>
+<div class="person"><h4>Candice Pierucci</h4><span class="why">House Majority Whip; UHREC officer; requested a 2027 bill on foreign money in ballot measures.</span><br><a href="#y2027">2027 to watch</a></div>
+<div class="person"><h4>J. Stuart Adams</h4><span class="why">Senate President through 2026; listed officer of URSCC and Adams Leadership PAC; subject of a 2024 complaint.</span><br><a href="adams-leadership-pac.html">PC 100.16</a> · <a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a></div>
+<div class="person"><h4>Kirk Cullimore</h4><span class="why">Senate Majority Leader; listed URSCC officer.</span><br><a href="utah-republican-senate-campaign-committee.html">PC 100.17</a></div>
+<div class="person"><h4>Luz Escamilla</h4><span class="why">Senate Minority Leader; SenDemPAC officer and treasurer.</span><br><a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a></div>
+<div class="person"><h4>Kyle Palmer</h4><span class="why">Listed treasurer of five PACs above and the Utah County Legislative PAC.</span><br><a href="adams-leadership-pac.html">PC 100.16</a></div>
+<div class="person"><h4>Brian King</h4><span class="why">Primary sponsor of the 2014 and 2015 contribution-limit bills.</span></div>
+<div class="person"><h4>Daniel McCay</h4><span class="why">Primary sponsor of 2025 S.B. 18.</span></div>
+<div class="person"><h4>Gage Froerer</h4><span class="why">Weber County commissioner; his 2022 disclosure was the subject of a complaint.</span><br><a href="https://webercountyhive-coder.github.io/countyofficials/">County Officials</a></div>
+</div>
+</section>
+
+<section id="seats"><h2>4. Who Holds the Seats</h2>
+<p>Seat counts matter because two-thirds of each house can override a governor&rsquo;s veto. The dashed line marks two-thirds.</p>
+<p class="seatlab">House, before the Nov. 3, 2026 election (75 seats)</p>
+<div class="seatbar"><span class="s-r" style="width:80%">60 R</span><span class="s-d" style="width:18.67%">14 D</span><span class="s-v" style="width:1.33%"></span></div>
+<div class="mark2"><i style="left:66.67%"></i><em style="left:66.67%">50 = two-thirds</em></div>
+<p class="seatlab">House, after the election (unofficial, as reported Nov. 10)</p>
+<div class="seatbar"><span class="s-r" style="width:58.67%">about 44 R</span><span class="s-d" style="width:38.67%">about 29 D</span><span class="s-o" style="width:2.66%">2</span></div>
+<div class="mark2"><i style="left:66.67%"></i><em style="left:66.67%">50</em></div>
+<p class="seatlab">Senate, before the election (29 seats)</p>
+<div class="seatbar"><span class="s-r" style="width:75.86%">22 R</span><span class="s-d" style="width:20.69%">6 D</span><span class="s-o" style="width:3.45%">1</span></div>
+<div class="mark2"><i style="left:68.97%"></i><em style="left:68.97%">20</em></div>
+<p class="seatlab">Senate, after the election (unofficial)</p>
+<div class="seatbar"><span class="s-r" style="width:68.97%">about 20 R</span><span class="s-d" style="width:27.59%">about 8 D</span><span class="s-o" style="width:3.44%">1</span></div>
+<div class="mark2"><i style="left:68.97%"></i><em style="left:68.97%">20</em></div>
+<div class="callout-box callout-finding"><p><b>What the reports say.</b> News reports after Nov. 3 say House Republicans lost about 15 to 17 seats and fell below the 50 needed to override a veto on their own, for the first time in decades. Two unaffiliated members, Patrick Belmont (HD-3) and Sergio Sotelo (HD-38), join the House. The Senate keeps a Republican two-thirds. These numbers are not final until the state canvass on Nov. 23, 2026; this page will be updated with the certified counts.</p></div>
+<p>Before the election, Republicans held 60 of 75 House seats (one empty) and 22 of 29 Senate seats, plus the governor&rsquo;s office. In the Senate, one Forward Party member, Emily Buss, served from Dec. 2025. Utah&rsquo;s Legislature district maps are on <a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a>.</p>
+<h3>Who leads in 2027</h3>
+<ul class="tidy">
+<li><b>House Republicans:</b> Speaker Mike Schultz, Majority Leader Casey Snider and Majority Whip Candice Pierucci return; Calvin Roberts is assistant whip.</li>
+<li><b>Senate Republicans:</b> Evan Vickers becomes Senate President, replacing Stuart Adams, who lost his June primary. Chris Wilson becomes Majority Leader; Michael McKell is whip and Keven Stratton assistant whip.</li>
+<li><b>Senate Democrats:</b> Luz Escamilla, Karen Kwan and Jen Plumb return. Sen.-elect Silvia Catten is caucus manager. KUER reported that Sen. Kathleen Riebe, a listed SenDemPAC officer, was expelled from the caucus; she said she would not resign her seat.</li>
+</ul>
+<p class="note-limits">Leaders are sworn in when the session starts Jan. 19, 2027. A change of leaders may lead to amended PAC officer filings; this page will note them when they appear.</p>
+</section>
+
+<section id="changed"><h2>5. What Changed, and When</h2>
+<div class="mermaid">
+flowchart TD
+  A["2010<br/>H.B. 124: campaign money can't<br/>pay personal costs"] --> B["2014<br/>Two limit bills die:<br/>H.B. 297 fails 35-38;<br/>H.B. 237 never voted on"]
+  B --> C["2015<br/>H.B. 60 limits bill<br/>fails 31-40"]
+  C --> D["2019 and 2023<br/>Adams Leadership PAC and<br/>House Speaker Leadership PAC<br/>registered"]
+  D --> H1["2024<br/>H.B. 160: campaign money may buy<br/>clothing with a caucus or party logo"]
+  H1 --> E["Nov. 2024 to Jan. 2025<br/>Two complaints: no fines;<br/>new rule to list the final<br/>payee going forward"]
+  E --> F["2025<br/>S.B. 18: non-lobbyists may give<br/>to federal campaigns in session;<br/>new crime for gifts meant<br/>to sway an official.<br/>S.B. 164: election deadlines"]
+  F --> G["2026<br/>S.B. 276: leftover campaign money<br/>may go to veterans groups"]
+  G --> H["Nov. 2026<br/>House GOP loses its two-thirds<br/>(unofficial)"]
+</div>
+<table class="quick-table">
+<thead><tr><th>Year</th><th>Bill</th><th>What it did</th><th>Primary sponsor / floor sponsor</th><th>Votes / result</th></tr></thead>
+<tbody>
+<tr><td>2010</td><td><a href="https://le.utah.gov/~2010/bills/static/HB0124.html" target="_blank" rel="noopener">H.B. 124</a></td><td>Bans spending campaign money on personal costs. The Lt. Governor can order a penalty of 50% of the amount, plus repayment (still in the current code, &sect; 20A-11-104(3)).</td><td>Rep. Tim Cosgrove / Sen. Karen Mayne</td><td>House 70-0-5, Senate 27-0-2. Signed</td></tr>
+<tr><td>2014</td><td><a href="https://le.utah.gov/~2014/bills/static/HB0297.html" target="_blank" rel="noopener">H.B. 297</a></td><td>Would have capped gifts at $10,000 to statewide candidates and $5,000 to legislative, judicial and school board candidates (as reported).</td><td>Rep. Brian King</td><td>Passed committee 10-5-1; failed in the House 35-38-2 (Mar. 10, 2014)</td></tr>
+<tr><td>2014</td><td><a href="https://le.utah.gov/~2014/bills/static/HB0237.html" target="_blank" rel="noopener">H.B. 237</a></td><td>Would have set contribution limits.</td><td>Rep. Kraig Powell</td><td>Enacting clause struck Mar. 13, 2014; no floor vote</td></tr>
+<tr><td>2015</td><td><a href="https://le.utah.gov/~2015/bills/static/HB0060.html" target="_blank" rel="noopener">H.B. 60</a></td><td>Would have set limits ($5,000 legislative / $10,000 statewide as introduced; raised in committee).</td><td>Rep. Brian King</td><td>Failed in the House 31-40-4 (Mar. 3, 2015)</td></tr>
+<tr><td>2024</td><td><a href="https://le.utah.gov/~2024/bills/static/HB0160.html" target="_blank" rel="noopener">H.B. 160</a></td><td>Lets officeholders use campaign money for clothing with the name or logo of the district, government body, caucus or party they belong to, and matches the city and county rules to the state rule.</td><td>Rep. Jordan Teuscher / Sen. Evan Vickers</td><td>House 71-1-3, Senate 26-0-3; House agreed to Senate changes 68-1-6</td></tr>
+<tr><td>2025</td><td><a href="https://le.utah.gov/~2025/bills/static/SB0164.html" target="_blank" rel="noopener">S.B. 164</a></td><td>A large election-law bill. It changes deadlines and how time is counted across the Election Code, including the campaign finance chapter, and adds rules for checking candidate petition signatures.</td><td>Sen. Wayne Harper / Rep. Paul Cutler</td><td>Senate 20-2-7, House 74-0-1; Senate agreed to House changes 26-0-3</td></tr>
+<tr><td>2025</td><td><a href="https://le.utah.gov/~2025/bills/static/SB0018.html" target="_blank" rel="noopener">S.B. 18</a></td><td>Keeps the existing ban on state campaign gifts to state officials during sessions. Lets people who are not lobbyists give to a state official&rsquo;s <i>federal</i> campaign during those periods; lobbyists still can&rsquo;t. Makes a federal gift meant to influence or reward an official act a class A misdemeanor.</td><td>Sen. Daniel McCay / Rep. Bridger Bolinder</td><td>Senate 24-0-5, House 70-0-5. Effective May 7, 2025</td></tr>
+<tr><td>2026</td><td><a href="https://le.utah.gov/~2026/bills/static/SB0276.html" target="_blank" rel="noopener">S.B. 276</a></td><td>Lets tax-exempt veterans groups receive leftover campaign money, like other nonprofits; technical changes to the PAC law (&sect; 20A-11-601).</td><td>Sen. Ann Millner / Rep. Val L. Peterson</td><td>Senate 20-0-9, House 71-0-4. Signed Mar. 23, 2026</td></tr>
+</tbody></table>
+<div class="callout-box callout-note"><p><b>What has not changed.</b> Utah still has no dollar limit on gifts to state candidates. Utah relies on disclosure: candidates and PACs file itemized reports on set dates (&sect;&sect; 20A-11-204 and -602).</p></div>
+</section>
+
+<section id="money"><h2>6. The Money: What the Filings Show</h2>
+<p>Examples from the PACs&rsquo; own reports. Each figure is a snapshot as of that report&rsquo;s date. Full detail is on each PAC&rsquo;s case file.</p>
+<table class="quick-table">
+<thead><tr><th>PAC</th><th>Report</th><th>What it shows</th></tr></thead>
+<tbody>
+<tr><td>UHREC</td><td>Sept. 30, 2026 report (6/12&ndash;9/25)</td><td>$126,200 raised, $359,677.45 spent. Candidate checks included $20,000 to Jim Alvey (HD-10), $20,000 plus $10,000 to Matt MacPherson, and $15,000 to Clint Okerlund. DCI Group polling: $67,189. <a href="uhrec-pac.html">PC 100.07</a></td></tr>
+<tr><td>House Speaker Leadership PAC</td><td>Same period</td><td>$273,500 raised, $288,233.51 spent; $192,000 in 19 candidate checks, including $45,000 to MacPherson and $25,000 to Alvey. <a href="house-speaker-leadership-pac.html">PC 100.06</a></td></tr>
+<tr><td>URSCC</td><td>Sept. 30, 2026 report</td><td>$25,000 to the Committee to Elect Stuart Adams (6/23/2026); DCI Group polling $68,000. <a href="utah-republican-senate-campaign-committee.html">PC 100.17</a></td></tr>
+<tr><td>Adams Leadership PAC</td><td>2026 reports</td><td>$100,000 to the Committee to Elect Stuart Adams ($45,000 on 1/12, $55,000 on 7/22). <a href="adams-leadership-pac.html">PC 100.16</a></td></tr>
+<tr><td>SenDemPAC</td><td>2022&ndash;2026</td><td>$169,094.40 raised, $181,040.39 spent; $10,000 each to the campaigns of its three officers, and $5,000 to challenger Stacy Bernal.</td></tr>
+</tbody></table>
+<div class="callout-box callout-finding"><p><b>The two sides match.</b> PAC reports and candidate reports can be checked against each other. Jim Alvey&rsquo;s own report shows the UHREC and Speaker PAC checks; party and leadership PACs gave $89,000, about 87% of his $102,040 raised. The two reports date one UHREC check a day apart (8/12 and 8/13).</p></div>
+<p><b>What the filings don&rsquo;t show:</b> how each PAC decides who gets money. The forms list who holds the authority, not each decision.</p>
+</section>
+
+<section id="enforce"><h2>7. Enforcement: Three Cases in the Record</h2>
+<details class="acc" open><summary>Senate President Adams&rsquo;s credit-card reporting (2024&ndash;2025)</summary><div class="acc-body">
+<p>A Dec. 2024 complaint from Alliance for a Better Utah said Adams listed credit-card companies and banks as payees instead of the final vendors. On Jan. 2, 2025 the Lt. Governor&rsquo;s Office closed the complaint with no action. Its letter said state law requires the final payee to be listed, that earlier guidance had suggested less detail was enough, and that the rule would apply going forward. Adams called the claim &ldquo;false and baseless&rdquo; and said he followed the law and the office&rsquo;s guidelines (FOX 13, Jan. 2, 2025).</p></div></details>
+<details class="acc"><summary>Preserving Utah Values PAC and the Speaker&rsquo;s $120,000 (2024&ndash;2025)</summary><div class="acc-body">
+<p>The PAC reported $0 raised and spent before the 2024 election while running ads. Its first and only donation, $120,000 from House Speaker Mike Schultz, was reported Nov. 30, 2024. Rep. Rosemary Lesser and Alliance for a Better Utah filed complaints. The Lt. Governor&rsquo;s Office referred the matter to the Attorney General on Nov. 13 after the PAC didn&rsquo;t respond in 7 days. The office later said the complaints were &ldquo;considered resolved&rdquo;; no fines were reported, and the PAC filed to dissolve in June 2025. Its treasurer apologized for a missed email and said the PAC was in compliance. The gift itself was legal, since Utah has no contribution limit (Salt Lake Tribune, Dec. 2, 2024 and Nov. 25, 2025).</p></div></details>
+<details class="acc"><summary>Weber County Commissioner Froerer&rsquo;s disclosure (2022&ndash;2023)</summary><div class="acc-body">
+<p>Froerer held a 16% interest, through a family trust, in Nordic Valley Land Associates LLC. He recused from the Aug. and Dec. 2022 votes on the land-use change, rezone and development agreement, which passed. A resident complained to the County Attorney and State Auditor. He filed an updated disclosure in Nov. 2022, and a March 2023 note said he had no stake as of Feb. 2023. The county&rsquo;s civil deputy said the updated disclosures met state law, which requires disclosure, not recusal. No sanction was reported (Utah Public Radio, June 13, 2023).</p></div></details>
+<div class="callout-box callout-note"><p><b>The pattern in the record.</b> In all three, complaints were received and answered, and reporting was corrected or explained. In none was a fine reported.</p></div>
+</section>
+
+<section id="grades"><h2>8. Graded by the Rubric</h2>
+<p>The Hive grades each item on one question: is it good for the public as a whole, on <b>transparency</b>, <b>financial accountability</b> and <b>environmental impact</b>? Environmental impact doesn&rsquo;t apply to this section. Grades are a fixed published standard, not the writer&rsquo;s personal opinion. Grades marked &ldquo;1st look&rdquo; are based on the bill&rsquo;s official summary and record and may change when the full text is read.</p>
+<table class="grade-table">
+<thead><tr><th>Item</th><th>Grade</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>2010 H.B. 124 (personal-use ban)</td><td class="g-help">Helps<span class="tag1">1st look</span></td><td>Puts a rule and a penalty on how donors&rsquo; money is spent.</td></tr>
+<tr><td>2014 H.B. 297, 2014 H.B. 237, 2015 H.B. 60 (limits, all died)</td><td class="g-help">Would have helped<span class="tag1">1st look</span></td><td>Caps would have limited how much one giver can put into one race.</td></tr>
+<tr><td>2024 H.B. 160 (clothing with a caucus or party logo)</td><td class="g-neu">Neutral<span class="tag1">text read</span></td><td>A small new allowed use of campaign money. Still reported, so the public can see it.</td></tr>
+<tr><td>2025 S.B. 164 (election deadlines)</td><td class="g-neu">Neutral<span class="tag1">1st look</span></td><td>Mostly timing and signature-check rules. Needs a further look to see whether any campaign report deadline moved.</td></tr>
+<tr><td>2025 S.B. 18</td><td class="g-mix">Mixed<span class="tag1">text read</span></td><td>Adds a crime for gifts meant to sway an official, but opens a door for non-lobbyist federal gifts to state officials during the session. Sets no dollar limits.</td></tr>
+<tr><td>2026 S.B. 276</td><td class="g-neu">Neutral<span class="tag1">1st look</span></td><td>Lets leftover campaign money go to veterans groups; doesn&rsquo;t change who runs a PAC or how much it can give.</td></tr>
+<tr><td>Disclosure system as it works today</td><td class="g-help">Helps transparency</td><td>Every figure on this page came from public reports, and PAC and candidate reports match.</td></tr>
+<tr><td>How the three complaints ended</td><td class="g-neu">Neutral to weak on accountability</td><td>Complaints were answered and rules clarified, but no fines were reported.</td></tr>
+<tr><td>Leaders as PAC officers, with no gift limit</td><td class="g-neu">Neutral as law; open question</td><td>The officers are public, as the law requires. The filings don&rsquo;t show how they decide who gets money.</td></tr>
+</tbody></table>
+<details class="acc"><summary>The other side: arguments made against limits</summary><div class="acc-body">
+<p>In the 2015 debate, Rep. Brad Wilson said limits don&rsquo;t cap outside &ldquo;dark money&rdquo; spending, which a U.S. Supreme Court ruling put beyond reach. Reps. Fred Cox and Brad Daw said large checks let challengers compete against well-funded opponents and outside campaigns. Supporters, including Rep. King, said limits were what most Utahns wanted and cited a poll showing about 68&ndash;69% support (UtahPolicy, Jan. 27 and Mar. 3, 2015). Party and caucus committees in both parties say they exist to help their candidates win close races and build the party.</p></div></details>
+</section>
+
+<section id="y2027"><h2>9. 2027 Bill Requests to Watch</h2>
+<p>These are drafting requests on the Legislature&rsquo;s 2027 list. A request means a bill is being drafted; its text isn&rsquo;t public until it gets a number. The Hive checks the list every day.</p>
+<table class="quick-table">
+<thead><tr><th>Request (short title)</th><th>Sponsor</th><th>Status</th><th>Why we&rsquo;re watching</th></tr></thead>
+<tbody>
+<tr><td>Banning Foreign Funding in Ballot Propositions and Elections</td><td>Rep. Candice Pierucci</td><td>In drafting (not numbered), as of Nov. 18, 2026</td><td>Touches who can fund ballot measures and elections</td></tr>
+<tr><td>Joint Rules Resolution &ndash; Legislative Drafting</td><td>Rep. Thomas W. Peterson</td><td>In drafting (not numbered)</td><td>May touch how bills are drafted; to be checked when numbered</td></tr>
+</tbody></table>
+<p class="note-limits">As of Nov. 18, 2026, no 2027 request on the list sets dollar limits on campaign contributions. That is a reading of the titles on the public list, not a statement that none will be filed. Source: <a href="https://le.utah.gov/bills/billSearch.jsp?sess=2027GS" target="_blank" rel="noopener">le.utah.gov, 2027 General Session bill list</a>.</p>
+</section>
+
+<section id="ask"><h2>10. Questions to Ask, and Who to Ask</h2>
+<ul class="qa">
+<li>How does each caucus PAC decide which candidates get money: a caucus vote, the leaders, or the treasurer?<span class="who">Ask: the House and Senate majority and minority offices</span></li>
+<li>Who will be listed as officers of the Senate caucus PACs now that leaders have changed?<span class="who">Ask: the Lt. Governor&rsquo;s Office, Elections (amended Statements of Organization on disclosures.utah.gov)</span></li>
+<li>How many campaign-finance complaints has the office received since 2020, and how many ended in a fine?<span class="who">Ask: the Lt. Governor&rsquo;s Office, Elections</span></li>
+<li>What happened to the 2024 referral of the Preserving Utah Values PAC after it was &ldquo;considered resolved&rdquo;?<span class="who">Ask: the Utah Attorney General&rsquo;s Office</span></li>
+<li>What are the current fine amounts for late reports, and how often are they used?<span class="who">Ask: the Lt. Governor&rsquo;s Office; Utah Code &sect; 20A-11-206</span></li>
+<li>Is there a House Democratic caucus PAC, and who runs it?<span class="who">Ask: the House Minority Office; disclosures.utah.gov PAC list</span></li>
+<li>Will any 2027 bill propose dollar limits on gifts to state candidates?<span class="who">Ask: your own House member and senator</span></li>
+</ul>
+</section>
+
+<section id="limits"><h2>11. Limits of This Page</h2>
+<ul class="note-limits">
+<li>Post-election seat counts are unofficial until the state canvass on Nov. 23, 2026.</li>
+<li>PAC officer names and dollar figures come from Statements of Organization and reports on disclosures.utah.gov collected for the Hive&rsquo;s PAC case files. Each is a snapshot as of its report date.</li>
+<li>This page does not say any person broke a law. It reports what public records and published coverage show.</li>
+<li>Other changes to the personal-use rule (for example, allowed childcare and security costs) were not traced to the bills that added them.</li>
+<li>Late-filing fine amounts (&sect; 20A-11-206) and any dollar threshold for itemizing a gift were not read for this page.</li>
+<li>The count of states without limits comes from NCSL (as of Feb. 2023), a research group, not a statute.</li>
+<li>Corrections are welcome at <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a> and will be made and dated on this page.</li>
+</ul>
+</section>
+
+<section id="behind"><h2>12. Behind This Piece</h2>
+<div class="counter">
+<div><b>30</b><span>primary records read (bills, statutes, filings)</span></div>
+<div><b>21</b><span>news reports checked</span></div>
+<div><b>4</b><span>items checked but not used</span></div>
+<div><b>~50</b><span>searches run (estimate)</span></div>
+</div>
+<p class="note-limits">Checked but not used: a 2025 report&rsquo;s $42,000 total for card-company payees, dollar totals from a 2024 report on the Adams complaint, Oct. 2026 developer gifts that weren&rsquo;t pulled from the filings, and a 1964 party-control fact we couldn&rsquo;t re-check.</p>
+</section>
+
+<section id="sources"><h2>13. Sources</h2>
+<details class="sources"><summary>Bills and laws (tap to open)</summary><ul>
+<li>2010 H.B. 124, enrolled, <a href="https://le.utah.gov/~2010/bills/hbillenr/HB0124.pdf" target="_blank" rel="noopener">le.utah.gov</a> (PDF text). Votes from the bill status page.</li>
+<li>2014 H.B. 297 status page, <a href="https://le.utah.gov/~2014/bills/static/HB0297.html" target="_blank" rel="noopener">le.utah.gov</a>; 2014 H.B. 237 status page, <a href="https://le.utah.gov/~2014/bills/static/HB0237.html" target="_blank" rel="noopener">le.utah.gov</a>; 2015 H.B. 60 status page, <a href="https://le.utah.gov/~2015/bills/static/HB0060.html" target="_blank" rel="noopener">le.utah.gov</a>.</li>
+<li>2025 S.B. 18, enrolled, full text read Nov. 18, 2026, <a href="https://le.utah.gov/Session/2025/bills/enrolled/SB0018.pdf" target="_blank" rel="noopener">le.utah.gov</a> (amends &sect; 36-11-305; lines 29&ndash;105).</li>
+<li>2024 H.B. 160, enrolled, <a href="https://le.utah.gov/~2024/bills/hbillenr/HB0160.pdf" target="_blank" rel="noopener">le.utah.gov</a> (PDF text); 2025 S.B. 164 bill record and votes, <a href="https://le.utah.gov/~2025/bills/static/SB0164.html" target="_blank" rel="noopener">le.utah.gov</a>.</li>
+<li>2026 S.B. 276, bill record and votes, <a href="https://le.utah.gov/~2026/bills/static/SB0276.html" target="_blank" rel="noopener">le.utah.gov</a>; Chapter 283 per the 2026 passed-bills list.</li>
+<li>Utah Code &sect; 20A-11-601 and -602 (PAC officers and report dates), <a href="https://le.utah.gov/xcode/Title20A/Chapter11/20A-11-S601.html" target="_blank" rel="noopener">le.utah.gov</a>.</li>
+<li>Utah Constitution, Art. VII, Sec. 8 (veto override), <a href="https://le.utah.gov/xcode/ArticleVII/UC_AVII_1800010118000101.pdf" target="_blank" rel="noopener">le.utah.gov</a>.</li>
+<li>2027 General Session bill requests, <a href="https://le.utah.gov/bills/billSearch.jsp?sess=2027GS" target="_blank" rel="noopener">le.utah.gov</a>, read Nov. 18, 2026.</li>
+</ul></details>
+<details class="sources"><summary>Filings</summary><ul>
+<li>Statements of Organization and reports for UHREC, URSCC, House Speaker Leadership PAC, Adams Leadership PAC, NUPAC and SenDemPAC, <a href="https://disclosures.utah.gov/" target="_blank" rel="noopener">disclosures.utah.gov</a>, as cited on each Hive PAC case file.</li>
+<li>Jim Alvey (HD-10) 2026 campaign report export, disclosures.utah.gov.</li>
+</ul></details>
+<details class="sources"><summary>News and research</summary><ul>
+<li>Ballotpedia, &ldquo;Campaign finance requirements in Utah&rdquo; and the Utah House and Senate pages (Oct. 2026).</li>
+<li>NCSL, &ldquo;Campaign Contribution Limits: Overview&rdquo; (as of Feb. 1, 2023).</li>
+<li>City Weekly, Mar. 6, 2014 (H.B. 297 limits); UtahPolicy, Jan. 27 and Mar. 3, 2015 (H.B. 60 debate); KSL, Jan. 27, 2015.</li>
+<li>FOX 13, &ldquo;Lt. Governor closes complaint against Utah Senate President, taking no action,&rdquo; Jan. 2, 2025.</li>
+<li>Salt Lake Tribune, Dec. 2, 2024 and Nov. 25, 2025 (Preserving Utah Values PAC).</li>
+<li>Utah Public Radio, &ldquo;A Weber County commissioner&rsquo;s former land ownership draws scrutiny,&rdquo; June 13, 2023.</li>
+<li>Utah News Dispatch, Nov. 4 and Nov. 9, 2026; Deseret News, Nov. 6 and Nov. 10, 2026; KUER, Nov. 5 and Nov. 6, 2026 (election results and 2027 leaders).</li>
+<li>Salt Lake Tribune, Jan. 27, 2019 (lawmakers&rsquo; gifts to other politicians).</li>
+</ul></details>
+</section>
+</main>
+<div class="hbx-shelfwrap"><div class="in"><div class="hbx-shelf" id="hbx-shelf"></div></div></div>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent &middot; Accountability &middot; Journalism</span><p class="hb-line">The Weber County Hive and Utah Hive Politics: the people's publication. We investigate what's best for the public as a whole, not for any party or special interest group. We report public records. You decide.</p><p class="hb-tips"><a class="hb-btn" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">Send a tip</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html">Tips we checked</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">See a mistake? Tell us</a></p><p class="hb-small">Utah Hive Politics · PAC: a case-by-case accounting of Utah political action committees — who runs them, who funds them, and where the money actually goes. Built exclusively from primary documents.</p><p class="hb-small">Across the Hive: <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Hive index</a> · <a href="https://weber-county-hive.github.io/sunday_buzz/">The Sunday Buzz</a> · <a href="https://weber-county-hive.github.io/community-calendar/">Community Calendar</a> · <a href="https://weber-county-hive.github.io/Utah-hive-news-spotlights/">News Spotlights</a> · <a href="https://weber-county-hive.github.io/Letters-Essays-to-the-Collective/">Letters &amp; Essays to the Collective</a> · <a href="https://weber-county-hive.github.io/candidates2026/">Candidates 2026</a> · <a href="https://weber-county-hive.github.io/Voter-Quick-Scan-2026/">Voter Quick Scan</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-ledger/">PAC Money-Flow Ledger</a> · <a href="https://weber-county-hive.github.io/Transparency/">Transparency</a> · <a href="https://weber-county-hive.github.io/Unelected-Power/">Unelected Power</a> · <a href="https://weber-county-hive.github.io/utah-senators/">Utah Senators</a> · <a href="https://weber-county-hive.github.io/Utah-House/">Utah House</a> · <a href="https://weber-county-hive.github.io/Bill-Tracker/">Bill Tracker</a> · <a href="https://weber-county-hive.github.io/committees/">Committees</a> · <a href="https://webercountyhive-coder.github.io/referendum/">Referendums</a> · <a href="https://weber-county-hive.github.io/utah-maps/">Utah Maps</a> · <a href="https://weber-county-hive.github.io/audits/">Audits</a> · <a href="https://weber-county-hive.github.io/Education/">Education</a> · <a href="https://weber-county-hive.github.io/public-lands/">Public Lands</a></p><p class="hb-small">Tips and corrections: <a href="mailto:webercountyhive@gmail.com">webercountyhive@gmail.com</a></p><p class="hb-small">We never name tipsters. When we correct a page, the fix and its date are shown on the page.</p><p class="hb-small"><a href="index.html">PAC docket</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Master Index (Hive library)</a> · <a href="https://webercountyhive.substack.com/">Read on Substack</a></p></div>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+if(window.mermaid){mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{fontSize:'20px',fontFamily:'Source Sans 3, sans-serif',primaryColor:'#f4f0e6',primaryBorderColor:'#123449',lineColor:'#4a5560',primaryTextColor:'#1f1b16'},flowchart:{useMaxWidth:true,htmlLabels:true}});}
+document.querySelectorAll('.flip').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('on')));
+document.querySelectorAll('.quick-table.sortable').forEach(tb=>{tb.querySelectorAll('th').forEach((th,i)=>th.addEventListener('click',()=>{const rows=[...tb.querySelectorAll('tbody tr:not(.tot)')];const asc=!th.classList.contains('sort-asc');tb.querySelectorAll('th').forEach(x=>x.classList.remove('sort-asc','sort-desc'));th.classList.add(asc?'sort-asc':'sort-desc');const v=r=>{const t=r.children[i].textContent.replace(/[$,]/g,'');return isNaN(parseFloat(t))?t.toLowerCase():parseFloat(t)};rows.sort((a,b)=>(v(a)>v(b)?1:v(a)<v(b)?-1:0)*(asc?1:-1));const body=tb.querySelector('tbody');const tot=body.querySelector('tr.tot');rows.forEach(r=>body.insertBefore(r,tot));}));});
+</script>
+<script src="pc-shelf.js?v=2"></script>
+<script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

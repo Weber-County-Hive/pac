@@ -183,5 +183,15 @@ const CASES = [
     status: "documented",
     updated: "Oct 4, 2026",
     link: "utah-republican-senate-campaign-committee.html"
+  },
+  {
+    caseNumber: "PAC-18",
+    title: "Who Decides, Part 1: Campaign Money and the Caucus PACs",
+    category: "Campaign Finance & Ethics",
+    summary: "Utah sets no dollar limit on gifts to state candidates, and the Legislature's own leaders are the listed officers of the caucus PACs that fund legislative races. Who the players are, what changed from 2010 to 2026, and how each change grades for the public.",
+    officials: ["Mike Schultz", "Casey Snider", "Stuart Adams", "Kirk Cullimore", "Luz Escamilla", "Kyle Palmer"],
+    status: "documented",
+    updated: "Nov 18, 2026",
+    link: "who-decides-part-1-campaign-money.html"
   }
 ];
